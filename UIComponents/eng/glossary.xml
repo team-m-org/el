@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding= "UTF-8" ?> 
+<glossary>
+	<alphabets>
+		<letter id="1">A</letter>
+		<letter id="2">B</letter>
+		<letter id="3">C</letter>
+		<letter id="4">D</letter>
+		<letter id="5">E</letter>
+		<letter id="6">F</letter>
+		<letter id="7">G</letter>
+		<letter id="8">H</letter>
+		<letter id="9">I</letter>
+		<letter id="10">J</letter>
+		<letter id="11">K</letter>
+		<letter id="12">L</letter>
+		<letter id="13">M</letter>
+		<letter id="14">N</letter>
+		<letter id="15">O</letter>
+		<letter id="16">P</letter>
+		<letter id="17">Q</letter>
+		<letter id="18">R</letter>
+		<letter id="19">S</letter>
+		<letter id="20">T</letter>
+		<letter id="21">U</letter>
+		<letter id="22">V</letter>
+		<letter id="23">W</letter>
+		<letter id="24">X</letter>
+		<letter id="25">Y</letter>
+		<letter id="26">Z</letter>
+</alphabets>
+<wordlist>
+<empty>No words</empty>
+
+<keyword id="3">
+	<word>CRRI</word>
+	<desc>Central Rice Research Institute</desc>
+</keyword>
+
+<keyword id="3">
+	<word>CAPC</word>
+	<desc>Commission for Agriculture Costs and Prices</desc>
+</keyword>
+
+<keyword id="3">
+	<word>CRURRS</word>
+	<desc>Central Rainfed Upland Rice Research Station</desc>
+</keyword>
+
+<keyword id="9">
+	<word>IRRI</word>
+	<desc>International Rice Research Institute</desc>
+</keyword>
+
+<keyword id="11">
+	<word>KVK</word>
+	<desc>Krishi Vigyan Kendras</desc>
+</keyword>
+
+
+<keyword id="12">
+	<word>LCC</word>
+	<desc>Leaf Colour Chart</desc>
+</keyword>
+
+<keyword id="13">
+	<word>MSPs</word>
+	<desc>Minimum Support Prices</desc>
+</keyword>
+
+<keyword id="16">
+	<word>Puddling</word>
+	<desc>To wet/cover a surface with water</desc>
+</keyword>
+
+<keyword id="18">
+	<word>RRLRRS</word>
+	<desc>Regional Rainfed Lowland Rice Research Station</desc>
+</keyword>
+
+<keyword id="19">
+	<word>SRI</word>
+	<desc>System of Rice Intensification</desc>
+</keyword>
+
+<keyword id="20">
+	<word>TMCH</word>
+	<desc>Tractor Mounted Combine Harvester</desc>
+</keyword>
+
+<keyword id="20">
+	<word>TNAU</word>
+	<desc>Tamil Nadu Agricultural University</desc>
+</keyword>
+
+<keyword id="20">
+	<word>Tillage</word>
+	<desc>The preparation of land for growing crops</desc>
+</keyword>
+
+</wordlist>
+</glossary>

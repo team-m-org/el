@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding= "UTF-8" ?> 
+<exit>
+
+<exitCourse>
+	<title><![CDATA[<p align="center">Do you really want to Exit now?</p>]]></title>
+	<body><![CDATA[<p align="center">Do you really want to Exit now?</p>]]></body>
+	<button1><![CDATA[<p align="center">YES</p>]]></button1>
+	<button2><![CDATA[<p align="center">NO</p>]]></button2>
+</exitCourse>
+
+<returnUser>
+	<title><![CDATA[<p align="center">You are revisiting the course</p>]]></title>
+	<body><![CDATA[<p align="center">You have visited the course before. If you wish to continue from where you left,kindly click <B>OK</B>, else pressing <B>Cancel</B> will start the course from the start.</p>]]></body>
+	<button1><![CDATA[<p align="center">OK</p>]]></button1>
+	<button2><![CDATA[<p align="center">Cancel</p>]]></button2>
+</returnUser>
+<save>
+	<body><![CDATA[<p align="center">Saving Information!   The window will close automatically.]]></body>
+</save>
+</exit>
