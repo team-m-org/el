@@ -54,7 +54,7 @@
 
 				<div class="large-5 columns push-4 adjust-center">
 					<ul class="inline-list ">
-						<li id="menu"><a href="#"><img title="Menu" alt="Menu"
+						<li id="menu"><a href="#" data-reveal-id="myModal"><img title="Menu" alt="Menu"
 								src="Scripts/engine/image/menu.png"> </a></li>
 						<li id="glossary"><a href="#"><img title="Glossary"
 								alt="Glossary" src="Scripts/engine/image/glossary.png"></a></li>
@@ -81,7 +81,13 @@
 	</div>
 
 	<div class="menu-panel">This is menu</div>
-
+	
+	<div id="myModal" class="reveal-modal" data-reveal>
+  <h2>Awesome. I have it.</h2>
+  <p class="lead">Your couch.  It is mine.</p>
+  <p>Im a cool paragraph that lives inside of an even cooler modal. Wins</p>
+  <a class="close-reveal-modal">&#215;</a>
+</div>
 
 
 	<script
@@ -94,21 +100,25 @@
 	<script src="Scripts/libs/xml2json/xml2jsobj.js"></script>
 	<script src="Scripts/libs/handlebar/handlebars-v1.2.0.js"></script>
 	<script src="Scripts/engine/engine.js"></script>
+	<script src="Scripts/libs/foundation/foundation-5.0.2/js/foundation/foundation.js"></script>
+	<script src="Scripts/libs/foundation/foundation-5.0.2/js/foundation/foundation.reveal.js"></script>
 	<script type="text/javascript">
 		$(function() {
-
+			$(document).foundation();
+			
 			$("ul.inline-list img").hover(rollover, rollout);
 			$("ul.inline-list li[id='playpause']").on("click", function() {
 				return playpauseHandler.call(this);
 			});
 
-			$("ul.inline-list li[id='menu']").on("click", function() {
+			/* $("ul.inline-list li[id='menu']").on("click", function() {
 				return menuHandler.call(this);
-			});
-
+			}); 
+ 
 			function menuHandler() {
-				alert("Menu Clicked");
-			}
+				console.log("menu Click");
+				
+			}*/
 
 			function rollover(e) {
 				var srcName = $(this).attr("src").split(".")[0].split("/")[3];
