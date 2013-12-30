@@ -26,9 +26,9 @@ var X = {
 							X.removeWhite(xml);
 							for (var n = xml.firstChild; n; n = n.nextSibling) {
 								if (n.nodeType == 3) // text node
-									o["#text"] = X.escape(n.nodeValue);
+									o["_text"] = X.escape(n.nodeValue);
 								else if (n.nodeType == 4) // cdata node
-									o["#cdata"] = X.escape(n.nodeValue);
+									o["_cdata"] = X.escape(n.nodeValue);
 								else if (o[n.nodeName]) { // multiple occurence of element ..
 									if (o[n.nodeName] instanceof Array) o[n.nodeName][o[n.nodeName].length] = X.toObj(n);
 									else o[n.nodeName] = [o[n.nodeName], X.toObj(n)];
@@ -37,15 +37,15 @@ var X = {
 							}
 						} else { // mixed content
 							if (!xml.attributes.length) o = X.escape(X.innerXml(xml));
-							else o["#text"] = X.escape(X.innerXml(xml));
+							else o["_text"] = X.escape(X.innerXml(xml));
 						}
 					} else if (textChild) { // pure text
 						if (!xml.attributes.length) o = X.escape(X.innerXml(xml));
-						else o["#text"] = X.escape(X.innerXml(xml));
+						else o["_text"] = X.escape(X.innerXml(xml));
 					} else if (cdataChild) { // cdata
 						if (cdataChild > 1) o = X.escape(X.innerXml(xml));
 						else for (var n = xml.firstChild; n; n = n.nextSibling)
-							o["#cdata"] = X.escape(n.nodeValue);
+							o["_cdata"] = X.escape(n.nodeValue);
 					}
 				}
 				if (!xml.attributes.length && !xml.firstChild) o = null;

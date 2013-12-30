@@ -154,3 +154,16 @@
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b4e391',
 		endColorstr='#b4e391', GradientType=0); /* IE6-8 */
 }
+.content-title{
+	background-color:#c81b5d;	
+	height: 45px;
+	line-height: 46px;
+	color: white;
+	font-weight: bold;
+}
+.tpad15p{
+	padding-top:15%;
+}
+.bred{
+	background: red;	
+}

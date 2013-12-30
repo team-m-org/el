@@ -30,7 +30,7 @@ var Engine = (function(){
 	
 	
 	function renderTopic(template, topicData){
-		$(".container").html(template);
+		$(".template-conatiner").html( Handlebars.compile(template)(topicData));
 	}
 	
 	function getTemplateData(templateId){
@@ -56,7 +56,7 @@ var Engine = (function(){
 		return $.ajax({
 			url : EnvVariables.paths['Data'] + "/" +EnvVariables['lang']+  "/" + topicDataId,  
 			success : function(response){
-				topicDataCache[topicDataId] = response;
+				topicDataCache[topicDataId] = xml2jsonObj(response);
 			}
 		});
 	}
