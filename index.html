@@ -2,43 +2,140 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title></title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-        <link rel="stylesheet" href="Scripts/libs/foundation/foundation-5.0.2/css/normalize.css">
-        <link rel="stylesheet" href="Scripts/libs/foundation/foundation-5.0.2/css/foundation.min.css">
-        <style type="text/css">
-        	 .course-title{
-			 	text-transform: uppercase;
-			 	line-height: 73px;
-			 	background:#e90b6e;
-			 	color: white; 
-			 }
-        </style>
-    </head>
-    <body>
-        <!--[if lt IE 7]>
+<link rel="stylesheet"
+	href="Scripts/libs/foundation/foundation-5.0.2/css/normalize.css">
+<link rel="stylesheet"
+	href="Scripts/libs/foundation/foundation-5.0.2/css/foundation.css">
+<link rel="stylesheet" href="Scripts/engine/css/style.css">
+
+</head>
+<body>
+	<!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
 	<div class="row">
-		<div class="large-12 course-title">
-			<div>Course Title</div>
-			<div>Logo</div>
-			<div>Close</div>
+		<div class="large-12 columns course-header  gradient-blue">
+			<div class="course-title">Course title</div>
+
+			<div class="right course-logo">Logo</div>
+		</div>
+		<div></div>
+		<div class="large-12 columns">
+			<div class="row">
+				<ul class="breadcrumbs large-12 columns gradient-green">
+					<li><span>Code of Conduct</span></li>
+					<li><span>Objectives</span></li>
+				</ul>
+			</div>
 		</div>
 	</div>
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="Scripts/libs/jquery/jquery-1.10.2.min.js"><\/script>')</script>
-        <script src="Scripts/libs/xml2json/xml2jsobj.js"></script>
-        <script src="Scripts/engine/engine.js"></script>
-        
-    </body>
+
+	<div class="row template-conatiner gradient-light-blue">
+		<div class="large-12 columns"></div>
+	</div>
+
+
+	<div class="row footer">
+		<div class="large-12 columns">
+			<div class="row footer-menu gradient-green">
+
+				<div class="large-5 columns push-4 adjust-center">
+					<ul class="inline-list ">
+						<li id="menu"><a href="#"><img title="Menu" alt="Menu"
+								src="Scripts/engine/image/menu.png"> </a></li>
+						<li id="glossary"><a href="#"><img title="Glossary"
+								alt="Glossary" src="Scripts/engine/image/glossary.png"></a></li>
+						<li id="prev"><a href="#"><img title="Previous"
+								alt="Previous" src="Scripts/engine/image/prev.png"></a></li>
+						<li id="playpause"><a href="#"><img title="Play"
+								alt="PlayPause" src="Scripts/engine/image/play.png"></a></li>
+						<li id="next"><a href="#"><img title="Next" alt="Next"
+								src="Scripts/engine/image/next.png"></a></li>
+						<li id="help"><a href="#"><img title="Help" alt="Help"
+								src="Scripts/engine/image/help.png"></a></li>
+						<li id="exit"><a href="#"><img title="Exit" alt="Exit"
+								src="Scripts/engine/image/exit.png"></a></li>
+
+					</ul>
+				</div>
+				<div class="large-2 columns pagination-pad">
+					<span class="pagination">Page <span class="curr-page">2</span>
+						<span>/</span> <span class="total-page">3</span></span>
+				</div>
+			</div>
+			<div class="row dummy-row"></div>
+		</div>
+	</div>
+
+	<div class="menu-panel">This is menu</div>
+
+
+
+	<script
+		src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script>
+		window.jQuery
+				|| document
+						.write('<script src="Scripts/libs/jquery/jquery-1.10.2.min.js"><\/script>')
+	</script>
+	<script src="Scripts/libs/xml2json/xml2jsobj.js"></script>
+	<script src="Scripts/engine/engine.js"></script>
+	<script type="text/javascript">
+		$(function() {
+
+			$("ul.inline-list img").hover(rollover, rollout);
+			$("ul.inline-list li[id='playpause']").on("click", function() {
+				return playpauseHandler.call(this);
+			});
+
+			$("ul.inline-list li[id='menu']").on("click", function() {
+				return menuHandler.call(this);
+			});
+
+			function menuHandler() {
+				alert("Menu Clicked");
+			}
+
+			function rollover(e) {
+				var srcName = $(this).attr("src").split(".")[0].split("/")[3];
+				var imageSrc = "Scripts/engine/image/" + srcName + "_over.png";
+				$(this).attr("src", imageSrc);
+			}
+
+			function rollout(e) {
+				var srcName = $(this).attr("src").split(".")[0].split("/")[3]
+						.split("_")[0];
+				var imageSrc = "Scripts/engine/image/" + srcName + ".png";
+				$(this).attr("src", imageSrc);
+			}
+
+			function playpauseHandler() {
+				var imgObj = $(this).find('img');
+				var status = $(imgObj).attr("src").split(".")[0].split("/")[3]
+						.split("_")[0];
+				status === "play" ? $(imgObj).attr({
+					"src" : "Scripts/engine/image/pause.png",
+					"title" : "Pause"
+				}) : $(imgObj).attr({
+					"src" : "Scripts/engine/image/play.png",
+					"title" : "Play"
+				});
+			}
+
+		});
+	</script>
+</body>
 </html>
