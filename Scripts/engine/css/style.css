@@ -170,3 +170,9 @@
 .bred{
 	background: red;	
 }
+
+.accordion a{
+	padding: 5px!important;
+	padding-left: 15px!important;
+}
+

@@ -1,11 +1,11 @@
 //TODO : Derive this from config.xml
 var EnvVariables = {
 		paths : {
-			'Data' : 'Data',
-			'Templates' : 'Templates'
-		},
+					'Data' : 'Data',
+					'Templates' : 'Templates'
+				},
 		'lang' : 'eng'
-}
+};
 var Engine = (function(){
 	var courseStructure = null;
 	var USERSTATE = {
@@ -94,6 +94,30 @@ var Engine = (function(){
 			return playpauseHandler.call(this);
 		});
 		
+		$("ul.inline-list li[id='menu']").on("click", function() {
+			return menuHandler.call(this);
+		});
+		
+		$("ul.inline-list li[id='glossary']").on("click", function() {
+			return glossaryHandler.call(this);
+		});
+		
+		$("ul.inline-list li[id='prev']").on("click", function() {
+			return prevHandler.call(this);
+		});
+		
+		$("ul.inline-list li[id='next']").on("click", function() {
+			return nextHandler.call(this);
+		});
+		
+		$("ul.inline-list li[id='help']").on("click", function() {
+			return nextHandler.call(this);
+		});
+		
+		$("ul.inline-list li[id='exit']").on("click", function() {
+			return exitHandler.call(this);
+		});
+		
 	};
 	
 	rollOverHandler = function(){
@@ -119,6 +143,34 @@ var Engine = (function(){
 			"src" : "Scripts/engine/image/play.png",
 			"title" : "Play"
 		});
+	};
+	
+	menuHandler = function(){
+		console.log("Menu Click");
+	};
+	
+	glossaryHandler = function(){
+		console.log("Glossary Click");
+	};
+	
+	prevHandler = function(){
+		console.log("Previous Click");
+	};
+	
+	nextHandler = function(){
+		console.log("Next Click");
+	};
+	
+	helpHandler = function(){
+		console.log("Help Click");
+	};
+	
+	exitHandler = function(){
+		console.log("Exit Click");
+		var bool =  confirm("Are you sure you want to exit");
+		if(bool){
+			//TODO: unload window 
+		}
 	};
 	
 	return {

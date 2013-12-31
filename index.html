@@ -52,38 +52,81 @@
 
 				<div class="large-5 columns push-4 adjust-center">
 					<ul class="inline-list ">
-						<li id="menu"><a href="#" data-reveal-id="myModal"><img title="Menu" alt="Menu"
-								src="Scripts/engine/image/menu.png"> </a></li>
-						<li id="glossary"><a href="#"><img title="Glossary"
-								alt="Glossary" src="Scripts/engine/image/glossary.png"></a></li>
-						<li id="prev"><a href="#"><img title="Previous"
-								alt="Previous" src="Scripts/engine/image/prev.png"></a></li>
-						<li id="playpause"><a href="#"><img title="Play"
-								alt="PlayPause" src="Scripts/engine/image/play.png"></a></li>
-						<li id="next"><a href="#"><img title="Next" alt="Next"
-								src="Scripts/engine/image/next.png"></a></li>
-						<li id="help"><a href="#"><img title="Help" alt="Help"
-								src="Scripts/engine/image/help.png"></a></li>
-						<li id="exit"><a href="#"><img title="Exit" alt="Exit"
-								src="Scripts/engine/image/exit.png"></a></li>
+						<li id="menu"><a href="#" data-reveal-id="menu-panel"><img title="Menu" alt="Menu"src="Scripts/engine/image/menu.png"> </a></li>
+						<li id="glossary"><a href="#" data-reveal-id="glossary-panel"><img title="Glossary"alt="Glossary" src="Scripts/engine/image/glossary.png"></a></li>
+						<li id="prev"><a href="#"><img title="Previous" alt="Previous" src="Scripts/engine/image/prev.png"></a></li>
+						<li id="playpause"><a href="#"><img title="Play"alt="PlayPause" src="Scripts/engine/image/play.png"></a></li>
+						<li id="next"><a href="#"><img title="Next" alt="Next" src="Scripts/engine/image/next.png"></a></li>
+						<li id="help"><a href="#" data-reveal-id="help-panel"><img title="Help" alt="Help" src="Scripts/engine/image/help.png"></a></li>
+						<li id="exit"><a href="#"><img title="Exit" alt="Exit" src="Scripts/engine/image/exit.png"></a></li>
 
 					</ul>
 				</div>
 				<div class="large-2 columns pagination-pad">
-					<span class="pagination">Page <span class="curr-page">2</span>
-						<span>/</span> <span class="total-page">3</span></span>
+					<span class="pagination">Page <span class="curr-page">2</span><span>/</span> <span class="total-page">3</span></span>
 				</div>
 			</div>
 			<div class="row dummy-row"></div>
 		</div>
 	</div>
 
-	<div class="menu-panel">This is menu</div>
+<div id="help-panel" class="reveal-modal panel" data-reveal>
+	<h5>Help</h5>
+	<div class="row help-container">
+		<p>Here go the help content</p>
+	</div>
+	<a class="close-reveal-modal">&#215;</a>
+</div>
+
+<div id="glossary-panel" class="reveal-modal panel" data-reveal>
+	<h5>Glossary</h5>
+	<div class="row glossary-container">
+		<p>Here go the glossary content</p>
+	</div>
+	<a class="close-reveal-modal">&#215;</a>
+</div>		
 	
-	<div id="myModal" class="reveal-modal" data-reveal>
-  <h2>Awesome. I have it.</h2>
-  <p class="lead">Your couch.  It is mine.</p>
-  <p>Im a cool paragraph that lives inside of an even cooler modal. Wins</p>
+<div id="menu-panel" class="reveal-modal panel" data-reveal>
+	<h5>Menu </h5>
+    <div class="row">
+  		<div class="large-12 menu-container">
+			  <dl class="accordion" data-accordion>
+			  <dd>
+			    <a href="#panel1">Module 1</a>
+			    <div id="panel1" class="content active">
+					<ul>
+						<li>Topic 1</li>
+						<li>Topic 2</li>
+						<li>Topic 3</li>
+						<li>Topic 4</li>
+					</ul>
+			    </div>
+			  </dd>
+			  <dd>
+			    <a href="#panel2">Module 2</a>
+			    <div id="panel2" class="content">
+			      <ul>
+						<li>Topic 1</li>
+						<li>Topic 2</li>
+						<li>Topic 3</li>
+						<li>Topic 4</li>
+					</ul>
+			    </div>
+			  </dd>
+			  <dd>
+			    <a href="#panel3">Module 3</a>
+			    <div id="panel3" class="content">
+			      <ul>
+						<li>Topic 1</li>
+						<li>Topic 2</li>
+						<li>Topic 3</li>
+						<li>Topic 4</li>
+					</ul>
+			    </div>
+			  </dd>
+			</dl>
+  		</div>
+  	</div>
   <a class="close-reveal-modal">&#215;</a>
 </div>
 	
@@ -94,7 +137,12 @@
 <script src="Scripts/engine/engine.js"></script>
 <script src="Scripts/libs/foundation/foundation-5.0.2/js/foundation/foundation.js"></script>
 <script src="Scripts/libs/foundation/foundation-5.0.2/js/foundation/foundation.reveal.js"></script>
+<script src="Scripts/libs/foundation/foundation-5.0.2/js/foundation/foundation.accordion.js"></script>
 <script type="text/javascript">$(document).foundation();</script>
 
 </body>
 </html>
+
+
+
+
