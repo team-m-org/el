@@ -14,10 +14,8 @@
 
 <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-<link rel="stylesheet"
-	href="Scripts/libs/foundation/foundation-5.0.2/css/normalize.css">
-<link rel="stylesheet"
-	href="Scripts/libs/foundation/foundation-5.0.2/css/foundation.css">
+<link rel="stylesheet" href="Scripts/libs/foundation/foundation-5.0.2/css/normalize.css">
+<link rel="stylesheet" href="Scripts/libs/foundation/foundation-5.0.2/css/foundation.css">
 <link rel="stylesheet" href="Scripts/engine/css/style.css">
 
 </head>
@@ -88,65 +86,15 @@
   <p>Im a cool paragraph that lives inside of an even cooler modal. Wins</p>
   <a class="close-reveal-modal">&#215;</a>
 </div>
+	
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script>window.jQuery|| document.write('<script src="Scripts/libs/jquery/jquery-1.10.2.min.js"><\/script>')</script>
+<script src="Scripts/libs/xml2json/xml2jsobj.js"></script>
+<script src="Scripts/libs/handlebar/handlebars-v1.2.0.js"></script>
+<script src="Scripts/engine/engine.js"></script>
+<script src="Scripts/libs/foundation/foundation-5.0.2/js/foundation/foundation.js"></script>
+<script src="Scripts/libs/foundation/foundation-5.0.2/js/foundation/foundation.reveal.js"></script>
+<script type="text/javascript">$(document).foundation();</script>
 
-
-	<script
-		src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-	<script>
-		window.jQuery
-				|| document
-						.write('<script src="Scripts/libs/jquery/jquery-1.10.2.min.js"><\/script>')
-	</script>
-	<script src="Scripts/libs/xml2json/xml2jsobj.js"></script>
-	<script src="Scripts/libs/handlebar/handlebars-v1.2.0.js"></script>
-	<script src="Scripts/engine/engine.js"></script>
-	<script src="Scripts/libs/foundation/foundation-5.0.2/js/foundation/foundation.js"></script>
-	<script src="Scripts/libs/foundation/foundation-5.0.2/js/foundation/foundation.reveal.js"></script>
-	<script type="text/javascript">
-		$(function() {
-			$(document).foundation();
-			
-			$("ul.inline-list img").hover(rollover, rollout);
-			$("ul.inline-list li[id='playpause']").on("click", function() {
-				return playpauseHandler.call(this);
-			});
-
-			/* $("ul.inline-list li[id='menu']").on("click", function() {
-				return menuHandler.call(this);
-			}); 
- 
-			function menuHandler() {
-				console.log("menu Click");
-				
-			}*/
-
-			function rollover(e) {
-				var srcName = $(this).attr("src").split(".")[0].split("/")[3];
-				var imageSrc = "Scripts/engine/image/" + srcName + "_over.png";
-				$(this).attr("src", imageSrc);
-			}
-
-			function rollout(e) {
-				var srcName = $(this).attr("src").split(".")[0].split("/")[3]
-						.split("_")[0];
-				var imageSrc = "Scripts/engine/image/" + srcName + ".png";
-				$(this).attr("src", imageSrc);
-			}
-
-			function playpauseHandler() {
-				var imgObj = $(this).find('img');
-				var status = $(imgObj).attr("src").split(".")[0].split("/")[3]
-						.split("_")[0];
-				status === "play" ? $(imgObj).attr({
-					"src" : "Scripts/engine/image/pause.png",
-					"title" : "Pause"
-				}) : $(imgObj).attr({
-					"src" : "Scripts/engine/image/play.png",
-					"title" : "Play"
-				});
-			}
-
-		});
-	</script>
 </body>
 </html>

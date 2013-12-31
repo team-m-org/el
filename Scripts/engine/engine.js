@@ -26,12 +26,12 @@ var Engine = (function(){
 				courseStructure = xml2jsonObj(response.childNodes[0]);
 			}
 		});
-	}
+	};
 	
 	
 	function renderTopic(template, topicData){
 		$(".template-conatiner").html( Handlebars.compile(template)(topicData));
-	}
+	};
 	
 	function getTemplateData(templateId){
 		if(templatesCache[templateId]){
@@ -45,7 +45,7 @@ var Engine = (function(){
 				templatesCache[templateId] = response;
 			}
 		});
-	}
+	};
 	
 	function getTopicData(topicDataId){
 		if(topicDataCache[topicDataId]){
@@ -59,7 +59,7 @@ var Engine = (function(){
 				topicDataCache[topicDataId] = xml2jsonObj(response);
 			}
 		});
-	}
+	};
 	
 	showTopic =  function(){
 		var topic = courseStructure.course.module[USERSTATE.module].topic[USERSTATE.topic];
@@ -80,12 +80,55 @@ var Engine = (function(){
 		});
 	};
 	
+	registerEvents = function(){
+		
+		$("ul.inline-list").on("mouseenter","img",function(){
+			return rollOverHandler.call(this);
+		});
+		
+		$("ul.inline-list").on("mouseleave","img",function(){
+			return rolloutHandler.call(this);
+		});
+		
+		$("ul.inline-list li[id='playpause']").on("click", function() {
+			return playpauseHandler.call(this);
+		});
+		
+	};
+	
+	rollOverHandler = function(){
+		var srcName = $(this).attr("src").split(".")[0].split("/")[3];
+		var imageSrc = "Scripts/engine/image/" + srcName + "_over.png";
+		$(this).attr("src", imageSrc);
+	};
+	
+	rolloutHandler = function(){
+		var srcName = $(this).attr("src").split(".")[0].split("/")[3].split("_")[0];
+		var imageSrc = "Scripts/engine/image/" + srcName + ".png";
+		$(this).attr("src", imageSrc);
+	};
+	
+	playpauseHandler = function () {
+		var imgObj = $(this).find('img');
+		var status = $(imgObj).attr("src").split(".")[0].split("/")[3]
+				.split("_")[0];
+		status === "play" ? $(imgObj).attr({
+			"src" : "Scripts/engine/image/pause.png",
+			"title" : "Pause"
+		}) : $(imgObj).attr({
+			"src" : "Scripts/engine/image/play.png",
+			"title" : "Play"
+		});
+	};
+	
 	return {
 		initialize : function(){
 			var courseStructureObtained = getCourseStructure();
 			$.when(courseStructureObtained).then(function(){
 				showTopic();
-			})
+			});
+			
+			registerEvents();
 		},
 		showPrevPage : function(){
 			var currentModule = courseStructure.course.module[USERSTATE.module];
