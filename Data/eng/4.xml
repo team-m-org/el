@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<screen>
+	<QuestionOfEthics>Question Of Ethics</QuestionOfEthics>
+	<options>
+		<value>
+			<optionDisplay>Option 1</optionDisplay>
+			<optionValue>option1</optionValue>
+		</value>
+		<value>
+			<optionDisplay>Option 2</optionDisplay>
+			<optionValue>Option2</optionValue>
+		</value>
+		<value>
+			<optionDisplay>Option 3</optionDisplay>
+			<optionValue>Option3</optionValue>
+		</value>
+	</options>
+	<correctAnswer>Option3</correctAnswer>
+	<questionHeader>Question</questionHeader>
+	<questionText>This is a dummy question. Add question as per your wish
+		and also change the option values.</questionText>
+	<users>
+		<person>
+			<image>Media/eng/images/Education1.jpg</image>
+			<information>This is a dummy text 1. we can replace it with actual
+				test any time.</information>
+		</person>
+		<person>
+			<image>Media/eng/images/Education1.jpg</image>
+			<information>This is a dummy text 2. we can replace it with actual
+				test any time.</information>
+		</person>
+		<person>
+			<image>Media/eng/images/Education1.jpg</image>
+			<information>This is a dummy text 3. we can replace it with actual
+				test any time.</information>
+		</person>
+	</users>
+</screen>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<screen>
+	<LessonObjective>Lesson Objective</LessonObjective>
+	<bullets>
+		<bullet>How to bat in test match</bullet>
+		<bullet>How to bat in One day match</bullet>
+		<bullet>How to bat in T20 match</bullet>
+	</bullets>
+	<detailMessage>At the end of this module, you will be able to :
+	</detailMessage>
+	<images>Media/eng/images/Sachin.jpg</images>
+</screen>

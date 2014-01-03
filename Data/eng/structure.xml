@@ -4,8 +4,8 @@
 	<welcomePage fileName="intro.swf" />
 	<course enableNext="false">
 		<module title="1. Basics of Rice" visible="true">
-			<topic title="" visible="false"> <screen templateID="1.html" 
-				title="" ScreenTitle="" xmlName="010101-00.xml" audioName="" agentAnim="" 
+			<topic title="" visible="false"> <screen templateID="4.html" 
+				title="" ScreenTitle="" xmlName="4.xml" audioName="" agentAnim="" 
 				agentseq="" lockNext="true" markComplete="false" sliderEnabled="true" playPauseEnabled="true" 
 				visible="true" notes="true"><![CDATA[]]></screen> </topic>
 			<topic title="" visible="false"> <screen templateID="welcome.html" 
