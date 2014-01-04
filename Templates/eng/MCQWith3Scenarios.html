@@ -1,0 +1,40 @@
+<div class="row">
+	<div class="large-9 small-9 columns">
+		<div style="background-color: green; width: 100%; height: 100%">
+			<h1 style="background-color: olive;">{{QuestionOfEthics}}</h1>
+
+			<table style="background-color: green; width: 100%; height: 100%">
+				<tr>
+					{{#Scenarios.Scenario}}
+					<td>
+						<table style="background-color: aqua;">
+							<tr>
+								<td><img src={{this.image}} /></td>
+							</tr>
+							<tr>
+								<td>{{this.information}}</td>
+							</tr>
+						</table>
+					</td> {{/Scenarios.Scenario}}
+				</tr>
+			</table>
+
+
+		</div>
+	</div>
+
+
+	<div class="large-3 small-3 columns">
+		<div style="background-color: white;">
+			<h1  style="background-color: olive;">{{questionHeader}}</h1>
+			<p>{{questionText}}</p>
+			{{#options.value}} 
+				<input type="checkbox" name={{this.optionValue}}
+					value={{this.optionValue}} /> {{this.optionDisplay}}<br />
+			{{/options.value}}
+			
+			<button onclick="JavaScript:alert('Well done!')">Submit!</button>
+		</div>
+	</div>
+
+</div>

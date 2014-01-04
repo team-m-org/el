@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<screen>
+	<title>Title text 1</title>
+	<bullets>
+		<bullet>
+		    <value>Bullet text 1</value>
+		    <subBullets>
+		        <subBullet>Sub Bullet text 1</subBullet>
+		        <subBullet>Sub Bullet text 2</subBullet>
+		    </subBullets>
+		</bullet>
+		<bullet>
+		    <value>Bullet text 2</value>
+		    <subBullets>
+		        <subBullet>Sub Bullet text 3</subBullet>
+		        <subBullet>Sub Bullet text 4</subBullet>
+		    </subBullets>
+		</bullet>
+	</bullets>
+	<detailMessage>At the end of this module, you will be able to</detailMessage>
+	<image>Media/eng/images/Education1.jpg</image>
+</screen>

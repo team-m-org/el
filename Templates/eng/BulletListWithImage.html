@@ -1,0 +1,39 @@
+<table style="width: 100%;">
+	<tr>
+		<td style="width: 100%">
+			<div class="row">
+				<div class="large-12 small-12 columns">
+					<div class="large-8 small-6 columns">
+						<div>
+							<table style="width: 100%;">
+								<tr>
+									<td>
+										<h1 style="color: silver; background: green;">{{title}}</h1>
+
+										<p>{{detailMessage}}</p> {{#bullets.bullet}}
+										<ul>
+											<li>{{this.value}}
+												<ul>
+													{{#this.subBullets}} {{#this.subBullet}}
+													<li>{{this}}</li> {{/this.subBullet}} {{/this.subBullets}}
+												</ul>
+											</li>
+										</ul> {{/bullets.bullet}}
+									</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+
+					<div class="large-4 small-6 columns">
+						<table>
+							<tr>
+								<td><img src={{image}} /></td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+		</td>
+	</tr>
+</table>
