@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<screen>
+	<title>Title text 1</title>
+	<texts>
+		<text>This is dummy text 1. We can replace it with actual text. This is dummy text 1. We can replace it with actual text. This is dummy text 1. We can replace it with actual text.</text>
+		<text>This is dummy text 2. We can replace it with actual text. This is dummy text 1. We can replace it with actual text.</text>
+	</texts>
+	<Scenarios>
+		<Scenario>
+			<image>Media/eng/images/Education1.jpg</image>
+			<information>This is a dummy text 1. we can replace it with actual
+				test any time. This is a dummy text 1. we can replace it with actual
+				test any time. This is a dummy text 1. we can replace it with actual
+				test any time. This is a dummy text 1. we can replace it with actual
+				test any time.</information>
+		</Scenario>
+		<Scenario>
+			<image>Media/eng/images/Education1.jpg</image>
+			<information>This is a dummy text 2. we can replace it with actual
+				test any time. This is a dummy text 2. we can replace it with actual
+				test any time. This is a dummy text 2. we can replace it with actual
+				test any time. This is a dummy text 2. we can replace it with actual
+				test any time.</information>
+		</Scenario>
+	</Scenarios>
+</screen>

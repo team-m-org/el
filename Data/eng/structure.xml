@@ -85,6 +85,17 @@
 				visible="true" notes="true"><![CDATA[]]></screen> </topic>
 		</module>
 		
+		<module title="1. Basics of Rice" visible="true">
+			<topic title="" visible="false"> <screen templateID="Row2.html" 
+				title="" ScreenTitle="" xmlName="Row2.xml" audioName="" agentAnim="" 
+				agentseq="" lockNext="true" markComplete="false" sliderEnabled="true" playPauseEnabled="true" 
+				visible="true" notes="true"><![CDATA[]]></screen> </topic>
+			<topic title="" visible="false"> <screen templateID="welcome.html" 
+				title="" ScreenTitle="" xmlName="010101-00.xml" audioName="" agentAnim="" 
+				agentseq="" lockNext="true" markComplete="false" sliderEnabled="true" playPauseEnabled="true" 
+				visible="true" notes="true"><![CDATA[]]></screen> </topic>
+		</module>
+		
 		<!-- <module title="9. Assessment" visible="true">
 			<topic title="" visible="false">
 				<screen templateID="ModuleQuiz.swf" title="" ScreenTitle=""
