@@ -12,11 +12,48 @@
 				title="" ScreenTitle="" xmlName="010101-00.xml" audioName="" agentAnim="" 
 				agentseq="" lockNext="true" markComplete="false" sliderEnabled="true" playPauseEnabled="true" 
 				visible="true" notes="true"><![CDATA[]]></screen> </topic>
+			<topic title="" visible="false"> <screen templateID="4.html" 
+				title="" ScreenTitle="" xmlName="4.xml" audioName="" agentAnim="" 
+				agentseq="" lockNext="true" markComplete="false" sliderEnabled="true" playPauseEnabled="true" 
+				visible="true" notes="true"><![CDATA[]]></screen> </topic>
+		</module>
+		
+		<module title="1. Basics of Rice" visible="true">
+			<topic title="" visible="false"> <screen templateID="BulletListWithImage.html" 
+				title="" ScreenTitle="" xmlName="BulletListWithImage.xml" audioName="" agentAnim="" 
+				agentseq="" lockNext="true" markComplete="false" sliderEnabled="true" playPauseEnabled="true" 
+				visible="true" notes="true"><![CDATA[]]></screen> </topic>
+			<topic title="" visible="false"> <screen templateID="welcome.html" 
+				title="" ScreenTitle="" xmlName="010101-00.xml" audioName="" agentAnim="" 
+				agentseq="" lockNext="true" markComplete="false" sliderEnabled="true" playPauseEnabled="true" 
+				visible="true" notes="true"><![CDATA[]]></screen> </topic>
+		</module>
+		
+		<module title="1. Basics of Rice" visible="true">
+			<topic title="" visible="false"> <screen templateID="LeftImageRightText.html" 
+				title="" ScreenTitle="" xmlName="LeftImageRightText.xml" audioName="" agentAnim="" 
+				agentseq="" lockNext="true" markComplete="false" sliderEnabled="true" playPauseEnabled="true" 
+				visible="true" notes="true"><![CDATA[]]></screen> </topic>
+			<topic title="" visible="false"> <screen templateID="welcome.html" 
+				title="" ScreenTitle="" xmlName="010101-00.xml" audioName="" agentAnim="" 
+				agentseq="" lockNext="true" markComplete="false" sliderEnabled="true" playPauseEnabled="true" 
+				visible="true" notes="true"><![CDATA[]]></screen> </topic>
+		</module>
+		
+		<module title="1. Basics of Rice" visible="true">
+			<topic title="" visible="false"> <screen templateID="MCQWith3Scenarios.html" 
+				title="" ScreenTitle="" xmlName="MCQWith3Scenarios.xml" audioName="" agentAnim="" 
+				agentseq="" lockNext="true" markComplete="false" sliderEnabled="true" playPauseEnabled="true" 
+				visible="true" notes="true"><![CDATA[]]></screen> </topic>
+			<topic title="" visible="false"> <screen templateID="welcome.html" 
+				title="" ScreenTitle="" xmlName="010101-00.xml" audioName="" agentAnim="" 
+				agentseq="" lockNext="true" markComplete="false" sliderEnabled="true" playPauseEnabled="true" 
+				visible="true" notes="true"><![CDATA[]]></screen> </topic>
 		</module>
 		
 		<module title="1. Basics of Rice" visible="true">
 			<topic title="" visible="false"> <screen templateID="2.html" 
-				title="" ScreenTitle="" xmlName="010101-00.xml" audioName="" agentAnim="" 
+				title="" ScreenTitle="" xmlName="2.xml" audioName="" agentAnim="" 
 				agentseq="" lockNext="true" markComplete="false" sliderEnabled="true" playPauseEnabled="true" 
 				visible="true" notes="true"><![CDATA[]]></screen> </topic>
 			<topic title="" visible="false"> <screen templateID="welcome.html" 
@@ -27,7 +64,7 @@
 		
 		<module title="1. Basics of Rice" visible="true">
 			<topic title="" visible="false"> <screen templateID="3.html" 
-				title="" ScreenTitle="" xmlName="010101-00.xml" audioName="" agentAnim="" 
+				title="" ScreenTitle="" xmlName="3.xml" audioName="" agentAnim="" 
 				agentseq="" lockNext="true" markComplete="false" sliderEnabled="true" playPauseEnabled="true" 
 				visible="true" notes="true"><![CDATA[]]></screen> </topic>
 			<topic title="" visible="false"> <screen templateID="welcome.html" 
@@ -35,10 +72,11 @@
 				agentseq="" lockNext="true" markComplete="false" sliderEnabled="true" playPauseEnabled="true" 
 				visible="true" notes="true"><![CDATA[]]></screen> </topic>
 		</module>
+		
 		
 		<module title="1. Basics of Rice" visible="true">
-			<topic title="" visible="false"> <screen templateID="4.html" 
-				title="" ScreenTitle="" xmlName="010101-00.xml" audioName="" agentAnim="" 
+			<topic title="" visible="false"> <screen templateID="2.html" 
+				title="" ScreenTitle="" xmlName="2.xml" audioName="" agentAnim="" 
 				agentseq="" lockNext="true" markComplete="false" sliderEnabled="true" playPauseEnabled="true" 
 				visible="true" notes="true"><![CDATA[]]></screen> </topic>
 			<topic title="" visible="false"> <screen templateID="welcome.html" 
@@ -47,29 +85,7 @@
 				visible="true" notes="true"><![CDATA[]]></screen> </topic>
 		</module>
 		
-		<module title="1. Basics of Rice" visible="true">
-			<topic title="" visible="false"> <screen templateID="5.html" 
-				title="" ScreenTitle="" xmlName="010101-00.xml" audioName="" agentAnim="" 
-				agentseq="" lockNext="true" markComplete="false" sliderEnabled="true" playPauseEnabled="true" 
-				visible="true" notes="true"><![CDATA[]]></screen> </topic>
-			<topic title="" visible="false"> <screen templateID="welcome.html" 
-				title="" ScreenTitle="" xmlName="010101-00.xml" audioName="" agentAnim="" 
-				agentseq="" lockNext="true" markComplete="false" sliderEnabled="true" playPauseEnabled="true" 
-				visible="true" notes="true"><![CDATA[]]></screen> </topic>
-		</module>
-		
-		<module title="1. Basics of Rice" visible="true">
-			<topic title="" visible="false"> <screen templateID="6.html" 
-				title="" ScreenTitle="" xmlName="010101-00.xml" audioName="" agentAnim="" 
-				agentseq="" lockNext="true" markComplete="false" sliderEnabled="true" playPauseEnabled="true" 
-				visible="true" notes="true"><![CDATA[]]></screen> </topic>
-			<topic title="" visible="false"> <screen templateID="welcome.html" 
-				title="" ScreenTitle="" xmlName="010101-00.xml" audioName="" agentAnim="" 
-				agentseq="" lockNext="true" markComplete="false" sliderEnabled="true" playPauseEnabled="true" 
-				visible="true" notes="true"><![CDATA[]]></screen> </topic>
-		</module>
-		
-		<module title="9. Assessment" visible="true">
+		<!-- <module title="9. Assessment" visible="true">
 			<topic title="" visible="false">
 				<screen templateID="ModuleQuiz.swf" title="" ScreenTitle=""
 					xmlName="assessment.xml" audioName="" agentAnim="" agentseq=""
@@ -77,6 +93,6 @@
 					playPauseEnabled="true" visible="true" notes="true"><![CDATA[]]>
 				</screen>
 			</topic>
-		</module>
+		</module> -->
 	</course>
 </structure>	

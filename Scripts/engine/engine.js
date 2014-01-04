@@ -155,10 +155,12 @@ var Engine = (function(){
 	
 	prevHandler = function(){
 		console.log("Previous Click");
+		showPrevPage();
 	};
 	
 	nextHandler = function(){
 		console.log("Next Click");
+		showNextPage();
 	};
 	
 	helpHandler = function(){
@@ -173,62 +175,89 @@ var Engine = (function(){
 		}
 	};
 	
+	updatePagination = function(){
+		
+		var modules = courseStructure.course.module;
+		var topics = modules[USERSTATE.module].topic;
+		$('.curr-page').text(USERSTATE.topic+1);
+		$('.total-page').text(topics.length);
+	};
+	
+	showNextPage = function(){
+		var modules = courseStructure.course.module;
+		var currentModule = modules[USERSTATE.module];
+		var currentTopic = modules[USERSTATE.module].topic[USERSTATE.topic];
+		
+		var nextTopic = ++USERSTATE.topic ;
+		
+		var moudlesLength = modules.length;
+		if(nextTopic > currentModule.topic.length-1){
+			USERSTATE.topic = nextTopic = currentModule.topic.length-1;
+			USERSTATE.module++; 
+			if(USERSTATE.module > moudlesLength-1){
+				USERSTATE.module =  moudlesLength-1;
+				return;
+			}
+			USERSTATE.topic = nextTopic = 0;
+		}
+		
+		
+		
+		var topics = modules[USERSTATE.module].topic;
+		if(USERSTATE.module === moudlesLength-1 &&  USERSTATE.topic === topics[USERSTATE.topic].length-1){
+			//TODO disable next button
+		} else {
+			//TODO enable next button
+		}
+		showTopic();
+		updatePagination();
+	};
+	
+	initView = function(){
+		var modules = courseStructure.course.module;
+		var topics = modules[USERSTATE.module].topic;
+		$('.curr-page').text(USERSTATE.topic+1);
+		$('.total-page').text(topics.length);
+	};
+	
+	
+	showPrevPage = function(){
+		var currentModule = courseStructure.course.module[USERSTATE.module];
+		var currentTopic = courseStructure.course.module[USERSTATE.module].topic[USERSTATE.topic];
+		var prevTopic = --USERSTATE.topic ;
+		if(prevTopic < 0){
+			USERSTATE.topic = prevTopic = 0;
+			USERSTATE.module--; 
+			if(USERSTATE.module<0){
+				USERSTATE.module = 0;
+				return;
+			}
+			USERSTATE.topic = prevTopic = courseStructure.course.module[USERSTATE.module].topic.length - 1;
+		}
+		
+		if(USERSTATE.module === 0 && USERSTATE.topic===0){
+			//TODO disable back button
+		} else {
+			//TODO enable back button
+		}
+		
+		showTopic();
+		updatePagination();
+	};
+	
+	
 	return {
 		initialize : function(){
 			var courseStructureObtained = getCourseStructure();
 			$.when(courseStructureObtained).then(function(){
 				showTopic();
+				initView();
 			});
 			
 			registerEvents();
 		},
-		showPrevPage : function(){
-			var currentModule = courseStructure.course.module[USERSTATE.module];
-			var currentTopic = courseStructure.course.module[USERSTATE.module].topic[USERSTATE.topic];
-			var prevTopic = --USERSTATE.topic ;
-			if(prevTopic < 0){
-				USERSTATE.topic = prevTopic = 0;
-				USERSTATE.module--; 
-				if(USERSTATE.module<0){
-					USERSTATE.module = 0;
-					return;
-				}
-				USERSTATE.topic = prevTopic = courseStructure.course.module[USERSTATE.module].topic.length - 1;
-			}
-			
-			if(USERSTATE.module === 0 && USERSTATE.topic===0){
-				//TODO disable back button
-			} else {
-				//TODO enable back button
-			}
-			
-			showTopic();
-		},
-		showNextPage : function(){
-			var modules = courseStructure.course.module;
-			var currentModule = modules[USERSTATE.module];
-			var currentTopic = modules[USERSTATE.module].topic[USERSTATE.topic];
-			
-			var nextTopic = ++USERSTATE.topic ;
-			
-			var moudlesLength = modules.length;
-			if(nextTopic > currentModule.topic.length-1){
-				USERSTATE.module++; 
-				if(USERSTATE.module > moudlesLength-1){
-					USERSTATE.module =  moudlesLength-1;
-					return;
-				}
-				USERSTATE.topic = nextTopic = 0;
-			}
-			
-			var topics = modules[USERSTATE.module].topic;
-			if(USERSTATE.module === moudlesLength-1 &&  USERSTATE.topic === topics[USERSTATE.topic].length-1){
-				//TODO disable next button
-			} else {
-				//TODO enable next button
-			}
-			showTopic();
-		}
+		
+		
 	}
 })();
 
