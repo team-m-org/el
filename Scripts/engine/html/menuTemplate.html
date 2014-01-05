@@ -1,0 +1,12 @@
+{{#each this}}
+<dd>
+	<a href="#{{this.id}}">{{this.name}}</a>
+	<div id="{{this.id}}" class="content">
+		<ul>
+			{{#each this.topics}}
+				<li>{{name}}</li>
+			{{/each}}
+		</ul>
+	</div>
+</dd>
+{{/each}}

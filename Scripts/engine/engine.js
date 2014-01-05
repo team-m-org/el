@@ -2,7 +2,8 @@
 var EnvVariables = {
 		paths : {
 					'Data' : 'Data',
-					'Templates' : 'Templates'
+					'Templates' : 'Templates',
+					'EngineTemplate' : 'Scripts/engine/html'
 				},
 		'lang' : 'eng'
 };
@@ -33,19 +34,20 @@ var Engine = (function(){
 		$(".template-conatiner").html( Handlebars.compile(template)(topicData));
 	};
 	
-	function getTemplateData(templateId){
+	function getTemplateData(templateId,templateType){
 		if(templatesCache[templateId]){
 			var differed = $.Deferred();
 			console.log('returning differed getTemplateData');
 			return differed.resolve();
 		}
 		return $.ajax({
-			url : EnvVariables.paths['Templates'] + "/" +EnvVariables['lang']+  "/" + templateId,  
+			url : templateType !== "engine" ? EnvVariables.paths['Templates'] + "/" +EnvVariables['lang']+  "/" + templateId : EnvVariables.paths['EngineTemplate'] + "/" + templateId,  
 			success : function(response){
 				templatesCache[templateId] = response;
 			}
 		});
 	};
+	
 	
 	function getTopicData(topicDataId){
 		if(topicDataCache[topicDataId]){
@@ -75,7 +77,7 @@ var Engine = (function(){
 		return $.when(templatePromise, topicDataPromise).then(function(){
 			var template = templatesCache[topicTemplateId];
 			var topicData = topicDataCache[templateDataId];
-			console.log('render topic here', template, topicData);
+			//console.log('render topic here', template, topicData);
 			renderTopic(template, topicData);
 		});
 	};
@@ -218,6 +220,48 @@ var Engine = (function(){
 		var topics = modules[USERSTATE.module].topic;
 		$('.curr-page').text(USERSTATE.topic+1);
 		$('.total-page').text(topics.length);
+		generateMenu(modules);
+	};
+	
+	generateMenu = function(modules){
+		
+		var moduleArray=[];		
+		for(var i=0;i<modules.length;i++){
+			var moduleObj= {
+					id:"",
+					name: "",
+					topics:[],
+			};
+			
+			moduleObj.id = "panel"+(i+1);
+			moduleObj.name = modules[i]["@title"];
+			var topicLength = modules[i].topic.length;
+			
+			for(var j=0;j<topicLength;j++){
+				var topicObj = {
+						name:''
+				};
+				
+				topicObj.name = modules[i].topic[j]["@title"];
+				
+				moduleObj.topics.push(topicObj);
+			}
+			
+			moduleArray.push(moduleObj);
+		}
+		
+		console.log(moduleArray);
+		
+		//console.log("Engine Menu Template",.responseText);
+		
+		var templatePromise = getTemplateData("menuTemplate.html","engine");
+		$.when(templatePromise).then(function(){
+			var template = templatesCache["menuTemplate.html"];
+			$(".accordion").append(Handlebars.compile(template)(moduleArray));
+		});
+		
+		
+		
 	};
 	
 	

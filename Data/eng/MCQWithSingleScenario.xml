@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<screen>
+    <title>Title text 1</title>
+	<options>
+		<value>
+			<optionDisplay>Option 1</optionDisplay>
+			<optionValue>option1</optionValue>
+		</value>
+		<value>
+			<optionDisplay>Option 2</optionDisplay>
+			<optionValue>Option2</optionValue>
+		</value>
+		<value>
+			<optionDisplay>Option 3</optionDisplay>
+			<optionValue>Option3</optionValue>
+		</value>
+		<value>
+			<optionDisplay>Option 4</optionDisplay>
+			<optionValue>Option4</optionValue>
+		</value>
+	</options>
+	<correctAnswer>Option3,Option1</correctAnswer>
+	<questionHeader>Select the correct answer and then click Submit</questionHeader>	
+	<instruction>Select the correct answer and then click Submit</instruction>
+	<questionText>This is a dummy question. Add question as per your wish
+		and also change the option values.</questionText>
+	<feedbackTitle>FeedBack</feedbackTitle>
+	<feedbackContent>This is a feedback section.</feedbackContent>
+	<information>This is a dummy text 1. we can replace it with actual
+				test any time.</information>
+</screen>
