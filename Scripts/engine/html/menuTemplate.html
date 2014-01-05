@@ -1,10 +1,10 @@
 {{#each this}}
 <dd>
-	<a href="#{{this.id}}">{{this.name}}</a>
-	<div id="{{this.id}}" class="content">
+	<a href="#panel{{id}}" class="{{id}}">{{name}}</a>
+	<div id="panel{{id}}" class="content">
 		<ul>
 			{{#each this.topics}}
-				<li>{{name}}</li>
+				<li class="{{id}}">{{name}}</li>
 			{{/each}}
 		</ul>
 	</div>

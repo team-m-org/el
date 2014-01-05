@@ -83,6 +83,10 @@
 	font-size: 14px
 }
 
+.accordion li{
+	cursor: pointer;
+}
+
 .gradient-blue {
 	/* background: rgb(147, 206, 222); Old browsers
 	IE9 SVG, needs conditional override of 'filter' to 'none'
