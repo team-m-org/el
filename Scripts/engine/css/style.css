@@ -191,4 +191,10 @@
 	padding: 5px!important;
 	padding-left: 15px!important;
 }
+.rpad5p {
+    padding-right : 5%;
+}
+.lpad5p {
+    padding-left : 5%;
+}
 
