@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <screen>
-	<QuestionOfEthics>Question Of Ethics</QuestionOfEthics>
+	<QuestionOfEthics>Text 1</QuestionOfEthics>
 	<options>
 		<value>
 			<optionDisplay>Option 1</optionDisplay>
