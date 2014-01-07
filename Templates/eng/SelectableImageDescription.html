@@ -1,4 +1,3 @@
-
 <div class="row tpad10p">
 	{{#each group}} {{#if this.Contents}}
 	<div class="small-4 columns small-push-1" style="height: 100%;">
@@ -20,7 +19,7 @@
 		<h4>select each panel</h4>
 		<div class="row">
 			{{#each this.tabImage}}
-			<div class="small-4 columns imgicon img_icon_1">
+			<div class="small-4 columns imgicon" data="img_icon_{{this._tab_id}}">
 				<div class="panel">
 					<h4>{{{this.title._cdata}}}</h4>
 					<p>
@@ -31,30 +30,42 @@
 			{{/each}}
 		</div>
 
-		<div class="row hide img_icon_text">
+		
 			{{#each this.tabImage}}
-			<div class="small-4 columns">
+			<div class="row hide img_icon_text  img_icon_text_{{this._tab_id}}" data="img_icon_text_{{this._tab_id}}">
+			<div class="small-4 columns"  >
 				<div class="panel">
+					<h4>{{{this.title._cdata}}}</h4>
 					<p>
 						<img src="http://placehold.it/200x200" />
 					</p>
 				</div>
 			</div>
-			<div class="small-8 columns">
+			<div class="small-8 columns img_icon_text_box">
 				<div class="panel">
 					{{#each popupText.Text}}
 					<p>{{{this._cdata}}}</p>
 					{{/each}}
 				</div>
 			</div>
+			</div>
 			{{/each}}
-		</div>
+		
 
 	</div>
 
-
 	{{/if}} {{/each}}
-
 </div>
+<script>
+$('.template-conatiner .imgicon').click(function () {
+		var index = $(this).attr('data').split("_").pop();
+        $('.imgicon').addClass('hide');
+        $('.img_icon_text_'+index).removeClass('hide');
+});
+$('.template-conatiner .img_icon_text_box').click(function () {
+        $('.imgicon').removeClass('hide');
+        $('.img_icon_text').addClass('hide');
+});
+</script>
 
 

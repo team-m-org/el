@@ -133,17 +133,6 @@ var Engine = (function(){
 		$(".accordion").on("click","a",function(){
 			return moduleHandler.call(this);
 		});
-		
-		$('.imgicon').click(function () {
-			alert("122");
-		        $('.imgicon').addClass('hide');
-		        $('.img_icon_text').removeClass('hide');
-		});
-		$('.img_icon_text').click(function () {
-		        $('.imgicon').removeClass('hide');
-		        $(this).addClass('hide');
-		});
-		
 	};
 
 	moduleHandler = function(){
