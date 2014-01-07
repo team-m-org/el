@@ -1,0 +1,60 @@
+
+<div class="row tpad10p">
+	{{#each group}} {{#if this.Contents}}
+	<div class="small-4 columns small-push-1" style="height: 100%;">
+			<h4>{{{this.Contents.title._cdata}}}</h4>
+			{{#each Contents.bullets.bullet}}
+			<ul>
+				<li>{{this.value}}
+					<ul>
+						{{#this.subBullets}} {{#this.subBullet}}
+						<li>{{this}}</li> {{/this.subBullet}} {{/this.subBullets}}
+					</ul>
+				</li>
+			</ul>
+			{{/each}}
+	</div>
+	{{/if}} {{#if this.tabImage}}
+
+	<div class="small-8 columns small-pull-1 " style="height: 100%;">
+		<h4>select each panel</h4>
+		<div class="row">
+			{{#each this.tabImage}}
+			<div class="small-4 columns imgicon img_icon_1">
+				<div class="panel">
+					<h4>{{{this.title._cdata}}}</h4>
+					<p>
+						<img src="http://placehold.it/400x300" />
+					</p>
+				</div>
+			</div>
+			{{/each}}
+		</div>
+
+		<div class="row hide img_icon_text">
+			{{#each this.tabImage}}
+			<div class="small-4 columns">
+				<div class="panel">
+					<p>
+						<img src="http://placehold.it/200x200" />
+					</p>
+				</div>
+			</div>
+			<div class="small-8 columns">
+				<div class="panel">
+					{{#each popupText.Text}}
+					<p>{{{this._cdata}}}</p>
+					{{/each}}
+				</div>
+			</div>
+			{{/each}}
+		</div>
+
+	</div>
+
+
+	{{/if}} {{/each}}
+
+</div>
+
+

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<screen>
+<group id="1">
+	<Contents bgimage="01.jpg" imageVisible="true" xpos="845" align="right" ypos="83" gap="5" normalXpos="10" bulletXpos="10" subBulletXpos="35">
+		<title ><![CDATA[<FONT SIZE="28"><font face='Arial' color="#2B1F09"><B>Title text</B></font>]]></title>
+		<bullets>
+			<bullet>
+			    <value>Bullet text 1</value>
+			    <subBullets>
+			        <subBullet>Sub Bullet text 1</subBullet>
+			        <subBullet>Sub Bullet text 2</subBullet>
+			    </subBullets>
+			</bullet>
+			<bullet>
+			    <value>Bullet text 2</value>
+			    <subBullets>
+			        <subBullet>Sub Bullet text 3</subBullet>
+			        <subBullet>Sub Bullet text 4</subBullet>
+			    </subBullets>
+			</bullet>
+		</bullets>	
+	</Contents>
+</group>
+<group id="2">
+	<tabImage bgimage="01.jpg" btnVisible="true" imageVisible="true" xpos="845" align="right" ypos="83" gap="5" normalXpos="10" bulletXpos="10" subBulletXpos="35">
+		<title ><![CDATA[<FONT SIZE="28"><font face='Arial' color="#2B1F09"><B>Title text</B></font>]]></title>
+			<popupText>
+				<Text textType="normal"><![CDATA[<FONT SIZE="20"><font color="#795717"><B>Normal text</B></font>]]></Text> 
+				<Text textType="bullet"><![CDATA[<FONT SIZE="14"><font color="#2B1F09"><B>Bullet text</B></font>]]></Text> 
+			</popupText>
+	</tabImage>
+	<tabImage bgimage="02.jpg" btnVisible="true" imageVisible="true" xpos="845" align="right" ypos="83" gap="5" normalXpos="10" bulletXpos="10" subBulletXpos="35">
+		<title ><![CDATA[<FONT SIZE="28"><font face='Arial' color="#2B1F09"><B>Title text</B></font>]]></title>
+			<popupText>
+				<Text textType="normal"><![CDATA[<FONT SIZE="20"><font color="#795717"><B>Normal text</B></font>]]></Text> 
+				<Text textType="bullet"><![CDATA[<FONT SIZE="14"><font color="#2B1F09"><B>Bullet text</B></font>]]></Text> 
+			</popupText>
+	</tabImage>
+	<tabImage bgimage="03.jpg" btnVisible="true" imageVisible="true" xpos="845" align="right" ypos="83" gap="5" normalXpos="10" bulletXpos="10" subBulletXpos="35">
+		<title ><![CDATA[<FONT SIZE="28"><font face='Arial' color="#2B1F09"><B>Title text</B></font>]]></title>
+			<popupText>
+				<Text textType="normal"><![CDATA[<FONT SIZE="20"><font color="#795717"><B>Normal text</B></font>]]></Text> 
+				<Text textType="bullet"><![CDATA[<FONT SIZE="14"><font color="#2B1F09"><B>Bullet text</B></font>]]></Text> 
+			</popupText>
+	</tabImage>
+</group>
+
+</screen>

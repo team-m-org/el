@@ -11,7 +11,7 @@ var X = {
 			if (xml.nodeType == 1) { // element node ..
 				if (xml.attributes.length) // element with attributes  ..
 					for (var i = 0; i < xml.attributes.length; i++)
-						o["@" + xml.attributes[i].nodeName] = (xml.attributes[i].nodeValue || "").toString();
+						o["_" + xml.attributes[i].nodeName] = (xml.attributes[i].nodeValue || "").toString();
 				if (xml.firstChild) { // element has child nodes ..
 					var textChild = 0,
 					cdataChild = 0,

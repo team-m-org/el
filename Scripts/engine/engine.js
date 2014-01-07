@@ -9,6 +9,7 @@ var EnvVariables = {
 		'lang' : 'eng'
 };
 
+
 var Engine = (function(){
 	var courseStructure = null;
 	var USERSTATE = {
@@ -34,6 +35,9 @@ var Engine = (function(){
 
 
 	function renderTopic(template, topicData){
+		console.log("=======",JSON.stringify(topicData),"====");
+		console.log("topicData=====",topicData,"template==",template);
+		
 		$(".template-conatiner").html( Handlebars.compile(template)(topicData));
 	};
 
@@ -69,8 +73,8 @@ var Engine = (function(){
 	showTopic =  function(){
 		var topic = courseStructure.course.module[USERSTATE.module].topic[USERSTATE.topic];
 
-		var topicTemplateId = topic.screen['@templateID'];
-		var templateDataId = topic.screen['@xmlName'];
+		var topicTemplateId = topic.screen['_templateID'];
+		var templateDataId = topic.screen['_xmlName'];
 
 		var templatePromise = getTemplateData(topicTemplateId);
 		var topicDataPromise = getTopicData(templateDataId);
@@ -129,12 +133,22 @@ var Engine = (function(){
 		$(".accordion").on("click","a",function(){
 			return moduleHandler.call(this);
 		});
-
+		
+		$('.imgicon').click(function () {
+			alert("122");
+		        $('.imgicon').addClass('hide');
+		        $('.img_icon_text').removeClass('hide');
+		});
+		$('.img_icon_text').click(function () {
+		        $('.imgicon').removeClass('hide');
+		        $(this).addClass('hide');
+		});
+		
 	};
 
 	moduleHandler = function(){
 		console.log("Module ID - ", $(this).attr("class"));
-		var menuType = courseStructure.course["@menuType"];
+		var menuType = courseStructure.course["_menuType"];
 		if(menuType === "module"){
 			USERSTATE.module = parseInt($(this).attr("class"));
 			USERSTATE.topic = 0;
@@ -239,7 +253,6 @@ var Engine = (function(){
 		}
 
 
-
 		var topics = modules[USERSTATE.module].topic;
 		if(USERSTATE.module === moudlesLength-1 &&  USERSTATE.topic === topics[USERSTATE.topic].length-1){
 			//TODO disable next button
@@ -269,7 +282,7 @@ var Engine = (function(){
 			};
 
 			moduleObj.id = i;
-			moduleObj.name = modules[i]["@title"];
+			moduleObj.name = modules[i]["_title"];
 			var topicLength = modules[i].topic.length;
 
 			for(var j=0;j<topicLength;j++){
@@ -278,7 +291,7 @@ var Engine = (function(){
 						name:''
 				};
 				topicObj.id = i+"-"+j;
-				topicObj.name = modules[i].topic[j]["@title"];
+				topicObj.name = modules[i].topic[j]["_title"];
 				moduleObj.topics.push(topicObj);
 			}
 
