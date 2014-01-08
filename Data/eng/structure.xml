@@ -26,8 +26,8 @@
 				title="" ScreenTitle="" xmlName="BulletListWithImage.xml" audioName="" agentAnim="" 
 				agentseq="" lockNext="true" markComplete="false" sliderEnabled="true" playPauseEnabled="true" 
 				visible="true" notes="true"><![CDATA[]]></screen> </topic>
-			<topic title="Topic 3" visible="false"> <screen templateID="4.html" 
-				title="" ScreenTitle="" xmlName="4.xml" audioName="" agentAnim="" 
+			<topic title="Topic 3" visible="false"> <screen templateID="LeftImageRightText.html" 
+				title="" ScreenTitle="" xmlName="LeftImageRightText.xml" audioName="" agentAnim="" 
 				agentseq="" lockNext="true" markComplete="false" sliderEnabled="true" playPauseEnabled="true" 
 				visible="true" notes="true"><![CDATA[]]></screen> </topic>
 		</module>
