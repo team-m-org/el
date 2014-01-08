@@ -4,18 +4,18 @@
             <table style="width: 100%; height: 100%">
                 <tr>
                     <td>
-                         <h1>{{title}}</h1>
+                         <h4>{{{title._cdata}}}</h4>
 
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <p>{{information}}</p>
+                        <p>{{{information._cdata}}}</p>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <p>{{questionText}}</p>
+                        <p>{{{questionText._cdata}}}</p>
                     </td>
                 </tr>
             </table>
@@ -25,11 +25,11 @@
         <div class="panel1 tpad5p">
             <table style="width: 100%">
                 <tr>
-                    <td>{{questionHeader}}</td>
+                    <td>{{{questionHeader._cdata}}}</td>
                 </tr>
                 <tr>
                     <td>{{#options.value}}
-                        <input type="checkbox" name={{this.optionValue}} value={{this.optionValue}} />{{this.optionDisplay}}
+                        <input type="checkbox" name={{this.optionValue}} value={{this.optionValue}} />{{{this.optionDisplay._cdata}}}
                         <br />{{/options.value}}</td>
                 </tr>
                 <tr>
@@ -48,12 +48,12 @@
                 <table style="width: 100%">
                     <tr>
                         <td>
-                            <p>{{feedbackTitle}}</p>
+                            <p>{{{feedbackTitle._cdata}}}</p>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <p>{{feedbackContent}}</p>
+                            <p>{{{feedbackContent._cdata}}}</p>
                         </td>
                     </tr>
                 </table>
