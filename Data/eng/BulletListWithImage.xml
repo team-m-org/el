@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <screen>
-	<title>Title text 12</title>
+	<title><![CDATA[<FONT SIZE="28"><font face='Arial' color="#2B1F09"><B>Title text 12</B></font>]]></title>
 	<bullets>
 		<bullet>
-		    <value>Bullet text 1</value>
+		    <value><![CDATA[<FONT SIZE="28"><font face='Arial' color="#2B1F09">Bullet text 1</font>]]></value>
 		    <subBullets>
-		        <subBullet>Sub Bullet text 1</subBullet>
-		        <subBullet>Sub Bullet text 2</subBullet>
+		        <subBullet><![CDATA[<FONT SIZE="28"><font face='Arial' color="#2B1F09">Sub Bullet text 1</font>]]></subBullet>
+		        <subBullet><![CDATA[<FONT SIZE="28"><font face='Arial' color="#2B1F09">Sub Bullet text 2</font>]]></subBullet>
 		    </subBullets>
 		</bullet>
 		<bullet>
-		    <value>Bullet text 2</value>
+		    <value><![CDATA[<FONT SIZE="28"><font face='Arial' color="#2B1F09">Bullet text 2</font>]]></value>
 		    <subBullets>
-		        <subBullet>Sub Bullet text 3</subBullet>
-		        <subBullet>Sub Bullet text 4</subBullet>
+		        <subBullet><![CDATA[<FONT SIZE="28"><font face='Arial' color="#2B1F09">Sub Bullet text 3</font>]]></subBullet>
+		        <subBullet><![CDATA[<FONT SIZE="28"><font face='Arial' color="#2B1F09">Sub Bullet text 4</font>]]></subBullet>
 		    </subBullets>
 		</bullet>
 	</bullets>
-	<detailMessage>At the end of this module, you will be able to</detailMessage>
+	<detailMessage><![CDATA[<FONT SIZE="28"><font face='Arial' color="#2B1F09">At the end of this module, you will be able to</font>]]></detailMessage>
 	<image>Media/eng/images/Education1.jpg</image>
 </screen>
