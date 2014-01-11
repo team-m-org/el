@@ -1,47 +1,21 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
-<style type="text/css">
+<div class="row tpad10p rpad5p lpad5p ">
+	<div class="small-6 columns ">
+		<h4>{{{title._cdata}}}</h4>
+		<p>{{{detailMessage._cdata}}}</p>
+		{{#bullets.bullet}}
+		<ul class="iconlist">
+			<li class="bulletStyle">{{{this.value._cdata}}}</li>
+			<ul class="iconlist">
+				{{#this.subBullets}} {{#this.subBullet}}
+					<li class="subBulletStyle">{{{this._cdata}}}</li>
+				{{/this.subBullet}} {{/this.subBullets}}
+			</ul>
 
-</style>
-</head>
-<body>
-<div class="row tpad10p">
-	<div class="large-12 small-12 columns">
-		<div class="large-8 small-6 columns" style="padding-left: 5%">
-			<div>
-		
-					<h4>{{{title._cdata}}}</h4>
-
-					<p>{{{detailMessage._cdata}}}</p>
-					{{#bullets.bullet}}
-					<ul class="iconlist">
-						<li class="bulletStyle">
-							{{{this.value._cdata}}}</li>
-							<ul class="iconlist">
-								{{#this.subBullets}} 
-									{{#this.subBullet}}
-									<li class="subBulletStyle">{{{this._cdata}}}</li> 
-									{{/this.subBullet}}
-								{{/this.subBullets}}
-							</ul>
-						
-					</ul> 
-					{{/bullets.bullet}}
-						
-			</div>
-		</div>
-
-		<div class="large-4 small-6 columns">
-			<table>
-				<tr>
-					<td><img src={{image}} /></td>
-				</tr>
-			</table>
-		</div>
+		</ul>
+		{{/bullets.bullet}}
+	</div>
+	<div class=" small-6 columns">
+		<p><img src={{image}} /></p>
 	</div>
 </div>
-</body>
-</html>
+
