@@ -346,8 +346,8 @@ var Engine = (function(){
 
 			registerEvents();
 		},
-
-
+		showNextPage : showNextPage,
+		showPrevPage : showPrevPage,
 	}
 })();
 
