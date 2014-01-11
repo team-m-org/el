@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <structure>
-	<courseTitle><![CDATA[<font color='#FFFFFF'><B>RCF</B></font>]]></courseTitle>
+	<courseTitle><![CDATA[Course Title 1]]></courseTitle>
 	<welcomePage fileName="intro.swf" />
 	<course enableNext="false" menuType="topic">
 	<module title="Module 1" visible="true">
@@ -17,21 +17,21 @@
 				agentseq="" lockNext="true" markComplete="false" sliderEnabled="true" playPauseEnabled="true" 
 				visible="true" notes="true"><![CDATA[]]></screen> </topic>
 		</module>
-		<module title="Module 1" visible="true">
-			<topic title="Topic 1" visible="false"> <screen templateID="MCQWith3Scenarios.html" 
+		<module title="Module 2" visible="true">
+			<topic title="Topic 1" visible="true"> <screen templateID="MCQWith3Scenarios.html" 
 				title="" ScreenTitle="" xmlName="MCQWith3Scenarios.xml" audioName="" agentAnim="" 
 				agentseq="" lockNext="true" markComplete="false" sliderEnabled="true" playPauseEnabled="true" 
 				visible="true" notes="true"><![CDATA[]]></screen> </topic>
-			<topic title="Topic 2" visible="false"> <screen templateID="SelectableImageDescription.html" 
+			<topic title="Topic 2" visible="true"> <screen templateID="SelectableImageDescription.html" 
 				title="" ScreenTitle="" xmlName="SelectableImageDescription.xml" audioName="" agentAnim="" 
 				agentseq="" lockNext="true" markComplete="false" sliderEnabled="true" playPauseEnabled="true" 
 				visible="true" notes="true"><![CDATA[]]></screen> </topic>
-			<topic title="Topic 3" visible="false"> <screen templateID="MCQWithSingleScenario.html" 
+			<topic title="Topic 3" visible="true"> <screen templateID="MCQWithSingleScenario.html" 
 				title="" ScreenTitle="" xmlName="MCQWithSingleScenario.xml" audioName="" agentAnim="" 
 				agentseq="" lockNext="true" markComplete="false" sliderEnabled="true" playPauseEnabled="true" 
 				visible="true" notes="true"><![CDATA[]]></screen> </topic>
 		</module>
-		<module title="Module 1" visible="true">
+		<!-- <module title="Module 1" visible="true">
 			<topic title="Topic 1" visible="false"> <screen templateID="MCQWithSingleScenarioRadio.html" 
 				title="" ScreenTitle="" xmlName="MCQWithSingleScenarioRadio.xml" audioName="" agentAnim="" 
 				agentseq="" lockNext="true" markComplete="false" sliderEnabled="true" playPauseEnabled="true" 
@@ -101,6 +101,6 @@
 					playPauseEnabled="true" visible="true" notes="true"><![CDATA[]]>
 				</screen>
 			</topic>
-		</module>
+		</module> -->
 	</course>
 </structure>	

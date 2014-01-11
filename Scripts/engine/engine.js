@@ -240,10 +240,23 @@ var Engine = (function(){
 		var nextTopic = ++USERSTATE.topic ;
 
 		var moudlesLength = modules.length;
+		
+		if(USERSTATE.module === moudlesLength-1){
+			if(USERSTATE.topic === currentModule.topic.length-1){
+				$('#next').addClass('disableNavigation');
+			}
+		}
+		else{
+			$('#prev').removeClass('disableNavigation');
+		}
+		
+		
 		if(nextTopic > currentModule.topic.length-1){
 			USERSTATE.topic = nextTopic = currentModule.topic.length-1;
 			USERSTATE.module++; 
+			
 			if(USERSTATE.module > moudlesLength-1){
+				
 				USERSTATE.module =  moudlesLength-1;
 				return;
 			}
@@ -259,16 +272,34 @@ var Engine = (function(){
 		}
 		showTopic();
 		updatePagination();
+		updateBreadCrum();
 	};
-
+	
 	initView = function(){
 		var modules = courseStructure.course.module;
-		var topics = modules[USERSTATE.module].topic;
-		$('.curr-page').text(USERSTATE.topic+1);
-		$('.total-page').text(topics.length);
+		var topics = modules[USERSTATE.module].topic;		
 		generateMenu(modules);
+		updatePagination();
+		updateBreadCrum();
+		$('.course-title').text(courseStructure.courseTitle._cdata);
+		if(USERSTATE.module === 0){
+			if(USERSTATE.topic === 0){
+				$('#prev').addClass('disableNavigation');
+			}
+		}
+		
+		
 	};
-
+	
+	
+	
+	updateBreadCrum = function(){
+		var modules = courseStructure.course.module;
+		var topics = modules[USERSTATE.module].topic;
+		$('.module-name').text(modules[USERSTATE.module]["_title"]);
+		$('.module-topic').text(topics[USERSTATE.topic]["_title"]);
+	};
+	
 	generateMenu = function(modules){
 
 		var moduleArray=[];		
@@ -295,7 +326,7 @@ var Engine = (function(){
 
 			moduleArray.push(moduleObj);
 		}
-
+		
 		var templatePromise = getTemplateData("menuTemplate.html","engine");
 		$.when(templatePromise).then(function(){
 			var template = templatesCache["menuTemplate.html"];
@@ -308,6 +339,16 @@ var Engine = (function(){
 		var currentModule = courseStructure.course.module[USERSTATE.module];
 		var currentTopic = courseStructure.course.module[USERSTATE.module].topic[USERSTATE.topic];
 		var prevTopic = --USERSTATE.topic;
+		
+		if(USERSTATE.module === 0){
+			if(prevTopic === 0){
+				$('#prev').addClass('disableNavigation');
+			}
+		}
+		else{
+			$('#next').removeClass('disableNavigation');
+		}
+		
 		if(prevTopic < 0){
 			USERSTATE.topic = prevTopic = 0;
 			USERSTATE.module--; 
@@ -326,6 +367,7 @@ var Engine = (function(){
 
 		showTopic();
 		updatePagination();
+		updateBreadCrum();
 	};
 
 
