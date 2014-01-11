@@ -50,10 +50,6 @@
 				title="" ScreenTitle="" xmlName="SelectableImageDescription.xml" audioName="" agentAnim="" 
 				agentseq="" lockNext="true" markComplete="false" sliderEnabled="true" playPauseEnabled="true" 
 				visible="true" notes="true"><![CDATA[]]></screen> </topic>
-			<topic title="Topic 2" visible="false"> <screen templateID="welcome.html" 
-				title="" ScreenTitle="" xmlName="010101-00.xml" audioName="" agentAnim="" 
-				agentseq="" lockNext="true" markComplete="false" sliderEnabled="true" playPauseEnabled="true" 
-				visible="true" notes="true"><![CDATA[]]></screen> </topic>
 			<topic title="Topic 3" visible="false"> <screen templateID="4.html" 
 				title="" ScreenTitle="" xmlName="4.xml" audioName="" agentAnim="" 
 				agentseq="" lockNext="true" markComplete="false" sliderEnabled="true" playPauseEnabled="true" 
@@ -65,19 +61,11 @@
 				title="" ScreenTitle="" xmlName="BulletListWithImage.xml" audioName="" agentAnim="" 
 				agentseq="" lockNext="true" markComplete="false" sliderEnabled="true" playPauseEnabled="true" 
 				visible="true" notes="true"><![CDATA[]]></screen> </topic>
-			<topic title="Topic 2" visible="false"> <screen templateID="welcome.html" 
-				title="" ScreenTitle="" xmlName="010101-00.xml" audioName="" agentAnim="" 
-				agentseq="" lockNext="true" markComplete="false" sliderEnabled="true" playPauseEnabled="true" 
-				visible="true" notes="true"><![CDATA[]]></screen> </topic>
 		</module>
 		
 		<module title="Module 3" visible="true">
 			<topic title="Topic 1" visible="false"> <screen templateID="LeftImageRightText.html" 
 				title="" ScreenTitle="" xmlName="LeftImageRightText.xml" audioName="" agentAnim="" 
-				agentseq="" lockNext="true" markComplete="false" sliderEnabled="true" playPauseEnabled="true" 
-				visible="true" notes="true"><![CDATA[]]></screen> </topic>
-			<topic title="Topic 2" visible="false"> <screen templateID="welcome.html" 
-				title="" ScreenTitle="" xmlName="010101-00.xml" audioName="" agentAnim="" 
 				agentseq="" lockNext="true" markComplete="false" sliderEnabled="true" playPauseEnabled="true" 
 				visible="true" notes="true"><![CDATA[]]></screen> </topic>
 		</module>
@@ -87,19 +75,11 @@
 				title="" ScreenTitle="" xmlName="MCQWith3Scenarios.xml" audioName="" agentAnim="" 
 				agentseq="" lockNext="true" markComplete="false" sliderEnabled="true" playPauseEnabled="true" 
 				visible="true" notes="true"><![CDATA[]]></screen> </topic>
-			<topic title="Topic 2" visible="false"> <screen templateID="welcome.html" 
-				title="" ScreenTitle="" xmlName="010101-00.xml" audioName="" agentAnim="" 
-				agentseq="" lockNext="true" markComplete="false" sliderEnabled="true" playPauseEnabled="true" 
-				visible="true" notes="true"><![CDATA[]]></screen> </topic>
 		</module>
 		
 		<module title="Module 5" visible="true">
 			<topic title="Topic 1" visible="false"> <screen templateID="Row2.html" 
 				title="" ScreenTitle="" xmlName="Row2.xml" audioName="" agentAnim="" 
-				agentseq="" lockNext="true" markComplete="false" sliderEnabled="true" playPauseEnabled="true" 
-				visible="true" notes="true"><![CDATA[]]></screen> </topic>
-			<topic title="Topic 2" visible="false"> <screen templateID="welcome.html" 
-				title="" ScreenTitle="" xmlName="010101-00.xml" audioName="" agentAnim="" 
 				agentseq="" lockNext="true" markComplete="false" sliderEnabled="true" playPauseEnabled="true" 
 				visible="true" notes="true"><![CDATA[]]></screen> </topic>
 		</module>
@@ -109,21 +89,17 @@
 				title="" ScreenTitle="" xmlName="MCQWithSingleScenario.xml" audioName="" agentAnim="" 
 				agentseq="" lockNext="true" markComplete="false" sliderEnabled="true" playPauseEnabled="true" 
 				visible="true" notes="true"><![CDATA[]]></screen> </topic>
-			<topic title="Topic 2" visible="false"> <screen templateID="welcome.html" 
-				title="" ScreenTitle="" xmlName="010101-00.xml" audioName="" agentAnim="" 
-				agentseq="" lockNext="true" markComplete="false" sliderEnabled="true" playPauseEnabled="true" 
-				visible="true" notes="true"><![CDATA[]]></screen> </topic>
 		</module>
 		
 		
-		<!-- <module title="9. Assessment" visible="true">
-			<topic title="" visible="false">
+		<module title="9. Assessment" visible="true" type="assessment">
+			<topic title="Assessment" visible="false">
 				<screen templateID="ModuleQuiz.swf" title="" ScreenTitle=""
 					xmlName="assessment.xml" audioName="" agentAnim="" agentseq=""
 					lockNext="true" markComplete="false" sliderEnabled="false"
 					playPauseEnabled="true" visible="true" notes="true"><![CDATA[]]>
 				</screen>
 			</topic>
-		</module> -->
+		</module>
 	</course>
 </structure>	

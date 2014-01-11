@@ -23,11 +23,20 @@ var Engine = (function(){
 
 	};
 
+	function normalizeCourse(courseStructure){
+		for(var index in courseStructure.course.module){
+			if(!(courseStructure.course.module[index].topic instanceof Array)){
+				courseStructure.course.module[index].topic = [courseStructure.course.module[index].topic];
+			}
+		}
+		return courseStructure;
+	}
+	
 	function getCourseStructure(){
 		return $.ajax({
 			url : EnvVariables.paths['Data'] + "/" +EnvVariables['lang']+  '/structure.xml',  
 			success : function(response){
-				courseStructure = xml2jsonObj(response.childNodes[0]);
+				courseStructure = normalizeCourse(xml2jsonObj(response.childNodes[0]));
 				console.log("Structure " , courseStructure);
 			}
 		});
