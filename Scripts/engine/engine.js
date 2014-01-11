@@ -48,6 +48,13 @@ var Engine = (function(){
 		console.log("topicData=====",topicData,"template==",template);
 		
 		$(".template-conatiner").html( Handlebars.compile(template)(topicData));
+		if(topicData["Instruction"] !== undefined){
+			$("h3").html(topicData["Instruction"]);
+		}
+		else{
+			$(".intruction-div").hide();
+		}
+		
 	};
 
 	function getTemplateData(templateId,templateType){
@@ -381,8 +388,8 @@ var Engine = (function(){
 
 			registerEvents();
 		},
-
-
+		showNextPage : showNextPage,
+		showPrevPage : showPrevPage,
 	}
 })();
 

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <screen>
+    <Instruction>This is an Instruction.</Instruction>
     <title><![CDATA[<FONT SIZE="28"><font face='Arial' color="#2B1F09"><B>Title text 1</B></font>]]></title>
 	<options>
 		<value>

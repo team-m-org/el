@@ -22,22 +22,25 @@
         </div>
     </div>
     <div class="large-6 small-6 columns">
+    
         <div class="panel1 tpad5p">
+        	
             <table style="width: 100%">
                 <tr>
-                    <td>{{{questionHeader._cdata}}}</td>
+                    <td>{{{questionHeader._cdata}}}<br/><div class="error hide1 red"></div></td>
                 </tr>
                 <tr>
                     <td>{{#options.value}}
-                        <input type="checkbox" name={{this.optionValue}} value={{this.optionValue}} />{{{this.optionDisplay._cdata}}}
+                        <input type="checkbox" id="c_question" name="c_question" value={{this.optionValue}} />{{{this.optionDisplay._cdata}}}
                         <br />{{/options.value}}</td>
                 </tr>
                 <tr>
                     <td align="right">
-                        <button onclick="JavaScript:alert('Well done!')">Submit!</button>
+                        <button class="i_submit">Submit!</button>
                     </td>
                 </tr>
             </table>
+            
         </div>
     </div>
     
@@ -60,3 +63,12 @@
             </div>
         </div>
     </div>
+    <script>
+    $('.template-conatiner .i_submit').click(function () {
+    	if($("#c_question").is(':checked')){
+    		Engine.showNextPage();
+    	}else{
+    		$(".error").html("Please select atleast one option.").slideDown();
+    	}
+	});
+    </script>
