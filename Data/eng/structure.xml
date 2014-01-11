@@ -62,7 +62,8 @@
 				agentseq="" lockNext="true" markComplete="false" sliderEnabled="true" playPauseEnabled="true" 
 				visible="true" notes="true"><![CDATA[]]></screen> </topic>
 		</module>
-		
+	
+			
 		<module title="Module 3" visible="true">
 			<topic title="Topic 1" visible="false"> <screen templateID="LeftImageRightText.html" 
 				title="" ScreenTitle="" xmlName="LeftImageRightText.xml" audioName="" agentAnim="" 
