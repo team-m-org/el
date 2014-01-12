@@ -93,10 +93,30 @@
 		</module>
 		
 		
-		<module title="9. Assessment" visible="true" type="assessment">
-			<topic title="Assessment" visible="false">
-				<screen templateID="ModuleQuiz.swf" title="" ScreenTitle=""
-					xmlName="assessment.xml" audioName="" agentAnim="" agentseq=""
+		<module title="9. Assessment" visible="true">
+			<topic title="Assessment" visible="false" type="assessment" ques_set1="1" ques_set2="1" ques_set3="1">
+				<screen  setNo="1" templateID="MCQWith3Scenarios.html" title="9.1.1" ScreenTitle=""
+					xmlName="MCQWith3Scenarios1.xml" audioName="" agentAnim="" agentseq=""
+					lockNext="true" markComplete="false" sliderEnabled="false"
+					playPauseEnabled="true" visible="true" notes="true"><![CDATA[]]>
+				</screen>
+				<screen  setNo="1" templateID="MCQWith3Scenarios.html" title="9.1.2" ScreenTitle=""
+					xmlName="MCQWith3Scenarios2.xml" audioName="" agentAnim="" agentseq=""
+					lockNext="true" markComplete="false" sliderEnabled="false"
+					playPauseEnabled="true" visible="true" notes="true"><![CDATA[]]>
+				</screen>
+				<screen  setNo="1" templateID="MCQWith3Scenarios.html" title="9.1.3" ScreenTitle=""
+					xmlName="MCQWith3Scenarios3.xml" audioName="" agentAnim="" agentseq=""
+					lockNext="true" markComplete="false" sliderEnabled="false"
+					playPauseEnabled="true" visible="true" notes="true"><![CDATA[]]>
+				</screen>
+				<screen setNo="2" templateID="MCQWith3Scenarios.html" title="9.1.4" ScreenTitle=""
+					xmlName="MCQWith3Scenarios4.xml" audioName="" agentAnim="" agentseq=""
+					lockNext="true" markComplete="false" sliderEnabled="false"
+					playPauseEnabled="true" visible="true" notes="true"><![CDATA[]]>
+				</screen>
+				<screen setNo="3"  templateID="MCQWith3Scenarios.html" title="9.1.5" ScreenTitle=""
+					xmlName="MCQWith3Scenarios5.xml" audioName="" agentAnim="" agentseq=""
 					lockNext="true" markComplete="false" sliderEnabled="false"
 					playPauseEnabled="true" visible="true" notes="true"><![CDATA[]]>
 				</screen>
