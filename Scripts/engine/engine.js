@@ -24,24 +24,24 @@ var Engine = (function(){
 
 	};
 
-	
-	
-	
+
+
+
 	function normalizeCourse(courseStructure){
-		
+
 		if(!(courseStructure.course.module instanceof Array)){
 			courseStructure.course.module = [courseStructure.course.module];
 		}
-		
+
 		var modules = courseStructure.course.module;
-		
+
 		modules = modules.filter(function(element){
 			return element._visible=="true";
 		});
-		
+
 		for(var moduleIndex in modules){
 			var module = modules[moduleIndex];
-			
+
 			var topics = module.topic;
 			if(!(topics instanceof Array)){
 				topics = module.topic = [topics];
@@ -49,7 +49,7 @@ var Engine = (function(){
 			topics  = module.topic = topics.filter(function(element){
 				return element._visible=="true";
 			});
-			
+
 			for(var topicIndex in topics){
 				var screens = topics[topicIndex].screen;
 				if(!(screens instanceof Array)){
@@ -58,14 +58,14 @@ var Engine = (function(){
 				var screens = topics[topicIndex].screen  = screens.filter(function(element){
 					return element._visible=="true";
 				});		
-				
-				
+
+
 			}
-			
+
 		}
 		return courseStructure;
 	}
-	
+
 	function createAssessment(topic){
 		console.log(topic);
 		var noOfQuestionsMap = {};
@@ -74,30 +74,30 @@ var Engine = (function(){
 				noOfQuestionsMap[index] = parseInt(topic[index], 10);
 			}
 		}
-		
+
 		var screensMap = {};
 		for(var screenIndex in topic.screen){
 			var screen = topic.screen[screenIndex];
 			screensMap["_ques_set" + screen._setNo] = screensMap["_ques_set" + screen._setNo] ||[];
 			screensMap["_ques_set" + screen._setNo].push(screen);
 		}
-		
+
 		console.log(noOfQuestionsMap);
 		console.log(screensMap);
-		
+
 		var calculatedScreens = [];
 		for(var noOfQuestionsMapIndex in noOfQuestionsMap){
 			var noOfQuestionsToPick = noOfQuestionsMap[noOfQuestionsMapIndex];
 			var questionsScreens  = screensMap[noOfQuestionsMapIndex];
 			calculatedScreens.push.apply(calculatedScreens, questionsScreens.sort(function(){ 
-			  return Math.round(Math.random())-0.5;
+				return Math.round(Math.random())-0.5;
 			}).slice(0,noOfQuestionsToPick));
 		}
 		topic.screen = calculatedScreens;
-		
+
 		return topic;
 	}
-	
+
 	function constructCourse(courseStructure){
 		var modules = courseStructure.course.module;
 		for(var index in modules){
@@ -168,17 +168,17 @@ var Engine = (function(){
 		});
 	};
 
-	
+
 	function renderAssesment(template, assessmentData){
-		
+
 		assessmentStructure =  assessmentData;
 		USERSTATE['mode'] = "assessment";
 		data['assessment'] = assessmentData.topic;
-		
+
 		showTopic();
-		
+
 	}
-	
+
 	showTopic =  function(){
 
 		var module = courseStructure.course.module[USERSTATE.module];
@@ -257,10 +257,10 @@ var Engine = (function(){
 			showTopic();
 			updatePagination();
 			updateBreadCrum();
-			
+
 			var modules = courseStructure.course.module;
 			var topics = modules[USERSTATE.module].topic;
-			
+
 			if(USERSTATE.module === 0 && USERSTATE.topic===0){
 				$('#prev').addClass('disableNavigation');
 				$('#next').removeClass('disableNavigation'); 
@@ -273,7 +273,7 @@ var Engine = (function(){
 				$('#prev').removeClass('disableNavigation');
 				$('#next').removeClass('disableNavigation'); 
 			}
-			
+
 			return false;
 		}
 
@@ -288,10 +288,10 @@ var Engine = (function(){
 		showTopic();
 		updatePagination();
 		updateBreadCrum();
-		
+
 		var modules = courseStructure.course.module;
 		var topics = modules[USERSTATE.module].topic;
-		
+
 		if(USERSTATE.module === 0 && USERSTATE.topic===0){
 			$('#prev').addClass('disableNavigation');
 			$('#next').removeClass('disableNavigation'); 
@@ -304,8 +304,8 @@ var Engine = (function(){
 			$('#prev').removeClass('disableNavigation');
 			$('#next').removeClass('disableNavigation'); 
 		}
-		
-		
+
+
 	};
 
 	updatePagination = function(){
@@ -367,7 +367,10 @@ var Engine = (function(){
 		showNextPage();
 	};
 
+
+
 	helpHandler = function(){
+
 		console.log("Help Click");
 	};
 
@@ -408,7 +411,7 @@ var Engine = (function(){
 		updatePagination();
 		updateBreadCrum();
 	};
-	
+
 	updateNextNavigation = function(){
 		var modules = courseStructure.course.module;
 		var currentModule = modules[USERSTATE.module];
@@ -419,9 +422,9 @@ var Engine = (function(){
 		} else {
 			$('#prev').removeClass('disableNavigation'); 
 		}
-		
+
 	};
-	
+
 	updatePrevNavgation = function(){
 		if(USERSTATE.module === 0 && USERSTATE.topic === 0 && USERSTATE.screen === 0){
 			$('#prev').addClass('disableNavigation');
@@ -431,7 +434,7 @@ var Engine = (function(){
 			$('#next').removeClass('disableNavigation'); 
 		}
 	};
-	
+
 
 	initView = function(){
 		var modules = courseStructure.course.module;
@@ -493,7 +496,7 @@ var Engine = (function(){
 	showPrevPage = function(){
 		var modules = courseStructure.course.module;
 		var prevScreen = --USERSTATE.screen;
-		
+
 		if(prevScreen < 0){
 			USERSTATE.screen = prevScreen = 0;
 			USERSTATE.topic--;
@@ -508,12 +511,12 @@ var Engine = (function(){
 			}
 			USERSTATE.screen = prevScreen = modules[USERSTATE.module].topic[USERSTATE.topic].screen.length-1;
 		}
-		
+
 		updatePrevNavgation();
 		showTopic();
 		updatePagination();
 		updateBreadCrum();
-		
+
 	};
 
 

@@ -42,6 +42,9 @@
 
 .template-conatiner {
 	min-height: 600px;
+	border-left: solid 1px;
+	border-right: solid 1px;
+	color: rgb(0, 116, 145);
 }
 
 .pagination {
