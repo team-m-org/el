@@ -53,23 +53,40 @@
                     </tr>
                     <tr>
                         <td>
-                            <p>{{feedbackContent}}</p>
+                            <div class="rfeedbackContent">{{feedbackContent}}</div>
                         </td>
                     </tr>
                 </table>
             </div>
         </div>
     </div>
+    <input type="hidden" name="rc_answer" id="rc_answer" value={{correctAnswer}}>
+    <div class="hide rfeedbackCorrect">{{{feedbackCorrectContent._cdata}}}</div>
+    <div class="hide rfeedbackIncorrec">{{{feedbackIncorrectContent._cdata}}}</div>
     <script>
+  
     $('.template-conatiner .r_submit').click(function () {
     	var c_flag = false;
-    	$("input[name='r_mcqsingle']:checked").each(function() { 
-    		c_flag = true;   
-    	});
-    	if(c_flag===true){
-    		Engine.showNextPage();
+    	var inputAns;
+    	var correctAns = $("#rc_answer").val();
+    	var inputAns = $('input:radio[name="r_mcqsingle"]:checked').val();
+    	
+    	if(inputAns != undefined){
+    		if(correctAns.toLowerCase() == inputAns.toLowerCase()){
+    			$(".rfeedbackContent").html($(".rfeedbackCorrect").html());
+    			//Engine.showNextPage();
+    		}else{
+    			$(".rfeedbackContent").html($(".rfeedbackIncorrec").html());
+    		}
+    		return false;
     	}else{
-    		$(".error").html("Please select atleast one option.").slideDown();
+    		c_flag = false;
+    	}
+    	if(c_flag==false){
+    		$(".error").html("Please select one option.").slideDown();
+    		return false;
     	}
 	});
+    
+    
     </script>
