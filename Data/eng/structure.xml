@@ -4,7 +4,7 @@
 	<welcomePage fileName="intro.swf" />
 	<course enableNext="false" menuType="topic">
 	<module title="Module 1" visible="true">
-			<topic title="Topic 1" visible="false"> 
+			<topic title="Topic 1" visible="true"> 
 				<screen templateID="ImageWithHover.html" 
 					title="Screen 1" ScreenTitle="" xmlName="ImageWithHover.xml" audioName="" agentAnim="" 
 					agentseq="" lockNext="true" markComplete="false" sliderEnabled="true" playPauseEnabled="true" 
@@ -109,10 +109,10 @@
 				agentseq="" lockNext="true" markComplete="false" sliderEnabled="true" playPauseEnabled="true" 
 				visible="true" notes="true"><![CDATA[]]></screen> </topic>
 		</module>
-		
+		 -->
 		
 		<module title="9. Assessment" visible="true">
-			<topic title="Assessment" visible="false" type="assessment" ques_set1="1" ques_set2="1" ques_set3="1">
+			<topic title="Assessment" visible="true" type="assessment" ques_set1="1" ques_set2="1" ques_set3="1">
 				<screen  setNo="1" templateID="MCQWith3Scenarios.html" title="9.1.1" ScreenTitle=""
 					xmlName="MCQWith3Scenarios1.xml" audioName="" agentAnim="" agentseq=""
 					lockNext="true" markComplete="false" sliderEnabled="false"
@@ -139,6 +139,6 @@
 					playPauseEnabled="true" visible="true" notes="true"><![CDATA[]]>
 				</screen>
 			</topic>
-		</module> -->
+		</module>
 	</course>
 </structure>	
