@@ -35,14 +35,16 @@
 			<div class="row hide img_icon_text  img_icon_text_{{this._tab_id}}" data="img_icon_text_{{this._tab_id}}">
 			<div class="small-4 columns"  >
 				<div class="panel">
-					<h4>{{{this.title._cdata}}}</h4>
+					<h4>{{{this.title._cdata}}} </h4>
 					<p>
 						<img src="http://placehold.it/200x200" />
 					</p>
 				</div>
 			</div>
-			<div class="small-8 columns img_icon_text_box">
+			<div class="small-8 columns ">
+				
 				<div class="panel">
+					<a class="close-reveal-modal  img_icon_text_box right">close</a>
 					{{#each popupText.Text}}
 					<p>{{{this._cdata}}}</p>
 					{{/each}}
