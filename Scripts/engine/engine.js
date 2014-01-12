@@ -116,13 +116,10 @@ var Engine = (function(){
 		return $.ajax({
 			url : EnvVariables.paths['Data'] + "/" +EnvVariables['lang']+  '/structure.xml',  
 			success : function(response){
-<<<<<<< HEAD
-				courseStructure = normalizeCourse(xml2jsonObj(response.childNodes[0]));
-				//console.log("Structure " , courseStructure);
-=======
+
 				var normalizedCourse = normalizeCourse(xml2jsonObj(response.childNodes[0]));
 				courseStructure = constructCourse(normalizedCourse);
->>>>>>> cd7c921b6890b191ba1f437e5c28f34b62805a26
+
 			}
 		});
 	};
