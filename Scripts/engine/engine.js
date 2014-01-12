@@ -14,7 +14,8 @@ var Engine = (function(){
 	var courseStructure = null;
 	var USERSTATE = {
 			module : 0,
-			topic : 0
+			topic : 0,
+			screen : 0
 	};
 	var templatesCache = {
 
@@ -24,29 +25,40 @@ var Engine = (function(){
 	};
 
 	function normalizeCourse(courseStructure){
+
+		if(!(courseStructure.course.module instanceof Array)){
+			courseStructure.course.module = [courseStructure.course.module];
+		}
+
 		for(var index in courseStructure.course.module){
-			if(!(courseStructure.course.module[index].topic instanceof Array)){
-				courseStructure.course.module[index].topic = [courseStructure.course.module[index].topic];
+			var topic = courseStructure.course.module[index].topic;
+			if(!(topic instanceof Array)){
+				topic = courseStructure.course.module[index].topic = [topic];
+				for(var index in topic){
+					if(!(topic[index].screen instanceof Array)){
+						topic[index].screen = [topic[index].screen];
+					}
+				}
 			}
 		}
 		return courseStructure;
 	}
-	
+
 	function getCourseStructure(){
 		return $.ajax({
 			url : EnvVariables.paths['Data'] + "/" +EnvVariables['lang']+  '/structure.xml',  
 			success : function(response){
 				courseStructure = normalizeCourse(xml2jsonObj(response.childNodes[0]));
-				console.log("Structure " , courseStructure);
+				//console.log("Structure " , courseStructure);
 			}
 		});
 	};
 
 
 	function renderTopic(template, topicData){
-		console.log("=======",JSON.stringify(topicData),"====");
-		console.log("topicData=====",topicData,"template==",template);
-		
+		//console.log("=======",JSON.stringify(topicData),"====");
+		//console.log("topicData=====",topicData,"template==",template);
+
 		$(".template-conatiner").html( Handlebars.compile(template)(topicData));
 		if(topicData["Instruction"] !== undefined){
 			$("h3").html(topicData["Instruction"]);
@@ -54,13 +66,13 @@ var Engine = (function(){
 		else{
 			$(".intruction-div").hide();
 		}
-		
+
 	};
 
 	function getTemplateData(templateId,templateType){
 		if(templatesCache[templateId]){
 			var differed = $.Deferred();
-			console.log('returning differed getTemplateData');
+			//console.log('returning differed getTemplateData');
 			return differed.resolve();
 		}
 		return $.ajax({
@@ -74,7 +86,7 @@ var Engine = (function(){
 
 	function getTopicData(topicDataId){
 		if(topicDataCache[topicDataId]){
-			console.log('returning differed getTopicData');
+			//console.log('returning differed getTopicData');
 			var differed = $.Deferred();
 			return differed.resolve();
 		}
@@ -87,10 +99,13 @@ var Engine = (function(){
 	};
 
 	showTopic =  function(){
-		var topic = courseStructure.course.module[USERSTATE.module].topic[USERSTATE.topic];
 
-		var topicTemplateId = topic.screen['_templateID'];
-		var templateDataId = topic.screen['_xmlName'];
+		var module = courseStructure.course.module[USERSTATE.module];
+		var topics =  module.topic[USERSTATE.topic];
+		var screens = topics.screen[USERSTATE.screen];
+
+		var topicTemplateId = screens['_templateID'];
+		var templateDataId = screens['_xmlName'];
 
 		var templatePromise = getTemplateData(topicTemplateId);
 		var topicDataPromise = getTopicData(templateDataId);
@@ -99,7 +114,7 @@ var Engine = (function(){
 		return $.when(templatePromise, topicDataPromise).then(function(){
 			var template = templatesCache[topicTemplateId];
 			var topicData = topicDataCache[templateDataId];
-			//console.log('render topic here', template, topicData);
+			console.log('render topic here', template, topicData);
 			renderTopic(template, topicData);
 		});
 	};
@@ -162,7 +177,7 @@ var Engine = (function(){
 			updatePagination();
 			return false;
 		}
-		
+
 	};
 
 	topicHandler = function(){
@@ -178,8 +193,16 @@ var Engine = (function(){
 
 		var modules = courseStructure.course.module;
 		var topics = modules[USERSTATE.module].topic;
-		$('.curr-page').text(USERSTATE.topic+1);
-		$('.total-page').text(topics.length);
+		var screens = topics[USERSTATE.topic].screen;
+		if(screens instanceof Array){
+			$('.curr-page').text(USERSTATE.screen+1);
+			$('.total-page').text(screens.length);	
+		}
+		else{
+			$('.curr-page').text(1);
+			$('.total-page').text(1);
+		}
+
 	};
 
 	rollOverHandler = function(){
@@ -243,70 +266,75 @@ var Engine = (function(){
 		var modules = courseStructure.course.module;
 		var currentModule = modules[USERSTATE.module];
 		var currentTopic = modules[USERSTATE.module].topic[USERSTATE.topic];
-
-		var nextTopic = ++USERSTATE.topic ;
-
+		var nextScreen = ++USERSTATE.screen;
 		var moudlesLength = modules.length;
-		
-		if(USERSTATE.module === moudlesLength-1){
-			if(USERSTATE.topic === currentModule.topic.length-1){
-				$('#next').addClass('disableNavigation');
-			}
-		}
-		else{
-			$('#prev').removeClass('disableNavigation');
-		}
-		
-		
-		if(nextTopic > currentModule.topic.length-1){
-			USERSTATE.topic = nextTopic = currentModule.topic.length-1;
-			USERSTATE.module++; 
-			
-			if(USERSTATE.module > moudlesLength-1){
-				
-				USERSTATE.module =  moudlesLength-1;
-				return;
-			}
-			USERSTATE.topic = nextTopic = 0;
-		}
+		if(nextScreen > currentTopic.screen.length-1){
+			USERSTATE.screen = nextScreen = currentTopic.screen.length-1;
+			USERSTATE.topic++;
+			if(USERSTATE.topic > currentModule.topic.length-1){
+				USERSTATE.topic =  currentModule.topic.length-1;
+				USERSTATE.module++;
+				if(USERSTATE.module > moudlesLength-1){
+					USERSTATE.module = moudlesLength-1;
+					return;
+				}
 
-
-		var topics = modules[USERSTATE.module].topic;
-		if(USERSTATE.module === moudlesLength-1 &&  USERSTATE.topic === topics[USERSTATE.topic].length-1){
-			//TODO disable next button
-		} else {
-			//TODO enable next button
+				USERSTATE.topic  = 0;
+			}
+			USERSTATE.screen = nextScreen = 0;
 		}
+		updateNextNavigation();
 		showTopic();
 		updatePagination();
 		updateBreadCrum();
 	};
 	
+	updateNextNavigation = function(){
+		var modules = courseStructure.course.module;
+		var currentModule = modules[USERSTATE.module];
+		var topics = modules[USERSTATE.module].topic;
+		if(USERSTATE.module === modules.length-1 &&  USERSTATE.topic === currentModule.topic.length-1 && USERSTATE.screen === topics[USERSTATE.topic].screen.length-1){
+			$('#next').addClass('disableNavigation');
+			$('#prev').removeClass('disableNavigation');
+		} else {
+			$('#prev').removeClass('disableNavigation'); 
+		}
+		
+	};
+	
+	updatePrevNavgation = function(){
+		if(USERSTATE.module === 0 && USERSTATE.topic === 0 && USERSTATE.screen === 0){
+			$('#prev').addClass('disableNavigation');
+			$('#next').removeClass('disableNavigation'); 
+		}
+		else{
+			$('#next').removeClass('disableNavigation'); 
+		}
+	};
+	
+
 	initView = function(){
 		var modules = courseStructure.course.module;
-		var topics = modules[USERSTATE.module].topic;		
 		generateMenu(modules);
 		updatePagination();
 		updateBreadCrum();
+		updateNextNavigation();
+		updatePrevNavgation();
 		$('.course-title').text(courseStructure.courseTitle._cdata);
-		if(USERSTATE.module === 0){
-			if(USERSTATE.topic === 0){
-				$('#prev').addClass('disableNavigation');
-			}
-		}
-		
-		
 	};
-	
-	
-	
+
 	updateBreadCrum = function(){
 		var modules = courseStructure.course.module;
 		var topics = modules[USERSTATE.module].topic;
+		var screen =  topics[USERSTATE.topic].screen;
+		var screenTitle = "";
 		$('.module-name').text(modules[USERSTATE.module]["_title"]);
 		$('.module-topic').text(topics[USERSTATE.topic]["_title"]);
+		(screen instanceof Array) ? screenTitle = screen[USERSTATE.screen]["_title"] : screenTitle = screen["_title"];
+		$('.module-screen').text(screenTitle);
+
 	};
-	
+
 	generateMenu = function(modules){
 
 		var moduleArray=[];		
@@ -333,7 +361,7 @@ var Engine = (function(){
 
 			moduleArray.push(moduleObj);
 		}
-		
+
 		var templatePromise = getTemplateData("menuTemplate.html","engine");
 		$.when(templatePromise).then(function(){
 			var template = templatesCache["menuTemplate.html"];
@@ -343,38 +371,29 @@ var Engine = (function(){
 
 
 	showPrevPage = function(){
-		var currentModule = courseStructure.course.module[USERSTATE.module];
-		var currentTopic = courseStructure.course.module[USERSTATE.module].topic[USERSTATE.topic];
-		var prevTopic = --USERSTATE.topic;
+		var modules = courseStructure.course.module;
+		var prevScreen = --USERSTATE.screen;
 		
-		if(USERSTATE.module === 0){
-			if(prevTopic === 0){
-				$('#prev').addClass('disableNavigation');
+		if(prevScreen < 0){
+			USERSTATE.screen = prevScreen = 0;
+			USERSTATE.topic--;
+			if(USERSTATE.topic < 0){
+				USERSTATE.topic = 0;
+				USERSTATE.module--;
+				if(USERSTATE.module < 0){
+					USERSTATE.module = 0;
+					return;
+				}
+				USERSTATE.topic  = modules[USERSTATE.module].topic.length-1;
 			}
-		}
-		else{
-			$('#next').removeClass('disableNavigation');
+			USERSTATE.screen = prevScreen = modules[USERSTATE.module].topic[USERSTATE.topic].screen.length-1;
 		}
 		
-		if(prevTopic < 0){
-			USERSTATE.topic = prevTopic = 0;
-			USERSTATE.module--; 
-			if(USERSTATE.module<0){
-				USERSTATE.module = 0;
-				return;
-			}
-			USERSTATE.topic = prevTopic = courseStructure.course.module[USERSTATE.module].topic.length - 1;
-		}
-
-		if(USERSTATE.module === 0 && USERSTATE.topic===0){
-			//TODO disable back button
-		} else {
-			//TODO enable back button
-		}
-
+		updatePrevNavgation();
 		showTopic();
 		updatePagination();
 		updateBreadCrum();
+		
 	};
 
 
