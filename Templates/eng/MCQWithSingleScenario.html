@@ -27,7 +27,7 @@
         	
             <table style="width: 100%">
                 <tr>
-                    <td>{{{questionHeader._cdata}}}<br/><div class="error hide1 red"></div></td>
+                    <td>{{{questionHeader._cdata}}}<br/><div class="error hide red"></div></td>
                 </tr>
                 <tr>
                     <td>{{#options.value}}
@@ -65,7 +65,11 @@
     </div>
     <script>
     $('.template-conatiner .i_submit').click(function () {
-    	if($("#c_question").is(':checked')){
+    	var c_flag = false;
+    	$("input[name='c_question']:checked").each(function() { 
+    		c_flag = true;   
+    	});
+    	if(c_flag===true){
     		Engine.showNextPage();
     	}else{
     		$(".error").html("Please select atleast one option.").slideDown();

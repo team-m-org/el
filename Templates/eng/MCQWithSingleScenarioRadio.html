@@ -25,16 +25,16 @@
         <div class="panel1 tpad5p">
             <table style="width: 100%">
                 <tr>
-                    <td>{{questionHeader}}</td>
+                    <td>{{questionHeader}}<br/><div class="error hide red"></div></td>
                 </tr>
                 <tr>
                     <td>{{#options.value}}
-                        <input type="radio" name={{this.optionValue}} value={{this.optionValue}} />{{this.optionDisplay}}
+                        <input type="radio" name="r_mcqsingle" value={{this.optionValue}} />{{this.optionDisplay}}
                         <br />{{/options.value}}</td>
                 </tr>
                 <tr>
                     <td align="right">
-                        <button onclick="JavaScript:alert('Well done!')">Submit!</button>
+                        <button class="r_submit">Submit!</button>
                     </td>
                 </tr>
             </table>
@@ -60,3 +60,16 @@
             </div>
         </div>
     </div>
+    <script>
+    $('.template-conatiner .r_submit').click(function () {
+    	var c_flag = false;
+    	$("input[name='r_mcqsingle']:checked").each(function() { 
+    		c_flag = true;   
+    	});
+    	if(c_flag===true){
+    		Engine.showNextPage();
+    	}else{
+    		$(".error").html("Please select atleast one option.").slideDown();
+    	}
+	});
+    </script>

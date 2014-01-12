@@ -1,42 +1,3 @@
-<!-- <div class="row tpad10p bred rpad5p lpad5p">
-	<div class="small-8 columns">
-		<div style="height: 100%">
-			<h1 style="background-color: olive;">{{QuestionOfEthics}}</h1>
-			<table style="width: 100%; height: 100%">
-				<tr>
-					{{#Scenarios.Scenario}}
-					<td>
-						<table>
-							<tr>
-								<td><img src={{this.image}} /></td>
-							</tr>
-							<tr>
-								<td>{{this.information}}</td>
-							</tr>
-						</table>
-					</td> {{/Scenarios.Scenario}}
-				</tr>
-			</table>
-		</div>
-	</div>
-	<div class="small-4 columns" style="padding-right: 5%; padding-left: 0%">
-		<div style="background-color: white;">
-			<h1  style="background-color: olive;">{{questionHeader}}</h1>
-			<p style="padding-left: 23px;">{{questionText}}</p>
-			{{#options.value}} 
-				<input type="checkbox" name={{this.optionValue}}
-					value={{this.optionValue}} /> {{this.optionDisplay}}<br />
-			{{/options.value}}
-			<div align="right">
-				<button onclick="JavaScript:alert('Well done!')">Submit!</button>
-			</div>
-		</div>
-	</div>
-
-</div>
- -->
-
-
 <div class="row tpad10p  rpad5p lpad5p">
 	<div class="small-12 columns">
 		<div class="row">
@@ -55,16 +16,31 @@
 				<img src={{this.image}} />
 				<p>{{this.information}}</p>
 			</div>
+			
 			{{/Scenarios.Scenario}}
 			<div class="small-3 columns">
 				<p>{{questionText}}</p>
-				{{#options.value}} <input type="checkbox" name={{this.optionValue}}
+				<div class="error hide1 red"></div>
+				{{#options.value}} <input type="checkbox" id="mcq_question"  name="mcq_question"
 					value={{this.optionValue}} /> {{this.optionDisplay}}<br />
 				{{/options.value}}
 				<div align="right">
-					<button onclick="JavaScript:alert('Well done!')">Submit!</button>
+					<button class="mcq_submit">Submit!</button>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
+<script>
+    $('.template-conatiner .mcq_submit').click(function () {
+    	var c_flag = false;
+    	$("input[name='mcq_question']:checked").each(function() { 
+    		c_flag = true;   
+    	});
+    	if(c_flag===true){
+    		Engine.showNextPage();
+    	}else{
+    		$(".error").html("Please select atleast one option.").slideDown();
+    	}
+	});
+</script>
