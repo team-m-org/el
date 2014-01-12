@@ -337,7 +337,8 @@ var Engine = (function(){
 		console.log("Exit Click");
 		var bool =  confirm("Are you sure you want to exit");
 		if(bool){
-			//TODO: unload window 
+			window.open('', '_self', '');
+			window.close();
 		}
 	};
 
