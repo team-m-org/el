@@ -53,21 +53,7 @@
 			</topic>
 			
 		</module>
-		<module title="Module 3" visible="true">
-			<topic title="Topic 1" visible="true"> 
-				<screen templateID="MCQWith3Scenarios.html" 
-				title="Screen 1" ScreenTitle="" xmlName="MCQWith3Scenarios.xml" audioName="" agentAnim="" 
-				agentseq="" lockNext="true" markComplete="false" sliderEnabled="true" playPauseEnabled="true" 
-				visible="true" notes="true"><![CDATA[]]>
-				</screen>
-				<!-- <screen templateID="ImageWithHover.html"
-				title="Screen 3" ScreenTitle="" xmlName="ImageWithHover.xml" audioName="" agentAnim="" 
-				agentseq="" lockNext="true" markComplete="false" sliderEnabled="true" playPauseEnabled="true" 
-				visible="true" notes="true"><![CDATA[]]>
-				</screen> -->
-			</topic>
-			
-		</module>
+		
 		 <!--<module title="Module 1" visible="true">
 			<topic title="Topic 1" visible="false"> <screen templateID="MCQWithSingleScenarioRadio.html" 
 				title="" ScreenTitle="" xmlName="MCQWithSingleScenarioRadio.xml" audioName="" agentAnim="" 
