@@ -184,13 +184,16 @@ var Engine = (function(){
 		var module = courseStructure.course.module[USERSTATE.module];
 		var topics =  module.topic[USERSTATE.topic];
 		var screens = topics.screen[USERSTATE.screen];
-
+		
+		
+		
 		var topicTemplateId = screens['_templateID'];
 		var templateDataId = screens['_xmlName'];
 
 		var templatePromise = getTemplateData(topicTemplateId);
 		var topicDataPromise = getTopicData(templateDataId);
 
+		
 
 		return $.when(templatePromise, topicDataPromise).then(function(){
 			var template = templatesCache[topicTemplateId];
@@ -623,6 +626,7 @@ var Engine = (function(){
 			$.when(courseStructureObtained).then(function(){
 				showTopic();
 				initView();
+				updateScromString();
 			});
 
 			registerEvents();
