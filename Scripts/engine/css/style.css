@@ -180,6 +180,11 @@
 	margin-left: 10px;
 	padding: 0;
 }
+.completed img{
+	height: 20px;
+	width: 20px;
+	//opacity:0;
+}
 
 .disableNavigation{
 	opacity:0.5;
