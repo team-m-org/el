@@ -32,16 +32,35 @@ var Engine = (function(){
 			courseStructure.course.module = [courseStructure.course.module];
 		}
 		
-		for(var index in courseStructure.course.module){
-			var topic = courseStructure.course.module[index].topic;
-			if(!(topic instanceof Array)){
-				topic = courseStructure.course.module[index].topic = [topic];
-				for(var index in topic){
-					if(!(topic[index].screen instanceof Array)){
-						topic[index].screen = [topic[index].screen];
-					}
-				}
+		var modules = courseStructure.course.module;
+		
+		modules = modules.filter(function(element){
+			return element._visible=="true";
+		});
+		
+		for(var moduleIndex in modules){
+			var module = modules[moduleIndex];
+			
+			var topics = module.topic;
+			if(!(topics instanceof Array)){
+				topics = module.topic = [topics];
 			}
+			topics  = module.topic = topics.filter(function(element){
+				return element._visible=="true";
+			});
+			
+			for(var topicIndex in topics){
+				var screens = topics[topicIndex].screen;
+				if(!(screens instanceof Array)){
+					screens = topics[topicIndex].screen = [screens];
+				}
+				var screens = topics[topicIndex].screen  = screens.filter(function(element){
+					return element._visible=="true";
+				});		
+				
+				
+			}
+			
 		}
 		return courseStructure;
 	}
@@ -70,10 +89,8 @@ var Engine = (function(){
 			var noOfQuestionsToPick = noOfQuestionsMap[noOfQuestionsMapIndex];
 			var questionsScreens  = screensMap[noOfQuestionsMapIndex];
 			calculatedScreens.push.apply(calculatedScreens, questionsScreens.sort(function(){ 
-			  return Math.round(Math.random())-0.5
-			}).slice(0,noOfQuestionsToPick))
-			
-			
+			  return Math.round(Math.random())-0.5;
+			}).slice(0,noOfQuestionsToPick));
 		}
 		topic.screen = calculatedScreens;
 		
