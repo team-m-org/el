@@ -56,23 +56,51 @@
                     </tr>
                     <tr>
                         <td>
-                            <p>{{{feedbackContent._cdata}}}</p>
+                            <div class="feedbackContent">{{{feedbackContent._cdata}}}</div>
+                           
                         </td>
                     </tr>
                 </table>
             </div>
         </div>
     </div>
+    <input type="hidden" name="c_answer" id="c_answer" value={{correctAnswer}}>
+    <div class="hide feedbackCorrect">{{{feedbackCorrectContent._cdata}}}</div>
+    <div class="hide feedbackIncorrec">{{{feedbackIncorrectContent._cdata}}}</div>
     <script>
     $('.template-conatiner .i_submit').click(function () {
     	var c_flag = false;
+    	var inputAns = [];
+    	var correctAns = $("#c_answer").val().split(",");
     	$("input[name='c_question']:checked").each(function() { 
-    		c_flag = true;   
+    		inputAns.push($(this).val());
     	});
-    	if(c_flag===true){
-    		Engine.showNextPage();
+    	
+    	if(inputAns.length >0){
+    		if(correctAns.length===inputAns.length){
+    			var feedCnt = 0;
+    			for(var i=0; i<correctAns.length;i++){
+    				var correctVal = correctAns[i].toLowerCase();
+    				if(jQuery.inArray(correctVal,inputAns)  > -1){
+    					feedCnt++;
+    				}
+    			}
+    			if(feedCnt==correctAns.length){
+    				$(".feedbackContent").html($(".feedbackCorrect").html());
+    				//Engine.showNextPage();
+    			}else{
+    				$(".feedbackContent").html($(".feedbackIncorrec").html());
+    			}
+    		}else{
+    			$(".feedbackContent").html($(".feedbackIncorrec").html());
+    		}
+    		return false;
     	}else{
-    		$(".error").html("Please select atleast one option.").slideDown();
+    		c_flag = false;
+    	}
+    	if(c_flag==false){
+    		$(".error").html("Please select "+correctAns.length+" option.").slideDown();
+    		return false;
     	}
 	});
     </script>
