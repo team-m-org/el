@@ -410,7 +410,76 @@ var Engine = (function(){
 		showTopic();
 		updatePagination();
 		updateBreadCrum();
+		updateScromString();
 	};
+	
+	updateScromString = function(){
+		console.log("scromString : " + scromString);
+		
+		var scromStringArray = scromString.split("~"); 
+		
+		var module = scromStringArray[0].split("|");
+		
+		console.log(module[0]);
+		
+		var topics = module[0].split("^");
+		console.log("topic" + topics[0]);
+		
+		var tempScromString = "";
+		
+		for(var modelIndex in module){
+			if(modelIndex == USERSTATE.module){
+				console.log("module[modelIndex] : " + module[modelIndex]);
+				console.log("USERSTATE.module : " + USERSTATE.module);
+				
+				var topics = module[modelIndex].split("^");
+				var topicLevelString = "";
+				for(var topicIndex in topics){
+					
+					if(topicIndex == USERSTATE.topic){
+						console.log("topics[topicIndex] : " + topics[topicIndex]);
+						console.log("USERSTATE.topic : " + USERSTATE.topic);
+						
+						var pages = topics[topicIndex].split(",");
+						var tempTopicLevelString = "";
+						for(var pageIndex in pages){
+							if(pageIndex == USERSTATE.screen){
+								console.log("pages[pageIndex] : " + pages[pageIndex]);
+								console.log("USERSTATE.screen : " + USERSTATE.screen);
+								tempTopicLevelString += ",1";
+							}
+							else{
+								tempTopicLevelString += "," + pages[pageIndex];
+							}
+						}
+						tempTopicLevelString += "^";
+						tempTopicLevelString = tempTopicLevelString.substring(1, tempTopicLevelString.length);
+						topicLevelString += tempTopicLevelString;
+					}
+					else{
+						topicLevelString += topics[topicIndex] + "^";
+					}
+				}
+				topicLevelString = topicLevelString.substring(0, topicLevelString.length-1);
+				console.log("topicLevelString : " + topicLevelString);
+				console.log("tempScromString : " + tempScromString);
+				tempScromString += topicLevelString + "|";
+			}
+			else{
+				tempScromString += module[modelIndex] + "|";
+			}
+		}
+		
+		tempScromString = tempScromString.substring(0, tempScromString.length-1);
+		console.log("tempScromString : " + tempScromString);
+		console.log("scromString : " + scromString);
+		
+		tempScromString += "~" + USERSTATE.module + "," + USERSTATE.topic + "," + USERSTATE.screen;
+		
+		scromString = tempScromString;
+		
+		
+	}
 
 	updateNextNavigation = function(){
 		var modules = courseStructure.course.module;
@@ -437,6 +506,34 @@ var Engine = (function(){
 
 
 	initView = function(){
+		console.log(courseStructure.course);
+		
+		scromString = "";
+		for(var index in courseStructure.course.module){
+			if((courseStructure.course.module[index].topic instanceof Array)){
+				for(var topicIndex in courseStructure.course.module[index].topic){
+					courseStructure.course.module[index].topic[topicIndex]
+					if((courseStructure.course.module[index].topic[topicIndex].screen instanceof Array)){
+						for(var screenIndex in courseStructure.course.module[index].topic[topicIndex].screen){
+							scromString += "0,";
+						}
+						scromString = scromString.substring(0, scromString.length-1);
+						scromString += "^";
+						
+					}
+					else{
+						scromString += "0^";
+					}
+				}
+				scromString = scromString.substring(0, scromString.length-1);
+				scromString += "|";
+			}
+		}
+		
+		scromString = scromString.substring(0, scromString.length-1);
+		scromString += "~0,0,0"
+		console.log("scromString : " + scromString);
+		
 		var modules = courseStructure.course.module;
 		generateMenu(modules);
 		updatePagination();
