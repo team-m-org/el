@@ -107,6 +107,7 @@ var Engine = (function(){
 				}
 			}
 		}
+		return courseStructure;
 	}
 	
 	function getCourseStructure(){
