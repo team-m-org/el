@@ -23,21 +23,81 @@ var Engine = (function(){
 
 	};
 
+	
+	
+	
 	function normalizeCourse(courseStructure){
+		
+		if(!(courseStructure.course.module instanceof Array)){
+			courseStructure.course.module = [courseStructure.course.module];
+		}
+		
 		for(var index in courseStructure.course.module){
-			if(!(courseStructure.course.module[index].topic instanceof Array)){
-				courseStructure.course.module[index].topic = [courseStructure.course.module[index].topic];
+			var topic = courseStructure.course.module[index].topic;
+			if(!(topic instanceof Array)){
+				topic = courseStructure.course.module[index].topic = [topic];
+				for(var index in topic){
+					if(!(topic[index].screen instanceof Array)){
+						topic[index].screen = [topic[index].screen];
+					}
+				}
 			}
 		}
 		return courseStructure;
+	}
+	
+	function createAssessment(topic){
+		console.log(topic);
+		var noOfQuestionsMap = {};
+		for(var index in topic){
+			if(index.indexOf('_ques_set')!=-1){
+				noOfQuestionsMap[index] = parseInt(topic[index], 10);
+			}
+		}
+		
+		var screensMap = {};
+		for(var screenIndex in topic.screen){
+			var screen = topic.screen[screenIndex];
+			screensMap["_ques_set" + screen._setNo] = screensMap["_ques_set" + screen._setNo] ||[];
+			screensMap["_ques_set" + screen._setNo].push(screen);
+		}
+		
+		console.log(noOfQuestionsMap);
+		console.log(screensMap);
+		
+		var calculatedScreens = [];
+		for(var noOfQuestionsMapIndex in noOfQuestionsMap){
+			var noOfQuestionsToPick = noOfQuestionsMap[noOfQuestionsMapIndex];
+			var questionsScreens  = screensMap[noOfQuestionsMapIndex];
+			calculatedScreens.push.apply(calculatedScreens, questionsScreens.sort(function(){ 
+			  return Math.round(Math.random())-0.5
+			}).slice(0,noOfQuestionsToPick))
+			
+			
+		}
+		topic.screen = calculatedScreens;
+		
+		return topic;
+	}
+	
+	function constructCourse(courseStructure){
+		var modules = courseStructure.course.module;
+		for(var index in modules){
+			var module = modules[index];
+			for(var topicIndex in module.topic){
+				if(module.topic[topicIndex]._type==="assessment"){
+					module.topic[topicIndex] = createAssessment(module.topic[topicIndex]);
+				}
+			}
+		}
 	}
 	
 	function getCourseStructure(){
 		return $.ajax({
 			url : EnvVariables.paths['Data'] + "/" +EnvVariables['lang']+  '/structure.xml',  
 			success : function(response){
-				courseStructure = normalizeCourse(xml2jsonObj(response.childNodes[0]));
-				console.log("Structure " , courseStructure);
+				var normalizedCourse = normalizeCourse(xml2jsonObj(response.childNodes[0]));
+				courseStructure = constructCourse(normalizedCourse);
 			}
 		});
 	};
@@ -79,6 +139,17 @@ var Engine = (function(){
 		});
 	};
 
+	
+	function renderAssesment(template, assessmentData){
+		
+		assessmentStructure =  assessmentData;
+		USERSTATE['mode'] = "assessment";
+		data['assessment'] = assessmentData.topic;
+		
+		showTopic();
+		
+	}
+	
 	showTopic =  function(){
 		var topic = courseStructure.course.module[USERSTATE.module].topic[USERSTATE.topic];
 
@@ -338,7 +409,7 @@ var Engine = (function(){
 			});
 
 			registerEvents();
-		},
+		}
 
 
 	}
