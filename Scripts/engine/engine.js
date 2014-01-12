@@ -256,6 +256,24 @@ var Engine = (function(){
 			$('#menu-panel').foundation('reveal', 'close');
 			showTopic();
 			updatePagination();
+			updateBreadCrum();
+			
+			var modules = courseStructure.course.module;
+			var topics = modules[USERSTATE.module].topic;
+			
+			if(USERSTATE.module === 0 && USERSTATE.topic===0){
+				$('#prev').addClass('disableNavigation');
+				$('#next').removeClass('disableNavigation'); 
+			}
+			else if(USERSTATE.module === modules.length-1 && USERSTATE.topic === topics.length-1 ){
+				$('#prev').removeClass('disableNavigation');
+				$('#next').addClass('disableNavigation'); 
+			}
+			else{
+				$('#prev').removeClass('disableNavigation');
+				$('#next').removeClass('disableNavigation'); 
+			}
+			
 			return false;
 		}
 
@@ -265,9 +283,29 @@ var Engine = (function(){
 
 		USERSTATE.module =  parseInt($(this).attr("class").split("-")[0]);
 		USERSTATE.topic =  parseInt($(this).attr("class").split("-")[1]);
+		USERSTATE.screen = 0; 
 		$('#menu-panel').foundation('reveal', 'close');
 		showTopic();
 		updatePagination();
+		updateBreadCrum();
+		
+		var modules = courseStructure.course.module;
+		var topics = modules[USERSTATE.module].topic;
+		
+		if(USERSTATE.module === 0 && USERSTATE.topic===0){
+			$('#prev').addClass('disableNavigation');
+			$('#next').removeClass('disableNavigation'); 
+		}
+		else if(USERSTATE.module === modules.length-1 && USERSTATE.topic === topics.length-1 ){
+			$('#prev').removeClass('disableNavigation');
+			$('#next').addClass('disableNavigation'); 
+		}
+		else{
+			$('#prev').removeClass('disableNavigation');
+			$('#next').removeClass('disableNavigation'); 
+		}
+		
+		
 	};
 
 	updatePagination = function(){
