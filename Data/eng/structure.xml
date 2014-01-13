@@ -59,7 +59,7 @@
 			
 		</module>
 		
-		<module title="Module 2" visible="true">
+		<module title="Module 3" visible="true">
 			<topic title="Topic 1" visible="true"> 
 				<screen templateID="MCQWithSingleScenario.html" 
 				title="Screen 1" ScreenTitle="" xmlName="MCQWithSingleScenario.xml" audioName="" agentAnim="" 
