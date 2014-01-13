@@ -510,23 +510,33 @@ var Engine = (function(){
 
 	initView = function(){
 		console.log(courseStructure.course);
-		
+		var assString = "";
 		scromString = "";
 		for(var index in courseStructure.course.module){
 			if((courseStructure.course.module[index].topic instanceof Array)){
 				for(var topicIndex in courseStructure.course.module[index].topic){
-					courseStructure.course.module[index].topic[topicIndex]
-					if((courseStructure.course.module[index].topic[topicIndex].screen instanceof Array)){
-						for(var screenIndex in courseStructure.course.module[index].topic[topicIndex].screen){
-							scromString += "0,";
+					if(courseStructure.course.module[index].topic[topicIndex]._type=="assessment"){
+						if((courseStructure.course.module[index].topic[topicIndex].screen instanceof Array)){
+							for(var screenIndex in courseStructure.course.module[index].topic[topicIndex].screen){
+								assString += "0,";
+							}
+							assString = assString.substring(0, assString.length-1);
+							
 						}
-						scromString = scromString.substring(0, scromString.length-1);
-						scromString += "^";
-						
+					}else{
+						if((courseStructure.course.module[index].topic[topicIndex].screen instanceof Array)){
+							for(var screenIndex in courseStructure.course.module[index].topic[topicIndex].screen){
+								scromString += "0,";
+							}
+							scromString = scromString.substring(0, scromString.length-1);
+							scromString += "^";
+							
+						}
+						else{
+							scromString += "0^";
+						}
 					}
-					else{
-						scromString += "0^";
-					}
+					
 				}
 				scromString = scromString.substring(0, scromString.length-1);
 				scromString += "|";
@@ -534,7 +544,8 @@ var Engine = (function(){
 		}
 		
 		scromString = scromString.substring(0, scromString.length-1);
-		scromString += "~0,0,0"
+		scromString += "~0,0,0~";
+		scromString += assString;  	
 		console.log("scromString : " + scromString);
 		
 		var modules = courseStructure.course.module;
