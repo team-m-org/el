@@ -194,7 +194,7 @@ var Engine = (function(){
 						if((screen instanceof Array)){
 							for(var screenIndex in screen){
 								
-								if(screen[screenIndex].visited){
+								if(screen[screenIndex].isCorrect){
 									assString += "1,";
 								}
 								else{
@@ -246,6 +246,16 @@ var Engine = (function(){
 		var module = courseStructure.course.module[USERSTATE.module];
 		var topics =  module.topic[USERSTATE.topic];
 		var screens = topics.screen[USERSTATE.screen];
+		
+		var lockNext = screens['_lockNext'];
+		console.log("lock :", lockNext);
+		
+		if(lockNext == "true"){
+			console.log("lock is true : ", lockNext);
+			$("#next").addClass("disableNavigation");
+			$("#next").off("click");
+		}
+		
 		
 		screens.visited=true;
 		
@@ -618,44 +628,6 @@ var Engine = (function(){
 
 
 	initView = function(){
-		//console.log(courseStructure.course);
-		/*var assString = "";
-		scromString = "";
-		for(var index in courseStructure.course.module){
-			if((courseStructure.course.module[index].topic instanceof Array)){
-				for(var topicIndex in courseStructure.course.module[index].topic){
-					if(courseStructure.course.module[index].topic[topicIndex]._type=="assessment"){
-						if((courseStructure.course.module[index].topic[topicIndex].screen instanceof Array)){
-							for(var screenIndex in courseStructure.course.module[index].topic[topicIndex].screen){
-								assString += "0,";
-							}
-							assString = assString.substring(0, assString.length-1);
-							
-						}
-					}else{
-						if((courseStructure.course.module[index].topic[topicIndex].screen instanceof Array)){
-							for(var screenIndex in courseStructure.course.module[index].topic[topicIndex].screen){
-								scromString += "0,";
-							}
-							scromString = scromString.substring(0, scromString.length-1);
-							scromString += "^";
-							
-						}
-						else{
-							scromString += "0^";
-						}
-					}
-					
-				}
-				scromString = scromString.substring(0, scromString.length-1);
-				scromString += "|";
-			}
-		}
-		
-		scromString = scromString.substring(0, scromString.length-1);
-		scromString += "~0,0,0~";
-		scromString += assString;  	
-		console.log("scromString In Init : ", scromString);*/
 		
 		var modules = courseStructure.course.module;
 		generateMenu(modules);
@@ -755,8 +727,9 @@ var Engine = (function(){
 		initialize : function(){
 			var courseStructureObtained = getCourseStructure();
 			$.when(courseStructureObtained).then(function(){
-				showTopic();
+				
 				initView();
+				showTopic();
 				//updateScromString();
 			});
 
