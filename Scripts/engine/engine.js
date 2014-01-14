@@ -26,7 +26,7 @@ var Engine = (function(){
 
 	};
 
-
+	
 
 
 	function normalizeCourse(courseStructure){
@@ -238,8 +238,15 @@ var Engine = (function(){
 		var currentPosition = USERSTATE.module + "," + USERSTATE.topic + "," + USERSTATE.screen;
 		scromString += "~" + currentPosition + "~" + assString;
 		console.log(scromString);
-
+		updateSCORM(scromString);
+		
 	}
+	
+	updateSCORM = function(){
+		doLMSSetValue('cmi.suspend_data', scromString);
+		doLMSCommit('');
+		
+	};
 	
 	showTopic =  function(){
 
@@ -282,7 +289,6 @@ var Engine = (function(){
 	checkAssessment = function(){
 		var module = courseStructure.course.module[USERSTATE.module];
 		var topics =  module.topic[USERSTATE.topic];
-		var screens = topics.screen[USERSTATE.screen];
 		
 		if(topics["_type"] === "assessment"){
 			USERSTATE.assessment = true;
@@ -346,6 +352,11 @@ var Engine = (function(){
 
 		$(".accordion").on("click","a",function(){
 			return menuModuleHandler.call(this);
+		});
+		
+		$(window).on("unload",function(){
+			updateScromString();
+			doLMSFinish();
 		});
 	};
 
@@ -498,8 +509,11 @@ var Engine = (function(){
 		//console.log("Exit Click");
 		var bool =  confirm("Are you sure you want to exit");
 		if(bool){
+			updateScromString();
+			doLMSFinish();
 			window.open('', '_self', '');
 			window.close();
+			
 		}
 	};
 
@@ -549,7 +563,7 @@ var Engine = (function(){
 		showTopic();
 		updatePagination();
 		updateBreadCrum();
-		//updateScromString();
+		updateScromString();
 	};
 	
 	/*updateScromString = function(){
@@ -775,6 +789,7 @@ var Engine = (function(){
 				
 				initView();
 				showTopic();
+				doLMSInitialize();
 				//updateScromString();
 			});
 
