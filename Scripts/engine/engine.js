@@ -256,6 +256,7 @@ var Engine = (function(){
 		var topicDataPromise = getTopicData(templateDataId);
 
 		updateScromString();
+		checkAssessment();
 
 		return $.when(templatePromise, topicDataPromise).then(function(){
 			var template = templatesCache[topicTemplateId];
@@ -263,6 +264,22 @@ var Engine = (function(){
 			//console.log('render topic here', template, topicData);
 			renderTopic(template, topicData);
 		});
+	};
+	
+	checkAssessment = function(){
+		var module = courseStructure.course.module[USERSTATE.module];
+		var topics =  module.topic[USERSTATE.topic];
+		var screens = topics.screen[USERSTATE.screen];
+		
+		if(topics["_type"] === "assessment"){
+			USERSTATE.assessment = true;
+			
+		}
+		else{
+			USERSTATE.assessment = false;
+			return;
+		}
+		
 	};
 
 	registerEvents = function(){
