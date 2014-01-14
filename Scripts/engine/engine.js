@@ -268,13 +268,14 @@ var Engine = (function(){
 		var topicDataPromise = getTopicData(templateDataId);
 
 		updateScromString();
-		checkAssessment();
+		
 
 		return $.when(templatePromise, topicDataPromise).then(function(){
 			var template = templatesCache[topicTemplateId];
 			var topicData = topicDataCache[templateDataId];
 			//console.log('render topic here', template, topicData);
 			renderTopic(template, topicData);
+			checkAssessment();
 		});
 	};
 	
@@ -285,13 +286,20 @@ var Engine = (function(){
 		
 		if(topics["_type"] === "assessment"){
 			USERSTATE.assessment = true;
-			
+			verifyAssessment();
 		}
 		else{
 			USERSTATE.assessment = false;
 			return;
 		}
 		
+	};
+	
+	verifyAssessment = function (){
+		$('.btnSubmit').on('click',function(){
+			
+			alert("Submit Clicked");
+		});
 	};
 
 	registerEvents = function(){
