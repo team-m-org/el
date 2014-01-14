@@ -242,7 +242,7 @@ var Engine = (function(){
 		
 	}
 	
-	updateSCORM = function(){
+	updateSCORM = function(scromString){
 		doLMSSetValue('cmi.suspend_data', scromString);
 		doLMSCommit('');
 		
@@ -354,7 +354,8 @@ var Engine = (function(){
 			return menuModuleHandler.call(this);
 		});
 		
-		$(window).on("unload",function(){
+		$(window).unload(function(){
+			console.log("Unload Called");
 			updateScromString();
 			doLMSFinish();
 		});
