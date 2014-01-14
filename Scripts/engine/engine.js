@@ -415,7 +415,7 @@ var Engine = (function(){
 	};
 
 	menuHandler = function(){
-		//console.log("Menu Click");
+		console.log("Menu Click");
 	};
 
 	glossaryHandler = function(){
@@ -459,10 +459,22 @@ var Engine = (function(){
 		
 		if(nextScreen > currentTopic.screen.length-1){
 			USERSTATE.screen = nextScreen = currentTopic.screen.length-1;
-			
+			setCompleted(currentTopic);
+			currentTopic.completed=true;
 			USERSTATE.topic++;
+			var moduleCompleted = true;
+			for(var topicIndex in currentModule.topic){
+				if(!currentModule.topic[topicIndex].completed){
+					moduleCompleted = false;
+					break;
+				}	
+			}
+			if(moduleCompleted){
+				setModuleCompleted(currentModule);
+			}
 			if(USERSTATE.topic > currentModule.topic.length-1){
 				USERSTATE.topic =  currentModule.topic.length-1;
+				
 				USERSTATE.module++;
 				if(USERSTATE.module > moudlesLength-1){
 					USERSTATE.module = moudlesLength-1;
@@ -668,6 +680,7 @@ var Engine = (function(){
 
 	generateMenu = function(modules){
 
+		var templatePromise = getTemplateData("menuTemplate.html","engine");
 		var moduleArray=[];		
 		for(var i=0;i<modules.length;i++){
 			var moduleObj= {
@@ -677,6 +690,7 @@ var Engine = (function(){
 			};
 
 			moduleObj.id = i;
+			modules[i]["id"]=i;
 			moduleObj.name = modules[i]["_title"];
 			var topicLength = modules[i].topic.length;
 
@@ -687,16 +701,18 @@ var Engine = (function(){
 				};
 				topicObj.id = i+"-"+j;
 				topicObj.name = modules[i].topic[j]["_title"];
+				modules[i].topic[j]["id"] = topicObj.id;
 				moduleObj.topics.push(topicObj);
 			}
 
 			moduleArray.push(moduleObj);
 		}
 
-		var templatePromise = getTemplateData("menuTemplate.html","engine");
+		
 		$.when(templatePromise).then(function(){
 			var template = templatesCache["menuTemplate.html"];
 			$(".accordion").append(Handlebars.compile(template)(moduleArray));
+			$(".completed").hide();
 		});
 	};
 
@@ -727,6 +743,13 @@ var Engine = (function(){
 
 	};
 
+	setCompleted = function(topic){
+		$("."+topic.id+".topicMenu").find("span").show();
+	};
+	
+	setModuleCompleted = function(module){
+		$("."+module.id+".moduleMenu").find("span").show();
+	};
 
 	return {
 		initialize : function(){

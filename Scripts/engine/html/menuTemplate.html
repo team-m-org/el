@@ -1,10 +1,10 @@
 {{#each this}}
 <dd>
-	<a href="#panel{{id}}" class="{{id}}">{{name}}&nbsp; &nbsp; &nbsp;<span class="completed"><img alt="Completed" src="Scripts/engine/image/checkmark.png"></span></a>
+	<a href="#panel{{id}}" class="{{id}} moduleMenu">{{name}}&nbsp; &nbsp; &nbsp;<span class="completed"><img alt="Completed" src="Scripts/engine/image/checkmark.png"></span></a>
 	<div id="panel{{id}}" class="content">
 		<ul>
 			{{#each this.topics}}
-				<li class="{{id}}">{{name}}&nbsp; &nbsp; &nbsp;<span class="completed"><img alt="Completed" src="Scripts/engine/image/checkmark.png"></span></li>
+				<li class="{{id}} topicMenu">{{name}}&nbsp; &nbsp; &nbsp;<span class="completed" style="display: none;"><img alt="Completed" src="Scripts/engine/image/checkmark.png"></span></li>
 			{{/each}}
 		</ul>
 	</div>
