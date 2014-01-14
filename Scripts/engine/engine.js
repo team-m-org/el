@@ -258,6 +258,8 @@ var Engine = (function(){
 		
 		
 		screens.visited=true;
+		topics.visited=true;
+		module.visited=true;
 		
 		var topicTemplateId = screens['_templateID'];
 		var templateDataId = screens['_xmlName'];
@@ -331,15 +333,15 @@ var Engine = (function(){
 		});
 
 		$(".accordion").on("click","li",function(){
-			return topicHandler.call(this);
+			return menuTopicHandler.call(this);
 		});
 
 		$(".accordion").on("click","a",function(){
-			return moduleHandler.call(this);
+			return menuModuleHandler.call(this);
 		});
 	};
 
-	moduleHandler = function(){
+	menuModuleHandler = function(){
 		//console.log("Module ID - ", $(this).attr("class"));
 		var menuType = courseStructure.course["_menuType"];
 		if(menuType === "module"){
@@ -349,6 +351,7 @@ var Engine = (function(){
 			showTopic();
 			updatePagination();
 			updateBreadCrum();
+
 
 			var modules = courseStructure.course.module;
 			var topics = modules[USERSTATE.module].topic;
@@ -371,19 +374,36 @@ var Engine = (function(){
 
 	};
 
-	topicHandler = function(){
+	menuTopicHandler = function(){
 
+		if(courseStructure.course._navigationMode == "liner"){
+			if(courseStructure.course.module[parseInt($(this).attr("class").split("-")[0])].topic[parseInt($(this).attr("class").split("-")[1])].visited){
+				console.log("This topic has been visited");
+			}
+			else{
+				console.log("This topic has not been visited");
+				return;
+			}
+		}
+		
 		USERSTATE.module =  parseInt($(this).attr("class").split("-")[0]);
 		USERSTATE.topic =  parseInt($(this).attr("class").split("-")[1]);
 		USERSTATE.screen = 0; 
 		$('#menu-panel').foundation('reveal', 'close');
+
+		console.log("USERSTATE.topic : " + USERSTATE.topic);
+		console.log("USERSTATE.module : " + USERSTATE.module);
+		console.log("USERSTATE.topic : " + courseStructure.course.module[USERSTATE.module].topic[USERSTATE.topic].visited);
+		
+		
+		
 		showTopic();
 		updatePagination();
 		updateBreadCrum();
-
+		
 		var modules = courseStructure.course.module;
 		var topics = modules[USERSTATE.module].topic;
-
+		
 		if(USERSTATE.module === 0 && USERSTATE.topic===0){
 			$('#prev').addClass('disableNavigation');
 			$('#next').removeClass('disableNavigation'); 
