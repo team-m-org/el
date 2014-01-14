@@ -376,7 +376,7 @@ var Engine = (function(){
 
 	menuTopicHandler = function(){
 
-		if(courseStructure.course._navigationMode == "liner"){
+		if(courseStructure.course._navigationMode == "linear"){
 			if(courseStructure.course.module[parseInt($(this).attr("class").split("-")[0])].topic[parseInt($(this).attr("class").split("-")[1])].visited){
 				console.log("This topic has been visited");
 			}
