@@ -183,9 +183,13 @@
 .completed img{
 	height: 20px;
 	width: 20px;
-	//opacity:0;
 }
 
 .disableNavigation{
 	opacity:0.5;
+}
+
+.asses-result{
+	padding-top: 25%;
+	padding-left: 40%;
 }

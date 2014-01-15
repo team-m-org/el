@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <screen>
+    <type>display</type>
 	<title><![CDATA[<FONT SIZE="28"><font face='Arial' color="#2B1F09"><B>Title text 12</B></font>]]></title>
 	<bullets>
 		<bullet>

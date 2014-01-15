@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <screen>
+     <type>mcq</type>
 	<title><![CDATA[<FONT SIZE="28"><font face='Arial' color="#2B1F09"><B>Title text 1</B></font>]]></title>
 	<texts>
 		<text><![CDATA[<FONT SIZE="28"><font face='Arial' color="#2B1F09">This is dummy text 1. We can replace it with actual text. This is dummy text 1. We can replace it with actual text. This is dummy text 1. We can replace it with actual text.</font>]]></text>
