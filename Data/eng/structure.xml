@@ -3,7 +3,7 @@
 	<courseTitle><![CDATA[Course Title 1]]></courseTitle>
 	<welcomePage fileName="intro.swf" />
 	<course enableNext="false" menuType="topic" navigationMode="linear">
-	<!-- <module title="Module 1" visible="true">
+	<module title="Module 1" visible="true">
 			<topic title="Topic 1" visible="true"> 
 				<screen templateID="ImageWithHover.html" 
 					title="Screen 1" ScreenTitle="" xmlName="ImageWithHover.xml" audioName="" agentAnim="" 
@@ -57,7 +57,7 @@
 				</screen>
 			</topic>
 			
-		</module> -->
+		</module>
 	
 		
 		<module title="9. Assessment" visible="true">
