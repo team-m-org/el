@@ -1055,3 +1055,6 @@ var Engine = (function(){
 
 
 Engine.initialize();
+
+console = console || {};
+console.log = function(){};
