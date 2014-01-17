@@ -988,10 +988,10 @@ var Engine = (function(){
 			$.when(courseStructureObtained).then(function(){
 				
 				initView();
-				showTopic();
 				doLMSInitialize();
 				var scormString = getSCORMData();
 				updateCourseState(scormString);
+				showTopic();
 			});
 
 			registerEvents();
