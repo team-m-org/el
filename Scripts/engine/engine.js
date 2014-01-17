@@ -220,12 +220,14 @@ var Engine = (function(){
 		scromString += "~" + currentPosition + "~" + assString;
 		console.log(scromString);
 		updateSCORM(scromString);
-		updateCourseState(scromString);
 		
 	}
 	
 	updateCourseState = function(scormString){
 		//1,1|0,0,0|0,0,0~0,0,1~0,0,0 
+		if(!scormString){
+			return;
+		}
 		var parts = scormString.split("~");
 		var courseStateStr = parts[0];
 		var currentPositionStr = parts[1];
@@ -327,6 +329,11 @@ var Engine = (function(){
 		doLMSCommit('');
 		
 	};
+	
+	getSCORMData = function(){
+		var scormString = doLMSGetValue('cmi.suspend_data');
+		return scormString;
+	}
 	
 	showTopic =  function(){
 
@@ -974,6 +981,7 @@ var Engine = (function(){
 		$("."+module.id+".moduleMenu").find("span").show();
 	};
 
+	
 	return {
 		initialize : function(){
 			var courseStructureObtained = getCourseStructure();
@@ -982,7 +990,8 @@ var Engine = (function(){
 				initView();
 				showTopic();
 				doLMSInitialize();
-				//updateScromString();
+				var scormString = getSCORMData();
+				updateCourseState(scormString);
 			});
 
 			registerEvents();
