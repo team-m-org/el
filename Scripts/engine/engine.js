@@ -107,7 +107,6 @@ var Engine = (function(){
 			for(var topicIndex in module.topic){
 				if(module.topic[topicIndex]._type==="assessment"){
 					module.topic[topicIndex] = createAssessment(module.topic[topicIndex]);
-
 				}
 			}
 		}
@@ -128,9 +127,6 @@ var Engine = (function(){
 
 
 	function renderTopic(template, topicData){
-		////console.log("=======",JSON.stringify(topicData),"====");
-		////console.log("topicData=====",topicData,"template==",template);
-
 		$(".template-conatiner").html( Handlebars.compile(template)(topicData));
 		if(topicData["Instruction"] !== undefined){
 			$("h3").html(topicData["Instruction"]);
@@ -138,7 +134,6 @@ var Engine = (function(){
 		else{
 			$(".intruction-div").hide();
 		}
-
 	};
 
 	function getTemplateData(templateId,templateType){
@@ -187,49 +182,31 @@ var Engine = (function(){
 		var module = courseStructure.course.module;
 		for(var index in module){
 			var topic = module[index].topic;
-			if((topic instanceof Array)){
 				for(var topicIndex in topic){
 					var screen = topic[topicIndex].screen;
 					if(topic[topicIndex]._type=="assessment"){
-						if((screen instanceof Array)){
 							for(var screenIndex in screen){
 								
 								if(screen[screenIndex].isCorrect){
 									assString += "1,";
-								}
-								else{
+								} else {
 									assString += "0,";
 								}
 							}
 							assString = assString.substring(0, assString.length-1);
 							assString += "|";
-						}
-						
 					}else{
-						
-						if((screen instanceof Array)){
 							for(var screenIndex in screen){
-								
 								if(screen[screenIndex].visited){
 									scromString  += "1,";
-								}
-								else{
+								} else {
 									scromString  += "0,";
 								}
 							}
 							scromString = scromString.substring(0, scromString.length-1);
 							scromString += "^";
-							
-						}
-						
-						
-						//scromString = scromString.substring(0, scromString.length-1);
-						
 					}
-					
 				}
-				
-			}
 			scromString = scromString.substring(0, scromString.length-1);
 			scromString += "|";
 		}
@@ -239,6 +216,105 @@ var Engine = (function(){
 		scromString += "~" + currentPosition + "~" + assString;
 		console.log(scromString);
 		updateSCORM(scromString);
+		updateCourseState(scromString);
+		
+	}
+	
+	updateCourseState = function(scormString){
+		//1,1|0,0,0|0,0,0~0,0,1~0,0,0 
+		var parts = scormString.split("~");
+		var courseStateStr = parts[0];
+		var currentPositionStr = parts[1];
+		var assScoreStr = parts[2];
+		
+		
+		
+		
+		function calculateCourse(courseStateStr){
+			var calculatedCourse = {};
+			var moduleParts = courseStateStr.split("|");
+			
+			calculatedCourse['module'] = new Array(moduleParts.length);
+
+			for(var modulePartIndex in moduleParts){
+
+				var moduleStr = moduleParts[modulePartIndex];
+				var topicParts = moduleStr.split("^");
+				calculatedCourse['module'][modulePartIndex] ={ topic : new Array(topicParts.length)} ;
+				for(var topicPartIndex in topicParts){
+					var topicStr =  topicParts[topicPartIndex];
+					var screenParts = topicStr.split(",");
+					calculatedCourse['module'][modulePartIndex]['topic'][topicPartIndex] = { screen : new Array(screenParts.length)};
+					for(var screenPartIndex in screenParts){
+						var screenStr = screenParts[screenPartIndex];
+						calculatedCourse['module'][modulePartIndex]['topic'][topicPartIndex]['screen'][screenPartIndex]=screenStr;
+					}
+				}
+			}
+			return calculatedCourse;
+		}
+		
+		
+		var calculatedCourse = calculateCourse(courseStateStr);
+		var calculatedAssessment = calculateCourse(assScoreStr);
+		
+		var modules= courseStructure.course.module;
+		var calculatedModule = calculatedCourse.module;
+		
+		var calculatedAssessmentMoudles =  calculatedAssessment.module;
+
+		var sortedCourse = {module : []};
+		var sortedAssessment = {module : []};
+		
+		var moduleTopics = [];
+		var assessmentTopics = [];
+		
+		for(var index in modules){
+			var topics = modules[index]['topic'];
+			for(var topicIndex in topics){
+				if(topics[topicIndex]._type == "assessment"){
+					assessmentTopics.push(topics[topicIndex]);
+				} else {
+					moduleTopics.push(topics[topicIndex]);
+				}
+			}
+		}
+		
+		var asseessmentTopicIndex = 0;
+		var moduleTopicsTopicIndex = 0;
+		for(var index in modules){
+			var topics = modules[index]['topic'];
+			for(var topicIndex in topics){
+				if(topics[topicIndex]._type == "assessment"){
+					var assessaentTopicWithData = assessmentTopics[asseessmentTopicIndex++];
+					for(var screenIndex in screens){
+						screens[screenIndex].isCorrect = assessaentTopicWithData.screen[screenIndex].isCorrect;
+					}
+
+				} else {
+					var moduleTopicWithData = moduleTopics[moduleTopicsTopicIndex++];
+					var screens = topics[topicIndex]['screen'];
+					for(var screenIndex in screens){
+						screens[screenIndex].visited = moduleTopicWithData.screen[screenIndex].visited;
+					}
+				}
+			}
+		}
+		
+		
+		
+		
+		var currentPositionParts = currentPositionStr.split(',');
+		
+		var currentModule = parseInt(currentPositionParts[0], 10);
+		var currentTopic = parseInt(currentPositionParts[1], 10);
+		var currentScreen = parseInt(currentPositionParts[2], 10);
+		
+		USERSTATE = $.extend(USERSTATE, {
+			module : currentModule,
+			topic : currentTopic,
+			screen : currentScreen
+		});
 		
 	}
 	
