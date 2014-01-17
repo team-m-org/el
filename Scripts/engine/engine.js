@@ -253,7 +253,7 @@ var Engine = (function(){
 					calculatedCourse['module'][modulePartIndex]['topic'][topicPartIndex] = { screen : new Array(screenParts.length)};
 					for(var screenPartIndex in screenParts){
 						var screenStr = screenParts[screenPartIndex];
-						calculatedCourse['module'][modulePartIndex]['topic'][topicPartIndex]['screen'][screenPartIndex]=screenStr;
+						calculatedCourse['module'][modulePartIndex]['topic'][topicPartIndex]['screen'][screenPartIndex]=screenStr=="1";
 					}
 				}
 			}
@@ -269,20 +269,23 @@ var Engine = (function(){
 		
 		var calculatedAssessmentMoudles =  calculatedAssessment.module;
 
-		var sortedCourse = {module : []};
-		var sortedAssessment = {module : []};
+		/*var sortedCourse = {module : []};
+		var sortedAssessment = {module : []};*/
 		
 		var moduleTopics = [];
 		var assessmentTopics = [];
 		
-		for(var index in modules){
-			var topics = modules[index]['topic'];
+		for(var index in calculatedCourse.module){
+			var topics = calculatedCourse.module[index]['topic'];
 			for(var topicIndex in topics){
-				if(topics[topicIndex]._type == "assessment"){
-					assessmentTopics.push(topics[topicIndex]);
-				} else {
-					moduleTopics.push(topics[topicIndex]);
-				}
+				moduleTopics.push(topics[topicIndex]);
+			}
+		}
+		
+		for(var index in calculatedAssessmentMoudles){
+			var topics = calculatedAssessmentMoudles[index]['topic'];
+			for(var topicIndex in topics){
+				assessmentTopics.push(topics[topicIndex]);
 			}
 		}
 		
@@ -294,19 +297,63 @@ var Engine = (function(){
 				if(topics[topicIndex]._type == "assessment"){
 					var assessaentTopicWithData = assessmentTopics[asseessmentTopicIndex++];
 					for(var screenIndex in screens){
-						screens[screenIndex].isCorrect = assessaentTopicWithData.screen[screenIndex].isCorrect;
+						screens[screenIndex].isCorrect = assessaentTopicWithData.screen[screenIndex];
 					}
 
 				} else {
 					var moduleTopicWithData = moduleTopics[moduleTopicsTopicIndex++];
 					var screens = topics[topicIndex]['screen'];
 					for(var screenIndex in screens){
-						screens[screenIndex].visited = moduleTopicWithData.screen[screenIndex].visited;
+						screens[screenIndex].visited = moduleTopicWithData.screen[screenIndex];
 					}
 				}
 			}
 		}
 		
+		function setVisitedModules(course){
+			var modules = course.module;
+			
+			for(var moduleIndex in modules){
+				var currentModule = modules[moduleIndex];
+				var moduleCompleted = true;
+				
+				for(var topicIndex in currentModule.topic){
+					if(!currentModule.topic[topicIndex].completed){
+						moduleCompleted = false;
+						break;
+					}	
+				}
+				currentModule.completed = moduleCompleted;
+				currentModule.visited = moduleCompleted;
+			}
+		}
+		
+		function setVisitedTopics(course){
+			var modules = course.module;
+			
+			for(var moduleIndex in modules){
+				var currentModule = modules[moduleIndex];
+				var moduleCompleted = true;
+				
+				for(var topicIndex in currentModule.topic){
+					var currentTopic = currentModule.topic[topicIndex];
+					var topicCompleted = true;
+					for(var screenIndex in currentTopic.screen){
+						var currentScreen = currentTopic.screen[topicIndex];
+						if(!currentScreen.visited){
+							topicCompleted = false;
+							break;
+						}
+					}
+					currentTopic.completed = topicCompleted;
+					currentTopic.visited = topicCompleted;
+				}
+			}
+		}
+		
+		
+		setVisitedTopics(courseStructure.course);
+		setVisitedModules(courseStructure.course);
 		
 		
 		
@@ -362,7 +409,8 @@ var Engine = (function(){
 		var topicDataPromise = getTopicData(templateDataId);
 
 		updateScromString();
-		
+		updatePagination();
+		updateBreadCrum();
 
 		return $.when(templatePromise, topicDataPromise).then(function(){
 			var template = templatesCache[topicTemplateId];
@@ -565,8 +613,8 @@ var Engine = (function(){
 			USERSTATE.topic = 0;
 			$('#menu-panel').foundation('reveal', 'close');
 			showTopic();
-			updatePagination();
-			updateBreadCrum();
+			//updatePagination();
+			//updateBreadCrum();
 
 
 			var modules = courseStructure.course.module;
@@ -614,8 +662,8 @@ var Engine = (function(){
 		
 		
 		showTopic();
-		updatePagination();
-		updateBreadCrum();
+		//updatePagination();
+		//updateBreadCrum();
 		
 		var modules = courseStructure.course.module;
 		var topics = modules[USERSTATE.module].topic;
@@ -760,9 +808,9 @@ var Engine = (function(){
 	
 		updateNextNavigation();
 		showTopic();
-		updatePagination();
-		updateBreadCrum();
-		updateScromString();
+		//updatePagination();
+		//updateBreadCrum();
+		
 	};
 	
 	/*updateScromString = function(){
@@ -889,8 +937,8 @@ var Engine = (function(){
 		
 		var modules = courseStructure.course.module;
 		generateMenu(modules);
-		updatePagination();
-		updateBreadCrum();
+		//updatePagination();
+		//updateBreadCrum();
 		updateNextNavigation();
 		updatePrevNavgation();
 		$('.course-title').text(courseStructure.courseTitle._cdata);
@@ -921,6 +969,7 @@ var Engine = (function(){
 
 			moduleObj.id = i;
 			modules[i]["id"]=i;
+			moduleObj.completed= modules[i]["completed"];
 			moduleObj.name = modules[i]["_title"];
 			var topicLength = modules[i].topic.length;
 
@@ -931,6 +980,7 @@ var Engine = (function(){
 				};
 				topicObj.id = i+"-"+j;
 				topicObj.name = modules[i].topic[j]["_title"];
+				topicObj.completed = modules[i].topic[j].completed;
 				modules[i].topic[j]["id"] = topicObj.id;
 				moduleObj.topics.push(topicObj);
 			}
@@ -942,7 +992,7 @@ var Engine = (function(){
 		$.when(templatePromise).then(function(){
 			var template = templatesCache["menuTemplate.html"];
 			$(".accordion").append(Handlebars.compile(template)(moduleArray));
-			$(".completed").hide();
+			//$(".completed").hide();
 		});
 	};
 
@@ -987,11 +1037,12 @@ var Engine = (function(){
 			var courseStructureObtained = getCourseStructure();
 			$.when(courseStructureObtained).then(function(){
 				
-				initView();
+				
 				doLMSInitialize();
-				var scormString = getSCORMData();
+				var scormString = "1,1|1,1,1|1,1,0~2,0,1~0,0,0"; //getSCORMData();
 				updateCourseState(scormString);
 				showTopic();
+				initView();
 			});
 
 			registerEvents();

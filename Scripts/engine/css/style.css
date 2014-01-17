@@ -193,3 +193,10 @@
 	padding-top: 25%;
 	padding-left: 40%;
 }
+
+.menu-container .completed{
+	display : none;
+}
+.menu-container .completed.show{
+	display : inline!important;
+}
