@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <screen>
+     <type>mcq</type>
 	<QuestionOfEthics>Text 2</QuestionOfEthics>
 	<options>
 		<value>
 			<optionDisplay>Option 1</optionDisplay>
-			<optionValue>option1</optionValue>
+			<optionValue>Option1</optionValue>
 		</value>
 		<value>
 			<optionDisplay>Option 2</optionDisplay>

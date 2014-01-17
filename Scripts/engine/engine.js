@@ -13,6 +13,9 @@ var EnvVariables = {
 var Engine = (function(){
 	var courseStructure = null;
 	var scromString = "";
+	var currTopicData = null;
+	var currAttempt = 1;
+	var currScore = 0;
 	var USERSTATE = {
 			module : 0,
 			topic : 0,
@@ -127,6 +130,7 @@ var Engine = (function(){
 
 
 	function renderTopic(template, topicData){
+		currTopicData = topicData;
 		$(".template-conatiner").html( Handlebars.compile(template)(topicData));
 		if(topicData["Instruction"] !== undefined){
 			$("h3").html(topicData["Instruction"]);
@@ -380,9 +384,103 @@ var Engine = (function(){
 	verifyAssessment = function (){
 		$('.btnSubmit').on('click',function(){
 			
-			alert("Submit Clicked");
+		
+			
+			
+			
+
+	    	var c_flag = false;
+	    	$(".error").html('');
+	    	$("input[class='option']:checked").each(function() { 
+	    		c_flag = true;
+	    		
+	    	});
+	    	var currScreen = getCurrentScreen();
+	    	var currentTopic = getCurrentTopic();
+	    	console.log("currScreen.attempt " ,currScreen.attempt);
+	    	if(c_flag===true){
+	    		
+	    		var count = 0;
+	    		if(currTopicData.type === "mcq"){
+	    			var ans = $("input[class='option']:checked");
+	    			var corranswers = currTopicData.correctAnswer.split(",");
+	    			for(var i=0;i<ans.length;i++){
+	    				for(var j=0;j<corranswers.length;j++){
+	    					console.log("Ans " + $(ans[i]).val());
+	    					console.log("Cans " + corranswers[j]);
+		    				if($(ans[i]).val() === corranswers[j]){
+		    					count ++;
+		    					break;
+		    				}
+		    			}
+	    			}
+	    			
+	    			if(count === ans.length){
+	    				currScreen.isCorrect = true;
+	    				currScore ++;
+	    				if(USERSTATE.screen ===  currentTopic.screen.length-1){
+	    					showResult(currentTopic.screen.length);
+	    					return;
+	    				}
+	    				Engine.showNextPage();
+	    				return;
+	    			}
+	    			else{
+	    				currScreen.isCorrect = false;
+	    				$(".error").html("Try again !.").slideDown();
+	    			}
+	    			
+	    			if(parseInt(currScreen._attempt) === currAttempt){
+	    				Engine.showNextPage();
+	    				return;
+	    			}
+	    		}
+	    		else if(currTopicData.type === "saq"){
+	    			var ans = $("input[class='option']:checked").val();
+	    			var corranswers = currTopicData.correctAnswer;
+	    			
+	    			if(corranswers === ans){
+	    				currScreen.isCorrect = true;
+	    				currScore ++;
+	    				if(USERSTATE.screen ===  currentTopic.screen.length-1){
+	    					showResult(currentTopic.screen.length);
+	    					return;
+	    				}
+	    				Engine.showNextPage();
+	    				return;
+	    				
+	    			}
+	    			else{
+	    				currScreen.isCorrect = false;
+	    				$(".error").html("Try again !.").slideDown();
+	    			}
+	    			
+	    			if(parseInt(currScreen._attempt) === currAttempt){
+	    				if(USERSTATE.screen ===  currentTopic.screen.length-1){
+	    					$('.template-conatiner').html("");
+	    					showResult(currentTopic.screen.length);
+	    					return;
+	    				}
+	    				Engine.showNextPage();
+	    				return;
+	    			}
+	    		}
+	    		
+	    		
+	    		
+	    		currAttempt++;
+	    	}else{
+	    		$(".error").html("Please select atleast one option.").slideDown();
+	    	}
+		
 		});
+		
+		
 	};
+	
+	showResult = function(total){
+		$('.template-conatiner').html("<div class='asses-result'>Result " + currScore + " out of " + total + "</div>");
+	}
 
 	registerEvents = function(){
 
@@ -435,8 +533,23 @@ var Engine = (function(){
 			updateScromString();
 			doLMSFinish();
 		});
+		
+		
+		$(document).on('click', '.template-conatiner .btnSubmit',function () {});
 	};
-
+	
+	getCurrentTopic = function(){
+		var module = courseStructure.course.module[USERSTATE.module];
+		var currtopics =  module.topic[USERSTATE.topic];
+		return currtopics;
+	};
+	
+	getCurrentScreen = function(){
+		var module = courseStructure.course.module[USERSTATE.module];
+		var topics =  module.topic[USERSTATE.topic];
+		var currScreen =  topics.screen[USERSTATE.screen];
+		return currScreen;
+	};
 	menuModuleHandler = function(){
 		//console.log("Module ID - ", $(this).attr("class"));
 		var menuType = courseStructure.course["_menuType"];
@@ -602,6 +715,8 @@ var Engine = (function(){
 		var currentTopic = modules[USERSTATE.module].topic[USERSTATE.topic];
 		var nextScreen = ++USERSTATE.screen;
 		var moudlesLength = modules.length;
+		
+		currAttempt = 1;
 		
 		if(nextScreen > currentTopic.screen.length-1){
 			USERSTATE.screen = nextScreen = currentTopic.screen.length-1;
@@ -828,7 +943,7 @@ var Engine = (function(){
 	showPrevPage = function(){
 		var modules = courseStructure.course.module;
 		var prevScreen = --USERSTATE.screen;
-
+		currAttempt = 1;
 		if(prevScreen < 0){
 			USERSTATE.screen = prevScreen = 0;
 			USERSTATE.topic--;

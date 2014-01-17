@@ -20,8 +20,8 @@
 			{{/Scenarios.Scenario}}
 			<div class="small-3 columns">
 				<p>{{questionText}}</p>
-				<div class="error hide1 red"></div>
-				{{#options.value}} <input type="checkbox" id="mcq_question"  name="mcq_question"
+				<div class="error hide1 red"></div><br>
+				{{#options.value}} <input type="checkbox" class="option"  name="mcq"
 					value={{this.optionValue}} /> {{this.optionDisplay}}<br />
 				{{/options.value}}
 				<div align="right">
@@ -32,15 +32,6 @@
 	</div>
 </div>
 <script>
-   /*  $('.template-conatiner .mcq_submit').click(function () {
-    	var c_flag = false;
-    	$("input[name='mcq_question']:checked").each(function() { 
-    		c_flag = true;   
-    	});
-    	if(c_flag===true){
-    		Engine.showNextPage();
-    	}else{
-    		$(".error").html("Please select atleast one option.").slideDown();
-    	}
+   /*  
 	}); */
 </script>

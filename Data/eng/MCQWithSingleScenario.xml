@@ -1,23 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <screen>
+    <type>mcq</type>
     <Instruction>This is an Instruction.</Instruction>
     <title><![CDATA[<FONT SIZE="28"><font face='Arial' color="#2B1F09"><B>Title text 1</B></font>]]></title>
 	<options>
 		<value>
 			<optionDisplay><![CDATA[<FONT SIZE="28"><font face='Arial' color="#2B1F09">option 1</font>]]></optionDisplay>
-			<optionValue>option1</optionValue>
+			<optionValue>Option1</optionValue>
 		</value>
 		<value>
 			<optionDisplay><![CDATA[<FONT SIZE="28"><font face='Arial' color="#2B1F09">option 2</font>]]></optionDisplay>
-			<optionValue>option2</optionValue>
+			<optionValue>Option2</optionValue>
 		</value>
 		<value>
 			<optionDisplay><![CDATA[<FONT SIZE="28"><font face='Arial' color="#2B1F09">option 3</font>]]></optionDisplay>
-			<optionValue>option3</optionValue>
+			<optionValue>Option3</optionValue>
 		</value>
 		<value>
 			<optionDisplay><![CDATA[<FONT SIZE="28"><font face='Arial' color="#2B1F09">option 4</font>]]></optionDisplay>
-			<optionValue>option4</optionValue>
+			<optionValue>Option4</optionValue>
 		</value>
 	</options>
 	<correctAnswer>Option3,Option1</correctAnswer>
