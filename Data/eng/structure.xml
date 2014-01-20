@@ -4,14 +4,19 @@
 	<welcomePage fileName="intro.swf" />
 	<course enableNext="false" menuType="topic" navigationMode="linear">
 	<module title="Module 1" visible="true">
-			<topic title="Topic 1" visible="true"> 
+			<topic title="Topic 1" visible="true">
+				<screen templateID="conversation.html" 
+					title="Screen 1" ScreenTitle="" xmlName="conversation.xml" audioName="" agentAnim="" 
+					agentseq="" lockNext="false" markComplete="false" sliderEnabled="true" playPauseEnabled="true" 
+					visible="true" notes="true"><![CDATA[]]>
+				</screen> 
 				<screen templateID="ImageWithHover.html" 
-					title="Screen 1" ScreenTitle="" xmlName="ImageWithHover.xml" audioName="" agentAnim="" 
+					title="Screen 2" ScreenTitle="" xmlName="ImageWithHover.xml" audioName="" agentAnim="" 
 					agentseq="" lockNext="false" markComplete="false" sliderEnabled="true" playPauseEnabled="true" 
 					visible="true" notes="true"><![CDATA[]]>
 				</screen>
 				<screen templateID="SelectableImageDescription.html" 
-				title="Screen 2" ScreenTitle="" xmlName="SelectableImageDescription.xml" audioName="" agentAnim="" 
+				title="Screen 3" ScreenTitle="" xmlName="SelectableImageDescription.xml" audioName="" agentAnim="" 
 				agentseq="" lockNext="false" markComplete="false" sliderEnabled="true" playPauseEnabled="true" 
 				visible="true" notes="true"><![CDATA[]]>
 				</screen>
