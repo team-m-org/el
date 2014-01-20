@@ -145,7 +145,13 @@
 	padding-top:15%;
 }
 .bred{
-	background: red;	
+	border:2px solid red;	
+}
+.bgreen{
+	border:2px solid green;	
+}
+.byel{
+	border:2px solid yellow;	
 }
 
 .accordion a{
@@ -199,4 +205,32 @@
 }
 .menu-container .completed.show{
 	display : inline!important;
+}
+.arrow_box {
+	position: relative;
+	background: #fff;
+	border: 2px solid #d9d9d9;
+}
+.arrow_box:after, .arrow_box:before {
+	top: 100%;
+	left: 50%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+.arrow_box:after {
+	border-color: rgba(255, 255, 255, 0);
+	border-top-color: #fff;
+	border-width: 20px;
+	margin-left: -20px;
+}
+.arrow_box:before {
+	border-color: rgba(217, 217, 217, 0);
+	border-top-color: #d9d9d9;
+	border-width: 23px;
+	margin-left: -23px;
 }
