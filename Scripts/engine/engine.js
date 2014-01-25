@@ -730,7 +730,15 @@ var Engine = (function(){
 	};
 
 	glossaryHandler = function(){
-		//console.log("Glossary Click");
+		var templatePromise = getTemplateData("glossary.html","engine");
+		$.when(templatePromise).then(function(){
+			var template = templatesCache["glossary.html"];
+			var glossayData={};
+			glossayData.letters = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z',]
+			glossayData.words = ["HELLO","THANKS","LOVE"];
+			$(".glossary-container").html(Handlebars.compile(template)(glossayData));
+			
+		});
 	};
 
 	prevHandler = function(){

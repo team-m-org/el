@@ -234,3 +234,29 @@
 	border-width: 23px;
 	margin-left: -23px;
 }
+.label-container .alphabet{
+	float:left;
+	padding-left: 20px;
+	cursor: pointer;
+}
+
+.label-container{
+	
+	padding-left: 50px;
+	margin-top: 20px!important;
+	border-top: solid 1px;
+	border-bottom: solid 1px;
+}	
+
+.glossary-data-container{
+	margin-top:40px!important;
+}
+
+.words-conatiner{
+	border-right: 1px solid!important;
+	padding-left:80px; 
+}
+
+.words-conatiner words{
+	cursor: pointer; 
+}
