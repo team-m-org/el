@@ -260,3 +260,11 @@
 .words-conatiner words{
 	cursor: pointer; 
 }
+
+.help-container{
+	margin-left:50px!important;
+}
+
+.help-container .help-image{
+	padding-bottom: 10px;
+}

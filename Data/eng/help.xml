@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<help>
+    <items>
+        <item>
+            <image>menu.png</image>
+            <description><![CDATA[This is menu button]]></description>
+        </item>
+         <item>
+            <image>glossary.png</image>
+            <description><![CDATA[This is glossary button]]></description>
+        </item>
+        <item>
+            <image>prev.png</image>
+            <description><![CDATA[This is previous  button]]></description>
+        </item>
+        <item>
+            <image>next.png</image>
+            <description><![CDATA[This is next button]]></description>
+        </item>
+        <item>
+            <image>play.png</image>
+            <description><![CDATA[This is play button]]></description>
+        </item>
+       
+        <item>
+            <image>help.png</image>
+            <description><![CDATA[This is help button]]></description>
+        </item>
+        <item>
+            <image>exit.png</image>
+            <description><![CDATA[This is exit button]]></description>
+        </item>
+    </items>
+</help>

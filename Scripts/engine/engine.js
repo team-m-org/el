@@ -558,6 +558,10 @@ var Engine = (function(){
 		$("ul.inline-list li[id='glossary']").on("click", function() {
 			return glossaryHandler.call(this);
 		});
+		
+		$("ul.inline-list li[id='help']").on("click", function() {
+			return helpHandler.call(this);
+		});
 
 		$("ul.inline-list li[id='prev']").on("click", function() {
 			return prevHandler.call(this);
@@ -754,8 +758,15 @@ var Engine = (function(){
 
 
 	helpHandler = function(){
-
-		//console.log("Help Click");
+		var templatePromise = getTemplateData("help.html","engine");
+		var helpData = getTopicData("help.xml");
+		$.when(templatePromise,helpData).then(function(){
+			var template = templatesCache["help.html"];
+			var helpContent = topicDataCache["help.xml"];
+			
+			$(".help-container").html(Handlebars.compile(template)(helpContent.items));
+			
+		});
 	};
 
 	exitHandler = function(){
