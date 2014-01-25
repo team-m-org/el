@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding= "UTF-8" ?> 
+<glossary>
+	<alphabets>
+		<letter id="1"><![CDATA[A]]></letter>
+		<letter id="2"><![CDATA[B]]></letter>
+		<letter id="3"><![CDATA[C]]></letter>
+		<letter id="4"><![CDATA[D]]></letter>
+		<letter id="5"><![CDATA[E]]></letter>
+		<letter id="6"><![CDATA[F]]></letter>
+		<letter id="7"><![CDATA[G]]></letter>
+		<letter id="8"><![CDATA[H]]></letter>
+		<letter id="9"><![CDATA[I]]></letter>
+		<letter id="10"><![CDATA[J]]></letter>
+		<letter id="11"><![CDATA[K]]></letter>
+		<letter id="12"><![CDATA[L]]></letter>
+		<letter id="13"><![CDATA[M]]></letter>
+		<letter id="14"><![CDATA[N]]></letter>
+		<letter id="15"><![CDATA[O]]></letter>
+		<letter id="16"><![CDATA[P]]></letter>
+		<letter id="17"><![CDATA[Q]]></letter>
+		<letter id="18"><![CDATA[R]]></letter>
+		<letter id="19"><![CDATA[S]]></letter>
+		<letter id="20"><![CDATA[T]]></letter>
+		<letter id="21"><![CDATA[U]]></letter>
+		<letter id="22"><![CDATA[V]]></letter>
+		<letter id="23"><![CDATA[W]]></letter>
+		<letter id="24"><![CDATA[X]]></letter>
+		<letter id="25"><![CDATA[Y]]></letter>
+		<letter id="26"><![CDATA[Z]]></letter>
+	</alphabets>
+	<wordlist>
+	
+	<keyword id="4">
+		<word><![CDATA[Diversity]]></word>
+		<desc><![CDATA[The similarities and differences that exist between people such as gender, age, nationality, education, social and educational background.]]></desc>
+	</keyword>
+	
+	<keyword id="4">
+		<word><![CDATA[Deviate]]></word>
+		<desc><![CDATA[Divert your thinking from some thing.]]></desc>
+	</keyword>
+	
+	<keyword id="9">
+		<word><![CDATA[Inclusion]]></word>
+		<desc><![CDATA[A culture where differences are valued and everyone feels engaged and involved irrespective of race, gender, disability, medical or other need. It is about giving equal access and opportunities and getting rid of discrimination and intolerance.]]></desc>
+	</keyword>
+	
+	</wordlist>
+</glossary>

@@ -234,7 +234,7 @@
 	border-width: 23px;
 	margin-left: -23px;
 }
-.label-container .alphabet{
+.label-container .letter{
 	float:left;
 	padding-left: 20px;
 	cursor: pointer;
@@ -252,13 +252,16 @@
 	margin-top:40px!important;
 }
 
+.desc-container{
+	border-left: 1px solid!important;
+}
+
 .words-conatiner{
-	border-right: 1px solid!important;
 	padding-left:80px; 
 }
 
-.words-conatiner words{
-	cursor: pointer; 
+.words-conatiner .word{
+	margin-bottom: 10px !important; 
 }
 
 .help-container{

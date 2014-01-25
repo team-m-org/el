@@ -16,6 +16,8 @@ var Engine = (function(){
 	var currTopicData = null;
 	var currAttempt = 1;
 	var currScore = 0;
+	var keywords = [];
+	var alphabets = [];
 	var USERSTATE = {
 			module : 0,
 			topic : 0,
@@ -587,14 +589,41 @@ var Engine = (function(){
 			return menuModuleHandler.call(this);
 		});
 		
+		
+		
 		$(window).unload(function(){
 			console.log("Unload Called");
 			updateScromString();
 			doLMSFinish();
 		});
 		
+		$(document).on('click','.label-container .letter a',function(){
+			return glossaryLetterHandler.call(this);
+		});
+		
+		$(document).on('click','.words-conatiner .word a',function(){
+			return glossaryWordHandler.call(this);
+		});
 		
 		$(document).on('click', '.template-conatiner .btnSubmit',function () {});
+	};
+	
+	glossaryWordHandler = function(){
+		var word = $(this).text();
+		var keyObj = getDescForWord(word);
+		var template2 = templatesCache["glossaryDesc.html"];
+		$(".desc-container").html(Handlebars.compile(template2)(keyObj));
+	};
+	
+	
+	glossaryLetterHandler = function(){
+		var key = $(this).parent().data('id');
+		var words = getWordsForID(key);
+		var keyObj = getDescForWord(words[0].word._cdata);
+		var template1 = templatesCache["glossaryWord.html"];
+		var template2 = templatesCache["glossaryDesc.html"];
+		$(".words-conatiner").html(Handlebars.compile(template1)(words));
+		$(".desc-container").html(Handlebars.compile(template2)(keyObj));
 	};
 	
 	getCurrentTopic = function(){
@@ -610,17 +639,12 @@ var Engine = (function(){
 		return currScreen;
 	};
 	menuModuleHandler = function(){
-		//console.log("Module ID - ", $(this).attr("class"));
 		var menuType = courseStructure.course["_menuType"];
 		if(menuType === "module"){
 			USERSTATE.module = parseInt($(this).attr("class"));
 			USERSTATE.topic = 0;
 			$('#menu-panel').foundation('reveal', 'close');
 			showTopic();
-			//updatePagination();
-			//updateBreadCrum();
-
-
 			var modules = courseStructure.course.module;
 			var topics = modules[USERSTATE.module].topic;
 
@@ -663,12 +687,7 @@ var Engine = (function(){
 		console.log("USERSTATE.module : " + USERSTATE.module);
 		console.log("USERSTATE.topic : " + courseStructure.course.module[USERSTATE.module].topic[USERSTATE.topic].visited);
 		
-		
-		
 		showTopic();
-		//updatePagination();
-		//updateBreadCrum();
-		
 		var modules = courseStructure.course.module;
 		var topics = modules[USERSTATE.module].topic;
 		
@@ -734,43 +753,47 @@ var Engine = (function(){
 	};
 
 	glossaryHandler = function(){
-		var templatePromise = getTemplateData("glossary.html","engine");
-		$.when(templatePromise).then(function(){
-			var template = templatesCache["glossary.html"];
-			var glossayData={};
-			glossayData.letters = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z',]
-			glossayData.words = ["HELLO","THANKS","LOVE"];
-			$(".glossary-container").html(Handlebars.compile(template)(glossayData));
-			
-		});
+		
+	};
+	
+	getWordsForID = function(id){
+		var idKeyWords = [];
+		for (var int = 0; int < keywords.length; int++) {
+			if(id == keywords[int]._id){
+				idKeyWords.push(keywords[int]);
+			}
+		}
+		
+		return idKeyWords;
+	};
+	
+	getDescForWord = function(word){
+		var desc = "";
+		for (var int = 0; int < keywords.length; int++) {
+			if(word == keywords[int].word._cdata){
+				desc = keywords[int];
+				break;
+			}
+		}
+		
+		return desc;
 	};
 
 	prevHandler = function(){
-		//console.log("Previous Click");
 		showPrevPage();
 	};
 
 	nextHandler = function(){
-		//console.log("Next Click");
 		showNextPage();
 	};
 
 
 
 	helpHandler = function(){
-		var templatePromise = getTemplateData("help.html","engine");
-		var helpData = getTopicData("help.xml");
-		$.when(templatePromise,helpData).then(function(){
-			var template = templatesCache["help.html"];
-			var helpContent = topicDataCache["help.xml"];
-			
-			$(".help-container").html(Handlebars.compile(template)(helpContent.items));
-			
-		});
+		
 	};
 
 	exitHandler = function(){
-		//console.log("Exit Click");
 		var bool =  confirm("Are you sure you want to exit");
 		if(bool){
 			updateScromString();
@@ -827,107 +850,11 @@ var Engine = (function(){
 	
 		updateNextNavigation();
 		showTopic();
-		//updatePagination();
-		//updateBreadCrum();
+		
 		
 	};
 	
-	/*updateScromString = function(){
-		//console.log("scromString : " + scromString);
-		
-		console.log("Assessment : ",USERSTATE.assessment);
-		
-		var scromStringArray = scromString.split("~");
-		
-		if(USERSTATE.assessment){
-			var module = scromStringArray[2].split("|");
-			var tempScromString = "";
-			
-			for(var modelIndex in module){
-				if(modelIndex == USERSTATE.module){
-					var topics = module[modelIndex].split("^");
-					var topicLevelString = "";
-					for(var topicIndex in topics){
-						
-						if(topicIndex == USERSTATE.topic){
-							var pages = topics[topicIndex].split(",");
-							var tempTopicLevelString = "";
-							for(var pageIndex in pages){
-								if(pageIndex == USERSTATE.screen){
-									tempTopicLevelString += ",1";
-								}
-								else{
-									tempTopicLevelString += "," + pages[pageIndex];
-								}
-							}
-							tempTopicLevelString += "^";
-							tempTopicLevelString = tempTopicLevelString.substring(1, tempTopicLevelString.length);
-							topicLevelString += tempTopicLevelString;
-						}
-						else{
-							topicLevelString += topics[topicIndex] + "^";
-						}
-					}
-					topicLevelString = topicLevelString.substring(0, topicLevelString.length-1);
-					tempScromString += topicLevelString + "|";
-				}
-				else{
-					tempScromString += module[modelIndex] + "|";
-				}
-			}
-			tempScromString = tempScromString.substring(0, tempScromString.length-1);
-			scromString = scromStringArray[0] + "~" + USERSTATE.module + "," + USERSTATE.topic + "," + USERSTATE.screen + "~" + tempScromString;
-			
-		}
-		else{
-			var module = scromStringArray[0].split("|");
-			var tempScromString = "";
-			
-			for(var modelIndex in module){
-				if(modelIndex == USERSTATE.module){
-					var topics = module[modelIndex].split("^");
-					var topicLevelString = "";
-					for(var topicIndex in topics){
-						
-						if(topicIndex == USERSTATE.topic){
-							var pages = topics[topicIndex].split(",");
-							var tempTopicLevelString = "";
-							for(var pageIndex in pages){
-								if(pageIndex == USERSTATE.screen){
-									tempTopicLevelString += ",1";
-								}
-								else{
-									tempTopicLevelString += "," + pages[pageIndex];
-								}
-							}
-							tempTopicLevelString += "^";
-							tempTopicLevelString = tempTopicLevelString.substring(1, tempTopicLevelString.length);
-							topicLevelString += tempTopicLevelString;
-						}
-						else{
-							topicLevelString += topics[topicIndex] + "^";
-						}
-					}
-					topicLevelString = topicLevelString.substring(0, topicLevelString.length-1);
-					tempScromString += topicLevelString + "|";
-				}
-				else{
-					tempScromString += module[modelIndex] + "|";
-				}
-			}
-			
-			tempScromString = tempScromString.substring(0, tempScromString.length-1);
-			tempScromString += "~" + USERSTATE.module + "," + USERSTATE.topic + "," + USERSTATE.screen + "~" + scromStringArray[2];
-			
-			scromString = tempScromString;
-		}
-		
-		
-		
-		console.log("scromString In Next : ", scromString);
-		
-	}*/
-
+	
 	updateNextNavigation = function(){
 		var modules = courseStructure.course.module;
 		var currentModule = modules[USERSTATE.module];
@@ -956,8 +883,8 @@ var Engine = (function(){
 		
 		var modules = courseStructure.course.module;
 		generateMenu(modules);
-		//updatePagination();
-		//updateBreadCrum();
+		genrateHelp();
+		genrateGlossary();
 		updateNextNavigation();
 		updatePrevNavgation();
 		$('.course-title').text(courseStructure.courseTitle._cdata);
@@ -974,6 +901,55 @@ var Engine = (function(){
 		$('.module-screen').text(screenTitle);
 
 	};
+	
+	genrateHelp = function (){
+		var templatePromise = getTemplateData("help.html","engine");
+		var helpData = getTopicData("help.xml");
+		$.when(templatePromise,helpData).then(function(){
+			var template = templatesCache["help.html"];
+			var helpContent = topicDataCache["help.xml"];
+			
+			$(".help-container").html(Handlebars.compile(template)(helpContent.items));
+			
+		});
+	};
+	
+	genrateGlossary = function(){
+		var templatePromise = getTemplateData("glossary.html","engine");
+		var template1Promise = getTemplateData("glossaryWord.html","engine");
+		var template2Promise = getTemplateData("glossaryDesc.html","engine");
+		var glossaryData = getTopicData("glossary.xml");
+		$.when(templatePromise,glossaryData,template1Promise,template2Promise).then(function(){
+			var template = templatesCache["glossary.html"];
+			var template1 = templatesCache["glossaryWord.html"];
+			var template2 = templatesCache["glossaryDesc.html"];
+			var glossaryContent = topicDataCache["glossary.xml"];
+			
+			keywords = glossaryContent.wordlist.keyword;
+			letters = glossaryContent.alphabets.letter;
+			
+			for (var int = 0; int < keywords.length; int++) {
+				for(var i = 0; i<letters.length;i++){
+					if(keywords[int]._id === letters[i]._id ){
+						alphabets.push(letters[i]);
+						break;
+					}
+				}
+			}
+			
+			var defaultId = keywords[0]._id;
+				
+			var glossayData={};
+			glossayData.letters = _.uniq(alphabets);
+			glossayData.keywords = getWordsForID(defaultId);
+			glossayData.defaultDesc = keywords[0];
+			
+			$(".glossary-container").html(Handlebars.compile(template)(glossayData.letters));
+			$(".words-conatiner").html(Handlebars.compile(template1)(glossayData.keywords));
+			$(".desc-container").html(Handlebars.compile(template2)(glossayData.defaultDesc));
+			
+		});
+	}
 
 	generateMenu = function(modules){
 
@@ -1011,7 +987,6 @@ var Engine = (function(){
 		$.when(templatePromise).then(function(){
 			var template = templatesCache["menuTemplate.html"];
 			$(".accordion").append(Handlebars.compile(template)(moduleArray));
-			//$(".completed").hide();
 		});
 	};
 

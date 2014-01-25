@@ -1,15 +1,11 @@
 <div class="row label-container">
 	<div class="small-12 columns">
-	{{#each this.letters}}
-	<div class="alphabet" data-id='{{this}}'><a href=#>{{this}}</a></div>
+	{{#each this}}
+	<div class="letter" data-id='{{this._id}}'><a href=#>{{_cdata}}</a></div>
 	{{/each}}
 	</div>
 </div>
 <div class="row glossary-data-container">
-	<div class="small-6 columns words-conatiner">
-		{{#each this.words}}
-			<div class="words" data-id="{{this}}"><a href=#>{{this}}</a></div>
-		{{/each}}
-	</div>
-	<div class="small-6 columns descrip-container">Her Goes the description</div>
+	<div class="small-4 columns words-conatiner"></div>
+	<div class="small-8 columns desc-container"></div>
 </div>
