@@ -5,10 +5,24 @@
 	Author:  Stefan Goessner/2006
 	Web:     http://goessner.net/ 
  */
+function normalize(node) {
+    var child = node.firstChild, nextChild;
+    while (child) {
+        if (child.nodeType == 3) {
+            while ((nextChild = child.nextSibling) && nextChild.nodeType == 3) {
+                child.appendData(nextChild.data);
+                node.removeChild(nextChild);
+            }
+        } else {
+            normalize(child);
+        }
+        child = child.nextSibling;
+    }
+}
 var X = {
 		toObj: function(xml) {
 			var o = {};
-			if (xml.nodeType == 1) { // element node ..
+			if (xml.nodeType == 1 || xml.nodeType == 7) { // element node ..
 				if (xml.attributes.length) // element with attributes  ..
 					for (var i = 0; i < xml.attributes.length; i++)
 						o["_" + xml.attributes[i].nodeName] = (xml.attributes[i].nodeValue || "").toString();
@@ -106,7 +120,7 @@ var X = {
 			.replace(/[\r]/g, '\\r');
 		},
 		removeWhite: function(e) {
-			e.normalize();
+			normalize(e);
 			for (var n = e.firstChild; n;) {
 				if (n.nodeType == 3) { // text node
 					if (!n.nodeValue.match(/[^ \f\n\r\t\v]/)) { // pure whitespace text node
