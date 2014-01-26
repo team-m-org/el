@@ -46,7 +46,9 @@ var Engine = (function(){
 			return element._visible=="true";
 		});
 
-		for(var moduleIndex in modules){
+		for(var moduleIndex=0;moduleIndex< modules.length;moduleIndex++){
+		
+		/*for(var moduleIndex in moduleIndex){*/
 			var module = modules[moduleIndex];
 
 			var topics = module.topic;
@@ -57,7 +59,8 @@ var Engine = (function(){
 				return element._visible=="true";
 			});
 
-			for(var topicIndex in topics){
+			for(var topicIndex=0;topicIndex< topics.length;topicIndex++){
+			/*for(var topicIndex in topics){*/
 				var screens = topics[topicIndex].screen;
 				if(!(screens instanceof Array)){
 					screens = topics[topicIndex].screen = [screens];
@@ -83,7 +86,9 @@ var Engine = (function(){
 		}
 
 		var screensMap = {};
-		for(var screenIndex in topic.screen){
+		
+		for(var screenIndex=0;screenIndex<  topic.screen.length;screenIndex++){
+	/*	for(var screenIndex in topic.screen){*/
 			var screen = topic.screen[screenIndex];
 			screensMap["_ques_set" + screen._setNo] = screensMap["_ques_set" + screen._setNo] ||[];
 			screensMap["_ques_set" + screen._setNo].push(screen);
@@ -93,6 +98,7 @@ var Engine = (function(){
 		//console.log(screensMap);
 
 		var calculatedScreens = [];
+		
 		for(var noOfQuestionsMapIndex in noOfQuestionsMap){
 			var noOfQuestionsToPick = noOfQuestionsMap[noOfQuestionsMapIndex];
 			var questionsScreens  = screensMap[noOfQuestionsMapIndex];
@@ -107,9 +113,12 @@ var Engine = (function(){
 
 	function constructCourse(courseStructure){
 		var modules = courseStructure.course.module;
-		for(var index in modules){
+		
+		for(var index=0;index< modules.length;index++){
+		/*for(var index in modules){*/
 			var module = modules[index];
-			for(var topicIndex in module.topic){
+			for(var topicIndex=0;topicIndex< module.topic.length;topicIndex++){
+			/*for(var topicIndex in module.topic){*/
 				if(module.topic[topicIndex]._type==="assessment"){
 					module.topic[topicIndex] = createAssessment(module.topic[topicIndex]);
 				}
@@ -186,12 +195,16 @@ var Engine = (function(){
 		var assString = "";
 		scromString = "";
 		var module = courseStructure.course.module;
-		for(var index in module){
+		
+		for(var index=0;index< module.length;index++){
+		/*for(var index in module){*/
 			var topic = module[index].topic;
-				for(var topicIndex in topic){
+				for(var topicIndex=0;topicIndex< topic.length;topicIndex++){
+				/*for(var topicIndex in topic){*/
 					var screen = topic[topicIndex].screen;
 					if(topic[topicIndex]._type=="assessment"){
-							for(var screenIndex in screen){
+							for(var screenIndex=0;screenIndex< screen.length;screenIndex++){
+							/*for(var screenIndex in screen){*/
 								
 								if(screen[screenIndex].isCorrect){
 									assString += "1,";
@@ -202,7 +215,8 @@ var Engine = (function(){
 							assString = assString.substring(0, assString.length-1);
 							assString += "|";
 					}else{
-							for(var screenIndex in screen){
+							for(var screenIndex=0;screenIndex< screen.length;screenIndex++){
+							/*for(var screenIndex in screen){*/
 								if(screen[screenIndex].visited){
 									scromString  += "1,";
 								} else {
@@ -244,16 +258,20 @@ var Engine = (function(){
 			
 			calculatedCourse['module'] = new Array(moduleParts.length);
 
-			for(var modulePartIndex in moduleParts){
+			for(var modulePartIndex=0;modulePartIndex< moduleParts.length;modulePartIndex++){
+			/*for(var modulePartIndex in moduleParts){*/
 
 				var moduleStr = moduleParts[modulePartIndex];
 				var topicParts = moduleStr.split("^");
 				calculatedCourse['module'][modulePartIndex] ={ topic : new Array(topicParts.length)} ;
-				for(var topicPartIndex in topicParts){
+				
+				for(var topicPartIndex=0;topicPartIndex< topicParts.length;topicPartIndex++){
+				/*for(var topicPartIndex in topicParts){*/
 					var topicStr =  topicParts[topicPartIndex];
 					var screenParts = topicStr.split(",");
 					calculatedCourse['module'][modulePartIndex]['topic'][topicPartIndex] = { screen : new Array(screenParts.length)};
-					for(var screenPartIndex in screenParts){
+					for(var screenPartIndex=0;screenPartIndex< screenParts.length;screenPartIndex++){
+					/*for(var screenPartIndex in screenParts){*/
 						var screenStr = screenParts[screenPartIndex];
 						calculatedCourse['module'][modulePartIndex]['topic'][topicPartIndex]['screen'][screenPartIndex]=screenStr=="1";
 					}
@@ -277,35 +295,43 @@ var Engine = (function(){
 		var moduleTopics = [];
 		var assessmentTopics = [];
 		
-		for(var index in calculatedCourse.module){
+		for(var index=0;index< calculatedCourse.module.length;index++){
+		/*for(var index in calculatedCourse.module){*/
 			var topics = calculatedCourse.module[index]['topic'];
-			for(var topicIndex in topics){
+			for(var topicIndex=0;topicIndex< topics.length;topicIndex++){
+			/*for(var topicIndex in topics){*/
 				moduleTopics.push(topics[topicIndex]);
 			}
 		}
 		
-		for(var index in calculatedAssessmentMoudles){
+		for(var index=0;index< calculatedAssessmentMoudles.length;index++){
+		/*for(var index in calculatedAssessmentMoudles){*/
 			var topics = calculatedAssessmentMoudles[index]['topic'];
-			for(var topicIndex in topics){
+			for(var topicIndex=0;topicIndex< topics.length;topicIndex++){
+			/*for(var topicIndex in topics){*/
 				assessmentTopics.push(topics[topicIndex]);
 			}
 		}
 		
 		var asseessmentTopicIndex = 0;
 		var moduleTopicsTopicIndex = 0;
-		for(var index in modules){
+		for(var index=0;index< modules.length;index++){
+		/*for(var index in modules){*/
 			var topics = modules[index]['topic'];
-			for(var topicIndex in topics){
+			for(var topicIndex=0;topicIndex< topics.length;topicIndex++){
+			/*for(var topicIndex in topics){*/
 				if(topics[topicIndex]._type == "assessment"){
 					var assessaentTopicWithData = assessmentTopics[asseessmentTopicIndex++];
-					for(var screenIndex in screens){
+					for(var screenIndex=0;screenIndex< screens.length;screenIndex++){
+					/*for(var screenIndex in screens){*/
 						screens[screenIndex].isCorrect = assessaentTopicWithData.screen[screenIndex];
 					}
 
 				} else {
 					var moduleTopicWithData = moduleTopics[moduleTopicsTopicIndex++];
 					var screens = topics[topicIndex]['screen'];
-					for(var screenIndex in screens){
+					for(var screenIndex=0;screenIndex< screens.length;screenIndex++){
+				/*	for(var screenIndex in screens){*/
 						screens[screenIndex].visited = moduleTopicWithData.screen[screenIndex];
 					}
 				}
@@ -315,11 +341,13 @@ var Engine = (function(){
 		function setVisitedModules(course){
 			var modules = course.module;
 			
-			for(var moduleIndex in modules){
+			for(var moduleIndex=0;moduleIndex< modules.length;moduleIndex++){
+			/*for(var moduleIndex in modules){*/
 				var currentModule = modules[moduleIndex];
 				var moduleCompleted = true;
 				
-				for(var topicIndex in currentModule.topic){
+				for(var topicIndex=0;topicIndex< currentModule.length;topicIndex++){
+				/*for(var topicIndex in currentModule.topic){*/
 					if(!currentModule.topic[topicIndex].completed){
 						moduleCompleted = false;
 						break;
@@ -333,14 +361,18 @@ var Engine = (function(){
 		function setVisitedTopics(course){
 			var modules = course.module;
 			
-			for(var moduleIndex in modules){
+			for(var moduleIndex=0;moduleIndex< modules.length;moduleIndex++){
+			/*for(var moduleIndex in modules){*/
 				var currentModule = modules[moduleIndex];
 				var moduleCompleted = true;
 				
-				for(var topicIndex in currentModule.topic){
+				for(var topicIndex=0;topicIndex< currentModule.length;topicIndex++){
+				/*for(var topicIndex in currentModule.topic){*/
 					var currentTopic = currentModule.topic[topicIndex];
 					var topicCompleted = true;
-					for(var screenIndex in currentTopic.screen){
+					
+					for(var screenIndex=0;screenIndex< currentTopic.length;screenIndex++){
+					/*for(var screenIndex in currentTopic.screen){*/
 						var currentScreen = currentTopic.screen[topicIndex];
 						if(!currentScreen.visited){
 							topicCompleted = false;
@@ -821,7 +853,9 @@ var Engine = (function(){
 			currentTopic.completed=true;
 			USERSTATE.topic++;
 			var moduleCompleted = true;
-			for(var topicIndex in currentModule.topic){
+			
+			for(var topicIndex=0;topicIndex< currentModule.topic.length;topicIndex++){
+			/*for(var topicIndex in currentModule.topic){*/
 				if(!currentModule.topic[topicIndex].completed){
 					moduleCompleted = false;
 					break;
@@ -1050,5 +1084,6 @@ var Engine = (function(){
 
 Engine.initialize();
 
-console = console || {};
+var console = console || {};
 console.log = function(){};
+console.warn = function(){};
