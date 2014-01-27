@@ -4,11 +4,6 @@
 	<course enableNext="false" menuType="topic" navigationMode="linear">
 	<module title="Module 1" visible="true">
 			<topic title="Topic 1" visible="true">
-				<screen templateID="conversation.html" 
-					title="Screen 1" ScreenTitle="" xmlName="conversation.xml" audioName="" agentAnim="" 
-					agentseq="" lockNext="false" markComplete="false" sliderEnabled="true" playPauseEnabled="true" 
-					visible="true" notes="true"><![CDATA[]]>
-				</screen> 
 				<screen templateID="ImageWithHover.html" 
 					title="Screen 2" ScreenTitle="" xmlName="ImageWithHover.xml" audioName="" agentAnim="" 
 					agentseq="" lockNext="false" markComplete="false" sliderEnabled="true" playPauseEnabled="true" 
