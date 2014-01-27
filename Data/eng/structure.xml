@@ -2,10 +2,11 @@
 	<courseTitle><![CDATA[Course Title 1]]></courseTitle>
 	<welcomePage fileName="intro.swf" />
 	<course enableNext="false" menuType="topic" navigationMode="linear">
-	<module title="Module 1" visible="true">
+		<module title="Module 1" visible="true">
 			<topic title="Topic 1" visible="true">
-				<screen templateID="conversation.html" 
-					title="Screen 1" ScreenTitle="" xmlName="conversation.xml" audioName="" agentAnim="" 
+			    
+				<screen templateID="VideoTemplate.html" 
+					title="Screen 1" ScreenTitle="" xmlName="Video.xml" audioName="" agentAnim="" 
 					agentseq="" lockNext="false" markComplete="false" sliderEnabled="true" playPauseEnabled="true" 
 					visible="true" notes="true"><![CDATA[]]>
 				</screen> 

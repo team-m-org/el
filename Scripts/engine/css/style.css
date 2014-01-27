@@ -165,6 +165,10 @@
     padding-left : 5%;
 }
 
+.lpad15p {
+    padding-left : 15%;
+}
+
 .bulletStyle {
 	background-image: url(../../../Media/eng/images/Untitled.jpg);
 	background-repeat: no-repeat;
