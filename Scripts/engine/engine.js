@@ -993,7 +993,7 @@ var Engine = (function(){
 			var moduleObj= {
 					id:"",
 					name: "",
-					topics:[],
+					topics:[]
 			};
 
 			moduleObj.id = i;
@@ -1077,7 +1077,7 @@ var Engine = (function(){
 
 		},
 		showNextPage : showNextPage,
-		showPrevPage : showPrevPage,
+		showPrevPage : showPrevPage
 	};
 })();
 
