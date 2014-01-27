@@ -6,7 +6,8 @@ var EnvVariables = {
 			'EngineTemplate' : 'Scripts/engine/html/',
 			'EngineImage' : 'Scripts/engine/image/'
 		},
-		'lang' : 'eng'
+		'lang' : 'eng',
+		'scorm' : '2004'
 };
 
 
@@ -406,15 +407,31 @@ var Engine = (function(){
 	}
 	
 	updateSCORM = function(scromString){
-		doLMSSetValue('cmi.suspend_data', scromString);
-		doLMSCommit('');
+		if(EnvVariables.scorm === "1.2"){
+			doLMSSetValue('cmi.suspend_data', scromString);
+			doLMSCommit('');
+		}
+		else if(EnvVariables.scorm === "2004"){
+			doSetValue('cmi.suspend_data', scromString);
+			doCommit('');
+		}
+		
+		
 		
 	};
 	
 	getSCORMData = function(){
-		var scormString = doLMSGetValue('cmi.suspend_data');
+		
+		var scormString="";
+		
+		if(EnvVariables.scorm === "1.2"){
+			scormString = doLMSGetValue('cmi.suspend_data');
+		}
+		else if(EnvVariables.scorm === "2004"){
+			scormString = doSetValue('cmi.suspend_data');
+		}
 		return scormString;
-	}
+	};
 	
 	showTopic =  function(){
 
@@ -626,7 +643,12 @@ var Engine = (function(){
 		$(window).unload(function(){
 			console.log("Unload Called");
 			updateScromString();
-			doLMSFinish();
+			if(EnvVariables.scorm === "1.2"){
+				doLMSFinish();
+			}
+			else if(EnvVariables.scorm === "2004"){
+				doTerminate();
+			}
 		});
 		
 		$(document).on('click','.label-container .letter a',function(){
@@ -829,14 +851,22 @@ var Engine = (function(){
 		var bool =  confirm("Are you sure you want to exit");
 		if(bool){
 			updateScromString();
-			doLMSFinish();
+			closeLMS();
 			window.open('', '_self', '');
 			window.close();
 			
 		}
 	};
 
-
+	closeLMS = function(){
+		if(EnvVariables.scorm === "1.2"){
+			doLMSFinish();
+		}
+		else if(EnvVariables.scorm === "2004"){
+			doTerminate();
+		}
+	};
+	
 
 	showNextPage = function(){
 		var modules = courseStructure.course.module;
@@ -1064,9 +1094,12 @@ var Engine = (function(){
 		initialize : function(){
 			var courseStructureObtained = getCourseStructure();
 			$.when(courseStructureObtained).then(function(){
-				
-				
-				doLMSInitialize();
+				if(EnvVariables.scorm === "1.2"){
+					doLMSInitialize();
+				}
+				else if(EnvVariables.scorm === "2004"){
+					doInitialize();
+				}
 				var scormString = getSCORMData();
 				updateCourseState(scormString);
 				showTopic();
