@@ -242,7 +242,7 @@ var Engine = (function(){
 	
 	updateCourseState = function(scormString){
 		//1,1|0,0,0|0,0,0~0,0,1~0,0,0 
-		if(!scormString){
+		if(!scormString || scormString === "false"){
 			return;
 		}
 		var parts = scormString.split("~");
@@ -254,6 +254,9 @@ var Engine = (function(){
 		
 		
 		function calculateCourse(courseStateStr){
+			if(!courseStateStr || courseStateStr === "false"){
+				return;
+			}
 			var calculatedCourse = {};
 			var moduleParts = courseStateStr.split("|");
 			
@@ -428,7 +431,7 @@ var Engine = (function(){
 			scormString = doLMSGetValue('cmi.suspend_data');
 		}
 		else if(EnvVariables.scorm === "2004"){
-			scormString = doSetValue('cmi.suspend_data');
+			scormString = doGetValue('cmi.suspend_data');
 		}
 		return scormString;
 	};
@@ -643,12 +646,12 @@ var Engine = (function(){
 		$(window).unload(function(){
 			console.log("Unload Called");
 			updateScromString();
-			if(EnvVariables.scorm === "1.2"){
+			/*if(EnvVariables.scorm === "1.2"){
 				doLMSFinish();
 			}
 			else if(EnvVariables.scorm === "2004"){
 				doTerminate();
-			}
+			}*/
 		});
 		
 		$(document).on('click','.label-container .letter a',function(){
@@ -851,7 +854,7 @@ var Engine = (function(){
 		var bool =  confirm("Are you sure you want to exit");
 		if(bool){
 			updateScromString();
-			closeLMS();
+			//closeLMS();
 			window.open('', '_self', '');
 			window.close();
 			
