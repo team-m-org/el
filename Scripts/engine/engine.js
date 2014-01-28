@@ -37,11 +37,11 @@ var Engine = (function(){
 
 	function normalizeCourse(courseStructure){
 
-		if(!(courseStructure.course.module instanceof Array)){
-			courseStructure.course.module = [courseStructure.course.module];
+		if(!(courseStructure.course[0].module instanceof Array)){
+			courseStructure.course[0].module = [courseStructure.course[0].module];
 		}
 
-		var modules = courseStructure.course.module;
+		var modules = courseStructure.course[0].module;
 
 		modules = modules.filter(function(element){
 			return element._visible=="true";
@@ -113,7 +113,7 @@ var Engine = (function(){
 	}
 
 	function constructCourse(courseStructure){
-		var modules = courseStructure.course.module;
+		var modules = courseStructure.course[0].module;
 		
 		for(var index=0;index< modules.length;index++){
 		/*for(var index in modules){*/
@@ -195,7 +195,7 @@ var Engine = (function(){
 	updateScromString =  function(){
 		var assString = "";
 		scromString = "";
-		var module = courseStructure.course.module;
+		var module = courseStructure.course[0].module;
 		
 		for(var index=0;index< module.length;index++){
 		/*for(var index in module){*/
@@ -288,7 +288,7 @@ var Engine = (function(){
 		var calculatedCourse = calculateCourse(courseStateStr);
 		var calculatedAssessment = calculateCourse(assScoreStr);
 		
-		var modules= courseStructure.course.module;
+		var modules= courseStructure.course[0].module;
 		var calculatedModule = calculatedCourse.module;
 		
 		var calculatedAssessmentMoudles =  calculatedAssessment.module;
@@ -438,7 +438,7 @@ var Engine = (function(){
 	
 	showTopic =  function(){
 
-		var module = courseStructure.course.module[USERSTATE.module];
+		var module = courseStructure.course[0].module[USERSTATE.module];
 		var topics =  module.topic[USERSTATE.topic];
 		var screens = topics.screen[USERSTATE.screen];
 		
@@ -476,7 +476,7 @@ var Engine = (function(){
 	};
 	
 	checkAssessment = function(){
-		var module = courseStructure.course.module[USERSTATE.module];
+		var module = courseStructure.course[0].module[USERSTATE.module];
 		var topics =  module.topic[USERSTATE.topic];
 		
 		if(topics["_type"] === "assessment"){
@@ -679,13 +679,13 @@ var Engine = (function(){
 	};
 	
 	getCurrentTopic = function(){
-		var module = courseStructure.course.module[USERSTATE.module];
+		var module = courseStructure.course[0].module[USERSTATE.module];
 		var currtopics =  module.topic[USERSTATE.topic];
 		return currtopics;
 	};
 	
 	getCurrentScreen = function(){
-		var module = courseStructure.course.module[USERSTATE.module];
+		var module = courseStructure.course[0].module[USERSTATE.module];
 		var topics =  module.topic[USERSTATE.topic];
 		var currScreen =  topics.screen[USERSTATE.screen];
 		return currScreen;
@@ -697,7 +697,7 @@ var Engine = (function(){
 			USERSTATE.topic = 0;
 			$('#menu-panel').foundation('reveal', 'close');
 			showTopic();
-			var modules = courseStructure.course.module;
+			var modules = courseStructure.course[0].module;
 			var topics = modules[USERSTATE.module].topic;
 
 			if(USERSTATE.module === 0 && USERSTATE.topic===0){
@@ -721,7 +721,7 @@ var Engine = (function(){
 	menuTopicHandler = function(){
 
 		if(courseStructure.course._navigationMode == "linear"){
-			if(courseStructure.course.module[parseInt($(this).attr("class").split("-")[0])].topic[parseInt($(this).attr("class").split("-")[1])].visited){
+			if(courseStructure.course[0].module[parseInt($(this).attr("class").split("-")[0])].topic[parseInt($(this).attr("class").split("-")[1])].visited){
 				console.log("This topic has been visited");
 			}
 			else{
@@ -737,10 +737,10 @@ var Engine = (function(){
 
 		console.log("USERSTATE.topic : " + USERSTATE.topic);
 		console.log("USERSTATE.module : " + USERSTATE.module);
-		console.log("USERSTATE.topic : " + courseStructure.course.module[USERSTATE.module].topic[USERSTATE.topic].visited);
+		console.log("USERSTATE.topic : " + courseStructure.course[0].module[USERSTATE.module].topic[USERSTATE.topic].visited);
 		
 		showTopic();
-		var modules = courseStructure.course.module;
+		var modules = courseStructure.course[0].module;
 		var topics = modules[USERSTATE.module].topic;
 		
 		if(USERSTATE.module === 0 && USERSTATE.topic===0){
@@ -761,7 +761,7 @@ var Engine = (function(){
 
 	updatePagination = function(){
 
-		var modules = courseStructure.course.module;
+		var modules = courseStructure.course[0].module;
 		var topics = modules[USERSTATE.module].topic;
 		var screens = topics[USERSTATE.topic].screen;
 		if(screens instanceof Array){
@@ -867,7 +867,7 @@ var Engine = (function(){
 	
 
 	showNextPage = function(){
-		var modules = courseStructure.course.module;
+		var modules = courseStructure.course[0].module;
 		var currentModule = modules[USERSTATE.module];
 		var currentTopic = modules[USERSTATE.module].topic[USERSTATE.topic];
 		var nextScreen = ++USERSTATE.screen;
@@ -918,7 +918,7 @@ var Engine = (function(){
 	
 	
 	updateNextNavigation = function(){
-		var modules = courseStructure.course.module;
+		var modules = courseStructure.course[0].module;
 		var currentModule = modules[USERSTATE.module];
 		var topics = modules[USERSTATE.module].topic;
 		if(USERSTATE.module === modules.length-1 &&  USERSTATE.topic === currentModule.topic.length-1 && USERSTATE.screen === topics[USERSTATE.topic].screen.length-1){
@@ -943,7 +943,7 @@ var Engine = (function(){
 
 	initView = function(){
 		
-		var modules = courseStructure.course.module;
+		var modules = courseStructure.course[0].module;
 		generateMenu(modules);
 		genrateHelp();
 		genrateGlossary();
@@ -953,7 +953,7 @@ var Engine = (function(){
 	};
 
 	updateBreadCrum = function(){
-		var modules = courseStructure.course.module;
+		var modules = courseStructure.course[0].module;
 		var topics = modules[USERSTATE.module].topic;
 		var screen =  topics[USERSTATE.topic].screen;
 		var screenTitle = "";
@@ -987,8 +987,8 @@ var Engine = (function(){
 			var template2 = templatesCache["glossaryDesc.html"];
 			var glossaryContent = topicDataCache["glossary.xml"];
 			
-			keywords = glossaryContent.wordlist.keyword;
-			letters = glossaryContent.alphabets.letter;
+			keywords = glossaryContent.wordlist[0].keyword;
+			letters = glossaryContent.alphabets[0].letter;
 			
 			for (var int = 0; int < keywords.length; int++) {
 				for(var i = 0; i<letters.length;i++){
@@ -1054,7 +1054,7 @@ var Engine = (function(){
 
 
 	showPrevPage = function(){
-		var modules = courseStructure.course.module;
+		var modules = courseStructure.course[0].module;
 		var prevScreen = --USERSTATE.screen;
 		currAttempt = 1;
 		if(prevScreen < 0){

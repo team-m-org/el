@@ -1,8 +1,8 @@
 <div class="row tpad10p">
-	{{#each group}} {{#if this.Contents}}
+	{{#each group}} {{#if this.Contents.[0]}}
 	<div class="small-4 columns small-push-1" style="height: 100%;">
 			<h4>{{{this.Contents.title._cdata}}}</h4>
-			{{#each Contents.bullets.bullet}}
+			{{#each Contents.[0].bullets.[0].bullet}}
 			<ul>
 				<li>{{this.value}}
 					<ul>

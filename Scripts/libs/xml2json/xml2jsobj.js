@@ -47,7 +47,7 @@ var X = {
 									if (o[n.nodeName] instanceof Array) o[n.nodeName][o[n.nodeName].length] = X.toObj(n);
 									else o[n.nodeName] = [o[n.nodeName], X.toObj(n)];
 								} else // first occurence of element..
-									o[n.nodeName] = X.toObj(n);
+									o[n.nodeName] = [X.toObj(n)];
 							}
 						} else { // mixed content
 							if (!xml.attributes.length) o = X.escape(X.innerXml(xml));
