@@ -431,7 +431,7 @@ var Engine = (function(){
 			scormString = doLMSGetValue('cmi.suspend_data');
 		}
 		else if(EnvVariables.scorm === "2004"){
-			scormString = doGetValue('cmi.suspend_data');
+			scormString = doGetValue('cmi.suspend_data',true);
 		}
 		return scormString;
 	};
@@ -646,12 +646,7 @@ var Engine = (function(){
 		$(window).unload(function(){
 			console.log("Unload Called");
 			updateScromString();
-			/*if(EnvVariables.scorm === "1.2"){
-				doLMSFinish();
-			}
-			else if(EnvVariables.scorm === "2004"){
-				doTerminate();
-			}*/
+			closeLMS();
 		});
 		
 		$(document).on('click','.label-container .letter a',function(){
@@ -854,7 +849,7 @@ var Engine = (function(){
 		var bool =  confirm("Are you sure you want to exit");
 		if(bool){
 			updateScromString();
-			//closeLMS();
+			closeLMS();
 			window.open('', '_self', '');
 			window.close();
 			

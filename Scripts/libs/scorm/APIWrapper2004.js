@@ -221,7 +221,7 @@ function doGetValue(name)
       if (error.code != _NoError.code)
       {
          // an error was encountered so display the error description
-         message("GetValue("+name+") failed. \n"+ error.code + ": " + error.string);
+         alert("GetValue("+name+") failed. \n"+ error.code + ": " + error.string);
          result = "";
       }
    }
