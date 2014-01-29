@@ -6,8 +6,8 @@
 		<bullet>
 		    <value><![CDATA[<FONT SIZE="28"><font face='Arial' color="#2B1F09">Bullet text 1</font>]]></value>
 		    <subBullets>
-		        <subBullet><![CDATA[<FONT SIZE="28"><font face='Arial' color="#2B1F09">Sub Bullet text 1</font>]]></subBullet>
-		        <subBullet><![CDATA[<FONT SIZE="28"><font face='Arial' color="#2B1F09">Sub Bullet text 2</font>]]></subBullet>
+		        <!-- <subBullet><![CDATA[<FONT SIZE="28"><font face='Arial' color="#2B1F09">Sub Bullet text 1</font>]]></subBullet>
+		        <subBullet><![CDATA[<FONT SIZE="28"><font face='Arial' color="#2B1F09">Sub Bullet text 2</font>]]></subBullet> -->
 		    </subBullets>
 		</bullet>
 		<bullet>

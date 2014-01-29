@@ -2,9 +2,9 @@
 	<div class="small-6 columns ">
 		<h4>{{{title._cdata}}}</h4>
 		<p>{{{detailMessage._cdata}}}</p>
-		{{#bullets.bullet}}
+		{{#bullets.[0].bullet}}
 		<ul class="iconlist">
-			<li class="bulletStyle">{{{this.value._cdata}}}</li>
+			<li class="bulletStyle">{{{this.value.[0]._cdata}}}</li>
 			<ul class="iconlist">
 				{{#this.subBullets}} {{#this.subBullet}}
 					<li class="subBulletStyle">{{{this._cdata}}}</li>
@@ -12,7 +12,7 @@
 			</ul>
 
 		</ul>
-		{{/bullets.bullet}}
+		{{/bullets.[0].bullet}}
 	</div>
 	<div class=" small-6 columns">
 		<p><img src={{image}} /></p>
