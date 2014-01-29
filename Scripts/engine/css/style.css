@@ -275,3 +275,8 @@
 .help-container .help-image{
 	padding-bottom: 10px;
 }
+
+.sel-image-description{
+	margin-left :1%!important;
+	margin-right :1%!important;
+}

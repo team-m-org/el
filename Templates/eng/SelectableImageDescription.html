@@ -1,6 +1,6 @@
-<div class="row tpad10p">
+<div class="row tpad10p sel-image-description">
 	{{#each group}} {{#if this.Contents.[0]}}
-	<div class="small-4 columns small-push-1" style="height: 100%;">
+	<div class="small-4 columns" style="height: 100%;">
 			<h4>{{{this.Contents.title._cdata}}}</h4>
 			{{#each Contents.[0].bullets.[0].bullet}}
 			<ul>
@@ -15,7 +15,7 @@
 	</div>
 	{{/if}} {{#if this.tabImage}}
 
-	<div class="small-8 columns small-pull-1 " style="height: 100%;">
+	<div class="small-8 columns " style="height: 100%;">
 		<h4>select each panel</h4>
 		<div class="row">
 			{{#each this.tabImage}}
