@@ -21,51 +21,59 @@
 			{{#each this.tabImage}}
 			<div class="small-4 columns imgicon" data="img_icon_{{this._tab_id}}">
 				<div class="panel">
-					<h4>{{{this.title._cdata}}}</h4>
+					<h4>{{{this.title.[0]._cdata}}}</h4>
 					<p>
 						<img src="http://placehold.it/400x300" />
 					</p>
 				</div>
 			</div>
 			{{/each}}
-		</div>
-
-		
+			
 			{{#each this.tabImage}}
-			<div class="row hide img_icon_text  img_icon_text_{{this._tab_id}}" data="img_icon_text_{{this._tab_id}}">
-			<div class="small-4 columns"  >
+			<div class="small-8 columns hide img_icon_text  img_icon_text_{{this._tab_id}}" data="img_icon_text_{{this._tab_id}}">
+			<!-- <div class="small-4 columns"  >
 				<div class="panel">
 					<h4>{{{this.title._cdata}}} </h4>
 					<p>
 						<img src="http://placehold.it/200x200" />
 					</p>
 				</div>
-			</div>
-			<div class="small-8 columns ">
+			</div> -->
 				
 				<div class="panel">
 					<a class="close-reveal-modal  img_icon_text_box right">close</a>
-					{{#each popupText.Text}}
+					{{#each popupText.[0].Text}}
 					<p>{{{this._cdata}}}</p>
+					{{/each}}
+					{{#each bullet}}
+					<ul>
+						<li>{{this.value}}
+							<ul>
+								{{#this.subBullets}} {{#this.subBullet}}
+								<li>{{this}}</li> {{/this.subBullet}} {{/this.subBullets}}
+							</ul>
+						</li>
+					</ul>
 					{{/each}}
 				</div>
 			</div>
-			</div>
 			{{/each}}
+		</div>
+
 		
-
+			
 	</div>
-
 	{{/if}} {{/each}}
 </div>
 <script>
 $('.template-conatiner .imgicon').click(function () {
 		var index = $(this).attr('data').split("_").pop();
-        $('.imgicon').addClass('hide');
+        $('.imgicon').hide();
+        $(this).show();
         $('.img_icon_text_'+index).removeClass('hide');
 });
 $('.template-conatiner .img_icon_text_box').click(function () {
-        $('.imgicon').removeClass('hide');
+        $('.imgicon').show();
         $('.img_icon_text').addClass('hide');
 });
 </script>
