@@ -1,92 +1,68 @@
 <div class="row tpad5p rpad5p lpad5p">
-    <div class="small-6 columns ">
-        <div class="panel1 tpad5p ">
-            <table style="width: 100%; height: 100%">
-                <tr>
-                    <td>
-                         <h1>{{title.[0]}}</h1>
+	<div class="small-6 columns ">
+		<div class="panel1 tpad5p ">
+			<table style="width: 100%; height: 100%">
+				<tr>
+					<td>
+						<h1>{{title.[0]}}</h1>
 
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <p>{{information.[0]}}</p>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <p>{{questionText.[0]}}</p>
-                    </td>
-                </tr>
-            </table>
-        </div>
-    </div>
-    <div class="large-6 small-6 columns">
-        <div class="panel1 tpad5p">
-            <table style="width: 100%">
-                <tr>
-                    <td>{{questionHeader.[0]}}<br/><div class="error hide red"></div></td>
-                </tr>
-                <tr>
-                    <td>{{#options.[0].value}}
-                        <input type="radio" name="saq" class="option"  value={{this.optionValue}} />{{this.optionDisplay.[0]}}
-                        <br />{{/options.[0].value}}</td>
-                </tr>
-                <tr>
-                    <td align="right">
-                        <button class="btnSubmit">Submit!</button>
-                    </td>
-                </tr>
-            </table>
-        </div>
-    </div>
-    
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<p>{{information.[0]}}</p>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<p>{{questionText.[0]}}</p>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<div class="large-6 small-6 columns">
+		<div class="panel1 tpad5p">
+			<table style="width: 100%">
+				<tr>
+					<td>{{questionHeader.[0]}}<br />
+					<div class="error hide red"></div></td>
+				</tr>
+				<tr>
+					<td>{{#options.[0].value}} <input type="radio" name="saq"
+						class="option" value={{this.optionValue}} />{{this.optionDisplay.[0]}}
+						<br />{{/options.[0].value}}
+					</td>
+				</tr>
+				<tr>
+					<td align="right">
+						<button class="btnSubmit">Submit!</button>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+
 </div>
 <div class="row rpad5p lpad5p">
-        <div class="large-12 small-12 columns  ">
-            <div class="panel1">
-                <table style="width: 100%">
-                    <tr>
-                        <td>
-                            <p>{{feedbackTitle.[0]}}</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="rfeedbackContent">{{feedbackContent.[0]}}</div>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-    </div>
-    <input type="hidden" name="rc_answer" id="rc_answer" value={{correctAnswer}}>
-    <div class="hide rfeedbackCorrect">{{{feedbackCorrectContent.[0]._cdata}}}</div>
-    <div class="hide rfeedbackIncorrec">{{{feedbackIncorrectContent.[0]._cdata}}}</div>
-    <script>
-  
-    /* $('.template-conatiner .r_submit').click(function () {
-    	var c_flag = false;
-    	var inputAns;
-    	var correctAns = $("#rc_answer").val();
-    	var inputAns = $('input:radio[name="r_mcqsingle"]:checked').val();
-    	
-    	if(inputAns != undefined){
-    		if(correctAns.toLowerCase() == inputAns.toLowerCase()){
-    			$(".rfeedbackContent").html($(".rfeedbackCorrect").html());
-    			//Engine.showNextPage();
-    		}else{
-    			$(".rfeedbackContent").html($(".rfeedbackIncorrec").html());
-    		}
-    		return false;
-    	}else{
-    		c_flag = false;
-    	}
-    	if(c_flag==false){
-    		$(".error").html("Please select one option.").slideDown();
-    		return false;
-    	}
-	}); */
-    
-    
-    </script>
+	<div class="large-12 small-12 columns  ">
+		<div class="panel1">
+			<table style="width: 100%">
+				<tr>
+					<td>
+						<p>{{feedbackTitle.[0]}}</p>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div class="rfeedbackContent">{{feedbackContent.[0]}}</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>
+<input type="hidden" name="rc_answer" id="rc_answer"
+	value={{correctAnswer}}>
+<div class="hide rfeedbackCorrect">{{{feedbackCorrectContent.[0]._cdata}}}</div>
+<div class="hide rfeedbackIncorrec">{{{feedbackIncorrectContent.[0]._cdata}}}</div>
