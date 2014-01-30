@@ -1,52 +1,32 @@
-<!-- <div class="row">
-	<div class="large-12 small-12 columns">
-		<div style="background-color: #E0E0E0; width: 100%; height: 100%">
-			<h2 style="color: blue; background: #E0E0E0;">{{title}}</h2>
-			<table style="width: 100%; background-color: #E0E0E0;">
-				<tr>
-					<td>
-						{{#texts.text}}
-							<p style="color: blue">{{this}}</p> 
-						{{/texts.text}}
-					</td>
-				</tr>
-			</table>
-			<table style="background-color: #E0E0E0; width: 100%; height: 100%">
-				
-				<tr>
-					{{#Scenarios.Scenario}}
-					<td>
-						<table style="background-color: #E0E0E0; border: 0">
-							<tr>
-								<td align="center"><img src={{this.image}} /></td>
-							</tr>
-							<tr>
-								<td style="color: blue; background: #E0E0E0;">{{this.information}}</td>
-							</tr>
-						</table>
-					</td> {{/Scenarios.Scenario}}
-				</tr>
-			</table>
-		</div>
-	</div>
-</div> -->
-<div class="row" style="padding-left: 10%; padding-right: 10%; padding-bottom: 5%; padding-top: 5%">
+<div class="row"
+	style="padding-left: 10%; padding-right: 10%; padding-bottom: 5%; padding-top: 5%">
 	<div class="small-12 columns">
 		<h2>{{{title.[0]._cdata}}}</h2>
 	</div>
 	<div class="small-12 columns">
-		{{#texts.[0].text}}
+		{{#bullets.[0].bullet}}
+		<ul class="iconlist">
+			<li class="bulletStyle">{{{this.value.[0]._cdata}}}</li>
+			<ul class="iconlist">
+				{{#this.subBullets}} {{#this.subBullet}}
+				<li class="subBulletStyle">{{{this._cdata}}}</li>
+				{{/this.subBullet}} {{/this.subBullets}}
+			</ul>
+		</ul>
+		{{/bullets.[0].bullet}}
+		<div class="small-12 columns">
+			{{#texts.[0].text}}
 			<p>{{{this._cdata}}}</p>
-		{{/texts.[0].text}}
+			{{/texts.[0].text}}
+		</div>
 	</div>
-
 	<div class="small-12 column">
 		{{#Scenarios.[0].Scenario}}
 		<div class="small-6 column" align="middle">
 			<img src={{this.image}} />
 			<p>{{{this.information.[0]._cdata}}}</p>
 		</div>
-		
+
 		{{/Scenarios.[0].Scenario}}
 	</div>
 </div>

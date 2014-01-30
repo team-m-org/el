@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <screen>
     <type>display</type>
-	<title><![CDATA[<FONT SIZE="28"><font face='Arial' color="#2B1F09"><B>Title text 1</B></font>]]></title>
+	<title><![CDATA[Title text 1]]></title>
    <texts>
-       <text><![CDATA[<FONT SIZE="18"><font face='Arial' color="#2B1F09">This is dummy text 1. We can replace it with actual text.</font>]]></text>
-       <text><![CDATA[<FONT SIZE="18"><font face='Arial' color="#2B1F09">This is dummy text 2. We can replace it with actual text.</font>]]></text>
+       <text><![CDATA[This is dummy text 1. We can replace it with actual text.]]></text>
+       <text><![CDATA[This is dummy text 2. We can replace it with actual text.]]></text>
    </texts>
    <image>Media/eng/images/Education1.jpg</image>
 </screen>

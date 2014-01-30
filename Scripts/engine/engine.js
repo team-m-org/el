@@ -494,7 +494,7 @@ var Engine = (function(){
 		$('.btnSubmit').on('click',function(){
 			
 	    	var c_flag = false;
-	    	$(".error").html('');
+	    	$(".feedbackContent").hide().html('');
 	    	$("input[class='option']:checked").each(function() { 
 	    		c_flag = true;
 	    		
@@ -531,7 +531,8 @@ var Engine = (function(){
 	    			}
 	    			else{
 	    				currScreen.isCorrect = false;
-	    				$(".error").html("Try again !.").slideDown();
+	    				$('.feedback-container').show('slow');
+	    				$(".rfeedbackContent").html("Try again !").slideDown();
 	    			}
 	    			
 	    			if(parseInt(currScreen._attempt) === currAttempt){
@@ -556,7 +557,8 @@ var Engine = (function(){
 	    			}
 	    			else{
 	    				currScreen.isCorrect = false;
-	    				$(".error").html("Try again !.").slideDown();
+						$('.feedback-container').show('slow');
+	    				$(".rfeedbackContent").html("Try again !.").slideDown();
 	    			}
 	    			
 	    			if(parseInt(currScreen._attempt) === currAttempt){
@@ -574,7 +576,8 @@ var Engine = (function(){
 	    		
 	    		currAttempt++;
 	    	}else{
-	    		$(".error").html("Please select atleast one option.").slideDown();
+				$('.feedback-container').show('slow');
+	    		$(".rfeedbackContent").html("Please select atleast one option.").slideDown();
 	    	}
 		
 		});
@@ -617,10 +620,6 @@ var Engine = (function(){
 		});
 
 		$("ul.inline-list li[id='next']").on("click", function() {
-			return nextHandler.call(this);
-		});
-
-		$("ul.inline-list li[id='help']").on("click", function() {
 			return nextHandler.call(this);
 		});
 
@@ -947,13 +946,10 @@ var Engine = (function(){
 		updateNextNavigation();
 		updatePrevNavgation();
 		registerEvents();
-		
+		 $(document).foundation();
 	};
 	
 	renderUI = function (){
-		/*var courseData = courseStructure.course[0];
-		var style = courseData._style;
-		$('.course-header')[0].style.cssText = style;*/
 		
 		var headerTemplate = getTemplateData("shellHeader.html","engine");
 		var breadcrumTemplate = getTemplateData("shellBreadcrum.html","engine");
