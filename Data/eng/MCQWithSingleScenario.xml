@@ -2,34 +2,34 @@
 <screen>
     <type>mcq</type>
     <Instruction>This is an Instruction.</Instruction>
-    <title><![CDATA[<FONT SIZE="28"><font face='Arial' color="#2B1F09"><B>Title text 1</B></font>]]></title>
+    <title><![CDATA[<B>Title text 1</B>]]></title>
 	<options>
 		<value>
-			<optionDisplay><![CDATA[<FONT SIZE="28"><font face='Arial' color="#2B1F09">option 1</font>]]></optionDisplay>
+			<optionDisplay><![CDATA[option 1]]></optionDisplay>
 			<optionValue>Option1</optionValue>
 		</value>
 		<value>
-			<optionDisplay><![CDATA[<FONT SIZE="28"><font face='Arial' color="#2B1F09">option 2</font>]]></optionDisplay>
+			<optionDisplay><![CDATA[option 2]]></optionDisplay>
 			<optionValue>Option2</optionValue>
 		</value>
 		<value>
-			<optionDisplay><![CDATA[<FONT SIZE="28"><font face='Arial' color="#2B1F09">option 3</font>]]></optionDisplay>
+			<optionDisplay><![CDATA[option 3]]></optionDisplay>
 			<optionValue>Option3</optionValue>
 		</value>
 		<value>
-			<optionDisplay><![CDATA[<FONT SIZE="28"><font face='Arial' color="#2B1F09">option 4</font>]]></optionDisplay>
+			<optionDisplay><![CDATA[option 4]]></optionDisplay>
 			<optionValue>Option4</optionValue>
 		</value>
 	</options>
 	<correctAnswer>Option3,Option1</correctAnswer>
-	<questionHeader><![CDATA[<FONT SIZE="28"><font face='Arial' color="#2B1F09">Select the correct answer and then click Submit</font>]]></questionHeader>	
+	<questionHeader><![CDATA[Select the correct answer and then click Submit]]></questionHeader>	
 	<instruction>Select the correct answer and then click Submit</instruction>
-	<questionText><![CDATA[<FONT SIZE="28"><font face='Arial' color="#2B1F09">This is a dummy question. Add question as per your wish
-		and also change the option values.</font>]]></questionText>
+	<questionText><![CDATA[This is a dummy question. Add question as per your wish
+		and also change the option values.]]></questionText>
 	<feedbackTitle><![CDATA[FeedBack]]></feedbackTitle>
-	<feedbackContent><![CDATA[<FONT SIZE="28"><font face='Arial' color="#2B1F09">This is a feedback section.</font>]]></feedbackContent>
-	<feedbackCorrectContent><![CDATA[<FONT SIZE="28"><font face='Arial' color="#2B1F09">This is a  Correct feedback section.</font>]]></feedbackCorrectContent>
-	<feedbackIncorrectContent><![CDATA[<FONT SIZE="28"><font face='Arial' color="#2B1F09">This is a Incorrect feedback section.</font>]]></feedbackIncorrectContent>
-	<information><![CDATA[<FONT SIZE="28"><font face='Arial' color="#2B1F09">This is a dummy text 1. we can replace it with actual
-				test any time.</font>]]></information>
+	<feedbackContent><![CDATA[This is a feedback section.]]></feedbackContent>
+	<feedbackCorrectContent><![CDATA[This is a  Correct feedback section.]]></feedbackCorrectContent>
+	<feedbackIncorrectContent><![CDATA[This is a Incorrect feedback section.]]></feedbackIncorrectContent>
+	<information><![CDATA[This is a dummy text 1. we can replace it with actual
+				test any time.]]></information>
 </screen>

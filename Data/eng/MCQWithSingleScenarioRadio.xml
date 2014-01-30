@@ -27,8 +27,8 @@
 		and also change the option values.</questionText>
 	<feedbackTitle>FeedBack</feedbackTitle>
 	<feedbackContent>This is a feedback section.</feedbackContent>
-	<feedbackCorrectContent><![CDATA[<FONT SIZE="28"><font face='Arial' color="#2B1F09">This is a  Correct feedback section.</font>]]></feedbackCorrectContent>
-	<feedbackIncorrectContent><![CDATA[<FONT SIZE="28"><font face='Arial' color="#2B1F09">This is a Incorrect feedback section.</font>]]></feedbackIncorrectContent>
+	<feedbackCorrectContent><![CDATA[This is a  Correct feedback section.]]></feedbackCorrectContent>
+	<feedbackIncorrectContent><![CDATA[This is a Incorrect feedback section.]]></feedbackIncorrectContent>
 	<information>This is a dummy text 1. we can replace it with actual
 				test any time.</information>
 </screen>

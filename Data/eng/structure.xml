@@ -47,41 +47,21 @@
 	 
 		
 		<module title="9. Assessment" visible="true">
-			<topic title="Assessment" visible="true" type="assessment" ques_set1="7">
+			<topic title="Assessment" visible="true" type="assessment" ques_set1="4">
 				<screen  setNo="1" templateID="MCQWith3Scenarios.html" title="9.1.1" ScreenTitle=""
 					xmlName="MCQWith3Scenarios.xml" audioName="" agentAnim="" agentseq=""
 					lockNext="false" markComplete="false" sliderEnabled="false"
 					playPauseEnabled="true" visible="true" notes="true" attempt="2"><![CDATA[]]>
-				</screen>
-				<screen setNo="1" templateID="MCQWithSingleScenario.html" 
-					title="Screen 1" ScreenTitle="" xmlName="MCQWithSingleScenario.xml" audioName="" agentAnim="" 
-					agentseq="" lockNext="false" markComplete="false" sliderEnabled="true" playPauseEnabled="true" 
-					visible="true" notes="true"><![CDATA[]]>
 				</screen>
 				<screen  setNo="1" templateID="MCQWithSingleScenarioRadio.html" title="9.1.2" ScreenTitle=""
 					xmlName="MCQWithSingleScenarioRadio.xml" audioName="" agentAnim="" agentseq=""
 					lockNext="false" markComplete="false" sliderEnabled="false"
 					playPauseEnabled="true" visible="true" notes="true" attempt="2"><![CDATA[]]>
 				</screen>
-				<screen setNo="1" templateID="MCQWithSingleScenarioRadio.html" title="9.1.4" ScreenTitle=""
-					xmlName="MCQWithSingleScenarioRadio.xml" audioName="" agentAnim="" agentseq=""
-					lockNext="false" markComplete="false" sliderEnabled="false"
-					playPauseEnabled="true" visible="true" notes="true" attempt="2"><![CDATA[]]>
-				</screen>
-				<screen setNo="1"  templateID="MCQWithSingleScenario.html" title="9.1.5" ScreenTitle=""
+				<screen setNo="1"  templateID="MCQWithSingleScenario.html" title="9.1.3" ScreenTitle=""
 					xmlName="MCQWithSingleScenario.xml" audioName="" agentAnim="" agentseq=""
 					lockNext="false" markComplete="false" sliderEnabled="false"
 					playPauseEnabled="true" visible="true" notes="true" attempt="2"><![CDATA[]]>
-				</screen>
-				<screen setNo="1" templateID="MCQWithSingleScenarioRadio.html" 
-					title="Screen 2" ScreenTitle="" xmlName="MCQWithSingleScenarioRadio.xml" audioName="" agentAnim="" 
-					agentseq="" lockNext="false" markComplete="false" sliderEnabled="true" playPauseEnabled="true" 
-					visible="true" notes="true"><![CDATA[]]>
-				</screen>
-				<screen setNo="1" templateID="MCQWith3Scenarios.html" 
-					title="Screen 1" ScreenTitle="" xmlName="MCQWith3Scenarios.xml" audioName="" agentAnim="" 
-					agentseq="" lockNext="false" markComplete="false" sliderEnabled="true" playPauseEnabled="true" 
-					visible="true" notes="true"><![CDATA[]]>
 				</screen>
 			</topic>
 		</module>
