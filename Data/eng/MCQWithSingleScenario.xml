@@ -26,7 +26,7 @@
 	<instruction>Select the correct answer and then click Submit</instruction>
 	<questionText><![CDATA[<FONT SIZE="28"><font face='Arial' color="#2B1F09">This is a dummy question. Add question as per your wish
 		and also change the option values.</font>]]></questionText>
-	<feedbackTitle><![CDATA[<FONT SIZE="28"><font face='Arial' color="#2B1F09">FeedBack</font>]]></feedbackTitle>
+	<feedbackTitle><![CDATA[FeedBack]]></feedbackTitle>
 	<feedbackContent><![CDATA[<FONT SIZE="28"><font face='Arial' color="#2B1F09">This is a feedback section.</font>]]></feedbackContent>
 	<feedbackCorrectContent><![CDATA[<FONT SIZE="28"><font face='Arial' color="#2B1F09">This is a  Correct feedback section.</font>]]></feedbackCorrectContent>
 	<feedbackIncorrectContent><![CDATA[<FONT SIZE="28"><font face='Arial' color="#2B1F09">This is a Incorrect feedback section.</font>]]></feedbackIncorrectContent>
