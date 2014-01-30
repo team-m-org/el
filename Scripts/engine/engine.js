@@ -588,13 +588,13 @@ var Engine = (function(){
 
 	registerEvents = function(){
 
-		$("ul.inline-list").on("mouseenter","img",function(){
+		/*$("ul.inline-list").on("mouseenter","img",function(){
 			return rollOverHandler.call(this);
 		});
 
 		$("ul.inline-list").on("mouseleave","img",function(){
 			return rolloutHandler.call(this);
-		});
+		});*/
 
 		$("ul.inline-list li[id='playpause']").on("click", function() {
 			return playpauseHandler.call(this);
@@ -939,12 +939,43 @@ var Engine = (function(){
 	initView = function(){
 		
 		var modules = courseStructure.course[0].module;
+		updatePagination();
+		updateBreadCrum();
 		generateMenu(modules);
 		genrateHelp();
 		genrateGlossary();
 		updateNextNavigation();
 		updatePrevNavgation();
-		$('.course-title').text(courseStructure.courseTitle._cdata);
+		registerEvents();
+		
+	};
+	
+	renderUI = function (){
+		/*var courseData = courseStructure.course[0];
+		var style = courseData._style;
+		$('.course-header')[0].style.cssText = style;*/
+		
+		var headerTemplate = getTemplateData("shellHeader.html","engine");
+		var breadcrumTemplate = getTemplateData("shellBreadcrum.html","engine");
+		var footerTemplate = getTemplateData("shellFooter.html","engine");
+		
+		$.when(headerTemplate,breadcrumTemplate,footerTemplate).then(function(){
+			var header = templatesCache["shellHeader.html"];
+			var breadcrum = templatesCache["shellBreadcrum.html"];
+			var footer = templatesCache["shellFooter.html"];
+			var headerData = {
+					courseTitle: courseStructure.courseTitle[0]._cdata,
+					courseLogo : courseStructure.course[0].logo[0].image[0],
+			};
+			$(".header-container").html(Handlebars.compile(header)(headerData));
+			$('.header-container')[0].style.cssText = courseStructure.course[0]._style;
+			$(".breadcrumbs").html(Handlebars.compile(breadcrum));
+			$('.breadcrumbs')[0].style.cssText = courseStructure.course[0].breadcrum[0]._style;
+			$(".footer").html(Handlebars.compile(footer));
+			$(".footer-menu")[0].style.cssText = courseStructure.course[0].footer[0]._style;
+			$(".dummy-row")[0].style.cssText = courseStructure.course[0].bottom[0]._style;
+			initView();
+		});
 	};
 
 	updateBreadCrum = function(){
@@ -1096,10 +1127,10 @@ var Engine = (function(){
 				var scormString = getSCORMData();
 				updateCourseState(scormString);
 				showTopic();
-				initView();
+				renderUI();
 			});
 
-			registerEvents();
+			
 
 		},
 		showNextPage : showNextPage,

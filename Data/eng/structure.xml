@@ -1,17 +1,15 @@
 <structure>
-	<courseTitle><![CDATA[Course Title 1]]></courseTitle>
+	<courseTitle><![CDATA[Code of Conduct & Business Ethics]]></courseTitle>
 	<welcomePage fileName="intro.swf" />
-	<course enableNext="false" menuType="topic" navigationMode="linear">
+	<course enableNext="false" menuType="topic" navigationMode="linear" style="background-image:url('Media/eng/images/header.png');font-size:20px">
+	    <logo><image>Media/eng/images/logo.png</image></logo>
+	    <breadcrum style="background-image:url('Media/eng/images/breadcrum.png');color:#fff"></breadcrum>
+	    <footer style="background-image:url('Media/eng/images/footer.png');background-repeat: no-repeat;color:#fff; "></footer>
+	    <bottom style="background-color:#BD1256"></bottom>
+	    
 		<module title="Module 1" visible="true">
 			<topic title="Topic 1" visible="true">
-
-			    
-				<screen templateID="VideoTemplate.html" 
-					title="Screen 1" ScreenTitle="" xmlName="Video.xml" audioName="" agentAnim="" 
-					agentseq="" lockNext="false" markComplete="false" sliderEnabled="true" playPauseEnabled="true" 
-					visible="true" notes="true"><![CDATA[]]>
-				</screen> 
-
+	
 				<screen templateID="ImageWithHover.html" 
 					title="Screen 2" ScreenTitle="" xmlName="ImageWithHover.xml" audioName="" agentAnim="" 
 					agentseq="" lockNext="false" markComplete="false" sliderEnabled="true" playPauseEnabled="true" 

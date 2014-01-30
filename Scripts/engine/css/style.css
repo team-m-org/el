@@ -37,7 +37,7 @@
 
 .dummy-row {
 	background: #074e68;;
-	height: 10px;
+	height: 6px;
 }
 
 .template-conatiner {
@@ -48,7 +48,6 @@
 }
 
 .pagination {
-	color: black;
 	font-weight: bold;
 	text-align: right;
 }
@@ -58,7 +57,7 @@
 }
 
 .adjust-center {
-	margin-left: -15px;
+	
 }
 
 .menu-panel {
@@ -75,14 +74,14 @@
 }
 
 .breadcrumbs span {
-	color: black;
+	color: inherit!important;
 	font-size: 14px;
 	text-transform: none;
 }
 
 .breadcrumbs>*:before {
 	content: '>>';
-	color: black;
+	color: inherit!important;
 	font-size: 14px
 }
 
