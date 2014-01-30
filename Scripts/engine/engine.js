@@ -665,7 +665,7 @@ var Engine = (function(){
 	glossaryLetterHandler = function(){
 		var key = $(this).parent().data('id');
 		var words = getWordsForID(key);
-		var keyObj = getDescForWord(words[0].word._cdata);
+		var keyObj = getDescForWord(words[0].word[0]._cdata);
 		var template1 = templatesCache["glossaryWord.html"];
 		var template2 = templatesCache["glossaryDesc.html"];
 		$(".words-conatiner").html(Handlebars.compile(template1)(words));
@@ -816,7 +816,7 @@ var Engine = (function(){
 	getDescForWord = function(word){
 		var desc = "";
 		for (var int = 0; int < keywords.length; int++) {
-			if(word == keywords[int].word._cdata){
+			if(word == keywords[int].word[0]._cdata){
 				desc = keywords[int];
 				break;
 			}
@@ -941,12 +941,12 @@ var Engine = (function(){
 		updatePagination();
 		updateBreadCrum();
 		generateMenu(modules);
-		genrateHelp();
-		genrateGlossary();
 		updateNextNavigation();
 		updatePrevNavgation();
 		registerEvents();
 		 $(document).foundation();
+		genrateHelp();
+		genrateGlossary();
 	};
 	
 	renderUI = function (){
