@@ -494,7 +494,7 @@ var Engine = (function(){
 		$('.btnSubmit').on('click',function(){
 			
 	    	var c_flag = false;
-	    	$(".error").html('');
+	    	$(".feedbackContent").hide().html('');
 	    	$("input[class='option']:checked").each(function() { 
 	    		c_flag = true;
 	    		
@@ -531,7 +531,8 @@ var Engine = (function(){
 	    			}
 	    			else{
 	    				currScreen.isCorrect = false;
-	    				$(".error").html("Try again !.").slideDown();
+	    				$('.feedback-container').show('slow');
+	    				$(".rfeedbackContent").html("Try again !").slideDown();
 	    			}
 	    			
 	    			if(parseInt(currScreen._attempt) === currAttempt){
@@ -556,7 +557,8 @@ var Engine = (function(){
 	    			}
 	    			else{
 	    				currScreen.isCorrect = false;
-	    				$(".error").html("Try again !.").slideDown();
+						$('.feedback-container').show('slow');
+	    				$(".rfeedbackContent").html("Try again !.").slideDown();
 	    			}
 	    			
 	    			if(parseInt(currScreen._attempt) === currAttempt){
@@ -574,7 +576,8 @@ var Engine = (function(){
 	    		
 	    		currAttempt++;
 	    	}else{
-	    		$(".error").html("Please select atleast one option.").slideDown();
+				$('.feedback-container').show('slow');
+	    		$(".rfeedbackContent").html("Please select atleast one option.").slideDown();
 	    	}
 		
 		});
