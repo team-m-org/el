@@ -32,21 +32,21 @@
 </div> -->
 <div class="row" style="padding-left: 10%; padding-right: 10%; padding-bottom: 5%; padding-top: 5%">
 	<div class="small-12 columns">
-		<h2>{{{title._cdata}}}</h2>
+		<h2>{{{title.[0]._cdata}}}</h2>
 	</div>
 	<div class="small-12 columns">
-		{{#texts.text}}
+		{{#texts.[0].text}}
 			<p>{{{this._cdata}}}</p>
-		{{/texts.text}}
+		{{/texts.[0].text}}
 	</div>
 
 	<div class="small-12 column">
-		{{#Scenarios.Scenario}}
+		{{#Scenarios.[0].Scenario}}
 		<div class="small-6 column" align="middle">
 			<img src={{this.image}} />
-			<p>{{{this.information._cdata}}}</p>
+			<p>{{{this.information.[0]._cdata}}}</p>
 		</div>
 		
-		{{/Scenarios.Scenario}}
+		{{/Scenarios.[0].Scenario}}
 	</div>
 </div>

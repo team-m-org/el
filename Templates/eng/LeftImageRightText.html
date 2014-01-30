@@ -5,10 +5,10 @@
 
 	<div class="small-9 columns small-push-1" style="padding-right: 15%; ">
 		<div >
-			<h4>{{{title._cdata}}}</h4>
-			{{#texts.text}}
+			<h4>{{{title.[0]._cdata}}}</h4>
+			{{#texts.[0].text}}
 					<p>{{{this._cdata}}}</p> 
-			{{/texts.text}}
+			{{/texts.[0].text}}
 		</div>
 	</div>
 </div>

@@ -4,18 +4,18 @@
             <table style="width: 100%; height: 100%">
                 <tr>
                     <td>
-                         <h4>{{{title._cdata}}}</h4>
+                         <h4>{{{title.[0]._cdata}}}</h4>
 
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <p>{{{information._cdata}}}</p>
+                        <p>{{{information.[0]._cdata}}}</p>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <p>{{{questionText._cdata}}}</p>
+                        <p>{{{questionText.[0]._cdata}}}</p>
                     </td>
                 </tr>
             </table>
@@ -27,12 +27,12 @@
         	
             <table style="width: 100%">
                 <tr>
-                    <td>{{{questionHeader._cdata}}}<br/><div class="error hide red"></div></td>
+                    <td>{{{questionHeader.[0]._cdata}}}<br/><div class="error hide red"></div></td>
                 </tr>
                 <tr>
-                    <td>{{#options.value}}
-                        <input type="checkbox" class="option"  name="mcq" value={{this.optionValue}} />{{{this.optionDisplay._cdata}}}
-                        <br />{{/options.value}}</td>
+                    <td>{{#options.[0].value}}
+                        <input type="checkbox" class="option"  name="mcq" value={{this.optionValue}} />{{{this.optionDisplay.[0]._cdata}}}
+                        <br />{{/options.[0].value}}</td>
                 </tr>
                 <tr>
                     <td align="right">
@@ -51,12 +51,12 @@
                 <table style="width: 100%">
                     <tr>
                         <td>
-                            <p>{{{feedbackTitle._cdata}}}</p>
+                            <p>{{{feedbackTitle.[0]._cdata}}}</p>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <div class="feedbackContent">{{{feedbackContent._cdata}}}</div>
+                            <div class="feedbackContent">{{{feedbackContent.[0]._cdata}}}</div>
                            
                         </td>
                     </tr>
@@ -65,8 +65,8 @@
         </div>
     </div>
     <input type="hidden" name="c_answer" id="c_answer" value={{correctAnswer}}>
-    <div class="hide feedbackCorrect">{{{feedbackCorrectContent._cdata}}}</div>
-    <div class="hide feedbackIncorrec">{{{feedbackIncorrectContent._cdata}}}</div>
+    <div class="hide feedbackCorrect">{{{feedbackCorrectContent.[0]._cdata}}}</div>
+    <div class="hide feedbackIncorrec">{{{feedbackIncorrectContent.[0]._cdata}}}</div>
     <script>
    /*  $('.template-conatiner .i_submit').click(function () {
     	var c_flag = false;

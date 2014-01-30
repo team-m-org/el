@@ -3,13 +3,13 @@
 	{{#each this.tabImage}}
 	<div class="small-4 columns h_imgicon" data="test_c{{this._tab_id}}">
 		<div class="panel">
-			<h4>{{{this.title._cdata}}}</h4>
+			<h4 style="{{this.title._style}}">{{{this.title._cdata}}}</h4>
 			<p>
 				<img src="http://placehold.it/400x300" /> 
 			</p>
 		</div>
 	</div>
-	<div class="test_c{{this._tab_id}} hide">{{{this.popupText.Text._cdata}}}</div>
+	<div class="test_c{{this._tab_id}} hide" style="{{this.popupText.Text._style}}">{{{this.popupText.Text._cdata}}}</div>
 	{{/each}}
 </div>
 </div>
