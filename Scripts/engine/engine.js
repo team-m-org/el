@@ -493,11 +493,6 @@ var Engine = (function(){
 	verifyAssessment = function (){
 		$('.btnSubmit').on('click',function(){
 			
-		
-			
-			
-			
-
 	    	var c_flag = false;
 	    	$(".error").html('');
 	    	$("input[class='option']:checked").each(function() { 
@@ -510,9 +505,9 @@ var Engine = (function(){
 	    	if(c_flag===true){
 	    		
 	    		var count = 0;
-	    		if(currTopicData.type === "mcq"){
+	    		if(currTopicData.type[0] === "mcq"){
 	    			var ans = $("input[class='option']:checked");
-	    			var corranswers = currTopicData.correctAnswer.split(",");
+	    			var corranswers = currTopicData.correctAnswer[0].split(",");
 	    			for(var i=0;i<ans.length;i++){
 	    				for(var j=0;j<corranswers.length;j++){
 	    					console.log("Ans " + $(ans[i]).val());
@@ -544,9 +539,9 @@ var Engine = (function(){
 	    				return;
 	    			}
 	    		}
-	    		else if(currTopicData.type === "saq"){
+	    		else if(currTopicData.type[0] === "saq"){
 	    			var ans = $("input[class='option']:checked").val();
-	    			var corranswers = currTopicData.correctAnswer;
+	    			var corranswers = currTopicData.correctAnswer[0];
 	    			
 	    			if(corranswers === ans){
 	    				currScreen.isCorrect = true;
@@ -1115,6 +1110,3 @@ var Engine = (function(){
 
 Engine.initialize();
 
-var console = console || {};
-console.log = function(){};
-console.warn = function(){};
