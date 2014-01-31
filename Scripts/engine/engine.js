@@ -945,8 +945,8 @@ var Engine = (function(){
 		updatePrevNavgation();
 		registerEvents();
 		 $(document).foundation();
-		genrateHelp();
-		genrateGlossary();
+		generateHelp();
+		generateGlossary();
 	};
 	
 	renderUI = function (){
@@ -986,19 +986,19 @@ var Engine = (function(){
 
 	};
 	
-	genrateHelp = function (){
+	generateHelp = function (){
 		var templatePromise = getTemplateData("help.html","engine");
 		var helpData = getTopicData("help.xml");
 		$.when(templatePromise,helpData).then(function(){
 			var template = templatesCache["help.html"];
 			var helpContent = topicDataCache["help.xml"];
 			
-			$(".help-container").html(Handlebars.compile(template)(helpContent.items));
+			$(".help-container").html(Handlebars.compile(template)(helpContent.items[0]));
 			
 		});
 	};
 	
-	genrateGlossary = function(){
+	generateGlossary = function(){
 		var templatePromise = getTemplateData("glossary.html","engine");
 		var template1Promise = getTemplateData("glossaryWord.html","engine");
 		var template2Promise = getTemplateData("glossaryDesc.html","engine");
