@@ -6,12 +6,23 @@
 	font-weight: bold;
 }
 
+
 .nav-button{
-	max-width: 30px!important;
-	padding: 0;
-	margin-left: -13px;
+	float:right;
+}
+
+#prev{
+	padding-left: 0;
+}
+
+.top200px{
 	margin-top: 200px;
 }
+
+#next{
+	padding-right: 0;
+}
+
 .course-header>div {
 	float: left;
 	display: block;
@@ -31,10 +42,6 @@
 	right: 0%;
 	bottom: 0%;
 	left: 0%
-}
-
-.btnHolder {
-	width: 30px!important;
 }
 
 .course-close {
