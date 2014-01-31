@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <screen>
      <type>mcq</type>
-	<title><![CDATA[<B>Title text 1</B>]]></title>
+	<title style="background:#e70b65;color:white;"><![CDATA[Title text 1]]></title>
 	
 	<texts>
 		<text><![CDATA[This is dummy text 1. We can replace it with actual text. This is dummy text 1. We can replace it with actual text. This is dummy text 1. We can replace it with actual text.]]></text>

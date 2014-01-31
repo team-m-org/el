@@ -280,3 +280,20 @@
 	margin-left :1%!important;
 	margin-right :1%!important;
 }
+
+.image-border{
+	border : 2px solid pink;
+}
+
+.content-background{
+	background: #ebebeb;
+}
+
+.content-title{
+	min-height: 44px;
+	line-height: 44px;
+}
+
+.right-margin-zero{
+	margin-right:0!important;
+}
