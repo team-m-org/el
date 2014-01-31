@@ -143,7 +143,7 @@ var Engine = (function(){
 
 	function renderTopic(template, topicData){
 		currTopicData = topicData;
-		$(".template-conatiner").html( Handlebars.compile(template)(topicData));
+		$(".template-container .content").html( Handlebars.compile(template)(topicData));
 		if(topicData["Instruction"] !== undefined){
 			$("h3").html(topicData["Instruction"]);
 		}
@@ -563,7 +563,7 @@ var Engine = (function(){
 	    			
 	    			if(parseInt(currScreen._attempt) === currAttempt){
 	    				if(USERSTATE.screen ===  currentTopic.screen.length-1){
-	    					$('.template-conatiner').html("");
+	    					$('.template-container').html("");
 	    					showResult(currentTopic.screen.length);
 	    					return;
 	    				}
@@ -586,7 +586,7 @@ var Engine = (function(){
 	};
 	
 	showResult = function(total){
-		$('.template-conatiner').html("<div class='asses-result'>Result " + currScore + " out of " + total + "</div>");
+		$('.template-container').html("<div class='asses-result'>Result " + currScore + " out of " + total + "</div>");
 	}
 
 	registerEvents = function(){
@@ -615,11 +615,11 @@ var Engine = (function(){
 			return helpHandler.call(this);
 		});
 
-		$("ul.inline-list li[id='prev']").on("click", function() {
+		$("div[id='prev']").on("click", function() {
 			return prevHandler.call(this);
 		});
 
-		$("ul.inline-list li[id='next']").on("click", function() {
+		$("div[id='next']").on("click", function() {
 			return nextHandler.call(this);
 		});
 
@@ -651,7 +651,7 @@ var Engine = (function(){
 			return glossaryWordHandler.call(this);
 		});
 		
-		$(document).on('click', '.template-conatiner .btnSubmit',function () {});
+		$(document).on('click', '.template-container .content .btnSubmit',function () {});
 	};
 	
 	glossaryWordHandler = function(){
@@ -970,6 +970,7 @@ var Engine = (function(){
 			$(".footer").html(Handlebars.compile(footer));
 			$(".footer-menu")[0].style.cssText = courseStructure.course[0].footer[0]._style;
 			$(".dummy-row")[0].style.cssText = courseStructure.course[0].bottom[0]._style;
+			$('.template-container')[0].style.cssText = courseStructure.course[0].container[0]._style;
 			initView();
 		});
 	};
