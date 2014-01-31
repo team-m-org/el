@@ -1,9 +1,10 @@
 <div class="row tpad10p bpad5p ">
-	<div class="small-6 columns">
+	<div class="small-8 columns">
 		<div class="row content-title right-margin-zero"><div class="small-12 columns">{{{title.[0]._cdata}}}</div></div>
 		<div class="row content-background right-margin-zero">
 			<div class="small-12 columns">
-			<p>{{{detailMessage._cdata}}}</p>
+			
+			<p>{{{detailMessage.[0]._cdata}}}</p>
 			{{#bullets.[0].bullet}}
 			<ul class="iconlist">
 				<li class="bulletStyle">{{{this.value.[0]._cdata}}}</li>
@@ -12,13 +13,12 @@
 						<li class="subBulletStyle">{{{this._cdata}}}</li>
 					{{/this.subBullet}} {{/this.subBullets}}
 				</ul>
-	
 			</ul>
 			{{/bullets.[0].bullet}}
 			</div>
 		</div>
 	</div>
-	<div class=" small-6 columns image-border">
+	<div class=" small-4 columns image-border">
 		<p><img src={{image}} /></p>
 	</div>
 </div>

@@ -1,7 +1,8 @@
 <div class="row tpad10p bpad5p">
 	{{#each group}} {{#if this.Contents.[0]}}
 	<div class="small-4 columns" style="height: 100%;">
-			<h4>{{{this.Contents.title._cdata}}}</h4>
+			<div class="content-title ">{{{this.Contents.[0].title.[0]._cdata}}}</div>
+			<div style="border: 1px solid #ccc;padding: 3px;">
 			{{#each Contents.[0].bullets.[0].bullet}}
 			<ul>
 				<li>{{this.value}}
@@ -12,10 +13,11 @@
 				</li>
 			</ul>
 			{{/each}}
+			</div>
 	</div>
 	{{/if}} {{#if this.tabImage}}
 
-	<div class="small-8 columns " style="height: 100%;">
+	<div class="small-8 columns " style="height: 100%;border: 1px solid #ccc">
 		<h4>select each panel</h4>
 		<div class="row">
 			{{#each this.tabImage}}
