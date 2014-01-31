@@ -563,7 +563,6 @@ var Engine = (function(){
 	    			
 	    			if(parseInt(currScreen._attempt) === currAttempt){
 	    				if(USERSTATE.screen ===  currentTopic.screen.length-1){
-	    					$('.template-container').html("");
 	    					showResult(currentTopic.screen.length);
 	    					return;
 	    				}
@@ -586,7 +585,9 @@ var Engine = (function(){
 	};
 	
 	showResult = function(total){
-		$('.template-container').html("<div class='asses-result'>Result " + currScore + " out of " + total + "</div>");
+		
+		$('.template-container .content').html("<div class='asses-result'>Result " + currScore + " out of " + total + "</div>");
+		currScore = 0;
 	}
 
 	registerEvents = function(){
