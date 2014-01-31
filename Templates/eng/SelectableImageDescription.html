@@ -67,13 +67,13 @@
 	{{/if}} {{/each}}
 </div>
 <script>
-$('.template-conatiner .imgicon').click(function () {
+$('.template-container .imgicon').click(function () {
 		var index = $(this).attr('data').split("_").pop();
         $('.imgicon').hide();
         $(this).show();
         $('.img_icon_text_'+index).removeClass('hide');
 });
-$('.template-conatiner .img_icon_text_box').click(function () {
+$('.template-container .img_icon_text_box').click(function () {
         $('.imgicon').show();
         $('.img_icon_text').addClass('hide');
 });

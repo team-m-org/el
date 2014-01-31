@@ -1,14 +1,23 @@
 <div class="row tpad10p">
-	<div class="small-3 columns small-push-1">
-		<img src={{image}} />
+	<div class="small-4 columns">
+		<div class="row right-margin-zero image-border">
+			<div class="small-12 columns"><img src={{image}} /></div>
+		</div>
 	</div>
 
-	<div class="small-9 columns small-push-1" style="padding-right: 15%; ">
-		<div >
-			<h4>{{{title.[0]._cdata}}}</h4>
-			{{#texts.[0].text}}
+	<div class="small-8 columns">
+		<div class="row">
+			<div class="small-12 columns">
+				<div class="content-title row"><div class="small-12 columns">{{{title.[0]._cdata}}}</div></div>
+				<div class="content-background row">
+				<div class="small-12 columns">
+				{{#texts.[0].text}}
 					<p>{{{this._cdata}}}</p> 
-			{{/texts.[0].text}}
+				{{/texts.[0].text}}
+				</div>
+				</div>
+			</div>
 		</div>
+		
 	</div>
 </div>
