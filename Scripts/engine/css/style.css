@@ -194,6 +194,14 @@
     padding-left : 15%;
 }
 
+.bpad10p{
+	padding-bottom: 10%;
+}
+
+.bpad5p{
+	padding-bottom: 5%;
+}
+
 .bulletStyle {
 	background-image: url(../../../Media/eng/images/Untitled.jpg);
 	background-repeat: no-repeat;
@@ -299,11 +307,6 @@
 
 .help-container .help-image{
 	padding-bottom: 10px;
-}
-
-.sel-image-description{
-	margin-left :1%!important;
-	margin-right :1%!important;
 }
 
 .image-border{

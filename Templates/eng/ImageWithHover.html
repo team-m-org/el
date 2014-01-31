@@ -1,4 +1,4 @@
-<div class="row tpad10p rpad5p lpad5p ">
+<div class="row tpad10p bpad5p ">
 <div class="row">
 	{{#each this.tabImage}}
 	<div class="small-4 columns h_imgicon" data="test_c{{this._tab_id}}">
@@ -9,7 +9,7 @@
 			</p>
 		</div>
 	</div>
-	<div class="test_c{{this._tab_id}} hide" style="{{this.popupText.Text._style}}">{{{this.popupText.Text._cdata}}}</div>
+	<div class="test_c{{this._tab_id}} hide" style="{{this.popupText.[0].Text.[0]._style}}">{{{this.popupText.[0].Text.[0]._cdata}}}</div>
 	{{/each}}
 </div>
 </div>
