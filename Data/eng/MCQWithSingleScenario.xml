@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<screen>
+<screen >
     <type>mcq</type>
     <Instruction>This is an Instruction.</Instruction>
-    <title><![CDATA[<B>Title text 1</B>]]></title>
+    <title><![CDATA[Check your knowledge]]></title>
+	<information><![CDATA[This is a dummy text 1. we can replace it with actual
+				test any time.]]></information>
+	<questionText><![CDATA[This is a dummy question. Add question as per your wish
+		and also change the option values.]]></questionText>
 	<options>
 		<value>
 			<optionDisplay><![CDATA[option 1]]></optionDisplay>
@@ -24,12 +28,8 @@
 	<correctAnswer>Option3,Option1</correctAnswer>
 	<questionHeader><![CDATA[Select the correct answer and then click Submit]]></questionHeader>	
 	<instruction>Select the correct answer and then click Submit</instruction>
-	<questionText><![CDATA[This is a dummy question. Add question as per your wish
-		and also change the option values.]]></questionText>
 	<feedbackTitle><![CDATA[FeedBack]]></feedbackTitle>
 	<feedbackContent><![CDATA[This is a feedback section.]]></feedbackContent>
 	<feedbackCorrectContent><![CDATA[This is a  Correct feedback section.]]></feedbackCorrectContent>
 	<feedbackIncorrectContent><![CDATA[This is a Incorrect feedback section.]]></feedbackIncorrectContent>
-	<information><![CDATA[This is a dummy text 1. we can replace it with actual
-				test any time.]]></information>
 </screen>

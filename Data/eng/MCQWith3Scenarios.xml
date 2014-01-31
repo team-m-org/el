@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <screen>
     <type>mcq</type>
-	<QuestionOfEthics>Text 1</QuestionOfEthics>
+	<QuestionOfEthics>Question of Ethics</QuestionOfEthics>
+	
 	<options>
 		<value>
 			<optionDisplay>Option 1</optionDisplay>

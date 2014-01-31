@@ -1,9 +1,8 @@
-<div class="row"
-	style="padding-left: 10%; padding-right: 10%; padding-bottom: 5%; padding-top: 5%">
-	<div class="small-12 columns">
-		<h2>{{{title.[0]._cdata}}}</h2>
+<div class="row row2" style="padding-left: 10%; padding-right: 10%; padding-bottom: 5%; padding-top: 5%">
+	<div class="small-12 columns content-title" style="{{title.[0]._style}}">
+		<div>{{{title.[0]._cdata}}}</div>
 	</div>
-	<div class="small-12 columns">
+	<div class="small-12 columns content-background" >
 		{{#bullets.[0].bullet}}
 		<ul class="iconlist">
 			<li class="bulletStyle">{{{this.value.[0]._cdata}}}</li>
@@ -14,16 +13,16 @@
 			</ul>
 		</ul>
 		{{/bullets.[0].bullet}}
-		<div class="small-12 columns">
+		<div class="small-12 ">
 			{{#texts.[0].text}}
 			<p>{{{this._cdata}}}</p>
 			{{/texts.[0].text}}
 		</div>
 	</div>
-	<div class="small-12 column">
+	<div class="small-12 column columns content-background">
 		{{#Scenarios.[0].Scenario}}
-		<div class="small-6 column" align="middle">
-			<img src={{this.image}} />
+		<div class="small-6 column">
+			<div class="image-border" style="{{this.image._style}}"><img src={{this.image}} /></div>
 			<p>{{{this.information.[0]._cdata}}}</p>
 		</div>
 
