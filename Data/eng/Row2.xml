@@ -7,9 +7,25 @@
 		<text><![CDATA[This is dummy text 1. We can replace it with actual text. This is dummy text 1. We can replace it with actual text. This is dummy text 1. We can replace it with actual text.]]></text>
 		<text><![CDATA[This is dummy text 2. We can replace it with actual text. This is dummy text 1. We can replace it with actual text.]]></text>
 	</texts>
+	<bullets>
+		<bullet>
+		    <value><![CDATA[Bullet text 1]]></value>
+		    <subBullets>
+		        <!-- <subBullet><![CDATA[Sub Bullet text 1]]></subBullet>
+		        <subBullet><![CDATA[Sub Bullet text 2]]></subBullet> -->
+		    </subBullets>
+		</bullet>
+		<bullet>
+		    <value><![CDATA[Bullet text 2]]></value>
+		    <subBullets>
+		        <subBullet><![CDATA[Sub Bullet text 3]]></subBullet>
+		        <subBullet><![CDATA[Sub Bullet text 4]]></subBullet>
+		    </subBullets>
+		</bullet>
+	</bullets>
 	<Scenarios>
 		<Scenario>
-			<image>Media/eng/images/Education1.jpg</image>
+			<image>Media/eng/images/banner.png</image>
 			<information><![CDATA[This is a dummy text 1. we can replace it with actual
 				test any time. This is a dummy text 1. we can replace it with actual
 				test any time. This is a dummy text 1. we can replace it with actual
@@ -17,7 +33,7 @@
 				test any time.]]></information>
 		</Scenario>
 		<Scenario>
-			<image>Media/eng/images/Education1.jpg</image>
+			<image>Media/eng/images/banner.png</image>
 			<information><![CDATA[This is a dummy text 2. we can replace it with actual
 				test any time. This is a dummy text 2. we can replace it with actual
 				test any time. This is a dummy text 2. we can replace it with actual
