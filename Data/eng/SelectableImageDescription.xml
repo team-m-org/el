@@ -4,7 +4,7 @@
 <group id="1">
 	<Contents bgimage="01.jpg" imageVisible="true" xpos="845" align="right" ypos="83" gap="5" normalXpos="10" bulletXpos="10" subBulletXpos="35">
 		<title ><![CDATA[Title text]]></title>
-		<bullets>
+		<!-- <bullets>
 			<bullet>
 			    <value>Bullet text 1</value>
 			    <subBullets>
@@ -19,7 +19,11 @@
 			        <subBullet>Sub Bullet text 4</subBullet>
 			    </subBullets>
 			</bullet>
-		</bullets>	
+		</bullets> -->
+		<info><![CDATA[Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.]]></info>
+		<info><![CDATA[Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.]]></info>
+		
+			
 	</Contents>
 </group>
 <group id="2">

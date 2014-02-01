@@ -1,64 +1,73 @@
+
 <div class="row tpad10p bpad5p">
 	{{#each group}} {{#if this.Contents.[0]}}
-	<div class="small-4 columns" style="height: 100%;">
-			<div class="content-title ">{{{this.Contents.[0].title.[0]._cdata}}}</div>
-			<div style="border: 1px solid #ccc;padding: 3px;">
-			{{#each Contents.[0].bullets.[0].bullet}}
-			<ul>
-				<li>{{this.value}}
-					<ul>
-						{{#this.subBullets}} {{#this.subBullet}}
-						<li>{{this}}</li> {{/this.subBullet}} {{/this.subBullets}}
-					</ul>
-				</li>
-			</ul>
-			{{/each}}
-			</div>
+	<div class="row">
+				<div class=" small-12 columns content-title">{{{this.Contents.[0].title.[0]._cdata}}}</div>
 	</div>
-	{{/if}} {{#if this.tabImage}}
-
-	<div class="small-8 columns " style="height: 100%;border: 1px solid #ccc">
-		<h4>select each panel</h4>
-		<div class="row">
-			{{#each this.tabImage}}
-			<div class="small-4 columns imgicon" data="img_icon_{{this._tab_id}}">
-				<div class="panel">
-					<h4>{{{this.title.[0]._cdata}}}</h4>
-					<p>
-						<img src="{{this.image.[0]}}" />
-					</p>
+	<div class="row" style="padding-top:5px;">
+		<div class="small-4 columns" style="height: 100%;padding-left:0px!important;padding-right: 5px!important;">
+				
+				<div style="padding: 10px;border: 1px solid #ccc;" class="content-background">
+				{{#each Contents.[0].info}}
+				<p>{{_cdata}}</p>
+				{{/each}}
+				<!-- {{#each Contents.[0].bullets.[0].bullet}}
+				<ul>
+					<li>{{this.value}}
+						<ul>
+							{{#this.subBullets}} {{#this.subBullet}}
+							<li>{{this}}</li> {{/this.subBullet}} {{/this.subBullets}}
+						</ul>
+					</li>
+				</ul>
+				{{/each}} -->
 				</div>
-			</div>
-			{{/each}}
-
-			
-			{{#each this.tabImage}}
-			<div class="small-8 columns hide img_icon_text  img_icon_text_{{this._tab_id}}" data="img_icon_text_{{this._tab_id}}">
-							
-				<div class="panel">
-					<a class="close-reveal-modal  img_icon_text_box right">close</a>
-					{{#each popupText.[0].Text}}
-					<p>{{{this._cdata}}}</p>
-					{{/each}}
-					{{#each bullet}}
-					<ul>
-						<li>{{this.value}}
-							<ul>
-								{{#this.subBullets}} {{#this.subBullet}}
-								<li>{{this}}</li> {{/this.subBullet}} {{/this.subBullets}}
-							</ul>
-						</li>
-					</ul>
-					{{/each}}
-				</div>
-			</div>
-			{{/each}}
 		</div>
-
-		
+		{{/if}} {{#if this.tabImage}}
+	
+		<div class="small-8 columns " style="height: 100%;background-color: rgb(209, 73, 111)">
+			<h4>select each panel</h4>
+			<div class="row">
+				{{#each this.tabImage}}
+				<div class="small-4 columns imgicon" data="img_icon_{{this._tab_id}}">
+					<div class="panel">
+						<h4>{{{this.title.[0]._cdata}}}</h4>
+						<p>
+							<img src="{{this.image.[0]}}" />
+						</p>
+					</div>
+				</div>
+				{{/each}}
+	
+				
+				{{#each this.tabImage}}
+				<div class="small-8 columns hide img_icon_text  img_icon_text_{{this._tab_id}}" data="img_icon_text_{{this._tab_id}}">
+								
+					<div class="panel">
+						<a class="close-reveal-modal  img_icon_text_box right">close</a>
+						{{#each popupText.[0].Text}}
+						<p>{{{this._cdata}}}</p>
+						{{/each}}
+						{{#each bullet}}
+						<ul>
+							<li>{{this.value}}
+								<ul>
+									{{#this.subBullets}} {{#this.subBullet}}
+									<li>{{this}}</li> {{/this.subBullet}} {{/this.subBullets}}
+								</ul>
+							</li>
+						</ul>
+						{{/each}}
+					</div>
+				</div>
+				{{/each}}
+			</div>
+	
 			
-	</div>
+				
+		</div>
 	{{/if}} {{/each}}
+	</div>
 </div>
 <script>
 $('.template-container .imgicon').click(function () {
