@@ -49,11 +49,11 @@
 						<p>{{{this._cdata}}}</p>
 						{{/each}}
 						{{#each bullet}}
-						<ul>
-							<li>{{this.value}}
-								<ul>
+						<ul class="iconlist">
+							<li class="bulletStyle">{{this.value}}
+								<ul class="iconlist">
 									{{#this.subBullets}} {{#this.subBullet}}
-									<li>{{this}}</li> {{/this.subBullet}} {{/this.subBullets}}
+									<li class="subBulletStyle">{{this}}</li> {{/this.subBullet}} {{/this.subBullets}}
 								</ul>
 							</li>
 						</ul>
