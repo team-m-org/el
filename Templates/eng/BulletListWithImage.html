@@ -1,7 +1,8 @@
+{{#with content.[0]}}
 <div class="row tpad10p bpad5p ">
 	<div class="small-8 columns">
-		<div class="row content-title right-margin-zero"><div class="small-12 columns">{{{title.[0]._cdata}}}</div></div>
-		<div class="row content-background right-margin-zero">
+		<div class="row content-title" style="{{title.[0]._style}}"><div class="small-12 columns">{{{title.[0]._cdata}}}</div></div>
+		<div class="row content-background" style="{{title.[0]._style}}">
 			<div class="small-12 columns">
 			
 			<p>{{{detailMessage.[0]._cdata}}}</p>
@@ -22,4 +23,5 @@
 		<p><img src={{image.[0]._text}} /></p>
 	</div>
 </div>
+{{/with}}
 
