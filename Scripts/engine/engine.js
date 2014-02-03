@@ -962,7 +962,7 @@ var Engine = (function(){
 			var footer = templatesCache["shellFooter.html"];
 			var headerData = {
 					courseTitle: courseStructure.courseTitle[0]._cdata,
-					courseLogo : courseStructure.course[0].logo[0].image[0],
+					courseLogo : courseStructure.course[0].logo[0].image[0]._text,
 			};
 			$(".header-container").html(Handlebars.compile(header)(headerData));
 			$('.header-container')[0].style.cssText = courseStructure.course[0]._style;
