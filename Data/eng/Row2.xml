@@ -25,7 +25,7 @@
 	</bullets>
 	<Scenarios>
 		<Scenario>
-			<image>Media/eng/images/banner.png</image>
+			<image style="width:200px;">Media/eng/images/banner.png</image>
 			<information><![CDATA[This is a dummy text 1. we can replace it with actual
 				test any time. This is a dummy text 1. we can replace it with actual
 				test any time. This is a dummy text 1. we can replace it with actual

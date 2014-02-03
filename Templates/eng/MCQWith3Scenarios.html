@@ -4,14 +4,14 @@
 			<div class="small-9 columns ">
 				<div class="row right-margin-zero">
 					<div class="small-12 columns content-title">
-						{{QuestionOfEthics}}
+						{{QuestionOfEthics._text}}
 					</div>
 				</div>
 			</div>
 			<div class="small-3 columns">
 				<div class="row">
 					<div class="small-12 columns content-title">
-						{{questionHeader}}
+						{{questionHeader._text}}
 					</div>
 				</div>
 			</div>
@@ -22,9 +22,9 @@
 			<div class="small-9 columns">
 				<div class="row content-background right-margin-zero">
 					{{#Scenarios.[0].Scenario}}
-					<div class="small-4 columns">
+					<div class="small-4 columns margin-top-2">
 						<img src={{this.image}} />
-						<p>{{this.information}}</p>
+						<p>{{this.information._text}}</p>
 					</div>
 					{{/Scenarios.[0].Scenario}}
 				</div>
@@ -32,8 +32,8 @@
 			<div class="small-3 columns content-background">
 				<p>{{questionText}}</p>
 				<div class="error hide1 red"></div>
-				<br> {{#options.[0].value}} <input type="checkbox"
-					class="option" name="mcq" value={{this.optionValue}} />
+				<br> {{#options.[0].value._text}} <input type="checkbox"
+					class="option" name="mcq" value={{this.optionValue._text}} />
 				{{this.optionDisplay}}<br /> {{/options.[0].value}}
 				<div align="right">
 					<button class="btnSubmit">Submit!</button>

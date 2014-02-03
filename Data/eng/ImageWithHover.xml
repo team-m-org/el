@@ -5,7 +5,7 @@
 	    	<image>http://placehold.it/400x300</image>
 			<title ><![CDATA[Title text]]></title>
 			<popupText>
-				<Text textType="normal"><![CDATA[This is the hover text for this image]]></Text> 
+				<Text textType="normal" style="color:red;"><![CDATA[This is the hover text for this image]]></Text> 
 			</popupText>
 	</tabImage>
 	<tabImage tab_id="2" bgimage="02.jpg" btnVisible="true" imageVisible="true" xpos="845" align="right" ypos="83" gap="5" normalXpos="10" bulletXpos="10" subBulletXpos="35">
