@@ -4,9 +4,9 @@
     <Instruction>This is an Instruction.</Instruction>
     <title><![CDATA[Check your knowledge]]></title>
 	<information><![CDATA[This is a dummy text 1. we can replace it with actual
-				test any time.]]></information>
-	<questionText><![CDATA[This is a dummy question. Add question as per your wish
-		and also change the option values.]]></questionText>
+				test any time.This is a dummy question. Add question as per your wish
+		and also change the option values.]]></information>
+	<questionText><![CDATA[]]></questionText>
 	<options>
 		<value>
 			<optionDisplay><![CDATA[option 1]]></optionDisplay>
