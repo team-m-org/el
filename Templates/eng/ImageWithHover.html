@@ -1,5 +1,9 @@
 <div class="row tpad10p bpad5p ">
 <div class="row">
+	<div class="small-12 columns content-title">
+		<h4 style="{{this.Text1.[0]._style}}">{{{this.Text1.[0]._cdata}}}</h4>
+	</div>
+
 	{{#each this.tabImage}}
 	<div class="small-4 columns h_imgicon" data="test_c{{this._tab_id}}">
 		<div class="panel">
@@ -11,6 +15,10 @@
 	</div>
 	<div class="test_c{{this._tab_id}} hide" style="{{this.popupText.[0].Text.[0]._style}}">{{{this.popupText.[0].Text.[0]._cdata}}}</div>
 	{{/each}}
+	
+	<div class="small-12 columns content-title" style="{{this.Text2.[0]._style}}">
+		{{{this.Text2.[0]._cdata}}}
+	</div>
 </div>
 </div>
 <script>
