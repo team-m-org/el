@@ -1,4 +1,6 @@
+
 <div class="row tpad10p bpad5p">
+	{{#with content.[0]}}
 	<div class="small-4 columns ">
 		<div class="panel1 tpad5p" style="background-color:#e70b65;color:#fff">
 			<!-- <table style="width: 100%; height: 100%">
@@ -19,11 +21,14 @@
 					</td>
 				</tr>
 			</table> -->
-			<div><span class="question-logo">?</span><b><h7>{{{title.[0]._cdata}}}</h7></b></div>
+			<div><span class="question-logo">?</span>
+			<b>{{{title.[0]._cdata}}}</b></div>
 			<div><p>{{{information.[0]._cdata}}}</p></div>
 			<div><p>{{{questionText.[0]._cdata}}}</p></div>
 		</div>
 	</div>
+	{{/with}}
+	{{#with question.[0]}}
 	<div class="large-8 small-8 columns">
 
 		<div class="panel1 tpad5p">
@@ -48,6 +53,7 @@
 
 		</div>
 	</div>
+	{{/with}}
 
 </div>
 <input type="hidden" name="c_answer" id="c_answer"
@@ -71,41 +77,3 @@
 		</div>
 	</div>
 </div>
-
-<script>
-   /*  $('.template-conatiner .i_submit').click(function () {
-    	var c_flag = false;
-    	var inputAns = [];
-    	var correctAns = $("#c_answer").val().split(",");
-    	$("input[name='c_question']:checked").each(function() { 
-    		inputAns.push($(this).val());
-    	});
-    	
-    	if(inputAns.length >0){
-    		if(correctAns.length===inputAns.length){
-    			var feedCnt = 0;
-    			for(var i=0; i<correctAns.length;i++){
-    				var correctVal = correctAns[i].toLowerCase();
-    				if(jQuery.inArray(correctVal,inputAns)  > -1){
-    					feedCnt++;
-    				}
-    			}
-    			if(feedCnt==correctAns.length){
-    				$(".feedbackContent").html($(".feedbackCorrect").html());
-    				//Engine.showNextPage();
-    			}else{
-    				$(".feedbackContent").html($(".feedbackIncorrec").html());
-    			}
-    		}else{
-    			$(".feedbackContent").html($(".feedbackIncorrec").html());
-    		}
-    		return false;
-    	}else{
-    		c_flag = false;
-    	}
-    	if(c_flag==false){
-    		$(".error").html("Please select "+correctAns.length+" option.").slideDown();
-    		return false;
-    	}
-	}); */
-    </script>

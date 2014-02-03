@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <screen>
-    <type>display</type>
-	<title><![CDATA[Title text 1]]></title>
-   <texts>
-       <text><![CDATA[This is dummy text 1. We can replace it with actual text.]]></text>
-       <text><![CDATA[This is dummy text 2. We can replace it with actual text.]]></text>
-   </texts>
-   <image>Media/eng/images/Education1.jpg</image>
+	<type>display</type>
+	<content>
+		<title><![CDATA[Title text 1]]></title>
+		<texts>
+			<text><![CDATA[This is dummy text 1. We can replace it with actual text.]]></text>
+			<text><![CDATA[This is dummy text 2. We can replace it with actual text.]]></text>
+		</texts>
+		<image>Media/eng/images/Education1.jpg</image>
+	</content>
 </screen>

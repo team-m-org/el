@@ -1,24 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <screen>
     <type>display</type>
-	<title><![CDATA[Title text 12]]></title>
-	<bullets>
-		<bullet>
-		    <value><![CDATA[Bullet text 1]]></value>
-		    <subBullets>
-		        <!-- <subBullet><![CDATA[Sub Bullet text 1]]></subBullet>
-		        <subBullet><![CDATA[Sub Bullet text 2]]></subBullet> -->
-		    </subBullets>
-		</bullet>
-		<bullet>
-		    <value><![CDATA[Bullet text 2]]></value>
-		    <subBullets>
-		        <subBullet><![CDATA[Sub Bullet text 3]]></subBullet>
-		        <subBullet><![CDATA[Sub Bullet text 4]]></subBullet>
-		    </subBullets>
-		</bullet>
-	</bullets>
-	<detailMessage><![CDATA[At the end of this module, you will be able to]]></detailMessage>
-	<image>Media/eng/images/Education1.jpg</image>
+	<content>
+		<title style="background-color:#c81b5d;"><![CDATA[Title text 12]]></title>
+			<bullets>
+				<bullet>
+				    <value><![CDATA[Bullet text 1]]></value>
+				    <subBullets>
+				        <!-- <subBullet><![CDATA[Sub Bullet text 1]]></subBullet>
+				        <subBullet><![CDATA[Sub Bullet text 2]]></subBullet> -->
+				    </subBullets>
+				</bullet>
+				<bullet>
+				    <value><![CDATA[Bullet text 2]]></value>
+				    <subBullets>
+				        <subBullet><![CDATA[Sub Bullet text 3]]></subBullet>
+				        <subBullet><![CDATA[Sub Bullet text 4]]></subBullet>
+				    </subBullets>
+				</bullet>
+			</bullets>
+			<detailMessage><![CDATA[At the end of this module, you will be able to]]></detailMessage>
+		<image>Media/eng/images/Education1.jpg</image>
+	</content>
 </screen>
-

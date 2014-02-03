@@ -1,45 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <screen>
-    <type>mcq</type>
-	<QuestionOfEthics>Question of Ethics</QuestionOfEthics>
-	
-	<options>
-		<value>
-			<optionDisplay>Option 1</optionDisplay>
-			<optionValue>Option1</optionValue>
-		</value>
-		<value>
-			<optionDisplay>Option 2</optionDisplay>
-			<optionValue>Option2</optionValue>
-		</value>
-		<value>
-			<optionDisplay>Option 3</optionDisplay>
-			<optionValue>Option3</optionValue>
-		</value>
-		<value>
-			<optionDisplay>Option 4</optionDisplay>
-			<optionValue>Option4</optionValue>
-		</value>
-	</options>
-	<correctAnswer>Option3,Option1</correctAnswer>
-	<questionHeader>Question</questionHeader>
-	<questionText>This is a dummy question. Add question as per your wish
-		and also change the option values.</questionText>
-	<Scenarios>
-		<Scenario>
-			<image>Media/eng/images/Education1.jpg</image>
-			<information>This is a dummy text 1. we can replace it with actual
-				test any time.</information>
-		</Scenario>
-		<Scenario>
-			<image>Media/eng/images/Education1.jpg</image>
-			<information>This is a dummy text 2. we can replace it with actual
-				test any time.</information>
-		</Scenario>
-		<Scenario>
-			<image>Media/eng/images/Education1.jpg</image>
-			<information>This is a dummy text 3. we can replace it with actual
-				test any time.</information>
-		</Scenario>
-	</Scenarios>
+	<type>mcq</type>
+	<content>
+		<title>Question of Ethics</title>
+		<Scenarios>
+			<Scenario>
+				<image>Media/eng/images/Education1.jpg</image>
+				<information>This is a dummy text 1. we can replace it with actual
+					test any time.
+				</information>
+			</Scenario>
+			<Scenario>
+				<image>Media/eng/images/Education1.jpg</image>
+				<information>This is a dummy text 2. we can replace it with actual
+					test any time.
+				</information>
+			</Scenario>
+			<Scenario>
+				<image>Media/eng/images/Education1.jpg</image>
+				<information>This is a dummy text 3. we can replace it with actual
+					test any time.
+				</information>
+			</Scenario>
+		</Scenarios>
+
+	</content>
+	<question>
+		<questionHeader>Question</questionHeader>
+		<questionText>This is a dummy question. Add question as per your wish
+			and also change the option values.
+		</questionText>
+		<options>
+			<value>
+				<optionDisplay>Option 1</optionDisplay>
+				<optionValue>Option1</optionValue>
+			</value>
+			<value>
+				<optionDisplay>Option 2</optionDisplay>
+				<optionValue>Option2</optionValue>
+			</value>
+			<value>
+				<optionDisplay>Option 3</optionDisplay>
+				<optionValue>Option3</optionValue>
+			</value>
+			<value>
+				<optionDisplay>Option 4</optionDisplay>
+				<optionValue>Option4</optionValue>
+			</value>
+		</options>
+		<correctAnswer>Option3,Option1</correctAnswer>
+	</question>
+
+
+
 </screen>
