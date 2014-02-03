@@ -19,8 +19,9 @@
 <script>
 			$(".h_imgicon").hover(
 			function() {
+				var sAttr = $('.' + $(this).attr('data')).attr('style');
 				$(this).append(
-						"<span>" + $('.' + $(this).attr('data')).html()
+						"<span style="+sAttr+">" + $('.' + $(this).attr('data')).html()
 								+ "</span>");
 			}, function() {
 				$(this).find("span:last").remove();
