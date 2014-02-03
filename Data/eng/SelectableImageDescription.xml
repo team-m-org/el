@@ -2,7 +2,7 @@
 <screen>
     <type>display</type>
 <group id="1">
-	<Contents bgimage="01.jpg" imageVisible="true" xpos="845" align="right" ypos="83" gap="5" normalXpos="10" bulletXpos="10" subBulletXpos="35">
+	<Contents >
 		<title ><![CDATA[Title text]]></title>
 		<!-- <bullets>
 			<bullet>
@@ -27,7 +27,7 @@
 	</Contents>
 </group>
 <group id="2">
-	<tabImage tab_id="1" bgimage="01.jpg" btnVisible="true" imageVisible="true" xpos="845" align="right" ypos="83" gap="5" normalXpos="10" bulletXpos="10" subBulletXpos="35">
+	<tabImage >
 	    <image>http://placehold.it/200x200</image>
 		<title ><![CDATA[Title text]]></title>
 			<popupText>

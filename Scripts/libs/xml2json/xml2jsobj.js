@@ -50,12 +50,12 @@ var X = {
 									o[n.nodeName] = [X.toObj(n)];
 							}
 						} else { // mixed content
-							if (!xml.attributes.length) o = X.escape(X.innerXml(xml));
-							else o["_text"] = X.escape(X.innerXml(xml));
+							/*if (!xml.attributes.length) o = X.escape(X.innerXml(xml));
+							else */o["_text"] = X.escape(X.innerXml(xml));
 						}
 					} else if (textChild) { // pure text
-						if (!xml.attributes.length) o = X.escape(X.innerXml(xml));
-						else o["_text"] = X.escape(X.innerXml(xml));
+						/*if (!xml.attributes.length) o = X.escape(X.innerXml(xml));
+						else */o["_text"] = X.escape(X.innerXml(xml));
 					} else if (cdataChild) { // cdata
 						if (cdataChild > 1) o = X.escape(X.innerXml(xml));
 						else for (var n = xml.firstChild; n; n = n.nextSibling)

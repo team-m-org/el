@@ -25,7 +25,7 @@
 		</div>
 		{{/if}} {{#if this.tabImage}}
 	
-		<div class="small-8 columns " style="height: 100%;background-color: rgb(209, 73, 111)">
+		<div class="small-8 columns " style="height: 100%;background-color: #c81b5d">
 			<h4>select each panel</h4>
 			<div class="row">
 				{{#each this.tabImage}}
@@ -33,7 +33,7 @@
 					<div class="panel">
 						<h4>{{{this.title.[0]._cdata}}}</h4>
 						<p>
-							<img src="{{this.image.[0]}}" />
+							<img src="{{this.image.[0]._text}}" />
 						</p>
 					</div>
 				</div>
