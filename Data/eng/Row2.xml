@@ -9,19 +9,17 @@
 		<text><![CDATA[This is dummy text 2. We can replace it with actual text. This is dummy text 1. We can replace it with actual text.]]></text>
 	</texts>
 	<bullets>
-		<bullet>
-		    <value><![CDATA[Bullet text 1]]></value>
-		    <subBullets>
-		        <!-- <subBullet><![CDATA[Sub Bullet text 1]]></subBullet>
-		        <subBullet><![CDATA[Sub Bullet text 2]]></subBullet> -->
-		    </subBullets>
+		<bullet style="background-image:url(Media/eng/images/bullet.png);padding-left:20px;">
+			<value>Bullet text 1</value>
+			<subBullets>
+			</subBullets>
 		</bullet>
-		<bullet>
-		    <value><![CDATA[Bullet text 2]]></value>
-		    <subBullets>
-		        <subBullet><![CDATA[Sub Bullet text 3]]></subBullet>
-		        <subBullet><![CDATA[Sub Bullet text 4]]></subBullet>
-		    </subBullets>
+		<bullet style="background-image:url(Media/eng/images/bullet.png);padding-left:20px;">
+			<value>Bullet text 2</value>
+			<subBullets>
+				<subBullet style="color:green;font-size:12px;background-image:url(Media/eng/images/sub-bullet.png);padding-left:25px;">Sub Bullet text 3</subBullet>
+				<subBullet style="color:green;font-size:12px;background-image:url(Media/eng/images/sub-bullet.png);padding-left:25px;">Sub Bullet text 4</subBullet>
+			</subBullets>
 		</bullet>
 	</bullets>
 	<Scenarios>

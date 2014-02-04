@@ -220,10 +220,10 @@
 
 .bulletStyle {
 	background-image: url(../../../Media/eng/images/Untitled.jpg);
-	padding: 0px 0 0px 40px;
-	margin: 0 0;
-	background-position-y: 50%;
-	background-repeat : no-repeat;
+	background-repeat: no-repeat;
+	background-position: 0 5px;
+	padding: 3px 0 3px 40px;
+	margin: .4em 0;
 }
 
 .subBulletStyle {
@@ -238,6 +238,7 @@
 	list-style: none;
 	margin-left: 10px;
 	padding: 0;
+	margin-bottom: 0;
 }
 .completed img{
 	height: 20px;

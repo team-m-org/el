@@ -31,18 +31,18 @@
 						<Text textType="normal"><![CDATA[Normal text]]></Text>
 						<closeButton style="background:url(Media/eng/images/Close_btn.png) no-repeat;"></closeButton>
 					</popupText>
-					<bullet>
+					<bullet style="background-image:url(Media/eng/images/bullet.png);padding-left:20px;">
 						<value style="color:red">Bullet text 1</value>
 						<subBullets>
-							<subBullet style="color:blue">Sub Bullet text 3</subBullet>
-							<subBullet>Sub Bullet text 4</subBullet>
+							<subBullet style="color:green;font-size:12px;background-image:url(Media/eng/images/sub-bullet.png);padding-left:25px;">Sub Bullet text 3</subBullet>
+							<subBullet style="color:green;font-size:12px;background-image:url(Media/eng/images/sub-bullet.png);padding-left:25px;">Sub Bullet text 4</subBullet>
 						</subBullets>
 					</bullet>
-					<bullet>
+					<bullet style="background-image:url(Media/eng/images/bullet.png);padding-left:20px;">
 						<value>Bullet text 2</value>
 						<subBullets>
-							<subBullet>Sub Bullet text 3</subBullet>
-							<subBullet>Sub Bullet text 4</subBullet>
+							<subBullet style="color:green;font-size:12px;background-image:url(Media/eng/images/sub-bullet.png);padding-left:25px;">Sub Bullet text 3</subBullet>
+							<subBullet style="color:green;font-size:12px;background-image:url(Media/eng/images/sub-bullet.png);padding-left:25px;">Sub Bullet text 4</subBullet>
 						</subBullets>
 					</bullet>
 				</tabImage>
