@@ -2,10 +2,10 @@
 <screen>
 	<type>display</type>
 	<content>
-		<title><![CDATA[Title text 1]]></title>
-		<texts>
-			<text><![CDATA[This is dummy text 1. We can replace it with actual text.]]></text>
-			<text><![CDATA[This is dummy text 2. We can replace it with actual text.]]></text>
+		<title style="color:silver;background-color:Blue"><![CDATA[Title text 1]]></title>
+		<texts style="background:lightgrey; color:blue; min-height:100px; ">
+			<text style="color:red"><![CDATA[This is dummy text 1. We can replace it with actual text.]]></text>
+			<text><![CDATA[This is dummy text 2. We can replace it with actual text.This is dummy text 2.]]></text>
 		</texts>
 		<image>Media/eng/images/Education1.jpg</image>
 	</content>
