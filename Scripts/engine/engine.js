@@ -572,8 +572,9 @@ var Engine = (function(){
 	    		
 	    		currAttempt++;
 	    	}else{
+	    		var errStr  = currTopicData.feedback[0].feedbackError[0]._cdata;
 				$('.feedback-container').show('slow');
-	    		$(".rfeedbackContent").html("Please select atleast one option.").slideDown();
+	    		$(".rfeedbackContent").html(errStr).slideDown();
 	    	}
 		
 		});
