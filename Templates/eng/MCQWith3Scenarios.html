@@ -3,9 +3,9 @@
 	<div class="small-12 columns">
 		<div class="row ">
 			{{#with content.[0]}}
-			<div class="small-9 columns ">
+			<div class="small-9 columns">
 				<div class="row right-margin-zero">
-					<div class="small-12 columns content-title">
+					<div class="small-12 columns content-title" style="{{title.[0]._style}}">
 						{{title.[0]._text}}
 					</div>
 				</div>
@@ -14,7 +14,7 @@
 			{{#with question.[0]}}
 			<div class="small-3 columns">
 				<div class="row">
-					<div class="small-12 columns content-title">
+					<div class="small-12 columns content-title" style={{questionHeader.[0]._style}}>
 						{{questionHeader.[0]._text}}
 					</div>
 				</div>
@@ -29,21 +29,23 @@
 				<div class="row content-background right-margin-zero">
 					{{#Scenarios.[0].Scenario}}
 					<div class="small-4 columns margin-top-2">
-						<img src={{this.image.[0]._text}} />
-						<p>{{this.information.[0]._text}}</p>
+						<img src={{this.image.[0]._text}} style="{{this.image.[0]._style}}"/>
+						<p style="{{this.information.[0]._style}}">{{this.information.[0]._text}}</p>
 					</div>
 					{{/Scenarios.[0].Scenario}}
 				</div>
 			</div>
 			{{/with}}
 			{{#with question.[0]}}
-			<div class="small-3 columns content-background">
-				<p>{{questionText.[0]._text}}</p>
+			<div class="small-3 columns content-background" >
+				<p style="{{questionText.[0]._style}}">{{questionText.[0]._text}}</p>
 				<div class="error hide1 red"></div>
 				<br> 
-				{{#options.[0].value}} 
-					<input type="checkbox"	class="option" name="mcq" value={{this.optionValue.[0]._text}} />{{this.optionDisplay.[0]._text}}<br /> 
-				{{/options.[0].value}}
+				<div style="{{options.[0]._style}}">
+					{{#options.[0].value}} 
+						<input type="checkbox"	class="option" name="mcq" id="mcq-option-{{@index}}" value={{this.optionValue.[0]._text}} /><label for="mcq-option-{{@index}}" style="{{this.optionDisplay.[0]._style}}"><span >{{this.optionDisplay.[0]._text}}</span></label><br /> 
+					{{/options.[0].value}}
+				</div>
 				<div align="right">
 					<button class="btnSubmit" style="{{submitButton.[0]._style}}">{{submitButton.[0]._text}}</button>
 				</div>
