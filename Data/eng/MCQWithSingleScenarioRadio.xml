@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <screen>
      <type>saq</type>
-    <title>Title text 1</title>
+    <title><![CDATA[Check Your knowledge?]]></title>
+    <Instruction>This is an Instruction.</Instruction>
+    <title><![CDATA[Check your knowledge]]></title>
+	<information><![CDATA[This is a dummy text 1. we can replace it with actual
+				test any time.This is a dummy question. Add question as per your wish
+		and also change the option values.]]></information>
+	<questionText><![CDATA[]]></questionText>
 	<options>
 		<value>
 			<optionDisplay>Option 1</optionDisplay>
