@@ -507,19 +507,22 @@ var Engine = (function(){
 	    		var count = 0;
 	    		if(currTopicData.type[0]._text === "mcq"){
 	    			var ans = $("input[class='option']:checked");
-	    			var corranswers = currTopicData.question[0].correctAnswer[0]._text.split(",");
+	    			var corranswers = currTopicData.question[0].correctAnswer[0]._text.toLowerCase().split(",");
 	    			for(var i=0;i<ans.length;i++){
-	    				for(var j=0;j<corranswers.length;j++){
-	    					console.log("Ans " + $(ans[i]).val());
-	    					console.log("Cans " + corranswers[j]);
-	    					if($(ans[i]).val().toLowerCase() === corranswers[j].toLowerCase()){
-		    					count ++;
-		    					break;
-		    				}
-		    			}
+	    				//for(var j=0;j<corranswers.length;j++){
+	    					console.log("Ans " + $(ans[i]).val(),"corranswers===",corranswers);
+	    					//console.log("Cans " + corranswers[j]);
+	    					if($.inArray($(ans[i]).val().toLowerCase(),corranswers) !== -1){
+	    						count ++;
+	    					}
+	    					//if($(ans[i]).val().toLowerCase() === corranswers[j].toLowerCase()){
+		    					//count ++;
+		    					//break;
+		    				//}
+		    			//}
 	    			}
-	    			
-	    			if(count === ans.length){
+	    			console.log("count=========",count);
+	    			if(count === corranswers.length){
 	    				currScreen.isCorrect = true;
 	    				currScore ++;
 	    				if(USERSTATE.screen ===  currentTopic.screen.length-1){

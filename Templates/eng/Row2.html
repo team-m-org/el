@@ -1,36 +1,35 @@
 {{#with content.[0]}}
-<div class="row row2 tpad10p bpad5p" >
+<div class="row row2 tpad10p bpad5p">
 	<div class="small-12 columns content-title" style="{{title.[0]._style}}">
 		<div>{{{title.[0]._cdata}}}</div>
 	</div>
-	<div class="small-12 columns content-background" >
-		{{#bullets.[0].bullet}}
+	<div class="small-12 columns content-background" style="{{body.[0]._style}}">
+		{{#body.[0].bullets.[0].bullet}}
 		<ul class="iconlist">
-			<li class="bulletStyle" style="{{this._style}}">{{this.value.[0]._text}}
-				<ul class="iconlist">
-					{{#this.subBullets}} 
-						{{#this.subBullet}}
-					<li class="subBulletStyle" style="{{this._style}}">{{this._text}}</li> 
-						{{/this.subBullet}} 
-					{{/this.subBullets}}
-				</ul>
-			</li>
+			<li class="bulletStyle" style="{{this._style}}">{{{this.value.[0]._text}}}</li>
+			<ul class="iconlist">
+				{{#this.subBullets}} {{#this.subBullet}}
+				<li class="subBulletStyle" style="{{this._style}}">{{{this._text}}}</li>
+				{{/this.subBullet}} {{/this.subBullets}}
+			</ul>
 		</ul>
-		{{/bullets.[0].bullet}}
+		{{/body.[0].bullets.[0].bullet}}
 		<div class="small-12 ">
-			{{#texts.[0].text}}
-			<p>{{{this._cdata}}}</p>
-			{{/texts.[0].text}}
+			{{#body.[0].texts.[0].text}}
+			<p style="{{this._style}}">{{{this._cdata}}}</p>
+			{{/body.[0].texts.[0].text}}
 		</div>
 	</div>
-	<div class="small-12 column columns content-background">
-		{{#Scenarios.[0].Scenario}}
-		<div class="small-6 column">
-			<div class="image-border" style="{{this.image.[0]._style}}"><img src={{this.image.[0]._text}} /></div>
-			<p>{{{this.information.[0]._cdata}}}</p>
+	<div class="small-12 column columns content-background" style="{{body.[0]._style}}">
+		{{#body.[0].Scenarios.[0].Scenario}}
+		<div class="small-6 column" >
+			<div style="{{this.image.[0]._style}}">
+				<img src={{this.image.[0]._text}} />
+			</div>
+			<p style="{{this.information.[0]._style}}">{{{this.information.[0]._cdata}}}</p>
 		</div>
 
-		{{/Scenarios.[0].Scenario}}
+		{{/body.[0].Scenarios.[0].Scenario}}
 	</div>
 </div>
 {{/with}}
