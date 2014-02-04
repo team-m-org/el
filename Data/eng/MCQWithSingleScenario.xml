@@ -3,9 +3,11 @@
 	<type>mcq</type>
 	<content>
 		<Instruction>This is an Instruction.</Instruction>
+		<logo style="font-size:80px"><![CDATA[?]]></logo>
 		<title><![CDATA[Check your knowledge]]></title>
 		<information><![CDATA[This is a dummy text 1. we can replace it with actual
 				test any time.This is a dummy question. Add question as per your wish
+		and also change the option values.This is a dummy question. Add question as per your wish
 		and also change the option values.]]></information>
 		<questionText><![CDATA[]]>
 		</questionText>
