@@ -17,16 +17,6 @@
 		<schema>ADL SCORM</schema>
 		<schemaversion>2004 3rd Edition</schemaversion>
 	</metadata>
-	<!-- There is just one organization. The organization contains just one 
-		item. -->
-	<organizations default="heliox_sample_org">
-		<organization identifier="heliox_sample_org">
-			<title>Simple SCO</title>
-			<item identifier="item_1" identifierref="resource_1">
-				<title>SCO Explained</title>
-			</item>
-		</organization>
-	</organizations>
 
 	<resources>
 		<resource identifier="resource_1" type="webcontent"
