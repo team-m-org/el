@@ -221,7 +221,7 @@
 .bulletStyle {
 	background-image: url(../../../Media/eng/images/Untitled.jpg);
 	background-repeat: no-repeat;
-	background-position: 0 50%;
+	background-position: 0 5px;
 	padding: 3px 0 3px 40px;
 	margin: .4em 0;
 }
@@ -344,4 +344,16 @@
 
 .margin-top-2{
 	margin-top:2%;
+}
+
+.left-text-border{
+	padding: 10px;
+	border: 1px solid #ccc
+}
+
+.selectable-panels{
+	height: 100%;
+	background-color: #c81b5d
+}
+
 }

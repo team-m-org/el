@@ -1,23 +1,29 @@
+{{#with content.[0]}}
 <div class="row tpad10p bpad5p">
 	<div class="small-4 columns">
 		<div class="row right-margin-zero image-border">
-			<div class="small-12 columns"><img src={{image.[0]._text}} /></div>
+			<div class="small-12 columns">
+				<img src={{image.[0]._text}} />
+			</div>
 		</div>
 	</div>
 
 	<div class="small-8 columns">
 		<div class="row">
 			<div class="small-12 columns">
-				<div class="content-title row"><div class="small-12 columns">{{{title.[0]._cdata}}}</div></div>
-				<div class="content-background row">
-				<div class="small-12 columns">
-				{{#texts.[0].text}}
-					<p>{{{this._cdata}}}</p> 
-				{{/texts.[0].text}}
+				<div class="content-title row">
+					<div class="small-12 columns" style="{{title.[0]._style}}">{{{title.[0]._cdata}}}</div>
 				</div>
+				<div class="content-background row" style="{{texts.[0]._style}}">
+					<div class="small-12 columns" >
+						{{#texts.[0].text}}
+						<p style="{{this._style}}">{{{this._cdata}}}</p>
+						{{/texts.[0].text}}
+					</div>
 				</div>
 			</div>
 		</div>
-		
+
 	</div>
 </div>
+{{/with}}

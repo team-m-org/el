@@ -1,40 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <screen>
-     <type>saq</type>
-    <title><![CDATA[Check Your knowledge?]]></title>
-    <Instruction>This is an Instruction.</Instruction>
-    <title><![CDATA[Check your knowledge]]></title>
-	<information><![CDATA[This is a dummy text 1. we can replace it with actual
-				test any time.This is a dummy question. Add question as per your wish
-		and also change the option values.]]></information>
-	<questionText><![CDATA[]]></questionText>
-	<options>
-		<value>
-			<optionDisplay>Option 1</optionDisplay>
-			<optionValue>Option1</optionValue>
-		</value>
-		<value>
-			<optionDisplay>Option 2</optionDisplay>
-			<optionValue>Option2</optionValue>
-		</value>
-		<value>
-			<optionDisplay>Option 3</optionDisplay>
-			<optionValue>Option3</optionValue>
-		</value>
-		<value>
-			<optionDisplay>Option 4</optionDisplay>
-			<optionValue>Option4</optionValue>
-		</value>
-	</options>
-	<correctAnswer>Option3</correctAnswer>
-	<questionHeader>Select the correct answer and then click Submit</questionHeader>	
-	<instruction>Select the correct answer and then click Submit</instruction>
-	<questionText>This is a dummy question. Add question as per your wish
-		and also change the option values.</questionText>
+	<type>saq</type>
+	<content>
+		<title>Title text 1</title>
+		<information>This is a dummy text 1. we can replace it with actual
+			test any time.
+		</information>
+		<questionText>This is a dummy question. Add question as per your wish
+			and also change the option values.
+		</questionText>
+	</content>
+	<question>
+		<options>
+			<value>
+				<optionDisplay>Option 1</optionDisplay>
+				<optionValue>Option1</optionValue>
+			</value>
+			<value>
+				<optionDisplay>Option 2</optionDisplay>
+				<optionValue>Option2</optionValue>
+			</value>
+			<value>
+				<optionDisplay>Option 3</optionDisplay>
+				<optionValue>Option3</optionValue>
+			</value>
+			<value>
+				<optionDisplay>Option 4</optionDisplay>
+				<optionValue>Option4</optionValue>
+			</value>
+		</options>
+		<correctAnswer>Option3</correctAnswer>
+		<questionHeader>Select the correct answer and then click Submit
+		</questionHeader>
+	</question>
+
+	<instruction>Select the correct answer and then click Submit
+	</instruction>
 	<feedbackTitle>FeedBack</feedbackTitle>
 	<feedbackContent>This is a feedback section.</feedbackContent>
 	<feedbackCorrectContent><![CDATA[This is a  Correct feedback section.]]></feedbackCorrectContent>
 	<feedbackIncorrectContent><![CDATA[This is a Incorrect feedback section.]]></feedbackIncorrectContent>
-	<information>This is a dummy text 1. we can replace it with actual
-				test any time.</information>
+
 </screen>

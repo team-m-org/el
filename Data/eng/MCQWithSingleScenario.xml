@@ -1,33 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<screen >
-    <type>mcq</type>
-    <Instruction>This is an Instruction.</Instruction>
-    <title><![CDATA[Check your knowledge]]></title>
-	<information><![CDATA[This is a dummy text 1. we can replace it with actual
+<screen>
+	<type>mcq</type>
+	<content>
+		<Instruction>This is an Instruction.</Instruction>
+		<title><![CDATA[Check your knowledge]]></title>
+		<information><![CDATA[This is a dummy text 1. we can replace it with actual
 				test any time.This is a dummy question. Add question as per your wish
 		and also change the option values.]]></information>
-	<questionText><![CDATA[]]></questionText>
-	<options>
-		<value>
-			<optionDisplay><![CDATA[option 1]]></optionDisplay>
-			<optionValue>Option1</optionValue>
-		</value>
-		<value>
-			<optionDisplay><![CDATA[option 2]]></optionDisplay>
-			<optionValue>Option2</optionValue>
-		</value>
-		<value>
-			<optionDisplay><![CDATA[option 3]]></optionDisplay>
-			<optionValue>Option3</optionValue>
-		</value>
-		<value>
-			<optionDisplay><![CDATA[option 4]]></optionDisplay>
-			<optionValue>Option4</optionValue>
-		</value>
-	</options>
-	<correctAnswer>Option3,Option1</correctAnswer>
-	<questionHeader><![CDATA[Select the correct answer and then click Submit]]></questionHeader>	
-	<instruction>Select the correct answer and then click Submit</instruction>
+		<questionText><![CDATA[]]>
+		</questionText>
+
+	</content>
+
+	<question>
+		<options>
+			<value>
+				<optionDisplay><![CDATA[option 1]]></optionDisplay>
+				<optionValue>Option1</optionValue>
+			</value>
+			<value>
+				<optionDisplay><![CDATA[option 2]]></optionDisplay>
+				<optionValue>Option2</optionValue>
+			</value>
+			<value>
+				<optionDisplay><![CDATA[option 3]]></optionDisplay>
+				<optionValue>Option3</optionValue>
+			</value>
+			<value>
+				<optionDisplay><![CDATA[option 4]]></optionDisplay>
+				<optionValue>Option4</optionValue>
+			</value>
+		</options>
+		<correctAnswer>Option3,Option1</correctAnswer>
+		<questionHeader><![CDATA[Select the correct answer and then click Submit]]></questionHeader>
+	</question>
+	
+	<instruction>Select the correct answer and then click Submit
+	</instruction>
+	
 	<feedbackTitle><![CDATA[FeedBack]]></feedbackTitle>
 	<feedbackContent><![CDATA[This is a feedback section.]]></feedbackContent>
 	<feedbackCorrectContent><![CDATA[This is a  Correct feedback section.]]></feedbackCorrectContent>

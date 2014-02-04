@@ -1,13 +1,17 @@
+
 <div class="row tpad10p bpad5p">
 	<div class="small-12 columns">
 		<div class="row ">
+			{{#with content.[0]}}
 			<div class="small-9 columns ">
 				<div class="row right-margin-zero">
 					<div class="small-12 columns content-title">
-						{{QuestionOfEthics.[0]._text}}
+						{{title.[0]._text}}
 					</div>
 				</div>
 			</div>
+			{{/with}}
+			{{#with question.[0]}}
 			<div class="small-3 columns">
 				<div class="row">
 					<div class="small-12 columns content-title">
@@ -15,20 +19,24 @@
 					</div>
 				</div>
 			</div>
+			{{/with}}
 		</div>
 	</div>
 	<div class="small-12 columns ">
 		<div class="row">
+			{{#with content.[0]}}
 			<div class="small-9 columns">
 				<div class="row content-background right-margin-zero">
 					{{#Scenarios.[0].Scenario}}
 					<div class="small-4 columns margin-top-2">
 						<img src={{this.image.[0]._text}} />
-						<p>{{this.information._text}}</p>
+						<p>{{this.information.[0]._text}}</p>
 					</div>
 					{{/Scenarios.[0].Scenario}}
 				</div>
 			</div>
+			{{/with}}
+			{{#with question.[0]}}
 			<div class="small-3 columns content-background">
 				<p>{{questionText.[0]._text}}</p>
 				<div class="error hide1 red"></div>
@@ -40,6 +48,7 @@
 					<button class="btnSubmit">Submit!</button>
 				</div>
 			</div>
+			{{/with}}
 		</div>
 	</div>
 	
@@ -64,7 +73,3 @@
 		</div>
 	</div>
 </div>
-<script>
-   /*  
-	}); */
-</script>

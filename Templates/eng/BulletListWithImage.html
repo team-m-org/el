@@ -1,25 +1,26 @@
+{{#with content.[0]}}
 <div class="row tpad10p bpad5p ">
-	<div class="small-8 columns">
-		<div class="row content-title right-margin-zero"><div class="small-12 columns">{{{title.[0]._cdata}}}</div></div>
-		<div class="row content-background right-margin-zero">
+	<div class="small-8 columns" style="padding-right: 20px;">
+		<div class="row content-title" style="{{body.[0].title.[0]._style}}"><div class="small-12 columns">{{{title.[0]._cdata}}}</div></div>
+		<div class="row content-background" style="{{body.[0]._style}}">
 			<div class="small-12 columns">
-			
-			<p>{{{detailMessage.[0]._cdata}}}</p>
-			{{#bullets.[0].bullet}}
-			<ul class="iconlist">
-				<li class="bulletStyle">{{{this.value.[0]._cdata}}}</li>
-				<ul class="iconlist">
+			<p style="{{body.[0].detailMessage.[0]._style}}">{{{body.[0].detailMessage.[0]._cdata}}}</p>
+			{{#body.[0].bullets.[0].bullet}}
+			<ul class="iconlist" >
+				<li class="bulletStyle" style="{{this._style}}">{{{this.value.[0]._cdata}}}</li>
+				<ul class="iconlist" >
 					{{#this.subBullets}} {{#this.subBullet}}
-						<li class="subBulletStyle">{{{this._cdata}}}</li>
+						<li class="subBulletStyle" style="{{this._style}}">{{{this._cdata}}}</li>
 					{{/this.subBullet}} {{/this.subBullets}}
 				</ul>
 			</ul>
-			{{/bullets.[0].bullet}}
+			{{/body.[0].bullets.[0].bullet}}
 			</div>
 		</div>
 	</div>
-	<div class=" small-4 columns image-border">
+	<div class=" small-4 columns image-border" style="{{image.[0]._style}}">
 		<p><img src={{image.[0]._text}} /></p>
 	</div>
 </div>
+{{/with}}
 

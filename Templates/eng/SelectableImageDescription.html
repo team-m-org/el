@@ -1,34 +1,24 @@
-
+{{#with content.[0]}}
 <div class="row tpad10p bpad5p">
 	{{#each group}} {{#if this.Contents.[0]}}
 	<div class="row">
-				<div class=" small-12 columns content-title">{{{this.Contents.[0].title.[0]._cdata}}}</div>
+				<div class=" small-12 columns content-title" style="{{this.Contents.[0].title.[0]._style}}">{{{this.Contents.[0].title.[0]._cdata}}}</div>
 	</div>
 	<div class="row" style="padding-top:5px;">
-		<div class="small-4 columns" style="height: 100%;padding-left:0px!important;padding-right: 5px!important;">
+		<div class="small-4 columns" style="height: 100%;padding-left:0px!important;padding-right: 5px!important; ">
 				
-				<div style="padding: 10px;border: 1px solid #ccc;" class="content-background">
-				{{#each Contents.[0].info}}
-				<p>{{_cdata}}</p>
-				{{/each}}
-				<!-- {{#each Contents.[0].bullets.[0].bullet}}
-				<ul>
-					<li>{{this.value}}
-						<ul>
-							{{#this.subBullets}} {{#this.subBullet}}
-							<li>{{this}}</li> {{/this.subBullet}} {{/this.subBullets}}
-						</ul>
-					</li>
-				</ul>
-				{{/each}} -->
+				<div class="left-text-border" style="{{Contents.[0].infos.[0]._style}}">
+					{{#each Contents.[0].infos.[0].info}}
+						<p style="{{_style}}">{{_cdata}}</p>
+					{{/each}}
 				</div>
 		</div>
-		{{/if}} {{#if this.tabImage}}
+		{{/if}} {{#if this.tabs.[0].tabImage}}
 	
-		<div class="small-8 columns " style="height: 100%;background-color: #c81b5d">
-			<h4>select each panel</h4>
+		<div class="small-8 columns selectable-panels" style="{{this.tabs.[0]._style}}">
+			<p style="{{this.selectTest.[0]._style}}">{{this.selectTest.[0]._text}}</p>
 			<div class="row">
-				{{#each this.tabImage}}
+				{{#each this.tabs.[0].tabImage}}
 				<div class="small-4 columns imgicon" data="img_icon_{{this._tab_id}}">
 					<div class="panel">
 						<h4>{{{this.title.[0]._cdata}}}</h4>
@@ -40,20 +30,23 @@
 				{{/each}}
 	
 				
-				{{#each this.tabImage}}
+				{{#each this.tabs.[0].tabImage}}
 				<div class="small-8 columns hide img_icon_text  img_icon_text_{{this._tab_id}}" data="img_icon_text_{{this._tab_id}}">
 								
-					<div class="panel">
+					<div class="panel" style="{{this._style}}">
 						<a class="close-reveal-modal  img_icon_text_box right">close</a>
 						{{#each popupText.[0].Text}}
-						<p>{{{this._cdata}}}</p>
+						<p style="{{this._style}}">{{{this._cdata}}}</p>
 						{{/each}}
 						{{#each bullet}}
 						<ul class="iconlist">
-							<li class="bulletStyle">{{this.value}}
+							<li class="bulletStyle" style="{{this.value.[0]._style}}">{{this.value.[0]._text}}
 								<ul class="iconlist">
-									{{#this.subBullets}} {{#this.subBullet}}
-									<li class="subBulletStyle">{{this}}</li> {{/this.subBullet}} {{/this.subBullets}}
+									{{#this.subBullets}} 
+										{{#this.subBullet}}
+									<li class="subBulletStyle" style="{{this._style}}">{{this._text}}</li> 
+										{{/this.subBullet}} 
+									{{/this.subBullets}}
 								</ul>
 							</li>
 						</ul>
@@ -69,6 +62,7 @@
 	{{/if}} {{/each}}
 	</div>
 </div>
+{{/with}}
 <script>
 $('.template-container .imgicon').click(function () {
 		var index = $(this).attr('data').split("_").pop();

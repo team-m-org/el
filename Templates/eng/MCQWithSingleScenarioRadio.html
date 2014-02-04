@@ -1,12 +1,30 @@
 <div class="row tpad10p bpad5p">
-	<div class="small-4 columns ">
-		<div class="panel1 tpad5p question-body">
-			<div><span class="question-logo">?</span> {{{title.[0]._cdata}}}</div>
-			<div><p>{{{information.[0]._cdata}}}</p></div>
-			<div><p>{{{questionText.[0]._cdata}}}</p></div>
+	{{#with content.[0]}}
+	<div class="small-6 columns ">
+		<div class="panel1 tpad5p ">
+			<table style="width: 100%; height: 100%">
+				<tr>
+					<td>
+						<h1>{{title.[0]._text}}</h1>
+
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<p>{{information.[0]._text}}</p>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<p>{{questionText.[0]._text}}</p>
+					</td>
+				</tr>
+			</table>
 		</div>
 	</div>
-	<div class="small-8 columns">
+	{{/with}}
+	{{#with question.[0]}}
+	<div class="large-6 small-6 columns">
 		<div class="panel1 tpad5p">
 			<table style="width: 100%">
 				<tr>
@@ -27,6 +45,7 @@
 			</table>
 		</div>
 	</div>
+	{{/with}}
 
 </div>
 <div class="row rpad5p lpad5p feedback-container" style="display:none;">

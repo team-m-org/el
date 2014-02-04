@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <screen>
      <type>mcq</type>
+     <content>
 	<title style="background:#e70b65;color:white;"><![CDATA[Title text 1]]></title>
 	
 	<texts>
@@ -41,4 +42,6 @@
 				test any time.]]></information>
 		</Scenario>
 	</Scenarios>
+	
+	</content>
 </screen>
