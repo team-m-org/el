@@ -6,18 +6,18 @@
 		<body style="background-color:grey;">
 			<detailMessage style="color:black;font-size:20px"><![CDATA[At the end of this module, you will be able to]]></detailMessage>
 				<bullets >
-					<bullet style="color:red;font-size:15px">
-					    <value ><![CDATA[Bullet text 1]]></value>
+					<bullet style="color:red;font-size:15px;background-image:url(Media/eng/images/bullet.png);padding-left:20px;">
+					    <value><![CDATA[Bullet text 1]]></value>
 					    <subBullets >
 					        <!-- <subBullet><![CDATA[Sub Bullet text 1]]></subBullet>
 					        <subBullet><![CDATA[Sub Bullet text 2]]></subBullet> -->
 					    </subBullets>
 					</bullet>
-					<bullet style="color:blue;font-size:15px">
+					<bullet style="color:red;font-size:15px;background-image:url(Media/eng/images/bullet.png);padding-left:20px;">
 					    <value ><![CDATA[Bullet text 2]]></value>
 					    <subBullets>
-					        <subBullet style="color:green;font-size:12px"><![CDATA[Sub Bullet text 3]]></subBullet>
-					        <subBullet style="color:yellow;font-size:12px"><![CDATA[Sub Bullet text 4]]></subBullet>
+					        <subBullet style="color:green;font-size:12px;background-image:url(Media/eng/images/sub-bullet.png);padding-left:25px;"><![CDATA[Sub Bullet text 3]]></subBullet>
+					        <subBullet style="color:yellow;font-size:12px;background-image:url(Media/eng/images/sub-bullet.png);padding-left:25px;"><![CDATA[Sub Bullet text 4]]></subBullet>
 					    </subBullets>
 					</bullet>
 				</bullets>

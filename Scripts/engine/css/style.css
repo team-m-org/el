@@ -220,10 +220,10 @@
 
 .bulletStyle {
 	background-image: url(../../../Media/eng/images/Untitled.jpg);
-	background-repeat: no-repeat;
-	background-position: 0 5px;
-	padding: 3px 0 3px 40px;
-	margin: .4em 0;
+	padding: 0px 0 0px 40px;
+	margin: 0 0;
+	background-position-y: 50%;
+	background-repeat : no-repeat;
 }
 
 .subBulletStyle {
@@ -356,4 +356,7 @@
 	background-color: #c81b5d
 }
 
+.close-btn{
+	min-height: 20px;
+	min-width: 20px;
 }

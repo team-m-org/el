@@ -34,7 +34,7 @@
 				<div class="small-8 columns hide img_icon_text  img_icon_text_{{this._tab_id}}" data="img_icon_text_{{this._tab_id}}">
 								
 					<div class="panel" style="{{this._style}}">
-						<a class="close-reveal-modal  img_icon_text_box right">close</a>
+						<a class="close-reveal-modal  img_icon_text_box right close-btn" style="{{popupText.[0].closeButton.[0]._style}}"></a>
 						{{#each popupText.[0].Text}}
 						<p style="{{this._style}}">{{{this._cdata}}}</p>
 						{{/each}}
