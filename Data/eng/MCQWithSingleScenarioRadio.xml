@@ -30,8 +30,8 @@
 			</value>
 		</options>
 		<correctAnswer>Option3</correctAnswer>
-		<questionHeader>Select the correct answer and then click Submit
-		</questionHeader>
+		<questionHeader>Select the correct answer and then click Submit</questionHeader>
+		<submitButton style="font-size: 14px;background-color: yellow;border-color: #0079a1;color: green">Submit</submitButton>
 	</question>
 
 	<instruction>Select the correct answer and then click Submit

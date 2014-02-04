@@ -33,6 +33,7 @@
 		</options>
 		<correctAnswer>Option3,Option1</correctAnswer>
 		<questionHeader><![CDATA[Select the correct answer and then click Submit]]></questionHeader>
+		<submitButton style="font-size: 14px;background-color: yellow;border-color: #0079a1;color: green">Submit</submitButton>
 	</question>
 	<instruction>Select the correct answer and then click Submit </instruction>
 	<feedback>

@@ -49,6 +49,7 @@
 			</value>
 		</options>
 		<correctAnswer>Option3,Option1</correctAnswer>
+		<submitButton style="font-size: 14px;background-color: yellow;border-color: #0079a1;color: green">Submit</submitButton>
 	</question>
 	<feedback>
 		<feedbackTitle><![CDATA[FeedBack]]></feedbackTitle>
