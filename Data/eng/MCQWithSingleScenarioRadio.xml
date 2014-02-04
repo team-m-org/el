@@ -1,49 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <screen>
-	<type>saq</type>
-	<content>
-		<Instruction>This is an Instruction.</Instruction>
+	<type>mcq</type>
+	<content style="background-color:orange">
+		<!-- <Instruction style="font-size:8px">This is an Instruction.</Instruction> -->
 		<logo style="font-size:80px"><![CDATA[?]]></logo>
-		<title><![CDATA[Check your knowledge]]></title>
-		<information><![CDATA[This is a dummy text 1. we can replace it with actual
+		<title style="color:red"><![CDATA[Single Choice Answer]]></title>
+		<information style="color:black"><![CDATA[This is a dummy text 1. we can replace it with actual
 				test any time.This is a dummy question. Add question as per your wish
 		and also change the option values.This is a dummy question. Add question as per your wish
 		and also change the option values.]]></information>
-		<questionText><![CDATA[]]>
+		<questionText style="color:white"><![CDATA[]]>
 		</questionText>
 
 	</content>
-	<question>
-		<options>
-			<value>
+
+	<question style="background-color:grey">
+		<options >
+			<value style="color:pink">
 				<optionDisplay><![CDATA[option 1]]></optionDisplay>
 				<optionValue>Option1</optionValue>
 			</value>
-			<value>
+			<value style="color:pink">
 				<optionDisplay><![CDATA[option 2]]></optionDisplay>
 				<optionValue>Option2</optionValue>
 			</value>
-			<value>
+			<value style="color:pink">
 				<optionDisplay><![CDATA[option 3]]></optionDisplay>
 				<optionValue>Option3</optionValue>
 			</value>
-			<value>
+			<value style="color:pink">
 				<optionDisplay><![CDATA[option 4]]></optionDisplay>
 				<optionValue>Option4</optionValue>
 			</value>
 		</options>
-		<correctAnswer>Option3,Option1</correctAnswer>
-		<questionHeader><![CDATA[Select the correct answer and then click Submit]]></questionHeader>
+		<correctAnswer>Option3</correctAnswer>
+		<questionHeader style="color:red"><![CDATA[Select the correct answer and then click Submit]]></questionHeader>
 		<submitButton style="font-size: 14px;background-color: yellow;border-color: #0079a1;color: green">Submit</submitButton>
 	</question>
-
-	<instruction>Select the correct answer and then click Submit
-	</instruction>
+	<instruction style="font-size:10px;color:orange;">Select the correct answer and then click Submit </instruction>
 	<feedback>
 		<feedbackTitle><![CDATA[FeedBack]]></feedbackTitle>
 		<feedbackContent><![CDATA[This is a feedback section.]]></feedbackContent>
 		<feedbackCorrectContent><![CDATA[This is a  Correct feedback section.]]></feedbackCorrectContent>
 		<feedbackIncorrectContent><![CDATA[This is a Incorrect feedback section.]]></feedbackIncorrectContent>
 	</feedback>
-
 </screen>

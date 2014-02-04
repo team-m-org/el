@@ -1,50 +1,42 @@
 <div class="row tpad10p bpad5p">
 	{{#with content.[0]}}
-	<div class="small-4 columns"
-		style="padding-right: 0px; padding-left: 0px;">
-		<div class="tpad5p "
-			style="background-color: #e70b65; color: #fff; padding: 10px;">
+	<div class="small-4 columns" style="padding-right: 0px; padding-left: 0px;">
+		<div class="tpad5p question-body" style="{{this._style}}">
 			<div>
-				<span class="question-logo" style="{{logo.[0]._style}}">{{{logo.[0]._cdata}}}</span> <b>{{{title.[0]._cdata}}}</b>
+				<span class="question-logo" style="{{logo.[0]._style}}">{{{logo.[0]._cdata}}}</span><span style="{{title.[0]._style}}"><b>{{{title.[0]._cdata}}}</span></b>
 			</div>
-			<div>
+			<div style="{{information.[0]._style}}">
 				<p>{{{information.[0]._cdata}}}</p>
 			</div>
-			<div>
+			<div style="{{questionText.[0]._style}}">
 				<p>{{{questionText.[0]._cdata}}}</p>
 			</div>
 
 		</div>
 	</div>
-	{{/with}}
-	{{#with question.[0]}}
-	<div class="large-8 small-8 columns" style="">
+	{{/with}} {{#with question.[0]}}
+	<div class="large-8 small-8 columns">
 
-		<div class="tpad5p"
-			style="padding-top: 0px; border: 1px solid; padding-left: 10px;">
-
-
-
-
-			<div style="padding-top: 10px; padding-bottom: 10px;">{{{questionHeader.[0]._cdata}}}</div>
+		<div class="tpad5p question-options" style="{{this._style}}">
+			<div class="question-instruction-text" style="{{questionHeader.[0]._style}}">{{{questionHeader.[0]._cdata}}}</div>
 			<div class="error hide red"></div>
 			<div>
 				{{#options.[0].value}}
-				<div>
+				<div style="{{this._style}}">
 					<input type="radio" class="option" name="saq"
-						value={{this.optionValue}} /> {{{this.optionDisplay.[0]._cdata}}}
+						value={{this.optionValue.[0]._text}}  /> {{{this.optionDisplay.[0]._cdata}}}
 				</div>
 				{{/options.[0].value}}
 			</div>
-			<div style="text-align: right; padding-right: 10px;">
+			<div class="question-submit-button">
 				<button class="btnSubmit" style="{{submitButton.[0]._style}}">{{submitButton.[0]._text}}</button>
 			</div>
 
 		</div>
 	</div>
 	{{/with}}
-</div>
 
+</div>
 <input type="hidden" name="c_answer" id="c_answer" value={{correctAnswer}}>
 
 <div class="row feedback-container" style="display: none;">
@@ -63,5 +55,3 @@
 			</table>
 	</div>
 </div>
-
-
