@@ -1,47 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <screen>
-     <type>mcq</type>
-     <content>
-	<title style="background:#e70b65;color:white;"><![CDATA[Title text 1]]></title>
-	
-	<texts>
-		<text><![CDATA[This is dummy text 1. We can replace it with actual text. This is dummy text 1. We can replace it with actual text. This is dummy text 1. We can replace it with actual text.]]></text>
-		<text><![CDATA[This is dummy text 2. We can replace it with actual text. This is dummy text 1. We can replace it with actual text.]]></text>
-	</texts>
-	<bullets>
-		<bullet>
-		    <value><![CDATA[Bullet text 1]]></value>
-		    <subBullets>
-		        <!-- <subBullet><![CDATA[Sub Bullet text 1]]></subBullet>
-		        <subBullet><![CDATA[Sub Bullet text 2]]></subBullet> -->
-		    </subBullets>
-		</bullet>
-		<bullet>
-		    <value><![CDATA[Bullet text 2]]></value>
-		    <subBullets>
-		        <subBullet><![CDATA[Sub Bullet text 3]]></subBullet>
-		        <subBullet><![CDATA[Sub Bullet text 4]]></subBullet>
-		    </subBullets>
-		</bullet>
-	</bullets>
-	<Scenarios>
-		<Scenario>
-			<image style="width:200px;">Media/eng/images/banner.png</image>
-			<information><![CDATA[This is a dummy text 1. we can replace it with actual
+	<type>mcq</type>
+	<content >
+		<title style="background-color:#e70b65;color:white;"><![CDATA[Title text 1]]></title>
+		<body style="background-color:grey;">	
+		<texts>
+			<text style="color:white;"><![CDATA[This is dummy text 1. We can replace it with actual text. This is dummy text 1. We can replace it with actual text. This is dummy text 1. We can replace it with actual text.]]></text>
+			<text style="color:white;"><![CDATA[This is dummy text 2. We can replace it with actual text. This is dummy text 1. We can replace it with actual text.]]></text>
+		</texts>
+		<bullets>
+			<bullet style="color:red;">
+				<value><![CDATA[Bullet text 1]]></value>
+				<subBullets>
+					<!-- <subBullet><![CDATA[Sub Bullet text 1]]></subBullet> <subBullet><![CDATA[Sub 
+						Bullet text 2]]></subBullet> -->
+				</subBullets>
+			</bullet>
+			<bullet style="color:red;">
+				<value><![CDATA[Bullet text 2]]></value>
+				<subBullets>
+					<subBullet style="color:red;"><![CDATA[Sub Bullet text 3]]></subBullet>
+					<subBullet style="color:red;"><![CDATA[Sub Bullet text 4]]></subBullet>
+				</subBullets>
+			</bullet>
+		</bullets>
+		<Scenarios>
+			<Scenario>
+				<image style="width:200px;border: 2px solid red;">Media/eng/images/banner.png</image>
+				<information style="color:red;"><![CDATA[This is a dummy text 1. we can replace it with actual
 				test any time. This is a dummy text 1. we can replace it with actual
 				test any time. This is a dummy text 1. we can replace it with actual
 				test any time. This is a dummy text 1. we can replace it with actual
 				test any time.]]></information>
-		</Scenario>
-		<Scenario>
-			<image>Media/eng/images/banner.png</image>
-			<information><![CDATA[This is a dummy text 2. we can replace it with actual
+			</Scenario>
+			<Scenario>
+				<image style="width:300px;border: 2px solid red;">Media/eng/images/banner.png</image>
+				<information style="color:red;"><![CDATA[This is a dummy text 2. we can replace it with actual
 				test any time. This is a dummy text 2. we can replace it with actual
 				test any time. This is a dummy text 2. we can replace it with actual
 				test any time. This is a dummy text 2. we can replace it with actual
-				test any time.]]></information>
-		</Scenario>
-	</Scenarios>
-	
+				test any time.]]>
+				</information>
+			</Scenario>
+		</Scenarios>
+		</body>
 	</content>
 </screen>
