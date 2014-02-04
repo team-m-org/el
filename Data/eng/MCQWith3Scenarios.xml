@@ -54,6 +54,7 @@
 	<feedback>
 		<feedbackTitle><![CDATA[FeedBack]]></feedbackTitle>
 		<feedbackContent><![CDATA[This is a feedback section.]]></feedbackContent>
+		<feedbackError><![CDATA[This is a feedback Error Contain.]]></feedbackError>
 		<feedbackCorrectContent><![CDATA[This is a  Correct feedback section.]]></feedbackCorrectContent>
 		<feedbackIncorrectContent><![CDATA[This is a Incorrect feedback section.]]></feedbackIncorrectContent>
 	</feedback>
