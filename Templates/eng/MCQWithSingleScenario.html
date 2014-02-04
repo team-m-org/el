@@ -40,7 +40,7 @@
 				</tr>
 				<tr>
 					<td>{{#options.[0].value}} <input type="checkbox"
-						class="option" name="mcq" value={{this.optionValue}} />{{{this.optionDisplay.[0]._cdata}}}
+						class="option" name="mcq" value="{{this.optionValue.[0]._text}}" />{{{this.optionDisplay.[0]._cdata}}}
 						<br />{{/options.[0].value}}
 					</td>
 				</tr>
@@ -56,16 +56,14 @@
 	{{/with}}
 
 </div>
-<input type="hidden" name="c_answer" id="c_answer"
-	value={{correctAnswer}}>
+<input type="hidden" name="c_answer" id="c_answer" value={{correctAnswer}}>
 
-<div class="row rpad5p lpad5p feedback-container" style="display: none;">
+<div class="row feedback-container" style="display: none;">
 	<div class="large-12 small-12 columns  ">
-		<div class="panel1">
 			<table style="width: 100%">
 				<tr>
 					<td>
-						<p>{{feedbackTitle.[0]._cdata}}</p>
+						<p>{{feedback.[0].feedbackTitle.[0]._cdata}}</p>
 					</td>
 				</tr>
 				<tr>
@@ -74,6 +72,5 @@
 					</td>
 				</tr>
 			</table>
-		</div>
 	</div>
 </div>

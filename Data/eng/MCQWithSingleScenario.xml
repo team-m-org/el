@@ -34,12 +34,11 @@
 		<correctAnswer>Option3,Option1</correctAnswer>
 		<questionHeader><![CDATA[Select the correct answer and then click Submit]]></questionHeader>
 	</question>
-	
-	<instruction>Select the correct answer and then click Submit
-	</instruction>
-	
-	<feedbackTitle><![CDATA[FeedBack]]></feedbackTitle>
-	<feedbackContent><![CDATA[This is a feedback section.]]></feedbackContent>
-	<feedbackCorrectContent><![CDATA[This is a  Correct feedback section.]]></feedbackCorrectContent>
-	<feedbackIncorrectContent><![CDATA[This is a Incorrect feedback section.]]></feedbackIncorrectContent>
+	<instruction>Select the correct answer and then click Submit </instruction>
+	<feedback>
+		<feedbackTitle><![CDATA[FeedBack]]></feedbackTitle>
+		<feedbackContent><![CDATA[This is a feedback section.]]></feedbackContent>
+		<feedbackCorrectContent><![CDATA[This is a  Correct feedback section.]]></feedbackCorrectContent>
+		<feedbackIncorrectContent><![CDATA[This is a Incorrect feedback section.]]></feedbackIncorrectContent>
+	</feedback>
 </screen>

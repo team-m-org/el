@@ -503,16 +503,16 @@ var Engine = (function(){
 	    	var currentTopic = getCurrentTopic();
 	    	console.log("currScreen.attempt " ,currScreen.attempt);
 	    	if(c_flag===true){
-	    		
+	    		var incorectFeedback  = currTopicData.feedback[0].feedbackIncorrectContent[0]._cdata;
 	    		var count = 0;
-	    		if(currTopicData.type[0] === "mcq"){
+	    		if(currTopicData.type[0]._text === "mcq"){
 	    			var ans = $("input[class='option']:checked");
-	    			var corranswers = currTopicData.correctAnswer[0].split(",");
+	    			var corranswers = currTopicData.question[0].correctAnswer[0]._text.split(",");
 	    			for(var i=0;i<ans.length;i++){
 	    				for(var j=0;j<corranswers.length;j++){
 	    					console.log("Ans " + $(ans[i]).val());
 	    					console.log("Cans " + corranswers[j]);
-		    				if($(ans[i]).val() === corranswers[j]){
+	    					if($(ans[i]).val().toLowerCase() === corranswers[j].toLowerCase()){
 		    					count ++;
 		    					break;
 		    				}
@@ -532,7 +532,7 @@ var Engine = (function(){
 	    			else{
 	    				currScreen.isCorrect = false;
 	    				$('.feedback-container').show('slow');
-	    				$(".rfeedbackContent").html("Try again !").slideDown();
+	    				$(".rfeedbackContent").html(incorectFeedback).slideDown();
 	    			}
 	    			
 	    			if(parseInt(currScreen._attempt) === currAttempt){
@@ -540,10 +540,9 @@ var Engine = (function(){
 	    				return;
 	    			}
 	    		}
-	    		else if(currTopicData.type[0] === "saq"){
-	    			var ans = $("input[class='option']:checked").val();
-	    			var corranswers = currTopicData.correctAnswer[0];
-	    			
+	    		else if(currTopicData.type[0]._text === "saq"){
+	    			var ans = $("input[class='option']:checked").val().toLowerCase();
+	    			var corranswers = currTopicData.question[0].correctAnswer[0]._text.toLowerCase();
 	    			if(corranswers === ans){
 	    				currScreen.isCorrect = true;
 	    				currScore ++;
@@ -558,7 +557,7 @@ var Engine = (function(){
 	    			else{
 	    				currScreen.isCorrect = false;
 						$('.feedback-container').show('slow');
-	    				$(".rfeedbackContent").html("Try again !.").slideDown();
+	    				$(".rfeedbackContent").html(incorectFeedback).slideDown();
 	    			}
 	    			
 	    			if(parseInt(currScreen._attempt) === currAttempt){
@@ -570,8 +569,6 @@ var Engine = (function(){
 	    				return;
 	    			}
 	    		}
-	    		
-	    		
 	    		
 	    		currAttempt++;
 	    	}else{

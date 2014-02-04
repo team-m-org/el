@@ -1,4 +1,3 @@
-
 <div class="row tpad10p bpad5p">
 	{{#with content.[0]}}
 	<div class="small-6 columns ">
@@ -34,7 +33,7 @@
 				</tr>
 				<tr>
 					<td>{{#options.[0].value}} <input type="radio" name="saq"
-						class="option" value={{this.optionValue}} />{{this.optionDisplay.[0]._text}}
+						class="option" value="{{this.optionValue.[0]._text}}" />{{this.optionDisplay.[0]._text}}
 						<br />{{/options.[0].value}}
 					</td>
 				</tr>
@@ -47,27 +46,24 @@
 		</div>
 	</div>
 	{{/with}}
-
 </div>
-<div class="row rpad5p lpad5p feedback-container" style="display:none;">
+
+<input type="hidden" name="rc_answer" id="rc_answer" value={{correctAnswer}}>
+<div class="row feedback-container" style="display:none;">
 	<div class="large-12 small-12 columns  ">
-		<div class="panel1">
 			<table style="width: 100%">
 				<tr>
 					<td>
-						<p>{{feedbackTitle.[0]}}</p>
+						<p>{{feedback.[0].feedbackTitle.[0]._cdata}}</p>
 					</td>
 				</tr>
 				<tr>
 					<td>
-						<div class="rfeedbackContent">{{feedbackContent.[0]}}</div>
+						<div class="rfeedbackContent"></div>
 					</td>
 				</tr>
 			</table>
-		</div>
 	</div>
 </div>
-<input type="hidden" name="rc_answer" id="rc_answer"
-	value={{correctAnswer}}>
-<div class="hide rfeedbackCorrect">{{{feedbackCorrectContent.[0]._cdata}}}</div>
-<div class="hide rfeedbackIncorrec">{{{feedbackIncorrectContent.[0]._cdata}}}</div>
+
+

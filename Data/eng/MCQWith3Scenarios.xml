@@ -50,7 +50,10 @@
 		</options>
 		<correctAnswer>Option3,Option1</correctAnswer>
 	</question>
-
-
-
+	<feedback>
+		<feedbackTitle><![CDATA[FeedBack]]></feedbackTitle>
+		<feedbackContent><![CDATA[This is a feedback section.]]></feedbackContent>
+		<feedbackCorrectContent><![CDATA[This is a  Correct feedback section.]]></feedbackCorrectContent>
+		<feedbackIncorrectContent><![CDATA[This is a Incorrect feedback section.]]></feedbackIncorrectContent>
+	</feedback>
 </screen>
