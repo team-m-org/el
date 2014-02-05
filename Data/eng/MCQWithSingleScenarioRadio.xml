@@ -16,19 +16,19 @@
 
 	<question style="background-color:grey">
 		<options >
-			<value style="color:pink">
+			<value style="color:pink;line-height:18px;">
 				<optionDisplay><![CDATA[Option1 Option1Option1 Option1Option1 Option1Option1 Option1Option1 Option1Option1 Option1Option1 Option1Option1 Option1Option1 Option1Option1 Option1Option1 Option1Option1 Option1Option1 Option1Option1 Option1Option1 Option1Option1 Option1Option1 Option1Option1 Option1Option1 Option1Option1 Option1Option1 Option1Option1 Option1]]></optionDisplay>
 				<optionValue>Option1</optionValue>
 			</value>
-			<value style="color:pink">
+			<value style="color:pink;line-height:18px;">
 				<optionDisplay><![CDATA[option 2]]></optionDisplay>
 				<optionValue>Option2</optionValue>
 			</value>
-			<value style="color:pink">
+			<value style="color:pink;line-height:18px;">
 				<optionDisplay><![CDATA[option 3]]></optionDisplay>
 				<optionValue>Option3</optionValue>
 			</value>
-			<value style="color:pink">
+			<value style="color:pink;line-height:18px;">
 				<optionDisplay><![CDATA[option 4]]></optionDisplay>
 				<optionValue>Option4</optionValue>
 			</value>
