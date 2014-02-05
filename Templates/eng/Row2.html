@@ -4,6 +4,11 @@
 		<div>{{{title.[0]._cdata}}}</div>
 	</div>
 	<div class="small-12 columns content-background" style="{{body.[0]._style}}">
+		<div class="small-12 ">
+			{{#body.[0].text1.[0]}}
+			<p style="{{this._style}}">{{{this._cdata}}}</p>
+			{{/body.[0].text1.[0]}}
+		</div>
 		{{#body.[0].bullets.[0].bullet}}
 		<ul class="iconlist">
 			<li class="bulletStyle" style="{{this._style}}">{{{this.value.[0]._text}}}</li>
@@ -15,9 +20,9 @@
 		</ul>
 		{{/body.[0].bullets.[0].bullet}}
 		<div class="small-12 ">
-			{{#body.[0].texts.[0].text}}
+			{{#body.[0].text2.[0]}}
 			<p style="{{this._style}}">{{{this._cdata}}}</p>
-			{{/body.[0].texts.[0].text}}
+			{{/body.[0].text2.[0]}}
 		</div>
 	</div>
 	<div class="small-12 column columns content-background" style="{{body.[0]._style}}">

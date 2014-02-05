@@ -23,9 +23,9 @@
 			<div class="error hide red"></div>
 			<div>
 				{{#options.[0].value}}
-				<div style="{{this._style}}">
-					<input type="radio" class="option" name="saq"
-						value={{this.optionValue.[0]._text}} /> {{{this.optionDisplay.[0]._cdata}}}
+				<div class="question-option" style="{{this._style}}">
+					<div style="width:5%;"><input type="radio" class="option" name="saq"
+						value={{this.optionValue.[0]._text}} /></div><div style="width:95%;"> {{{this.optionDisplay.[0]._cdata}}}</div>
 				</div>
 				{{/options.[0].value}}
 			</div>

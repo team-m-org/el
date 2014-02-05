@@ -378,3 +378,17 @@
 .imgicon{
 	cursor: pointer;
 }
+
+.question-options input{
+	margin-bottom:0!important;
+}
+
+.question-option{
+	margin-bottom:10px;
+	height: 100%;
+	overflow: hidden;
+}
+
+.question-option>div{
+	float:left
+}

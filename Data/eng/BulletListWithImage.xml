@@ -14,7 +14,7 @@
 					    </subBullets>
 					</bullet>
 					<bullet style="color:red;font-size:15px;background-image:url(Media/eng/images/bullet.png);padding-left:20px;">
-					    <value ><![CDATA[Bullet text 2]]></value>
+					    <value ><![CDATA[Bullet text 2 Bullet text 2Bullet text 2Bullet text 2Bullet text 2Bullet text 2Bullet text 2Bullet text 2Bullet text 2Bullet text 2Bullet text 2Bullet text 2Bullet text 2Bullet text 2]]></value>
 					    <subBullets>
 					        <subBullet style="color:green;font-size:12px;background-image:url(Media/eng/images/sub-bullet.png);padding-left:25px;"><![CDATA[Sub Bullet text 3]]></subBullet>
 					        <subBullet style="color:yellow;font-size:12px;background-image:url(Media/eng/images/sub-bullet.png);padding-left:25px;"><![CDATA[Sub Bullet text 4]]></subBullet>
