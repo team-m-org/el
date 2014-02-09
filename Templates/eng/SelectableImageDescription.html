@@ -5,7 +5,7 @@
 		<div class=" large-12 columns content-title" style="{{this.Contents.[0].title.[0]._style}}">{{{this.Contents.[0].title.[0]._cdata}}}</div>
 	</div>
 	<div class="row" style="padding-top:5px;">
-		<div class="large-4 columns" style="height: 100%;padding-left:0px!important;padding-right: 5px!important; ">
+		<div class="large-4 small-12 columns" style="height: 100%;padding-left:0px!important;padding-right: 5px!important; ">
 				
 				<div class="left-text-border" style="{{Contents.[0].infos.[0]._style}}">
 					{{#each Contents.[0].infos.[0].info}}
@@ -15,11 +15,11 @@
 		</div>
 		{{/if}} {{#if this.tabs.[0].tabImage}}
 	
-		<div class="large-8 columns selectable-panels" style="{{this.tabs.[0]._style}}">
+		<div class="large-8 small-12 columns selectable-panels" style="{{this.tabs.[0]._style}}">
 			<p style="{{this.selectTest.[0]._style}}">{{this.selectTest.[0]._text}}</p>
 			<div class="row">
 				{{#each this.tabs.[0].tabImage}}
-				<div class="large-4 columns imgicon" data="img_icon_{{this._tab_id}}">
+				<div class="large-4 small-12 columns imgicon" data="img_icon_{{this._tab_id}}">
 					<div class="panel">
 						<h4>{{{this.title.[0]._cdata}}}</h4>
 						<p>
@@ -31,7 +31,7 @@
 	
 				
 				{{#each this.tabs.[0].tabImage}}
-				<div class="large-8 columns hide img_icon_text  img_icon_text_{{this._tab_id}}" data="img_icon_text_{{this._tab_id}}">
+				<div class="large-8 small-12 columns hide img_icon_text  img_icon_text_{{this._tab_id}}" data="img_icon_text_{{this._tab_id}}">
 								
 					<div class="panel" style="{{this._style}}">
 						<a class="close-reveal-modal  img_icon_text_box right close-btn" style="{{popupText.[0].closeButton.[0]._style}}"></a>
