@@ -447,6 +447,12 @@
 	.footer-menu a{
 		font-size: 13px;
 	}
+	
+	.pagination {
+		font-weight: bold;
+		float: right;
+		font-size: 13px;
+	}
 }
 
 @media only screen and (min-width:40.063em){
