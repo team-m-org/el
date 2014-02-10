@@ -1,8 +1,8 @@
 .course-header {
 	text-transform: uppercase;
-	line-height: 73px;
+	line-height: 50px;
 	color: white;
-	height: 74px;
+	height: 42px;
 	font-weight: bold;
 }
 .question-logo{
@@ -56,7 +56,7 @@
 }
 
 .course-title {
-	padding-left: 15px;
+	/* padding-left: 15px; */
 }
 
 .course-logo {
@@ -400,7 +400,8 @@
 .right-content{
 	padding-right:0px;
 }
-@media only screen and (max-width: 40.063em) {
+
+@media only screen and (max-width: 64.063em) {
 
 	.left-content{
 		padding-right: 0px;
@@ -410,5 +411,15 @@
 	.right-content{
 		padding-right:0px;
 		padding-left: 0px;
+	}
+	
+	.course-title{
+		font-size: 15px;
+	}
+	
+	.footer-menu{
+		position:fixed;
+		bottom : 0;
+		width:100%!important;
 	}
 }
