@@ -408,6 +408,8 @@
 	padding-right:0px;
 }
 
+
+
 @media only screen and (max-width: 64.063em) {
 
 	.left-content{
@@ -433,6 +435,10 @@
 	
 	.footer-menu a{
 		font-size: 9px;
+	}
+	
+	.bottom-space{
+		margin-bottom: 10px;	
 	}
 	
 }
