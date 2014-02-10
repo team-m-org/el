@@ -443,7 +443,13 @@
 	
 }
 
-@media only screen and (min-width:64.063em){
+@media only screen and (min-width:24.063em){
+	.footer-menu a{
+		font-size: 13px;
+	}
+}
+
+@media only screen and (min-width:40.063em){
 	.right-margin-zero{
 		margin-right:0!important;
 	}
