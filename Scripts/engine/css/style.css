@@ -392,3 +392,23 @@
 .question-option>div{
 	float:left
 }
+
+.left-content{
+	padding-left :0px;
+}
+
+.right-content{
+	padding-right:0px;
+}
+@media only screen and (max-width: 40.063em) {
+
+	.left-content{
+		padding-right: 0px;
+		margin-bottom : 10px;
+	}
+	
+	.right-content{
+		padding-right:0px;
+		padding-left: 0px;
+	}
+}
