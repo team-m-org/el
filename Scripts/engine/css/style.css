@@ -352,10 +352,6 @@
 	line-height: 44px;
 }
 
-.right-margin-zero{
-	margin-right:0!important;
-}
-
 .margin-top-2{
 	margin-top:2%;
 }
@@ -393,6 +389,14 @@
 	float:left
 }
 
+
+#prev,#next{
+	z-index:1000;
+}
+
+.help-container img{
+		min-width:20px;
+}
 .left-content{
 	padding-left :0px;
 }
@@ -400,6 +404,7 @@
 .right-content{
 	padding-right:0px;
 }
+
 
 @media only screen and (max-width: 64.063em) {
 
@@ -414,12 +419,24 @@
 	}
 	
 	.course-title{
-		font-size: 15px;
+		font-size: 9px;
 	}
 	
 	.footer-menu{
 		position:fixed;
 		bottom : 0;
 		width:100%!important;
+		font-size: 9px;
+	}
+	
+	.footer-menu a{
+		font-size: 9px;
+	}
+	
+}
+
+@media only screen and (min-width:64.063em){
+	.right-margin-zero{
+		margin-right:0!important;
 	}
 }
