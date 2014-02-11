@@ -1,11 +1,11 @@
 {{#with content.[0]}}
 <div class="row tpad10p bpad5p ">
-	<div class="large-12 columns content-title">
+	<div class="medium-12 columns content-title">
 		<h4 style="{{this.Text1.[0]._style}}">{{{this.Text1.[0]._cdata}}}</h4>
 	</div>
 
 	{{#each this.tabImage}}
-	<div class="large-4 columns h_imgicon" data="test_c{{this._tab_id}}">
+	<div class="medium-4 columns h_imgicon" data="test_c{{this._tab_id}}">
 		<div class="panel">
 			<h4 style="{{this.title._style}}">{{{this.title._cdata}}}</h4>
 			<p>
@@ -16,7 +16,7 @@
 	<div class="test_c{{this._tab_id}} hide" style="{{this.popupText.[0].Text.[0]._style}}">{{{this.popupText.[0].Text.[0]._cdata}}}</div>
 	{{/each}}
 	
-	<div class="large-12 columns content-title" style="{{this.Text2.[0]._style}}">
+	<div class="medium-12 columns content-title" style="{{this.Text2.[0]._style}}">
 		{{{this.Text2.[0]._cdata}}}
 	</div>
 </div>
