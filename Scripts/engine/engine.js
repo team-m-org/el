@@ -508,27 +508,24 @@ var Engine = (function(){
 	    		if(currTopicData.type[0]._text === "mcq"){
 	    			var ans = $("input[class='option']:checked");
 	    			var corranswers = currTopicData.question[0].correctAnswer[0]._text.toLowerCase().split(",");
-	    			for(var i=0;i<ans.length;i++){
-	    				//for(var j=0;j<corranswers.length;j++){
-	    					console.log("Ans " + $(ans[i]).val(),"corranswers===",corranswers);
-	    					//console.log("Cans " + corranswers[j]);
-	    					if($.inArray($(ans[i]).val().toLowerCase(),corranswers) !== -1){
-	    						count ++;
-	    					}
-	    					//if($(ans[i]).val().toLowerCase() === corranswers[j].toLowerCase()){
-		    					//count ++;
-		    					//break;
-		    				//}
-		    			//}
+	    			var flag = true;
+	    			
+	    			if(ans.length == corranswers.length){
+	    				for(var i=0;i<ans.length;i++){
+		    				
+		    					if($.inArray($(ans[i]).val().toLowerCase(),corranswers) == -1){
+		    						flag = false;
+		    						break;
+		    					}
+		    			}
 	    			}
-	    			console.log("count=========",count);
-	    			if(count === corranswers.length){
+	    			else{
+	    				flag = false;
+	    			}
+	    	
+	    			if(flag){
 	    				currScreen.isCorrect = true;
 	    				currScore ++;
-	    				if(USERSTATE.screen ===  currentTopic.screen.length-1){
-	    					showResult(currentTopic.screen.length);
-	    					return;
-	    				}
 	    				Engine.showNextPage();
 	    				return;
 	    			}
@@ -538,7 +535,15 @@ var Engine = (function(){
 	    				$(".rfeedbackContent").html(incorectFeedback).slideDown();
 	    			}
 	    			
+	    			
+	    			
 	    			if(parseInt(currScreen._attempt) === currAttempt){
+	    				
+	    				if(USERSTATE.screen ===  currentTopic.screen.length-1){
+	    					showResult(currentTopic.screen.length);
+	    					return;
+	    				}
+	    				
 	    				Engine.showNextPage();
 	    				return;
 	    			}
