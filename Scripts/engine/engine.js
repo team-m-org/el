@@ -32,7 +32,7 @@ var Engine = (function(){
 
 	};
 
-	
+
 
 
 	function normalizeCourse(courseStructure){
@@ -48,8 +48,8 @@ var Engine = (function(){
 		});
 
 		for(var moduleIndex=0;moduleIndex< modules.length;moduleIndex++){
-		
-		/*for(var moduleIndex in moduleIndex){*/
+
+			/*for(var moduleIndex in moduleIndex){*/
 			var module = modules[moduleIndex];
 
 			var topics = module.topic;
@@ -61,7 +61,7 @@ var Engine = (function(){
 			});
 
 			for(var topicIndex=0;topicIndex< topics.length;topicIndex++){
-			/*for(var topicIndex in topics){*/
+				/*for(var topicIndex in topics){*/
 				var screens = topics[topicIndex].screen;
 				if(!(screens instanceof Array)){
 					screens = topics[topicIndex].screen = [screens];
@@ -87,9 +87,9 @@ var Engine = (function(){
 		}
 
 		var screensMap = {};
-		
+
 		for(var screenIndex=0;screenIndex<  topic.screen.length;screenIndex++){
-	/*	for(var screenIndex in topic.screen){*/
+			/*	for(var screenIndex in topic.screen){*/
 			var screen = topic.screen[screenIndex];
 			screensMap["_ques_set" + screen._setNo] = screensMap["_ques_set" + screen._setNo] ||[];
 			screensMap["_ques_set" + screen._setNo].push(screen);
@@ -99,7 +99,7 @@ var Engine = (function(){
 		//console.log(screensMap);
 
 		var calculatedScreens = [];
-		
+
 		for(var noOfQuestionsMapIndex in noOfQuestionsMap){
 			var noOfQuestionsToPick = noOfQuestionsMap[noOfQuestionsMapIndex];
 			var questionsScreens  = screensMap[noOfQuestionsMapIndex];
@@ -114,12 +114,12 @@ var Engine = (function(){
 
 	function constructCourse(courseStructure){
 		var modules = courseStructure.course[0].module;
-		
+
 		for(var index=0;index< modules.length;index++){
-		/*for(var index in modules){*/
+			/*for(var index in modules){*/
 			var module = modules[index];
 			for(var topicIndex=0;topicIndex< module.topic.length;topicIndex++){
-			/*for(var topicIndex in module.topic){*/
+				/*for(var topicIndex in module.topic){*/
 				if(module.topic[topicIndex]._type==="assessment"){
 					module.topic[topicIndex] = createAssessment(module.topic[topicIndex]);
 				}
@@ -196,38 +196,38 @@ var Engine = (function(){
 		var assString = "";
 		scromString = "";
 		var module = courseStructure.course[0].module;
-		
+
 		for(var index=0;index< module.length;index++){
-		/*for(var index in module){*/
+			/*for(var index in module){*/
 			var topic = module[index].topic;
-				for(var topicIndex=0;topicIndex< topic.length;topicIndex++){
+			for(var topicIndex=0;topicIndex< topic.length;topicIndex++){
 				/*for(var topicIndex in topic){*/
-					var screen = topic[topicIndex].screen;
-					if(topic[topicIndex]._type=="assessment"){
-							for(var screenIndex=0;screenIndex< screen.length;screenIndex++){
-							/*for(var screenIndex in screen){*/
-								
-								if(screen[screenIndex].isCorrect){
-									assString += "1,";
-								} else {
-									assString += "0,";
-								}
-							}
-							assString = assString.substring(0, assString.length-1);
-							assString += "|";
-					}else{
-							for(var screenIndex=0;screenIndex< screen.length;screenIndex++){
-							/*for(var screenIndex in screen){*/
-								if(screen[screenIndex].visited){
-									scromString  += "1,";
-								} else {
-									scromString  += "0,";
-								}
-							}
-							scromString = scromString.substring(0, scromString.length-1);
-							scromString += "^";
+				var screen = topic[topicIndex].screen;
+				if(topic[topicIndex]._type=="assessment"){
+					for(var screenIndex=0;screenIndex< screen.length;screenIndex++){
+						/*for(var screenIndex in screen){*/
+
+						if(screen[screenIndex].isCorrect){
+							assString += "1,";
+						} else {
+							assString += "0,";
+						}
 					}
+					assString = assString.substring(0, assString.length-1);
+					assString += "|";
+				}else{
+					for(var screenIndex=0;screenIndex< screen.length;screenIndex++){
+						/*for(var screenIndex in screen){*/
+						if(screen[screenIndex].visited){
+							scromString  += "1,";
+						} else {
+							scromString  += "0,";
+						}
+					}
+					scromString = scromString.substring(0, scromString.length-1);
+					scromString += "^";
 				}
+			}
 			scromString = scromString.substring(0, scromString.length-1);
 			scromString += "|";
 		}
@@ -237,9 +237,9 @@ var Engine = (function(){
 		scromString += "~" + currentPosition + "~" + assString;
 		console.log(scromString);
 		updateSCORM(scromString);
-		
+
 	}
-	
+
 	updateCourseState = function(scormString){
 		//1,1|0,0,0|0,0,0~0,0,1~0,0,0 
 		if(!scormString || scormString === "false"){
@@ -249,33 +249,33 @@ var Engine = (function(){
 		var courseStateStr = parts[0];
 		var currentPositionStr = parts[1];
 		var assScoreStr = parts[2];
-		
-		
-		
-		
+
+
+
+
 		function calculateCourse(courseStateStr){
 			if(!courseStateStr || courseStateStr === "false"){
 				return;
 			}
 			var calculatedCourse = {};
 			var moduleParts = courseStateStr.split("|");
-			
+
 			calculatedCourse['module'] = new Array(moduleParts.length);
 
 			for(var modulePartIndex=0;modulePartIndex< moduleParts.length;modulePartIndex++){
-			/*for(var modulePartIndex in moduleParts){*/
+				/*for(var modulePartIndex in moduleParts){*/
 
 				var moduleStr = moduleParts[modulePartIndex];
 				var topicParts = moduleStr.split("^");
 				calculatedCourse['module'][modulePartIndex] ={ topic : new Array(topicParts.length)} ;
-				
+
 				for(var topicPartIndex=0;topicPartIndex< topicParts.length;topicPartIndex++){
-				/*for(var topicPartIndex in topicParts){*/
+					/*for(var topicPartIndex in topicParts){*/
 					var topicStr =  topicParts[topicPartIndex];
 					var screenParts = topicStr.split(",");
 					calculatedCourse['module'][modulePartIndex]['topic'][topicPartIndex] = { screen : new Array(screenParts.length)};
 					for(var screenPartIndex=0;screenPartIndex< screenParts.length;screenPartIndex++){
-					/*for(var screenPartIndex in screenParts){*/
+						/*for(var screenPartIndex in screenParts){*/
 						var screenStr = screenParts[screenPartIndex];
 						calculatedCourse['module'][modulePartIndex]['topic'][topicPartIndex]['screen'][screenPartIndex]=screenStr=="1";
 					}
@@ -283,51 +283,51 @@ var Engine = (function(){
 			}
 			return calculatedCourse;
 		}
-		
-		
+
+
 		var calculatedCourse = calculateCourse(courseStateStr);
 		var calculatedAssessment = calculateCourse(assScoreStr);
-		
+
 		var modules= courseStructure.course[0].module;
 		var calculatedModule = calculatedCourse.module;
-		
+
 		var calculatedAssessmentMoudles =  calculatedAssessment.module;
 
 		/*var sortedCourse = {module : []};
 		var sortedAssessment = {module : []};*/
-		
+
 		var moduleTopics = [];
 		var assessmentTopics = [];
-		
+
 		for(var index=0;index< calculatedCourse.module.length;index++){
-		/*for(var index in calculatedCourse.module){*/
+			/*for(var index in calculatedCourse.module){*/
 			var topics = calculatedCourse.module[index]['topic'];
 			for(var topicIndex=0;topicIndex< topics.length;topicIndex++){
-			/*for(var topicIndex in topics){*/
+				/*for(var topicIndex in topics){*/
 				moduleTopics.push(topics[topicIndex]);
 			}
 		}
-		
+
 		for(var index=0;index< calculatedAssessmentMoudles.length;index++){
-		/*for(var index in calculatedAssessmentMoudles){*/
+			/*for(var index in calculatedAssessmentMoudles){*/
 			var topics = calculatedAssessmentMoudles[index]['topic'];
 			for(var topicIndex=0;topicIndex< topics.length;topicIndex++){
-			/*for(var topicIndex in topics){*/
+				/*for(var topicIndex in topics){*/
 				assessmentTopics.push(topics[topicIndex]);
 			}
 		}
-		
+
 		var asseessmentTopicIndex = 0;
 		var moduleTopicsTopicIndex = 0;
 		for(var index=0;index< modules.length;index++){
-		/*for(var index in modules){*/
+			/*for(var index in modules){*/
 			var topics = modules[index]['topic'];
 			for(var topicIndex=0;topicIndex< topics.length;topicIndex++){
-			/*for(var topicIndex in topics){*/
+				/*for(var topicIndex in topics){*/
 				if(topics[topicIndex]._type == "assessment"){
 					var assessaentTopicWithData = assessmentTopics[asseessmentTopicIndex++];
 					for(var screenIndex=0;screenIndex< screens.length;screenIndex++){
-					/*for(var screenIndex in screens){*/
+						/*for(var screenIndex in screens){*/
 						screens[screenIndex].isCorrect = assessaentTopicWithData.screen[screenIndex];
 					}
 
@@ -335,23 +335,23 @@ var Engine = (function(){
 					var moduleTopicWithData = moduleTopics[moduleTopicsTopicIndex++];
 					var screens = topics[topicIndex]['screen'];
 					for(var screenIndex=0;screenIndex< screens.length;screenIndex++){
-				/*	for(var screenIndex in screens){*/
+						/*	for(var screenIndex in screens){*/
 						screens[screenIndex].visited = moduleTopicWithData.screen[screenIndex];
 					}
 				}
 			}
 		}
-		
+
 		function setVisitedModules(course){
 			var modules = course.module;
-			
+
 			for(var moduleIndex=0;moduleIndex< modules.length;moduleIndex++){
-			/*for(var moduleIndex in modules){*/
+				/*for(var moduleIndex in modules){*/
 				var currentModule = modules[moduleIndex];
 				var moduleCompleted = true;
-				
+
 				for(var topicIndex=0;topicIndex< currentModule.length;topicIndex++){
-				/*for(var topicIndex in currentModule.topic){*/
+					/*for(var topicIndex in currentModule.topic){*/
 					if(!currentModule.topic[topicIndex].completed){
 						moduleCompleted = false;
 						break;
@@ -361,22 +361,22 @@ var Engine = (function(){
 				currentModule.visited = moduleCompleted;
 			}
 		}
-		
+
 		function setVisitedTopics(course){
 			var modules = course.module;
-			
+
 			for(var moduleIndex=0;moduleIndex< modules.length;moduleIndex++){
-			/*for(var moduleIndex in modules){*/
+				/*for(var moduleIndex in modules){*/
 				var currentModule = modules[moduleIndex];
 				var moduleCompleted = true;
-				
+
 				for(var topicIndex=0;topicIndex< currentModule.length;topicIndex++){
-				/*for(var topicIndex in currentModule.topic){*/
+					/*for(var topicIndex in currentModule.topic){*/
 					var currentTopic = currentModule.topic[topicIndex];
 					var topicCompleted = true;
-					
+
 					for(var screenIndex=0;screenIndex< currentTopic.length;screenIndex++){
-					/*for(var screenIndex in currentTopic.screen){*/
+						/*for(var screenIndex in currentTopic.screen){*/
 						var currentScreen = currentTopic.screen[topicIndex];
 						if(!currentScreen.visited){
 							topicCompleted = false;
@@ -388,74 +388,74 @@ var Engine = (function(){
 				}
 			}
 		}
-		
-		
+
+
 		setVisitedTopics(courseStructure.course);
 		setVisitedModules(courseStructure.course);
-		
-		
-		
+
+
+
 		var currentPositionParts = currentPositionStr.split(',');
-		
+
 		var currentModule = parseInt(currentPositionParts[0], 10);
 		var currentTopic = parseInt(currentPositionParts[1], 10);
 		var currentScreen = parseInt(currentPositionParts[2], 10);
-		
+
 		USERSTATE = $.extend(USERSTATE, {
 			module : currentModule,
 			topic : currentTopic,
 			screen : currentScreen
 		});
-		
+
 	}
-	
+
 	updateSCORM = function(scromString){
-		/*if(EnvVariables.scorm === "1.2"){
+		if(EnvVariables.scorm === "1.2"){
 			doLMSSetValue('cmi.suspend_data', scromString);
 			doLMSCommit('');
 		}
 		else if(EnvVariables.scorm === "2004"){
 			doSetValue('cmi.suspend_data', scromString);
 			doCommit('');
-		}*/
-		
-		
-		
+		}
+
+
+
 	};
-	
+
 	getSCORMData = function(){
-		
-		/*var scormString="";
-		
+
+		var scormString="";
+
 		if(EnvVariables.scorm === "1.2"){
 			scormString = doLMSGetValue('cmi.suspend_data');
 		}
 		else if(EnvVariables.scorm === "2004"){
 			scormString = doGetValue('cmi.suspend_data',true);
 		}
-		return scormString;*/
+		return scormString;
 	};
-	
+
 	showTopic =  function(){
 
 		var module = courseStructure.course[0].module[USERSTATE.module];
 		var topics =  module.topic[USERSTATE.topic];
 		var screens = topics.screen[USERSTATE.screen];
-		
+
 		var lockNext = screens['_lockNext'];
 		console.log("lock :", lockNext);
-		
+
 		if(lockNext == "true"){
 			console.log("lock is true : ", lockNext);
 			$("#next").addClass("disableNavigation");
 			$("#next").off("click");
 		}
-		
-		
+
+
 		screens.visited=true;
 		topics.visited=true;
 		module.visited=true;
-		
+
 		var topicTemplateId = screens['_templateID'];
 		var templateDataId = screens['_xmlName'];
 
@@ -474,11 +474,11 @@ var Engine = (function(){
 			checkAssessment();
 		});
 	};
-	
+
 	checkAssessment = function(){
 		var module = courseStructure.course[0].module[USERSTATE.module];
 		var topics =  module.topic[USERSTATE.topic];
-		
+
 		if(topics["_type"] === "assessment"){
 			USERSTATE.assessment = true;
 			verifyAssessment();
@@ -487,113 +487,125 @@ var Engine = (function(){
 			USERSTATE.assessment = false;
 			return;
 		}
-		
+
 	};
-	
+
 	verifyAssessment = function (){
 		$('.btnSubmit').on('click',function(){
-			
-	    	var c_flag = false;
-	    	$(".feedbackContent").hide().html('');
-	    	$("input[class='option']:checked").each(function() { 
-	    		c_flag = true;
-	    		
-	    	});
-	    	var currScreen = getCurrentScreen();
-	    	var currentTopic = getCurrentTopic();
-	    	console.log("currScreen.attempt " ,currScreen.attempt);
-	    	if(c_flag===true){
-	    		var incorectFeedback  = currTopicData.feedback[0].feedbackIncorrectContent[0]._cdata;
-	    		var count = 0;
-	    		if(currTopicData.type[0]._text === "mcq"){
-	    			var ans = $("input[class='option']:checked");
-	    			var corranswers = currTopicData.question[0].correctAnswer[0]._text.toLowerCase().split(",");
-	    			var flag = true;
-	    			
-	    			if(ans.length == corranswers.length){
-	    				for(var i=0;i<ans.length;i++){
-		    				
-		    					if($.inArray($(ans[i]).val().toLowerCase(),corranswers) == -1){
-		    						flag = false;
-		    						break;
-		    					}
-		    			}
-	    			}
-	    			else{
-	    				flag = false;
-	    			}
-	    	
-	    			if(flag){
-	    				currScreen.isCorrect = true;
-	    				currScore ++;
-	    				Engine.showNextPage();
-	    				return;
-	    			}
-	    			else{
-	    				currScreen.isCorrect = false;
-	    				$('.feedback-container').show('slow');
-	    				$(".rfeedbackContent").html(incorectFeedback).slideDown();
-	    			}
-	    			
-	    			
-	    			
-	    			if(parseInt(currScreen._attempt) === currAttempt){
-	    				
-	    				if(USERSTATE.screen ===  currentTopic.screen.length-1){
-	    					showResult(currentTopic.screen.length);
-	    					return;
-	    				}
-	    				
-	    				Engine.showNextPage();
-	    				return;
-	    			}
-	    		}
-	    		else if(currTopicData.type[0]._text === "saq"){
-	    			var ans = $("input[class='option']:checked").val().toLowerCase();
-	    			var corranswers = currTopicData.question[0].correctAnswer[0]._text.toLowerCase();
-	    			if(corranswers === ans){
-	    				currScreen.isCorrect = true;
-	    				currScore ++;
-	    				if(USERSTATE.screen ===  currentTopic.screen.length-1){
-	    					showResult(currentTopic.screen.length);
-	    					return;
-	    				}
-	    				Engine.showNextPage();
-	    				return;
-	    				
-	    			}
-	    			else{
-	    				currScreen.isCorrect = false;
+
+			var c_flag = false;
+			$(".feedbackContent").hide().html('');
+			$("input[class='option']:checked").each(function() { 
+				c_flag = true;
+
+			});
+			var currScreen = getCurrentScreen();
+			var currentTopic = getCurrentTopic();
+			console.log("currScreen.attempt " ,currScreen.attempt);
+			if(c_flag===true){
+				var incorectFeedback  = currTopicData.feedback[0].feedbackIncorrectContent[0]._cdata;
+				var count = 0;
+				if(currTopicData.type[0]._text === "mcq"){
+					var ans = $("input[class='option']:checked");
+					var corranswers = currTopicData.question[0].correctAnswer[0]._text.toLowerCase().split(",");
+					var flag = true;
+
+					if(ans.length == corranswers.length){
+						for(var i=0;i<ans.length;i++){
+
+							if($.inArray($(ans[i]).val().toLowerCase(),corranswers) == -1){
+								flag = false;
+								break;
+							}
+						}
+					}
+					else{
+						flag = false;
+					}
+
+					if(flag){
+						currScreen.isCorrect = true;
+						currScore ++;
+						if(USERSTATE.screen ===  currentTopic.screen.length-1){
+							showResult(currentTopic);
+							return;
+						}
+						Engine.showNextPage();
+						return;
+					}
+					else{
+						currScreen.isCorrect = false;
 						$('.feedback-container').show('slow');
-	    				$(".rfeedbackContent").html(incorectFeedback).slideDown();
-	    			}
-	    			
-	    			if(parseInt(currScreen._attempt) === currAttempt){
-	    				if(USERSTATE.screen ===  currentTopic.screen.length-1){
-	    					showResult(currentTopic.screen.length);
-	    					return;
-	    				}
-	    				Engine.showNextPage();
-	    				return;
-	    			}
-	    		}
-	    		
-	    		currAttempt++;
-	    	}else{
-	    		var errStr  = currTopicData.feedback[0].feedbackError[0]._cdata;
+						$(".rfeedbackContent").html(incorectFeedback).slideDown();
+					}
+
+
+
+					if(parseInt(currScreen._attempt) === currAttempt){
+
+						if(USERSTATE.screen ===  currentTopic.screen.length-1){
+							showResult(currentTopic);
+							return;
+						}
+
+						Engine.showNextPage();
+						return;
+					}
+				}
+				else if(currTopicData.type[0]._text === "saq"){
+					var ans = $("input[class='option']:checked").val().toLowerCase();
+					var corranswers = currTopicData.question[0].correctAnswer[0]._text.toLowerCase();
+					if(corranswers === ans){
+						currScreen.isCorrect = true;
+						currScore ++;
+						if(USERSTATE.screen ===  currentTopic.screen.length-1){
+							showResult(currentTopic);
+							return;
+						}
+						Engine.showNextPage();
+						return;
+
+					}
+					else{
+						currScreen.isCorrect = false;
+						$('.feedback-container').show('slow');
+						$(".rfeedbackContent").html(incorectFeedback).slideDown();
+					}
+
+					if(parseInt(currScreen._attempt) === currAttempt){
+						if(USERSTATE.screen ===  currentTopic.screen.length-1){
+							showResult(currentTopic);
+							return;
+						}
+						Engine.showNextPage();
+						return;
+					}
+				}
+
+				currAttempt++;
+			}else{
+				var errStr  = currTopicData.feedback[0].feedbackError[0]._cdata;
 				$('.feedback-container').show('slow');
-	    		$(".rfeedbackContent").html(errStr).slideDown();
-	    	}
-		
+				$(".rfeedbackContent").html(errStr).slideDown();
+			}
+
 		});
-		
-		
+
+
 	};
-	
-	showResult = function(total){
-		
-		$('.template-container .content').html("<div class='asses-result'>Result " + currScore + " out of " + total + "</div>");
-		currScore = 0;
+
+	showResult = function(assessment){
+		$('.template-container .content').html("<div class='asses-result'>Result " + getAssesmentScore(assessment) + " out of " + assessment.screen.length + "</div>");
+	}
+
+	var getAssesmentScore = function(assessment){
+		return _.filter(assessment.screen, function(screen){
+
+			return screen.isCorrect;
+
+		}).length;
+
+
 	}
 
 	registerEvents = function(){
@@ -617,7 +629,7 @@ var Engine = (function(){
 		$("ul.inline-list li[id='glossary']").on("click", function() {
 			return glossaryHandler.call(this);
 		});
-		
+
 		$("ul.inline-list li[id='help']").on("click", function() {
 			return helpHandler.call(this);
 		});
@@ -641,34 +653,34 @@ var Engine = (function(){
 		$(".accordion").on("click","a",function(){
 			return menuModuleHandler.call(this);
 		});
-		
-		
-		
+
+
+
 		$(window).unload(function(){
 			console.log("Unload Called");
 			updateScromString();
 			closeLMS();
 		});
-		
+
 		$(document).on('click','.label-container .letter a',function(){
 			return glossaryLetterHandler.call(this);
 		});
-		
+
 		$(document).on('click','.words-conatiner .word a',function(){
 			return glossaryWordHandler.call(this);
 		});
-		
+
 		$(document).on('click', '.template-container .content .btnSubmit',function () {});
 	};
-	
+
 	glossaryWordHandler = function(){
 		var word = $(this).text();
 		var keyObj = getDescForWord(word);
 		var template2 = templatesCache["glossaryDesc.html"];
 		$(".desc-container").html(Handlebars.compile(template2)(keyObj));
 	};
-	
-	
+
+
 	glossaryLetterHandler = function(){
 		var key = $(this).parent().data('id');
 		var words = getWordsForID(key);
@@ -678,13 +690,13 @@ var Engine = (function(){
 		$(".words-conatiner").html(Handlebars.compile(template1)(words));
 		$(".desc-container").html(Handlebars.compile(template2)(keyObj));
 	};
-	
+
 	getCurrentTopic = function(){
 		var module = courseStructure.course[0].module[USERSTATE.module];
 		var currtopics =  module.topic[USERSTATE.topic];
 		return currtopics;
 	};
-	
+
 	getCurrentScreen = function(){
 		var module = courseStructure.course[0].module[USERSTATE.module];
 		var topics =  module.topic[USERSTATE.topic];
@@ -730,7 +742,7 @@ var Engine = (function(){
 				return;
 			}
 		}
-		
+
 		USERSTATE.module =  parseInt($(this).attr("class").split("-")[0]);
 		USERSTATE.topic =  parseInt($(this).attr("class").split("-")[1]);
 		USERSTATE.screen = 0; 
@@ -739,11 +751,11 @@ var Engine = (function(){
 		console.log("USERSTATE.topic : " + USERSTATE.topic);
 		console.log("USERSTATE.module : " + USERSTATE.module);
 		console.log("USERSTATE.topic : " + courseStructure.course[0].module[USERSTATE.module].topic[USERSTATE.topic].visited);
-		
+
 		showTopic();
 		var modules = courseStructure.course[0].module;
 		var topics = modules[USERSTATE.module].topic;
-		
+
 		if(USERSTATE.module === 0 && USERSTATE.topic===0){
 			$('#prev').addClass('disableNavigation');
 			$('#next').removeClass('disableNavigation'); 
@@ -806,9 +818,9 @@ var Engine = (function(){
 	};
 
 	glossaryHandler = function(){
-		
+
 	};
-	
+
 	getWordsForID = function(id){
 		var idKeyWords = [];
 		for (var int = 0; int < keywords.length; int++) {
@@ -816,10 +828,10 @@ var Engine = (function(){
 				idKeyWords.push(keywords[int]);
 			}
 		}
-		
+
 		return idKeyWords;
 	};
-	
+
 	getDescForWord = function(word){
 		var desc = "";
 		for (var int = 0; int < keywords.length; int++) {
@@ -828,7 +840,7 @@ var Engine = (function(){
 				break;
 			}
 		}
-		
+
 		return desc;
 	};
 
@@ -843,7 +855,7 @@ var Engine = (function(){
 
 
 	helpHandler = function(){
-		
+
 	};
 
 	exitHandler = function(){
@@ -853,19 +865,19 @@ var Engine = (function(){
 			closeLMS();
 			window.open('', '_self', '');
 			window.close();
-			
+
 		}
 	};
 
 	closeLMS = function(){
-		/*if(EnvVariables.scorm === "1.2"){
+		if(EnvVariables.scorm === "1.2"){
 			doLMSFinish();
 		}
 		else if(EnvVariables.scorm === "2004"){
 			doTerminate();
-		}*/
+		}
 	};
-	
+
 
 	showNextPage = function(){
 		var modules = courseStructure.course[0].module;
@@ -873,18 +885,18 @@ var Engine = (function(){
 		var currentTopic = modules[USERSTATE.module].topic[USERSTATE.topic];
 		var nextScreen = ++USERSTATE.screen;
 		var moudlesLength = modules.length;
-		
+
 		currAttempt = 1;
-		
+
 		if(nextScreen > currentTopic.screen.length-1){
 			USERSTATE.screen = nextScreen = currentTopic.screen.length-1;
 			setCompleted(currentTopic);
 			currentTopic.completed=true;
 			USERSTATE.topic++;
 			var moduleCompleted = true;
-			
+
 			for(var topicIndex=0;topicIndex< currentModule.topic.length;topicIndex++){
-			/*for(var topicIndex in currentModule.topic){*/
+				/*for(var topicIndex in currentModule.topic){*/
 				if(!currentModule.topic[topicIndex].completed){
 					moduleCompleted = false;
 					break;
@@ -895,7 +907,7 @@ var Engine = (function(){
 			}
 			if(USERSTATE.topic > currentModule.topic.length-1){
 				USERSTATE.topic =  currentModule.topic.length-1;
-				
+
 				USERSTATE.module++;
 				if(USERSTATE.module > moudlesLength-1){
 					USERSTATE.module = moudlesLength-1;
@@ -906,18 +918,18 @@ var Engine = (function(){
 			}
 			USERSTATE.screen = nextScreen = 0;
 		}
-		
-		
+
+
 		modules[USERSTATE.module].topic[USERSTATE.topic]["_type"] === "assessment" ? USERSTATE.assessment=true:USERSTATE.assessment=false;
-		
-	
+
+
 		updateNextNavigation();
 		showTopic();
-		
-		
+
+
 	};
-	
-	
+
+
 	updateNextNavigation = function(){
 		var modules = courseStructure.course[0].module;
 		var currentModule = modules[USERSTATE.module];
@@ -943,7 +955,7 @@ var Engine = (function(){
 
 
 	initView = function(){
-		
+
 		var modules = courseStructure.course[0].module;
 		updatePagination();
 		updateBreadCrum();
@@ -951,17 +963,17 @@ var Engine = (function(){
 		updateNextNavigation();
 		updatePrevNavgation();
 		registerEvents();
-		 $(document).foundation();
+		$(document).foundation();
 		generateHelp();
 		generateGlossary();
 	};
-	
+
 	renderUI = function (){
-		
+
 		var headerTemplate = getTemplateData("shellHeader.html","engine");
 		var breadcrumTemplate = getTemplateData("shellBreadcrum.html","engine");
 		var footerTemplate = getTemplateData("shellFooter.html","engine");
-		
+
 		$.when(headerTemplate,breadcrumTemplate,footerTemplate).then(function(){
 			var header = templatesCache["shellHeader.html"];
 			var breadcrum = templatesCache["shellBreadcrum.html"];
@@ -993,19 +1005,19 @@ var Engine = (function(){
 		$('.module-screen').text(screenTitle);
 
 	};
-	
+
 	generateHelp = function (){
 		var templatePromise = getTemplateData("help.html","engine");
 		var helpData = getTopicData("help.xml");
 		$.when(templatePromise,helpData).then(function(){
 			var template = templatesCache["help.html"];
 			var helpContent = topicDataCache["help.xml"];
-			
+
 			$(".help-container").html(Handlebars.compile(template)(helpContent.items[0]));
-			
+
 		});
 	};
-	
+
 	generateGlossary = function(){
 		var templatePromise = getTemplateData("glossary.html","engine");
 		var template1Promise = getTemplateData("glossaryWord.html","engine");
@@ -1016,10 +1028,10 @@ var Engine = (function(){
 			var template1 = templatesCache["glossaryWord.html"];
 			var template2 = templatesCache["glossaryDesc.html"];
 			var glossaryContent = topicDataCache["glossary.xml"];
-			
+
 			keywords = glossaryContent.wordlist[0].keyword;
 			letters = glossaryContent.alphabets[0].letter;
-			
+
 			for (var int = 0; int < keywords.length; int++) {
 				for(var i = 0; i<letters.length;i++){
 					if(keywords[int]._id === letters[i]._id ){
@@ -1028,18 +1040,18 @@ var Engine = (function(){
 					}
 				}
 			}
-			
+
 			var defaultId = keywords[0]._id;
-				
+
 			var glossayData={};
 			glossayData.letters = _.uniq(alphabets);
 			glossayData.keywords = getWordsForID(defaultId);
 			glossayData.defaultDesc = keywords[0];
-			
+
 			$(".glossary-container").html(Handlebars.compile(template)(glossayData.letters));
 			$(".words-conatiner").html(Handlebars.compile(template1)(glossayData.keywords));
 			$(".desc-container").html(Handlebars.compile(template2)(glossayData.defaultDesc));
-			
+
 		});
 	}
 
@@ -1075,7 +1087,7 @@ var Engine = (function(){
 			moduleArray.push(moduleObj);
 		}
 
-		
+
 		$.when(templatePromise).then(function(){
 			var template = templatesCache["menuTemplate.html"];
 			$(".accordion").append(Handlebars.compile(template)(moduleArray));
@@ -1112,29 +1124,29 @@ var Engine = (function(){
 	setCompleted = function(topic){
 		$("."+topic.id+".topicMenu").find("span").show();
 	};
-	
+
 	setModuleCompleted = function(module){
 		$("."+module.id+".moduleMenu").find("span").show();
 	};
 
-	
+
 	return {
 		initialize : function(){
 			var courseStructureObtained = getCourseStructure();
 			$.when(courseStructureObtained).then(function(){
-				/*if(EnvVariables.scorm === "1.2"){
+				if(EnvVariables.scorm === "1.2"){
 					doLMSInitialize();
 				}
 				else if(EnvVariables.scorm === "2004"){
 					doInitialize();
-				}*/
+				}
 				var scormString = getSCORMData();
 				updateCourseState(scormString);
 				showTopic();
 				renderUI();
 			});
 
-			
+
 
 		},
 		showNextPage : showNextPage,
