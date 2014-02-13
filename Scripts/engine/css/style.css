@@ -441,6 +441,11 @@
 		margin-bottom: 10px;	
 	}
 	
+	.adjust-center{
+		padding-left: 11%;
+	}
+	
+	
 }
 
 @media only screen and (min-width:24.063em){

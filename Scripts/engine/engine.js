@@ -410,14 +410,14 @@ var Engine = (function(){
 	}
 	
 	updateSCORM = function(scromString){
-		if(EnvVariables.scorm === "1.2"){
+		/*if(EnvVariables.scorm === "1.2"){
 			doLMSSetValue('cmi.suspend_data', scromString);
 			doLMSCommit('');
 		}
 		else if(EnvVariables.scorm === "2004"){
 			doSetValue('cmi.suspend_data', scromString);
 			doCommit('');
-		}
+		}*/
 		
 		
 		
@@ -425,7 +425,7 @@ var Engine = (function(){
 	
 	getSCORMData = function(){
 		
-		var scormString="";
+		/*var scormString="";
 		
 		if(EnvVariables.scorm === "1.2"){
 			scormString = doLMSGetValue('cmi.suspend_data');
@@ -433,7 +433,7 @@ var Engine = (function(){
 		else if(EnvVariables.scorm === "2004"){
 			scormString = doGetValue('cmi.suspend_data',true);
 		}
-		return scormString;
+		return scormString;*/
 	};
 	
 	showTopic =  function(){
@@ -853,12 +853,12 @@ var Engine = (function(){
 	};
 
 	closeLMS = function(){
-		if(EnvVariables.scorm === "1.2"){
+		/*if(EnvVariables.scorm === "1.2"){
 			doLMSFinish();
 		}
 		else if(EnvVariables.scorm === "2004"){
 			doTerminate();
-		}
+		}*/
 	};
 	
 
@@ -1117,12 +1117,12 @@ var Engine = (function(){
 		initialize : function(){
 			var courseStructureObtained = getCourseStructure();
 			$.when(courseStructureObtained).then(function(){
-				if(EnvVariables.scorm === "1.2"){
+				/*if(EnvVariables.scorm === "1.2"){
 					doLMSInitialize();
 				}
 				else if(EnvVariables.scorm === "2004"){
 					doInitialize();
-				}
+				}*/
 				var scormString = getSCORMData();
 				updateCourseState(scormString);
 				showTopic();
