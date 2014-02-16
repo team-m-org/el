@@ -16,9 +16,33 @@
 				</div>
 				<div class="content-background row" style="{{texts.[0]._style}}">
 					<div class="medium-12 columns" >
-						{{#texts.[0].text}}
+						<!-- {{#texts.[0].text}}
 						<p style="{{this._style}}">{{{this._cdata}}}</p>
-						{{/texts.[0].text}}
+						{{/texts.[0].text}} -->
+						<p style="{{texts.[0].text1.[0]._style}}">{{{texts.[0].text1.[0]._cdata}}}</p>
+						{{#texts.[0].bullets1.[0].bullet}}
+						<ul class="iconlist" >
+							<li class="bulletStyle" style="{{this._style}}">{{{this.value.[0]._cdata}}}</li>
+							<ul class="iconlist" >
+								{{#this.subBullets}} {{#this.subBullet}}
+									<li class="subBulletStyle" style="{{this._style}}">{{{this._cdata}}}</li>
+								{{/this.subBullet}} {{/this.subBullets}}
+							</ul>
+						</ul>
+						{{/texts.[0].bullets1.[0].bullet}}
+						<p style="{{texts.[0].text2.[0]._style}}">{{{texts.[0].text2.[0]._cdata}}}</p>
+						
+						
+						{{#texts.[0].bullets2.[0].bullet}}
+						<ul class="iconlist" >
+							<li class="bulletStyle" style="{{this._style}}">{{{this.value.[0]._cdata}}}</li>
+							<ul class="iconlist" >
+								{{#this.subBullets}} {{#this.subBullet}}
+									<li class="subBulletStyle" style="{{this._style}}">{{{this._cdata}}}</li>
+								{{/this.subBullet}} {{/this.subBullets}}
+							</ul>
+						</ul>
+						{{/texts.[0].bullets2.[0].bullet}}
 					</div>
 				</div>
 			</div>
