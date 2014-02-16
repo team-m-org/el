@@ -43,7 +43,7 @@
 }
 
 .top200px{
-	margin-top: 200px;
+	/* margin-top: 200px; */
 }
 
 #next{
@@ -395,7 +395,17 @@
 
 #prev,#next{
 	z-index:1000;
+	position: absolute;
+	top: 50%;
 }
+
+#prev{
+	left:0;
+}
+#next{
+	right:0;
+}
+
 
 .help-container img{
 		min-width:20px;
@@ -448,6 +458,13 @@
 	
 }
 
+
+@media only screen and (max-width:64.063em){
+	#prev,#next{
+		position: fixed;
+	}
+}
+
 @media only screen and (min-width:24.063em){
 	.footer-menu a{
 		font-size: 13px;
@@ -458,6 +475,7 @@
 		float: right;
 		font-size: 13px;
 	}
+	
 }
 
 @media only screen and (min-width:40.063em){
