@@ -4,24 +4,34 @@
 	<content>
 		<title style="background-color:#c81b5d;"><![CDATA[Title text 12]]></title>
 		<body style="background-color:grey;">
-			<detailMessage style="color:black;font-size:20px"><![CDATA[At the end of this module, you will be able to]]></detailMessage>
-				<bullets >
-					<bullet style="color:red;font-size:15px;background-image:url(Media/eng/images/bullet.png);padding-left:20px;">
-					    <value><![CDATA[Bullet text 1]]></value>
-					    <subBullets >
-					        <!-- <subBullet><![CDATA[Sub Bullet text 1]]></subBullet>
-					        <subBullet><![CDATA[Sub Bullet text 2]]></subBullet> -->
-					    </subBullets>
-					</bullet>
-					<bullet style="color:red;font-size:15px;background-image:url(Media/eng/images/bullet.png);padding-left:20px;">
-					    <value ><![CDATA[Bullet text 2 Bullet text 2Bullet text 2Bullet text 2Bullet text 2Bullet text 2Bullet text 2Bullet text 2Bullet text 2Bullet text 2Bullet text 2Bullet text 2Bullet text 2Bullet text 2]]></value>
-					    <subBullets>
-					        <subBullet style="color:green;font-size:12px;background-image:url(Media/eng/images/sub-bullet.png);padding-left:25px;"><![CDATA[Sub Bullet text 3]]></subBullet>
-					        <subBullet style="color:yellow;font-size:12px;background-image:url(Media/eng/images/sub-bullet.png);padding-left:25px;"><![CDATA[Sub Bullet text 4]]></subBullet>
-					    </subBullets>
-					</bullet>
-				</bullets>
-			</body>
+			<detailMessage1 style="color:black;font-size:20px"><![CDATA[At the end of this module, you will be able to]]></detailMessage1>
+			<bullets1>
+				<bullet style="color:red;font-size:15px;background-image:url(Media/eng/images/bullet.png);padding-left:20px;">
+				    <value><![CDATA[Bullet text 11]]></value>
+				    <subBullets >
+				        <!-- <subBullet><![CDATA[Sub Bullet text 1]]></subBullet>
+				        <subBullet><![CDATA[Sub Bullet text 2]]></subBullet> -->
+				    </subBullets>
+				</bullet>
+				<bullet style="color:red;font-size:15px;background-image:url(Media/eng/images/bullet.png);padding-left:20px;">
+				    <value ><![CDATA[Bullet text 2 Bullet text 2Bullet text 2Bullet text 2Bullet text 2Bullet text 2Bullet text 2Bullet text 2Bullet text 2Bullet text 2Bullet text 2Bullet text 2Bullet text 2Bullet text 2]]></value>
+				    <subBullets>
+				        <subBullet style="color:green;font-size:12px;background-image:url(Media/eng/images/sub-bullet.png);padding-left:25px;"><![CDATA[Sub Bullet text 3]]></subBullet>
+				        <subBullet style="color:yellow;font-size:12px;background-image:url(Media/eng/images/sub-bullet.png);padding-left:25px;"><![CDATA[Sub Bullet text 4]]></subBullet>
+				    </subBullets>
+				</bullet>
+			</bullets1>
+			<detailMessage2 style="color:black;font-size:20px"><![CDATA[At the end of this module, you will be able to 2]]></detailMessage2>
+			<bullets2>
+				<bullet style="color:red;font-size:15px;background-image:url(Media/eng/images/bullet.png);padding-left:20px;">
+				    <value ><![CDATA[Bullet text 2 Bullet text 2Bullet text 2Bullet text 2Bullet text 2Bullet text 2Bullet text 2Bullet text 2Bullet text 2Bullet text 2Bullet text 2Bullet text 2Bullet text 2Bullet text 2]]></value>
+				    <subBullets>
+				        <subBullet style="color:green;font-size:12px;background-image:url(Media/eng/images/sub-bullet.png);padding-left:25px;"><![CDATA[Sub Bullet text 31]]></subBullet>
+				        <subBullet style="color:yellow;font-size:12px;background-image:url(Media/eng/images/sub-bullet.png);padding-left:25px;"><![CDATA[Sub Bullet text 41]]></subBullet>
+				    </subBullets>
+				</bullet>
+			</bullets2>
+		</body>
 		<image style="border:1px solid black">Media/eng/images/Education1.jpg</image>
 	</content>
 </screen>

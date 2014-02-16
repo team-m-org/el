@@ -4,8 +4,8 @@
 		<div class="row content-title" style="{{body.[0].title.[0]._style}}"><div class="medium-12 small-12 columns">{{{title.[0]._cdata}}}</div></div>
 		<div class="row content-background" style="{{body.[0]._style}}">
 			<div class="medium-12 small-12 columns">
-			<p style="{{body.[0].detailMessage.[0]._style}}">{{{body.[0].detailMessage.[0]._cdata}}}</p>
-			{{#body.[0].bullets.[0].bullet}}
+			<p style="{{body.[0].detailMessage1.[0]._style}}">{{{body.[0].detailMessage1.[0]._cdata}}}</p>
+			{{#body.[0].bullets1.[0].bullet}}
 			<ul class="iconlist" >
 				<li class="bulletStyle" style="{{this._style}}">{{{this.value.[0]._cdata}}}</li>
 				<ul class="iconlist" >
@@ -14,7 +14,18 @@
 					{{/this.subBullet}} {{/this.subBullets}}
 				</ul>
 			</ul>
-			{{/body.[0].bullets.[0].bullet}}
+			{{/body.[0].bullets1.[0].bullet}}
+			<p style="{{body.[0].detailMessage2.[0]._style}}">{{{body.[0].detailMessage2.[0]._cdata}}}</p>
+			{{#body.[0].bullets2.[0].bullet}}
+			<ul class="iconlist" >
+				<li class="bulletStyle" style="{{this._style}}">{{{this.value.[0]._cdata}}}</li>
+				<ul class="iconlist" >
+					{{#this.subBullets}} {{#this.subBullet}}
+						<li class="subBulletStyle" style="{{this._style}}">{{{this._cdata}}}</li>
+					{{/this.subBullet}} {{/this.subBullets}}
+				</ul>
+			</ul>
+			{{/body.[0].bullets2.[0].bullet}}
 			</div>
 		</div>
 	</div>

@@ -7,9 +7,40 @@
 	<div class="row" style="padding-top:5px;">
 		<div class="medium-4 small-12 columns left-content" style="height: 100%;">
 				
-				<div class="left-text-border" style="{{Contents.[0].infos.[0]._style}}">
+				<!-- <div class="left-text-border" style="{{Contents.[0].infos.[0]._style}}">
 					{{#each Contents.[0].infos.[0].info}}
 						<p style="{{_style}}">{{_cdata}}</p>
+					{{/each}}
+				</div> -->
+				
+				<div class="left-text-border" style="{{Contents.[0].infos.[0]._style}}">
+					<p style="{{Contents.[0].infos.[0].info.[0]._style}}">{{Contents.[0].infos.[0].info.[0]._cdata}}</p>
+					{{#each Contents.[0].infos.[0].bullet1}}
+						<ul class="iconlist">
+							<li class="bulletStyle" style="{{this._style}}">{{this.value.[0]._text}}
+								<ul class="iconlist">
+									{{#this.subBullets}} 
+										{{#this.subBullet}}
+									<li class="subBulletStyle" style="{{this._style}}">{{this._text}}</li> 
+										{{/this.subBullet}} 
+									{{/this.subBullets}}
+								</ul>
+							</li>
+						</ul>
+					{{/each}}
+					<p style="{{Contents.[0].infos.[0].info1.[0]._style}}">{{Contents.[0].infos.[0].info1.[0]._cdata}}</p>
+					{{#each Contents.[0].infos.[0].bullet2}}
+						<ul class="iconlist">
+							<li class="bulletStyle" style="{{this._style}}">{{this.value.[0]._text}}
+								<ul class="iconlist">
+									{{#this.subBullets}} 
+										{{#this.subBullet}}
+									<li class="subBulletStyle" style="{{this._style}}">{{this._text}}</li> 
+										{{/this.subBullet}} 
+									{{/this.subBullets}}
+								</ul>
+							</li>
+						</ul>
 					{{/each}}
 				</div>
 		</div>

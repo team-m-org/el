@@ -7,7 +7,21 @@
 				<title style="color:silver"><![CDATA[Title text]]></title>
 				<infos style="background-color:lightblue">
 					<info style="color:red"><![CDATA[Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.]]></info>
-					<info><![CDATA[Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.]]></info>
+					<info1><![CDATA[Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. I like this]]></info1>
+					<bullet1 style="background-image:url(Media/eng/images/bullet.png);padding-left:20px;">
+						<value style="color:red">Bullet text 1</value>
+						<subBullets>
+							<subBullet style="color:green;font-size:12px;background-image:url(Media/eng/images/sub-bullet.png);padding-left:25px;">Sub Bullet text 3</subBullet>
+							<subBullet style="color:green;font-size:12px;background-image:url(Media/eng/images/sub-bullet.png);padding-left:25px;">Sub Bullet text 4</subBullet>
+						</subBullets>
+					</bullet1>
+					<bullet2 style="background-image:url(Media/eng/images/bullet.png);padding-left:20px;">
+						<value>Bullet text 2</value>
+						<subBullets>
+							<subBullet style="color:green;font-size:12px;background-image:url(Media/eng/images/sub-bullet.png);padding-left:25px;">Sub Bullet text 3</subBullet>
+							<subBullet style="color:green;font-size:12px;background-image:url(Media/eng/images/sub-bullet.png);padding-left:25px;">Sub Bullet text 4</subBullet>
+						</subBullets>
+					</bullet2>
 				</infos>
 			</Contents>
 		</group>
@@ -31,20 +45,7 @@
 						<Text textType="normal"><![CDATA[Normal text]]></Text>
 						<closeButton style="background:url(Media/eng/images/Close_btn.png) no-repeat;"></closeButton>
 					</popupText>
-					<bullet style="background-image:url(Media/eng/images/bullet.png);padding-left:20px;">
-						<value style="color:red">Bullet text 1</value>
-						<subBullets>
-							<subBullet style="color:green;font-size:12px;background-image:url(Media/eng/images/sub-bullet.png);padding-left:25px;">Sub Bullet text 3</subBullet>
-							<subBullet style="color:green;font-size:12px;background-image:url(Media/eng/images/sub-bullet.png);padding-left:25px;">Sub Bullet text 4</subBullet>
-						</subBullets>
-					</bullet>
-					<bullet style="background-image:url(Media/eng/images/bullet.png);padding-left:20px;">
-						<value>Bullet text 2</value>
-						<subBullets>
-							<subBullet style="color:green;font-size:12px;background-image:url(Media/eng/images/sub-bullet.png);padding-left:25px;">Sub Bullet text 3</subBullet>
-							<subBullet style="color:green;font-size:12px;background-image:url(Media/eng/images/sub-bullet.png);padding-left:25px;">Sub Bullet text 4</subBullet>
-						</subBullets>
-					</bullet>
+					
 				</tabImage>
 				<tabImage tab_id="3" bgimage="03.jpg" btnVisible="true"
 					imageVisible="true" xpos="845" align="right" ypos="83" gap="5"
@@ -55,6 +56,20 @@
 						<Text textType="normal"><![CDATA[Normal text]]></Text>
 						<closeButton style="background:url(Media/eng/images/Close_btn.png) no-repeat;"></closeButton>
 					</popupText>
+					<bullet style="background-image:url(Media/eng/images/bullet.png);padding-left:20px;">
+						<value style="color:red">Bullet text 1</value>
+						<subBullets>
+							<subBullet style="color:green;font-size:12px;background-image:url(Media/eng/images/sub-bullet.png);padding-left:25px;">Sub Bullet text 3</subBullet>
+							<subBullet style="color:green;font-size:12px;background-image:url(Media/eng/images/sub-bullet.png);padding-left:25px;">Sub Bullet text 4</subBullet>
+						</subBullets>
+					</bullet>
+					<bullet style="background-image:url(Media/eng/images/bullet.png);padding-left:20px;">
+						<value>Bullet text 22</value>
+						<subBullets>
+							<subBullet style="color:green;font-size:12px;background-image:url(Media/eng/images/sub-bullet.png);padding-left:25px;">Sub Bullet text 3</subBullet>
+							<subBullet style="color:green;font-size:12px;background-image:url(Media/eng/images/sub-bullet.png);padding-left:25px;">Sub Bullet text 4</subBullet>
+						</subBullets>
+					</bullet>
 				</tabImage>
 			</tabs>
 		</group>
