@@ -1,5 +1,5 @@
 {{#with content.[0]}}
-<div class="row tpad10p bpad5p ">
+<div class="row ">
 	<div class="medium-12 columns content-title">
 		<h4 style="{{this.Text1.[0]._style}}">{{{this.Text1.[0]._cdata}}}</h4>
 	</div>
@@ -23,7 +23,7 @@
 {{/with}}
 
 <script>
-			$(".h_imgicon").on('mouseover click',
+			$(".h_imgicon").on('m click',
 			function() {
 				var sAttr = $('.' + $(this).attr('data')).attr('style');
 				$('.hover-content').remove();
