@@ -9,7 +9,7 @@
 			<p style="{{this._style}}">{{{this._cdata}}}</p>
 			{{/body.[0].text1.[0]}}
 		</div>
-		{{#body.[0].bullets.[0].bullet}}
+		{{#body.[0].bullets1.[0].bullet}}
 		<ul class="iconlist">
 			<li class="bulletStyle" style="{{this._style}}">{{{this.value.[0]._text}}}</li>
 			<ul class="iconlist">
@@ -18,12 +18,22 @@
 				{{/this.subBullet}} {{/this.subBullets}}
 			</ul>
 		</ul>
-		{{/body.[0].bullets.[0].bullet}}
+		{{/body.[0].bullets1.[0].bullet}}
 		<div class="medium-12 ">
 			{{#body.[0].text2.[0]}}
 			<p style="{{this._style}}">{{{this._cdata}}}</p>
 			{{/body.[0].text2.[0]}}
 		</div>
+		{{#body.[0].bullets2.[0].bullet}}
+		<ul class="iconlist">
+			<li class="bulletStyle" style="{{this._style}}">{{{this.value.[0]._text}}}</li>
+			<ul class="iconlist">
+				{{#this.subBullets}} {{#this.subBullet}}
+				<li class="subBulletStyle" style="{{this._style}}">{{{this._text}}}</li>
+				{{/this.subBullet}} {{/this.subBullets}}
+			</ul>
+		</ul>
+		{{/body.[0].bullets2.[0].bullet}}
 	</div>
 	<div class="medium-12 column columns content-background" style="{{body.[0]._style}}">
 		{{#body.[0].Scenarios.[0].Scenario}}
