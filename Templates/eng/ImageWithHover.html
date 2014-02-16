@@ -23,13 +23,14 @@
 {{/with}}
 
 <script>
-			$(".h_imgicon").hover(
+			$(".h_imgicon").on('mouseover click',
 			function() {
 				var sAttr = $('.' + $(this).attr('data')).attr('style');
+				$('.hover-content').remove();
 				$(this).append(
-						"<span style="+sAttr+">" + $('.' + $(this).attr('data')).html()
+						"<span class='hover-content' style="+sAttr+">" + $('.' + $(this).attr('data')).html()
 								+ "</span>");
-			}, function() {
-				$(this).find("span:last").remove();
 			});
+			
+			
 </script>
