@@ -238,7 +238,7 @@ var Engine = (function(){
 		console.log(scromString);
 		updateSCORM(scromString);
 
-	}
+	};
 
 	updateCourseState = function(scormString){
 		//1,1|0,0,0|0,0,0~0,0,1~0,0,0 
@@ -289,7 +289,6 @@ var Engine = (function(){
 		var calculatedAssessment = calculateCourse(assScoreStr);
 
 		var modules= courseStructure.course[0].module;
-		var calculatedModule = calculatedCourse.module;
 
 		var calculatedAssessmentMoudles =  calculatedAssessment.module;
 
@@ -368,7 +367,6 @@ var Engine = (function(){
 			for(var moduleIndex=0;moduleIndex< modules.length;moduleIndex++){
 				/*for(var moduleIndex in modules){*/
 				var currentModule = modules[moduleIndex];
-				var moduleCompleted = true;
 
 				for(var topicIndex=0;topicIndex< currentModule.length;topicIndex++){
 					/*for(var topicIndex in currentModule.topic){*/
@@ -407,7 +405,7 @@ var Engine = (function(){
 			screen : currentScreen
 		});
 
-	}
+	};
 
 	updateSCORM = function(scromString){
 		if(EnvVariables.scorm === "1.2"){
@@ -475,16 +473,32 @@ var Engine = (function(){
 		});
 	};
 
+	var disableNextButton = function(){
+		console.log('disableNextButton');
+		$('#next').removeClass('enableNavigation').addClass('disableNavigation'); 
+	};
+	
+	var enableNextButton = function(){
+		console.log('enableNextButton');
+		$('#next').addClass('enableNavigation').removeClass('disableNavigation'); 
+	};
+	
+	var showNote = function(){
+		console.log('showNote');
+	};
+	
 	checkAssessment = function(){
 		var module = courseStructure.course[0].module[USERSTATE.module];
 		var topics =  module.topic[USERSTATE.topic];
 
 		if(topics["_type"] === "assessment"){
 			USERSTATE.assessment = true;
+			disableNextButton();
 			verifyAssessment();
 		}
 		else{
 			USERSTATE.assessment = false;
+			enableNextButton();
 			return;
 		}
 
@@ -497,14 +511,13 @@ var Engine = (function(){
 			$(".feedbackContent").hide().html('');
 			$("input[class='option']:checked").each(function() { 
 				c_flag = true;
-
 			});
 			var currScreen = getCurrentScreen();
 			var currentTopic = getCurrentTopic();
 			console.log("currScreen.attempt " ,currScreen.attempt);
 			if(c_flag===true){
 				var incorectFeedback  = currTopicData.feedback[0].feedbackIncorrectContent[0]._cdata;
-				var count = 0;
+				var feedbackCorrectContent  = currTopicData.feedback[0].feedbackCorrectContent[0]._cdata;
 				if(currTopicData.type[0]._text === "mcq"){
 					var ans = $("input[class='option']:checked");
 					var corranswers = currTopicData.question[0].correctAnswer[0]._text.toLowerCase().split(",");
@@ -530,7 +543,11 @@ var Engine = (function(){
 							showResult(currentTopic);
 							return;
 						}
-						Engine.showNextPage();
+						$('.feedback-container').show('slow');
+						$(".rfeedbackContent").html(feedbackCorrectContent).slideDown();
+						enableNextButton();
+						showNote();
+						//Engine.showNextPage();
 						return;
 					}
 					else{
@@ -539,16 +556,15 @@ var Engine = (function(){
 						$(".rfeedbackContent").html(incorectFeedback).slideDown();
 					}
 
-
-
 					if(parseInt(currScreen._attempt) === currAttempt){
 
 						if(USERSTATE.screen ===  currentTopic.screen.length-1){
 							showResult(currentTopic);
 							return;
 						}
-
-						Engine.showNextPage();
+						showNote();
+						enableNextButton();
+						//Engine.showNextPage();
 						return;
 					}
 				}
@@ -596,7 +612,7 @@ var Engine = (function(){
 
 	showResult = function(assessment){
 		$('.template-container .content').html("<div class='asses-result'>Result " + getAssesmentScore(assessment) + " out of " + assessment.screen.length + "</div>");
-	}
+	};
 
 	var getAssesmentScore = function(assessment){
 		return _.filter(assessment.screen, function(screen){
@@ -606,7 +622,7 @@ var Engine = (function(){
 		}).length;
 
 
-	}
+	};
 
 	registerEvents = function(){
 
@@ -638,10 +654,14 @@ var Engine = (function(){
 			return prevHandler.call(this);
 		});
 
-		$("div[id='next']").on("click", function() {
+		$(document).on('click', '#next.enableNavigation', function() {
+			return nextHandler.call(this);
+		})
+		
+		/*$("div[id='next']").on("click", function() {
 			return nextHandler.call(this);
 		});
-
+*/
 		$("ul.inline-list li[id='exit']").on("click", function() {
 			return exitHandler.call(this);
 		});
@@ -1053,7 +1073,7 @@ var Engine = (function(){
 			$(".desc-container").html(Handlebars.compile(template2)(glossayData.defaultDesc));
 
 		});
-	}
+	};
 
 	generateMenu = function(modules){
 
