@@ -96,7 +96,7 @@
 
 
 .template-container {
-	min-height: 600px;
+	min-height: auto; 
 	border-left: solid 1px;
 	border-right: solid 1px;
 	color: rgb(0, 116, 145);
