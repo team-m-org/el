@@ -16,6 +16,7 @@
 				<div class="left-text-border" style="{{Contents.[0].infos.[0]._style}}">
 					<p style="{{Contents.[0].infos.[0].info.[0]._style}}">{{Contents.[0].infos.[0].info.[0]._cdata}}</p>
 					{{#each Contents.[0].infos.[0].bullet1}}
+						{{#each bullet}}
 						<ul class="iconlist">
 							<li class="bulletStyle" style="{{this._style}}">{{this.value.[0]._text}}
 								<ul class="iconlist">
@@ -27,9 +28,11 @@
 								</ul>
 							</li>
 						</ul>
+						{{/each}}
 					{{/each}}
 					<p style="{{Contents.[0].infos.[0].info1.[0]._style}}">{{Contents.[0].infos.[0].info1.[0]._cdata}}</p>
 					{{#each Contents.[0].infos.[0].bullet2}}
+						{{#each bullet}}
 						<ul class="iconlist">
 							<li class="bulletStyle" style="{{this._style}}">{{this.value.[0]._text}}
 								<ul class="iconlist">
@@ -41,6 +44,7 @@
 								</ul>
 							</li>
 						</ul>
+						{{/each}}
 					{{/each}}
 				</div>
 		</div>
