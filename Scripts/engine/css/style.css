@@ -394,7 +394,7 @@
 
 
 #prev,#next{
-	z-index:1000;
+	z-index:99;
 	position: absolute;
 	top: 50%;
 }

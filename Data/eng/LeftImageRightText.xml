@@ -14,7 +14,22 @@
 				        <subBullet style="color:yellow;font-size:12px;background-image:url(Media/eng/images/sub-bullet.png);padding-left:25px;"><![CDATA[Sub Bullet text 4]]></subBullet>
 				    </subBullets>
 				</bullet>
+				<bullet style="color:red;font-size:15px;background-image:url(Media/eng/images/bullet.png);padding-left:20px;">
+				    <value ><![CDATA[Bullet text 2 Bullet text 2Bullet text 2Bullet text 2Bullet text 2Bullet text 2]]></value>
+				    <subBullets>
+				        <subBullet style="color:green;font-size:12px;background-image:url(Media/eng/images/sub-bullet.png);padding-left:25px;"><![CDATA[Sub Bullet text 3]]></subBullet>
+				        <subBullet style="color:yellow;font-size:12px;background-image:url(Media/eng/images/sub-bullet.png);padding-left:25px;"><![CDATA[Sub Bullet text 4]]></subBullet>
+				    </subBullets>
+				</bullet>
+				<bullet style="color:red;font-size:15px;background-image:url(Media/eng/images/bullet.png);padding-left:20px;">
+				    <value ><![CDATA[Bullet text 2 Bullet text 2Bullet text 2Bullet text 2Bullet text 2Bullet text 2]]></value>
+				    <subBullets>
+				        <subBullet style="color:green;font-size:12px;background-image:url(Media/eng/images/sub-bullet.png);padding-left:25px;"><![CDATA[Sub Bullet text 3]]></subBullet>
+				        <subBullet style="color:yellow;font-size:12px;background-image:url(Media/eng/images/sub-bullet.png);padding-left:25px;"><![CDATA[Sub Bullet text 4]]></subBullet>
+				    </subBullets>
+				</bullet>
 			</bullets2>
+			<text3><![CDATA[Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.]]></text3>
 		</texts>
 		<image>Media/eng/images/Education1.jpg</image>
 	</content>
