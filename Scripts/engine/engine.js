@@ -547,7 +547,7 @@ var Engine = (function(){
 						$(".rfeedbackContent").html(feedbackCorrectContent).slideDown();
 						enableNextButton();
 						showNote();
-						//Engine.showNextPage();
+						Engine.showNextPage();
 						return;
 					}
 					else{
@@ -564,7 +564,7 @@ var Engine = (function(){
 						}
 						showNote();
 						enableNextButton();
-						//Engine.showNextPage();
+						Engine.showNextPage();
 						return;
 					}
 				}
