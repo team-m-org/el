@@ -6,8 +6,8 @@
 			<Contents>
 				<title style="color:silver"><![CDATA[Title text]]></title>
 				<infos style="background-color:lightblue">
-					<info style="color:red"><![CDATA[Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.]]></info>
-					<info1><![CDATA[Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. I like this]]></info1>
+					<info style="color:red"><![CDATA[<ol><li>Bullet text 2 Bullet text 2Bullet</li><li>Bullet text 2 Bullet text 2Bullet</li><li>Bullet text 2 Bullet text 2Bullet</li></ol> text 2Bullet text 2Bullet text 2Bullet text 2Bullet text 2Bullet text 2Bullet text 2Bullet text <ul><li>2Bullet<b><font face='Bauhaus Hv BT' size='50' color = 'blue'>PRAVIN</font></b><font face='Brad' size='30' color = 'blue'>PRAVIN</font></b> text 2Bullet text 2Bullet text 2Bullet text 2</li></ul><font face = 'Impact' size = '22'>IMPACT FONT</font><b>E = MC<sub>2</sub></b><br><b>E = MC<sup>2</sup></b>]]></info>
+					<info1><![CDATA[<ol><li>Bullet text 2 Bullet text 2Bullet</li><li>Bullet text 2 Bullet text 2Bullet</li><li>Bullet text 2 Bullet text 2Bullet</li></ol> text 2Bullet text 2Bullet text 2Bullet text 2Bullet text 2Bullet text 2Bullet text 2Bullet text <ul><li>2Bullet<b><font face='Bauhaus Hv BT' size='50' color = 'blue'>PRAVIN</font></b><font face='Brad' size='30' color = 'blue'>PRAVIN</font></b> text 2Bullet text 2Bullet text 2Bullet text 2</li></ul><font face = 'Impact' size = '22'>IMPACT FONT</font><b>E = MC<sub>2</sub></b><br><b>E = MC<sup>2</sup></b>]]></info1>
 					<bullet1 style="background-image:url(Media/eng/images/bullet.png);padding-left:20px;">
 						<bullet style="background-image:url(Media/eng/images/bullet.png);padding-left:20px;">
 						<value style="color:red">Bullet text 1</value>
@@ -57,7 +57,7 @@
 					<image>Media/eng/images/Education1.jpg</image>
 					<title><![CDATA[Title text]]></title>
 					<popupText >
-						<Text textType="normal"><![CDATA[Normal text]]></Text>
+						<Text textType="normal"><![CDATA[<ol><li>Bullet text 2 Bullet text 2Bullet</li><li>Bullet text 2 Bullet text 2Bullet</li><li>Bullet text 2 Bullet text 2Bullet</li></ol> text 2Bullet text 2Bullet text 2Bullet text 2Bullet text 2Bullet text 2Bullet text 2Bullet text <ul><li>2Bullet<b><font face='Bauhaus Hv BT' size='50' color = 'blue'>PRAVIN</font></b><font face='Brad' size='30' color = 'blue'>PRAVIN</font></b> text 2Bullet text 2Bullet text 2Bullet text 2</li></ul><font face = 'Impact' size = '22'>IMPACT FONT</font><b>E = MC<sub>2</sub></b><br><b>E = MC<sup>2</sup></b>]]></Text>
 						<closeButton style="background:url(Media/eng/images/Close_btn.png) no-repeat;"></closeButton>
 					</popupText>
 				</tabImage>
@@ -67,7 +67,7 @@
 					<image>Media/eng/images/Education1.jpg</image>
 					<title><![CDATA[Title text]]></title>
 					<popupText >
-						<Text textType="normal"><![CDATA[Normal text]]></Text>
+						<Text textType="normal"><![CDATA[<ol><li>Bullet text 2 Bullet text 2Bullet</li><li>Bullet text 2 Bullet text 2Bullet</li><li>Bullet text 2 Bullet text 2Bullet</li></ol> text 2Bullet text 2Bullet text 2Bullet text 2Bullet text 2Bullet text 2Bullet text 2Bullet text <ul><li>2Bullet<b><font face='Bauhaus Hv BT' size='50' color = 'blue'>PRAVIN</font></b><font face='Brad' size='30' color = 'blue'>PRAVIN</font></b> text 2Bullet text 2Bullet text 2Bullet text 2</li></ul><font face = 'Impact' size = '22'>IMPACT FONT</font><b>E = MC<sub>2</sub></b><br><b>E = MC<sup>2</sup></b>]]></Text>
 						<closeButton style="background:url(Media/eng/images/Close_btn.png) no-repeat;"></closeButton>
 					</popupText>
 					
@@ -78,7 +78,7 @@
 					<image>Media/eng/images/Education1.jpg</image>
 					<title><![CDATA[Title text]]></title>
 					<popupText >
-						<Text textType="normal"><![CDATA[Normal text]]></Text>
+						<Text textType="normal"><![CDATA[<ol><li>Bullet text 2 Bullet text 2Bullet</li><li>Bullet text 2 Bullet text 2Bullet</li><li>Bullet text 2 Bullet text 2Bullet</li></ol> text 2Bullet text 2Bullet text 2Bullet text 2Bullet text 2Bullet text 2Bullet text 2Bullet text <ul><li>2Bullet<b><font face='Bauhaus Hv BT' size='50' color = 'blue'>PRAVIN</font></b><font face='Brad' size='30' color = 'blue'>PRAVIN</font></b> text 2Bullet text 2Bullet text 2Bullet text 2</li></ul><font face = 'Impact' size = '22'>IMPACT FONT</font><b>E = MC<sub>2</sub></b><br><b>E = MC<sup>2</sup></b>]]></Text>
 						<closeButton style="background:url(Media/eng/images/Close_btn.png) no-repeat;"></closeButton>
 					</popupText>
 					<bullet style="background-image:url(Media/eng/images/bullet.png);padding-left:20px;">
