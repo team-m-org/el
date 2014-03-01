@@ -10,7 +10,11 @@
 	    <container style="background-image:url('Media/eng/images/container-bg.png');background-repeat: no-repeat; border-color:red"></container>
 		<module title="Module 1" visible="true">
 			<topic title="Topic 1" visible="true">
-	
+				<screen templateID="VideoTemplate.html" 
+					title="Screen 2" ScreenTitle="" xmlName="Video.xml" audioName="" agentAnim="" 
+					agentseq="" lockNext="false" markComplete="false" sliderEnabled="true" playPauseEnabled="true" 
+					visible="true" notes="true"><![CDATA[]]>
+				</screen>
 
 				<screen templateID="ImageWithHover.html" 
 					title="Screen 2" ScreenTitle="" xmlName="ImageWithHover.xml" audioName="" agentAnim="" 

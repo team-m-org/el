@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<screen>
+    <type>display</type>
+	<title><![CDATA[<B>Google Developer Video</B>]]></title>
+	<video width="400" height="300"><![CDATA[Media/eng/video/movie.mp4]]></video>
+	<detailMessage><![CDATA[At the end of this module, you will be able to]]></detailMessage>
+</screen>
